@@ -1,0 +1,9 @@
+Name:Puddinghead
+ManaCost:1 B
+Types:Creature Food Mutant
+PT:2/4
+K:Defender
+A:AB$ GainLife | Cost$ 2 T Sac<1/CARDNAME> | LifeAmount$ 3 | SpellDescription$ You gain 3 life.
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ LoseLife | TriggerDescription$ When CARDNAME dies, you lose 3 life.
+SVar:LoseLife:DB$ LoseLife | Defined$ You | LifeAmount$ 3
+Oracle:Defender\n{2}, {T}, Sacrifice Puddinghead: You gain 3 life.\nWhen Puddinghead dies, you lose 3 life.

@@ -1,0 +1,5 @@
+Name:A Wife's Argument
+ManaCost:U
+Types:Instant
+A:SP$ Counter | TargetType$ Spell | ValidTgts$ Card.nonCreature | UnlessCost$ 2 | SpellDescription$ Counter target noncreature spell unless its controller pays {2}.
+Oracle:Counter target noncreature spell unless its controller pays {2}.

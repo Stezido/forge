@@ -5,6 +5,8 @@ import java.util.Set;
 
 public class GameRules {
     private final GameType gameType;
+    // Local custom-set mode. Ordinary Forge matches retain upstream rules.
+    private boolean chaosBrawl = Boolean.getBoolean("forge.chaosbrawl");
     private boolean manaBurn;
     private boolean orderCombatants;
     private int poisonCountersToLose = 10; // is commonly 10, but turns into 15 for 2HG
@@ -31,6 +33,14 @@ public class GameRules {
 
     public GameType getGameType() {
         return gameType;
+    }
+
+    public boolean isChaosBrawl() {
+        return chaosBrawl;
+    }
+
+    public void setChaosBrawl(final boolean enabled) {
+        chaosBrawl = enabled;
     }
 
     public boolean hasManaBurn() {
