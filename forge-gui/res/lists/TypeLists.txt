@@ -369,6 +369,7 @@ Omen
 Trap
 Vengeance
 [EnchantmentTypes]
+Location:Locations
 Aura:Auras
 Background
 Cartouche
@@ -383,6 +384,7 @@ Saga:Sagas
 Shrine:Shrines
 Shard
 [ArtifactTypes]
+Beer:Beers
 Attraction
 Blood
 Bobblehead:Bobbleheads

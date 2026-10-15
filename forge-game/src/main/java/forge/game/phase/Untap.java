@@ -25,6 +25,7 @@ import java.util.Map.Entry;
 import com.google.common.collect.Maps;
 
 import forge.game.Game;
+import forge.game.ChaosBrawlRules;
 import forge.game.ability.AbilityKey;
 import forge.game.ability.ApiType;
 import forge.game.card.Card;
@@ -75,6 +76,8 @@ public class Untap extends Phase {
 
         game.getAction().checkStaticAbilities();
 
+        ChaosBrawlRules.beforeUntap(game);
+        game.getAction().checkStaticAbilities();
         doUntap();
     }
 

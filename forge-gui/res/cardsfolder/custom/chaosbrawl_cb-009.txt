@@ -1,0 +1,5 @@
+Name:The Tipsy Ram
+ManaCost:1 W
+Types:Enchantment Location
+S:Mode$ Continuous | Affected$ Creature.YouCtrl+counters_GE1_DRUNKEN | AddPower$ 1 | AddToughness$ 1 | AddKeyword$ Vigilance | Description$ Drunken creatures you control get +1/+1 and have vigilance.
+Oracle:Drunken creatures you control get +1/+1 and have vigilance.

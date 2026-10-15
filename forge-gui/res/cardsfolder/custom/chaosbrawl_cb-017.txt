@@ -1,0 +1,6 @@
+Name:Nutshot overload
+ManaCost:1 U
+Types:Sorcery
+A:SP$ Tap | ValidTgts$ Creature | SubAbility$ Stun | SpellDescription$ Tap target creature and put three stun counters on it.
+SVar:Stun:DB$ PutCounter | Defined$ Targeted | CounterType$ STUN | CounterNum$ 3
+Oracle:Tap target creature and put three stun counters on it.

@@ -1,0 +1,8 @@
+Name:Drunkard
+ManaCost:1 R
+Types:Creature Dwarf
+PT:0/0
+K:Haste
+K:etbCounter:DRUNKEN:3
+SVar:ChaosBrawlTolerance:1
+Oracle:Haste, Drunken Tolerance 1\nDrunkard enters the battlefield with three Drunken counters on it.

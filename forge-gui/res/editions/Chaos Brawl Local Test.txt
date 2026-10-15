@@ -1,0 +1,17 @@
+[metadata]
+Code=CBT
+Date=2026-10-15
+Name=Chaos Brawl Local Test
+Type=Custom_Set
+
+[cards]
+001 C Wasted
+003 C Wixbirne
+004 C Couchpotato
+005 C Puddinghead
+006 C Buy a Round
+009 U The Tipsy Ram
+010 C Toast of Comfort
+011 C A Wife's Argument
+017 C Nutshot overload
+020 C Drunkard
