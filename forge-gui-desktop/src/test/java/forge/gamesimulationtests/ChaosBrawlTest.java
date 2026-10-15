@@ -1,9 +1,11 @@
 package forge.gamesimulationtests;
 
 import forge.ai.simulation.SimulationTest;
+import forge.ai.ComputerUtil;
 import forge.game.Game;
 import forge.game.GameEntityCounterTable;
 import forge.game.ability.AbilityUtils;
+import forge.game.ability.ApiType;
 import forge.game.card.Card;
 import forge.game.card.CounterEnumType;
 import forge.game.phase.PhaseType;
@@ -20,6 +22,7 @@ public class ChaosBrawlTest extends SimulationTest {
     private Game customGame() {
         Game game = initAndCreateGame();
         game.getRules().setChaosBrawl(true);
+        game.getPhaseHandler().devModeSet(PhaseType.MAIN1, game.getPlayers().get(0));
         return game;
     }
 
@@ -35,7 +38,8 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     private SpellAbility spell(String name, Player player) {
-        Card card = addCardToZone(name, player, ZoneType.Stack);
+        Card card = createCard(name, player);
+        player.getGame().getStackZone().add(card);
         SpellAbility sa = card.getFirstSpellAbility();
         sa.setActivatingPlayer(player);
         return sa;
@@ -142,7 +146,7 @@ public class ChaosBrawlTest extends SimulationTest {
         assertEquals(countCardsWithName(game, "Beer"), 2);
         Card beer = findCardWithName(game, "Beer");
         assertTrue(beer.getType().hasSubtype("Beer"));
-        SpellAbility ability = beer.getSpellAbilities().get(0);
+        SpellAbility ability = beer.getSpellAbilities().stream().filter(sa -> sa.getApi() == ApiType.PutCounter).findFirst().orElseThrow();
         ability.setActivatingPlayer(p);
         ability.getTargets().add(creature);
         AbilityUtils.resolve(ability);
@@ -179,5 +183,100 @@ public class ChaosBrawlTest extends SimulationTest {
         untap(game, p);
         assertEquals(card.getCounters(CounterEnumType.STUN), 2);
         assertTrue(card.isTapped());
+    }
+
+    @Test
+    public void foodCreaturesPayManaTapAndSacrificeAndPuddingTriggers() {
+        for (String name : new String[] {"Couchpotato", "Wixbirne", "Puddinghead"}) {
+            Game game = customGame();
+            Player p = game.getPlayers().get(0);
+            p.setLife(10, null);
+            game.getPhaseHandler().devModeSet(PhaseType.MAIN1, p);
+            Card food = addCard(name, p);
+            food.setSickness(false);
+            addCards("Swamp", 2, p);
+            game.getAction().checkStateEffects(true);
+            SpellAbility ability = food.getSpellAbilities().stream()
+                    .filter(sa -> sa.getApi() == ApiType.GainLife).findFirst().orElseThrow();
+            ability.setActivatingPlayer(p);
+            assertTrue(ComputerUtil.playNoStack(p, ability, game, false));
+            assertTrue(food.isInZone(ZoneType.Graveyard));
+            assertEquals(p.getLife(), 13);
+            assertEquals(p.getCardsIn(ZoneType.Battlefield).stream()
+                    .filter(c -> c.isLand() && c.isTapped()).count(), 2L);
+            if (name.equals("Puddinghead")) {
+                game.getTriggerHandler().runWaitingTriggers();
+                game.getStack().addAllTriggeredAbilitiesToStack();
+                assertFalse(game.getStack().isEmpty());
+                game.getStack().resolveStack();
+                assertEquals(p.getLife(), 10);
+                assertTrue(food.hasKeyword("Defender"));
+            }
+        }
+    }
+
+    @Test
+    public void beerCostsOneManaTapSacrificeAndIsSorcerySpeed() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0);
+        game.getPhaseHandler().devModeSet(PhaseType.MAIN1, p);
+        Card target = addCard("Couchpotato", p);
+        Card land = addCard("Swamp", p);
+        AbilityUtils.resolve(spell("Buy a Round", p));
+        Card beer = findCardWithName(game, "Beer");
+        SpellAbility ability = beer.getSpellAbilities().stream()
+                .filter(sa -> sa.getApi() == ApiType.PutCounter).findFirst().orElseThrow();
+        ability.setActivatingPlayer(p);
+        ability.getTargets().add(target);
+        assertTrue(ability.canPlay());
+        game.getPhaseHandler().devModeSet(PhaseType.COMBAT_BEGIN, p);
+        assertFalse(ability.canPlay());
+        game.getPhaseHandler().devModeSet(PhaseType.MAIN1, p);
+        assertTrue(ComputerUtil.playNoStack(p, ability, game, false));
+        assertTrue(beer.isInZone(ZoneType.Graveyard));
+        assertTrue(land.isTapped());
+        assertEquals(target.getCounters(CounterEnumType.DRUNKEN), 1);
+        assertEquals(countCardsWithName(game, "Beer"), 1);
+    }
+
+    @Test
+    public void wivesArgumentRejectsCreaturesAndCountersUnlessTwoManaPaid() {
+        for (boolean pay : new boolean[] {false, true}) {
+            Game game = customGame();
+            Player p = game.getPlayers().get(0);
+            Player opponent = game.getPlayers().get(1);
+            SpellAbility target = spell("Lightning Bolt", opponent);
+            target.getTargets().add(p);
+            game.getStack().add(target);
+            if (pay) {
+                addCards("Island", 2, opponent);
+            }
+            SpellAbility counter = spell("A Wife's Argument", p);
+            assertTrue(counter.canTarget(target));
+            assertFalse(counter.canTarget(spell("Couchpotato", opponent)));
+            counter.getTargets().add(target);
+            AbilityUtils.resolve(counter);
+            assertEquals(game.getStack().isEmpty(), !pay);
+            assertTrue(target.getHostCard().isInZone(pay ? ZoneType.Stack : ZoneType.Graveyard));
+        }
+    }
+
+    @Test
+    public void wixbirneEntryProducesDiscardOrLifePayment() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0);
+        Player opponent = game.getPlayers().get(1);
+        opponent.setLife(3, null);
+        Card inHand = addCardToZone("Island", opponent, ZoneType.Hand);
+        Card wixbirne = addCardToZone("Wixbirne", p, ZoneType.Hand);
+        game.getAction().checkStateEffects(true);
+        wixbirne = game.getAction().moveTo(ZoneType.Battlefield, wixbirne, null, null);
+        game.getTriggerHandler().runWaitingTriggers();
+        game.getStack().addAllTriggeredAbilitiesToStack();
+        assertFalse(game.getStack().isEmpty(), "ETB trigger missing; opponents=" + p.getOpponents().size() + "; triggers=" + wixbirne.getTriggers().size() + "; hand=" + opponent.getCardsIn(ZoneType.Hand).size());
+        game.getStack().resolveStack();
+        assertEquals(opponent.getCardsIn(ZoneType.Hand).size(), 0);
+        assertTrue(inHand.isInZone(ZoneType.Graveyard));
+        assertEquals(opponent.getLife(), 3);
     }
 }

@@ -3,6 +3,6 @@ ManaCost:3 B
 Types:Creature Food Mutant
 PT:2/2
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Discard | TriggerDescription$ When CARDNAME enters the battlefield, target opponent discards a card unless they pay 3 life.
-SVar:Discard:DB$ Discard | ValidTgts$ Opponent | Mode$ TgtChoose | UnlessCost$ PayLife<3> | UnlessPayer$ Targeted
+SVar:Discard:DB$ Discard | ValidTgts$ Opponent | Mode$ TgtChoose | NumCards$ 1 | UnlessCost$ PayLife<3> | UnlessPayer$ Targeted
 A:AB$ GainLife | Cost$ 2 T Sac<1/CARDNAME> | LifeAmount$ 3 | SpellDescription$ You gain 3 life.
 Oracle:When Wixbirne enters the battlefield, target opponent discards a card unless they pay 3 life.\n{2}, {T}, Sacrifice Wixbirne: You gain 3 life.
