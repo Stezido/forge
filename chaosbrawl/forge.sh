@@ -9,6 +9,7 @@ if [[ -n "${JAVA_HOME:-}" ]]; then export PATH="$JAVA_HOME/bin:$PATH"; fi
 if [[ -x "$tools/maven/bin/mvn" ]]; then export PATH="$tools/maven/bin:$PATH"; fi
 runtime="$root/.chaosbrawl-local"
 mkdir -p "$runtime"
+export SENTRY_ENABLED=false
 case "${1:-launch}" in
   build)
     cd "$root"
@@ -16,11 +17,15 @@ case "${1:-launch}" in
     ;;
   test)
     cd "$root"
-    export XDG_CONFIG_HOME="$runtime/test-config"
-    export XDG_CACHE_HOME="$runtime/test-cache"
+    profile="$root/forge-gui/forge.profile.properties"
+    if [[ -f "$profile" ]] && ! grep -q '^# Chaos Brawl isolated test profile$' "$profile"; then
+      echo 'A source-development profile already exists. Run tests in a separate checkout.' >&2
+      exit 1
+    fi
+    printf '# Chaos Brawl isolated test profile\nuserDir=%s/test-user\ncacheDir=%s/test-cache\n' "$runtime" "$runtime" > "$profile"
     exec mvn -B -pl forge-gui-desktop -am -Dtest=ChaosBrawlTest -Dsurefire.failIfNoSpecifiedTests=false -Djava.awt.headless=true test
     ;;
-  launch)
+  launch|smoke)
     if [[ ! -f "$runtime/run/forge.profile.properties" ]]; then
       echo 'Prepare the isolated deck/profile with the website prepare.mjs helper first.' >&2
       exit 1
@@ -31,7 +36,10 @@ case "${1:-launch}" in
       exit 1
     fi
     cd "$runtime/run"
-    exec java -Xmx4g -Dforge.chaosbrawl=true -Dio.netty.tryReflectionSetAccessible=true -Dfile.encoding=UTF-8 -jar "${jars[0]}"
+    if [[ "${1:-launch}" == smoke ]]; then
+      exec java -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabled=false -jar "${jars[0]}" sim -d 'Chaos Brawl Ten Card Test.dck' 'Chaos Brawl Ten Card Test.dck' -n 1 -s 20261015
+    fi
+    exec java -Dsentry.enabled=false -Xmx4g -Dforge.chaosbrawl=true -Dio.netty.tryReflectionSetAccessible=true -Dfile.encoding=UTF-8 -jar "${jars[0]}"
     ;;
-  *) echo 'Usage: bash chaosbrawl/forge.sh [build|test|launch]' >&2; exit 1 ;;
+  *) echo 'Usage: bash chaosbrawl/forge.sh [build|test|smoke|launch]' >&2; exit 1 ;;
 esac
