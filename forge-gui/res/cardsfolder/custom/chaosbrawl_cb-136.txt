@@ -4,5 +4,5 @@ Types:Creature Plant Giant
 PT:9/9
 K:Reach
 T:Mode$ Phase | TriggerZones$ Battlefield | Execute$ Upkeep | TriggerDescription$ At the beginning of your upkeep, sacrifice CARDNAME unless you put a -1/-1 counter on it. | Phase$ Upkeep | ValidPlayer$ You | ChaosBrawlUpkeep$ True
-SVar:Upkeep:DB$ Sacrifice | Defined$ Self | UnlessCost$ PutCounter<1/M1M1/CARDNAME> | UnlessPayer$ You | ChaosBrawlUpkeep$ True
+SVar:Upkeep:DB$ Sacrifice | Defined$ Self | UnlessCost$ AddCounter<1/M1M1/CARDNAME> | UnlessPayer$ You | ChaosBrawlUpkeep$ True
 Oracle:Upkeep— Put a -1/-1 counter on Blightborne Colossus.\nReach

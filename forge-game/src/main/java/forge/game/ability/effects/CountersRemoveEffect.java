@@ -237,7 +237,7 @@ public class CountersRemoveEffect extends SpellAbilityEffect {
         for (CounterType ct : ImmutableList.copyOf(tgtCounters.elementSet())) {
             if (!entity.canRemoveCounters(ct) || (sa.hasParam("CounterTypes")
                     && !java.util.Arrays.asList(sa.getParam("CounterTypes").split(",")).contains(ct.toString()))) {
-                tgtCounters.remove(ct);
+                tgtCounters.setCount(ct, 0);
             }
         }
 

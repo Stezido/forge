@@ -1373,4 +1373,162 @@ public class ChaosBrawlTest extends SimulationTest {
         assertEquals(other.getCardsIn(ZoneType.Hand).size(), 1);
     }
 
+    @Test
+    public void windtongueMakesThreeRealBlueBlackAjdeCardsAndAjdeHasZeroDeckLimit() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0);
+        enter("Distant Cousin Windtongue", p); resolveTriggers(game);
+        assertEquals(p.getCardsIn(ZoneType.Library).size(), 3);
+        for (Card card : p.getCardsIn(ZoneType.Library)) {
+            assertEquals(card.getName(), "AJDE!"); assertFalse(card.isToken());
+            assertEquals(card.getManaCost().getCMC(), 0);
+            assertTrue(card.getColor().hasBlue()); assertTrue(card.getColor().hasBlack());
+            assertEquals(card.getRules().getKeywordMagnitude("DeckLimit").intValue(), 0);
+        }
+    }
+
+    @Test
+    public void coldSplashRemovesOnlyStunAndObsessionAndNoMoreThanTwoTotal() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0);
+        Card target = addCard("Couchpotato", p);
+        counters(target, CounterEnumType.STUN, 1); counters(target, CounterEnumType.OBSESSION, 1);
+        counters(target, CounterEnumType.P1P1, 3); counters(target, CounterEnumType.DRUNKEN, 1);
+        addCardToZone("Island", p, ZoneType.Library);
+        PlayerController choices = spy(p.getController());
+        doAnswer(i -> ((java.util.List<?>)i.getArgument(0)).get(0)).when(choices).chooseCounterType(anyList(), any(), anyString(), anyMap());
+        doAnswer(i -> i.getArgument(3)).when(choices).chooseNumber(any(), anyString(), anyInt(), anyInt(), anyMap());
+        p.dangerouslySetController(choices);
+        SpellAbility splash = spell("Cold Splash", p); splash.getTargets().add(target);
+        AbilityUtils.resolve(splash);
+        assertEquals(target.getCounters(CounterEnumType.STUN), 0);
+        assertEquals(target.getCounters(CounterEnumType.OBSESSION), 0);
+        assertEquals(target.getCounters(CounterEnumType.P1P1), 3);
+        assertEquals(target.getCounters(CounterEnumType.DRUNKEN), 1);
+        assertEquals(p.getCardsIn(ZoneType.Hand).size(), 1);
+    }
+
+    @Test
+    public void natalieUpkeepTaxCanBeReducedOrRemovedWithoutTaxingNatalie() {
+        for (String helper : new String[] {"none", "Shady Herb Dealer", "Süüü, the Fourth Child"}) {
+            Game game = customGame();
+            Player p = game.getPlayers().get(0);
+            addCard("Caring Siren", p);
+            enter("Natalie, Mother Siren", p); resolveTriggers(game);
+            if (!helper.equals("none")) addCard(helper, p);
+            game.getAction().checkStaticAbilities();
+            long before = p.getCreaturesInPlay().stream().filter(c -> c.getType().hasSubtype("Siren")).count();
+            assertTrue(before >= 5);
+            phaseEvent(game, p, PhaseType.UPKEEP);
+            long after = p.getCreaturesInPlay().stream().filter(c -> c.getType().hasSubtype("Siren")).count();
+            assertEquals(after, helper.equals("none") ? 1L : before, helper);
+            assertTrue(p.getCreaturesInPlay().stream().anyMatch(c -> c.getName().equals("Natalie, Mother Siren")));
+        }
+    }
+
+    @Test
+    public void shadyDealerCanReduceAColoredSymbolButPreservesNonmanaCosts() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0);
+        addCard("Shady Herb Dealer", p);
+        Card host = addCard("Couchpotato", p);
+        PlayerController choices = spy(p.getController());
+        doAnswer(i -> ((java.util.Collection<String>)i.getArgument(2)).stream().filter(x -> x.contains("B")).findFirst().orElseThrow())
+                .when(choices).chooseSomeType(anyString(), any(), anyCollection(), anyBoolean());
+        p.dangerouslySetController(choices);
+        SpellAbility upkeep = AbilityFactory.getAbility("DB$ Sacrifice | Defined$ Self | UnlessCost$ 2 B PayLife<1> | UnlessPayer$ You | ChaosBrawlUpkeep$ True", host);
+        upkeep.setActivatingPlayer(p);
+        forge.game.cost.Cost reduced = AbilityUtils.calculateUnlessCost(upkeep, upkeep.getParam("UnlessCost"), true);
+        assertEquals(reduced.getTotalMana().getCMC(), 2);
+        assertEquals(reduced.getTotalMana().getGenericCost(), 2);
+        assertTrue(reduced.getCostParts().stream().anyMatch(part -> part instanceof forge.game.cost.CostPayLife));
+        forge.game.cost.Cost queried = AbilityUtils.calculateUnlessCost(upkeep, upkeep.getParam("UnlessCost"), false);
+        assertEquals(queried.getTotalMana(), reduced.getTotalMana());
+        game.getRules().setChaosBrawl(false);
+        assertEquals(AbilityUtils.calculateUnlessCost(upkeep, upkeep.getParam("UnlessCost"), true).getTotalMana().getCMC(), 3);
+    }
+
+    @Test
+    public void loanSyndicateManaIsRestrictedAndActuallyPaysResurrectionUpkeep() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0);
+        Card loan = addCard("The Loan Syndicate", p); addCard("Swamp", p);
+        SpellAbility mana = loan.getManaAbilities().stream().filter(sa -> "2".equals(sa.getParam("Amount"))).findFirst().orElseThrow();
+        SpellAbility ordinary = spell("Buy a Round", p);
+        assertFalse(mana.getManaPart().meetsManaRestrictions(ordinary));
+        Card dead = addCardToZone("Couchpotato", p, ZoneType.Graveyard);
+        SpellAbility revive = spell("Overdose Revival", p); revive.getTargets().add(dead); AbilityUtils.resolve(revive);
+        Card creature = p.getCreaturesInPlay().getFirst();
+        SpellAbility upkeep = AbilityFactory.getAbility("DB$ Sacrifice | Defined$ Self | UnlessCost$ 2 B | UnlessPayer$ You | ChaosBrawlUpkeep$ True", creature);
+        upkeep.setActivatingPlayer(p);
+        assertTrue(mana.getManaPart().meetsManaRestrictions(upkeep));
+        phaseEvent(game, p, PhaseType.UPKEEP);
+        assertTrue(creature.isInZone(ZoneType.Battlefield));
+        assertTrue(loan.isTapped());
+    }
+
+    @Test
+    public void loyalWatchdogOnlyBuffsItsOriginallyDeclaredAttackingPair() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card dog = addCard("Loyal Watchdog", p), companion = addCard("Couchpotato", p), late = addCard("Weedfield Herbalist", p);
+        for (Card c : new Card[] {dog, companion, late}) c.tap(true, null, p);
+        game.getPhaseHandler().devModeSet(PhaseType.COMBAT_DECLARE_ATTACKERS, p);
+        Combat combat = new Combat(p); game.getPhaseHandler().setCombat(combat); combat.addAttacker(dog, other); combat.addAttacker(companion, other);
+        game.getTriggerHandler().resetActiveTriggers();
+        CombatUtil.checkDeclaredAttacker(game, dog, combat, true);
+        combat.addAttacker(late, other);
+        resolveTriggers(game);
+        assertFalse(dog.isTapped()); assertFalse(companion.isTapped()); assertTrue(late.isTapped());
+        assertEquals(dog.getNetPower(), 3); assertEquals(companion.getNetPower(), 1); assertEquals(late.getNetPower(), 1);
+    }
+
+    @Test
+    public void goldenStethoscopeExilePermissionAndManaConversionSurviveEquipmentLeaving() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        addCards("Island", 3, p);
+        for (int n = 0; n < 2; n++) addCardToZone("Raging Alcoholic", other, ZoneType.Library);
+        Card attacker = addCard("Couchpotato", p), equipment = addCard("Golden Stethoscope", p);
+        equipment.attachToEntity(attacker, null);
+        game.getPhaseHandler().devModeSet(PhaseType.COMBAT_DECLARE_ATTACKERS, p);
+        Combat combat = new Combat(p); game.getPhaseHandler().setCombat(combat); combat.addAttacker(attacker, other);
+        game.getTriggerHandler().resetActiveTriggers(); CombatUtil.checkDeclaredAttacker(game, attacker, combat, true);
+        resolveTriggers(game);
+        assertEquals(other.getCardsIn(ZoneType.Library).size(), 1);
+        Card exiled = game.getCardsIn(ZoneType.Exile).getFirst();
+        assertFalse(exiled.mayPlay(p).isEmpty());
+        game.getAction().moveTo(ZoneType.Graveyard, equipment, null, null); game.getAction().checkStaticAbilities();
+        assertFalse(exiled.mayPlay(p).isEmpty());
+        game.getPhaseHandler().devModeSet(PhaseType.MAIN2, p);
+        SpellAbility cast = exiled.getFirstSpellAbility(); cast.setActivatingPlayer(p); cast.setMayPlay(exiled.mayPlay(p).get(0));
+        assertTrue(ComputerUtil.playNoStack(p, cast, game, false), "Three Islands must pay {1}{R}{W} through the remembered-card mana conversion");
+        assertTrue(p.getCreaturesInPlay().stream().anyMatch(c -> c.getName().equals("Raging Alcoholic")));
+    }
+
+    @Test
+    public void hangoverRemovesEveryOldCounterBeforeAddingExactlyThreeStun() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card target = addCard("Couchpotato", p); counters(target, CounterEnumType.OBSESSION, 2); counters(target, CounterEnumType.P1P1, 3);
+        SpellAbility hangover = spell("Hangover", p); hangover.getTargets().add(target); AbilityUtils.resolve(hangover);
+        assertTrue(target.isTapped()); assertEquals(target.getCounters(CounterEnumType.STUN), 3);
+        assertEquals(target.getCounters(CounterEnumType.OBSESSION), 0); assertEquals(target.getCounters(CounterEnumType.P1P1), 0);
+    }
+
+    @Test
+    public void blightborneColossusPaysItsCounterUpkeepAndUntamableEntersStunned() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card blight = enter("Blightborne Colossus", p);
+        PlayerController choices = spy(p.getController());
+        doAnswer(i -> new forge.game.cost.CostPayment(i.getArgument(0), i.getArgument(1))
+                .payComputerCosts(new forge.ai.AiCostDecision(p, i.getArgument(1), true)))
+                .when(choices).payCostToPreventEffect(any(), any(), anyBoolean(), any());
+        p.dangerouslySetController(choices);
+        phaseEvent(game, p, PhaseType.UPKEEP);
+        assertTrue(blight.isInZone(ZoneType.Battlefield)); assertEquals(blight.getCounters(CounterEnumType.M1M1), 1);
+        Card grove = enter("Untamable Grove Colossus", p);
+        assertTrue(grove.isTapped()); assertEquals(grove.getCounters(CounterEnumType.STUN), 3);
+        assertEquals(grove.getNetPower(), 8);
+    }
+
 }

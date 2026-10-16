@@ -136,7 +136,7 @@ public final class ChaosBrawlRules {
         forge.game.mana.ManaCostBeingPaid mana = new forge.game.mana.ManaCostBeingPaid(original.getTotalMana());
         if (!beforePayment && ability.hasSVar("ChaosBrawlReducedMana")) {
             result.getCostParts().removeIf(p -> p instanceof forge.game.cost.CostPartMana);
-            result.add(new forge.game.cost.Cost(ability.getSVar("ChaosBrawlReducedMana"), true));
+            result.getCostParts().addAll(new forge.game.cost.Cost(ability.getSVar("ChaosBrawlReducedMana"), true).getCostParts());
             return result;
         }
         for (int n = 0; n < reductions && !mana.getUnpaidShards().isEmpty(); n++) {
@@ -154,7 +154,7 @@ public final class ChaosBrawlRules {
             mana.decreaseShard(shard, 1);
         }
         result.getCostParts().removeIf(p -> p instanceof forge.game.cost.CostPartMana);
-        result.add(new forge.game.cost.Cost(mana.toManaCost(), true));
+        result.getCostParts().add(new forge.game.cost.CostPartMana(mana.toManaCost(), null));
         if (beforePayment) {
             ability.setSVar("ChaosBrawlReducedMana", mana.toManaCost().toString()
                     .replace("{", "").replace("}", " ").replace("/", "").trim());
