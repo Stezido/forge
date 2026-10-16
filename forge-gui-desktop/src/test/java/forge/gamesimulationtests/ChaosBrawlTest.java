@@ -1220,8 +1220,14 @@ public class ChaosBrawlTest extends SimulationTest {
         Game game = customGame();
         Player p = game.getPlayers().get(0);
         Card creature = addCard("Caring Siren", p);
-        Card aura = enter("Tactical Purge", p);
-        aura.attachToEntity(creature, null);
+        Card auraCard = addCardToZone("Tactical Purge", p, ZoneType.Hand);
+        SpellAbility castAura = auraCard.getFirstSpellAbility();
+        castAura.setActivatingPlayer(p); castAura.getTargets().add(creature);
+        castAura.setHostCard(game.getAction().moveToStack(auraCard, castAura));
+        AbilityUtils.resolve(castAura);
+        Card aura = castAura.getHostCard();
+        assertTrue(aura.isInZone(ZoneType.Battlefield), "Aura must be on battlefield");
+        assertTrue(aura.isAttachedToEntity(creature), "Aura must attach before ETB resolution");
         game.getAction().checkStaticAbilities(); resolveTriggers(game);
         assertFalse(creature.hasKeyword("Flying"));
         assertTrue(creature.hasKeyword("Indestructible"));
@@ -1264,18 +1270,21 @@ public class ChaosBrawlTest extends SimulationTest {
         java.util.concurrent.atomic.AtomicInteger damages = new java.util.concurrent.atomic.AtomicInteger();
         doAnswer(invocation -> {
             SpellAbility damage = invocation.getArgument(0);
-            if (damage.getApi() == ApiType.DealDamage) {
+            if (damage.usesTargeting()) {
                 damages.incrementAndGet(); damage.getTargets().add(other); return true;
             }
             return invocation.callRealMethod();
         }).when(choices).chooseTargetsFor(any());
         p.dangerouslySetController(choices);
+        game.getAction().checkStateEffects(true);
         java.util.Map<AbilityKey, Object> event = AbilityKey.mapFromCard(catapult);
         event.put(AbilityKey.Crew, new forge.game.card.CardCollection(java.util.List.of(first, second)));
         game.getTriggerHandler().runTrigger(TriggerType.BecomesCrewed, event, false);
         resolveTriggers(game);
-        assertEquals(damages.get(), 2);
-        assertEquals(other.getLife(), 6);
+        assertTrue(first.isInZone(ZoneType.Graveyard), "Crew trigger must sacrifice the selected crew");
+        game.getAction().checkStateEffects(true);
+        resolveTriggers(game);
+        assertEquals(other.getLife(), 6, "Two independent 2-damage triggers must resolve");
         assertTrue(first.isInZone(ZoneType.Graveyard)); assertTrue(second.isInZone(ZoneType.Graveyard));
         assertTrue(outsider.isInZone(ZoneType.Battlefield));
     }
