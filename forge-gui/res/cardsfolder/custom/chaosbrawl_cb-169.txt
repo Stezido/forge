@@ -1,0 +1,9 @@
+Name:The Blessed Hideaway
+ManaCost:2
+Types:Enchantment Location
+T:Mode$ SpellCast | TriggerZones$ Battlefield | Execute$ Choose | TriggerDescription$ Whenever a multicolored spell is cast, create a Food, Beer or Treasure token. | ValidCard$ Card.MultiColor
+SVar:Choose:DB$ Charm | Choices$ Food,Beer,Treasure
+SVar:Food:DB$ Token | TokenScript$ c_a_food_sac | SpellDescription$ Create a Food token.
+SVar:Beer:DB$ Token | TokenScript$ chaosbrawl_beer | SpellDescription$ Create a Beer token.
+SVar:Treasure:DB$ Token | TokenScript$ c_a_treasure_sac | SpellDescription$ Create a Treasure token.
+Oracle:Whenever a multicolored spell is cast, choose one —\n• Create a Food token.\n• Create a Beer token.\n• Create a Treasure token.

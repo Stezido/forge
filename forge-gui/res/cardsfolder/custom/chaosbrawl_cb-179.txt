@@ -1,0 +1,7 @@
+Name:Tavern Regular
+ManaCost:W
+Types:Creature Human
+PT:1/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Beer | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Beer:AB$ Token | Cost$ Reveal<1/Card> | TokenScript$ chaosbrawl_beer
+Oracle:When Tavern Regular enters the battlefield, you may reveal a card from your hand. If you do, create a Beer token.

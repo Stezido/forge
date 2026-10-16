@@ -58,8 +58,7 @@ public final class ChaosBrawlRules {
             if (!card.isCreature() || card.isPhasedOut()) {
                 continue;
             }
-            final int tolerance = card.hasSVar("ChaosBrawlTolerance")
-                    ? Integer.parseInt(card.getSVar("ChaosBrawlTolerance")) : 2;
+            final int tolerance = drunkenTolerance(card);
             final int excess = card.getCounters(CounterEnumType.DRUNKEN) - tolerance;
             if (excess > 0) {
                 card.subtractCounter(CounterEnumType.DRUNKEN, excess, active);
@@ -160,6 +159,10 @@ public final class ChaosBrawlRules {
                     .replace("{", "").replace("}", " ").replace("/", "").trim());
         }
         return result;
+    }
+
+    public static int drunkenTolerance(final Card card) {
+        return card.hasSVar("ChaosBrawlTolerance") ? Integer.parseInt(card.getSVar("ChaosBrawlTolerance")) : 2;
     }
 
 }

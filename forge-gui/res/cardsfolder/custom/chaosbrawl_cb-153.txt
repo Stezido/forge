@@ -1,0 +1,7 @@
+Name:Magical Bucket Pump
+ManaCost:1
+Types:Artifact Equipment
+K:Equip:2
+S:Mode$ Continuous | AffectedDefined$ Equipped | AddAbility$ Tap | Description$ Equipped creature has "{T}: Tap target creature."
+SVar:Tap:AB$ Tap | Cost$ T | ValidTgts$ Creature | SpellDescription$ Tap target creature.
+Oracle:Equipped creature has “{T}: Tap target creature.”\nEquip {2}

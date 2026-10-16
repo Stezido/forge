@@ -1,0 +1,6 @@
+Name:Roadside Distraction
+ManaCost:1 R
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature | KW$ CARDNAME can't block. | SubAbility$ Draw | SpellDescription$ Target creature cannot block this turn. Draw a card.
+SVar:Draw:DB$ Draw | NumCards$ 1
+Oracle:Target creature can’t block this turn.\nDraw a card.

@@ -5,3 +5,14 @@ PT:2/3
 T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | Execute$ TrigDamage | TriggerZones$ Battlefield | TriggerDescription$ At the beginning of your upkeep, CARDNAME deals 1 damage to each opponent and planeswalker it has dealt damage to this game.
 SVar:TrigDamage:DB$ DamageAll | ValidPlayers$ Player.Opponent+wasDealtDamageThisGameBy Self | ValidCards$ Planeswalker.wasDealtDamageByThisGame | NumDmg$ 1
 Oracle:At the beginning of your upkeep, The Fallen deals 1 damage to each opponent and planeswalker it has dealt damage to this game.
+
+Variant:ChaosBrawlBeta:Independent:true
+Variant:ChaosBrawlBeta:ManaCost:2 R
+Variant:ChaosBrawlBeta:Types:Creature Orc
+Variant:ChaosBrawlBeta:PT:3/2
+Variant:ChaosBrawlBeta:R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+Variant:ChaosBrawlBeta:SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+Variant:ChaosBrawlBeta:K:etbCounter:DRUNKEN:1
+Variant:ChaosBrawlBeta:R:Event$ Moved | ActiveZones$ Hand | ValidCard$ Card.Self | Discard$ True | ReplaceWith$ Surprise | Description$ If you would discard CARDNAME, put it onto the battlefield tapped with a Drunken counter instead.
+Variant:ChaosBrawlBeta:SVar:Surprise:DB$ ChangeZone | Defined$ ReplacedCard | Origin$ Hand | Destination$ Battlefield | Tapped$ True
+Variant:ChaosBrawlBeta:Oracle:The Fallen enters the battlefield tapped with a Drunken counter on it.\nIf you would discard The Fallen, put it onto the battlefield tapped with a Drunken counter on it instead.

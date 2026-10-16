@@ -1,0 +1,7 @@
+Name:Robin, the Pusher
+ManaCost:1 R
+Types:Legendary Creature Squadmember
+PT:2/2
+K:Haste
+S:Mode$ Continuous | Affected$ Squadmember.YouCtrl+Other | AddPower$ 1 | AddToughness$ 0 | Description$ Other Squadmembers you control get +1/+0.
+Oracle:Haste\nOther Squadmembers you control get +1/+0.

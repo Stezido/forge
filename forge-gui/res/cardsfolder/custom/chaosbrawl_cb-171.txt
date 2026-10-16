@@ -1,0 +1,10 @@
+Name:Have a Beer, or Three
+ManaCost:B G
+Types:Sorcery
+A:SP$ RollDice | Sides$ 20 | ResultSubAbilities$ 1:Odd,2:Even,3:Odd,4:Even,5:Odd,6:Even,7:Odd,8:Even,9:Odd,10:Even,11:Odd,12:Even,13:Odd,14:Even,15:Odd,16:Even,17:Odd,18:Even,19:Odd,20:Twenty | SpellDescription$ Roll a d20. Odd: three Expired Beers and lose 3 life. Even: three Beers. Twenty: also draw a card.
+SVar:Odd:DB$ Token | TokenScript$ chaosbrawl_expired_beer | TokenAmount$ 3 | SubAbility$ Lose
+SVar:Lose:DB$ LoseLife | LifeAmount$ 3 | Defined$ You
+SVar:Even:DB$ Token | TokenScript$ chaosbrawl_beer | TokenAmount$ 3
+SVar:Twenty:DB$ Token | TokenScript$ chaosbrawl_beer | TokenAmount$ 3 | SubAbility$ Draw
+SVar:Draw:DB$ Draw | NumCards$ 1
+Oracle:Roll a d20. If the result is odd, create three Expired Beer tokens and lose 3 life. If the result is even, create three Beer tokens. If the result is 20, also draw a card.

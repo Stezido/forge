@@ -1,0 +1,7 @@
+Name:Max, the Sniper
+ManaCost:1 U
+Types:Legendary Creature Squadmember
+PT:1/1
+K:Flying
+S:Mode$ Continuous | Affected$ Squadmember.YouCtrl+Other | AddPower$ 1 | AddToughness$ 0 | Description$ Other Squadmembers you control get +1/+0.
+Oracle:Flying\nOther Squadmembers you control get +1/+0.

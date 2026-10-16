@@ -155,3 +155,49 @@ Type=Custom_Set
 148 C The Good Stuff
 149 C Mimimi
 150 U Sleepless Night
+151 C Shut up
+152 C MAGAZIN!
+153 U Magical Bucket Pump
+155 U Unpleasant Surprise
+156 R Dungeon Master ${"variant": "ChaosBrawlBeta"}
+157 U Marlene, the Leader
+158 U Robin, the Pusher
+159 U Tobias, the Grenadier
+160 U Max, the Sniper
+161 C Let’s Fucking Go
+162 R Summon the Squad
+164 C Homemade Paranoia
+165 C Flooded Palace
+166 C Duskmire
+167 C Reefgarden
+168 C The Stoned Peaks
+169 R The Blessed Hideaway
+170 C Roadside Distraction
+171 U Have a Beer, or Three
+172 R Draft Tap
+173 U Fill Em Up
+174 U Critical (S)hit
+175 C Stoned Speech
+176 U Designated Driver
+177 U A Place to Stay
+178 C Hexenschuss
+179 C Tavern Regular
+180 C Tavern Bouncer
+181 U Tavern Medic
+182 U Edi, the Beerpig
+183 U Goner
+184 C Recycle ${"variant": "ChaosBrawlBeta"}
+185 U Closing Hour
+186 R Always With Us
+187 R Innkeepers Daugther
+188 U Hoard Beast
+189 R Nadine, Sirens’ Origin
+190 U The Mind
+191 C Boosted Excitement
+193 C Provoker
+194 U Frozen Taps
+195 U Experimental Invention
+196 C Hosn Owe
+197 C Improvised Escape
+198 C Strange Allergic Reaction
+200 U The Fallen ${"variant": "ChaosBrawlBeta"}

@@ -49,7 +49,8 @@ public class StaticAbilityTapPowerValue {
                 if (!stAb.matchesValidParam("ValidSA", ctb)) {
                     continue;
                 }
-                i += Integer.parseInt(stAb.getParam("Value"));
+                int value = Integer.parseInt(stAb.getParam("Value"));
+                i += stAb.hasParam("Minimum") ? Math.max(0, value - card.getNetPower()) : value;
             }
         }
         return i;

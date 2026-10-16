@@ -1,0 +1,5 @@
+Name:Hexenschuss
+ManaCost:1 W
+Types:Instant
+A:SP$ Destroy | ValidTgts$ Creature.attacking | SpellDescription$ Destroy target attacking creature.
+Oracle:Destroy target attacking creature.

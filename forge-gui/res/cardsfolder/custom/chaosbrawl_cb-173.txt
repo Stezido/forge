@@ -1,0 +1,8 @@
+Name:Fill Em Up
+ManaCost:2 R
+Types:Sorcery
+A:SP$ Charm | Choices$ Drunken,Damage | SpellDescription$ Choose one — put drunken counters equal to tolerance plus one on target creature; or deal 6 damage to a planeswalker.
+SVar:Drunken:DB$ PutCounter | ValidTgts$ Creature | CounterType$ DRUNKEN | CounterNum$ X | SpellDescription$ Put Drunken counters equal to its tolerance plus one on target creature.
+SVar:X:Targeted$CardDrunkenTolerance/Plus.1
+SVar:Damage:DB$ DealDamage | ValidTgts$ Planeswalker | NumDmg$ 6 | SpellDescription$ CARDNAME deals 6 damage to target planeswalker.
+Oracle:Choose one —\n• Put Drunken counters on target creature equal to its Drunken Tolerance plus one.\n• Deal 6 damage to target planeswalker.

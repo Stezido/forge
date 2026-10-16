@@ -4,6 +4,7 @@ import argparse
 from collections import Counter, defaultdict
 import hashlib
 import json
+import math
 from pathlib import Path
 import shutil
 import subprocess
@@ -48,13 +49,17 @@ def main():
                     '--output', str(current), '--metadata-only'], check=True)
     live = {c['id']:c for c in json.loads(current.read_text())}
     cards = []
+    pending = set()
     batches = sorted(p for p in (ROOT/'chaosbrawl/batches').glob('*/source.json') if p.parent.name <= args.batch)
     for previous in batches:
-        cards.extend(json.loads(previous.read_text())['cards'])
+        document = json.loads(previous.read_text())
+        cards.extend(document['cards'])
+        pending.update(document.get('pendingCardIds', []))
     for card in cards:
         expected = {k:v for k,v in card.items() if k != 'nativeUid'}
         if live.get(card['id']) != expected:
             raise ValueError('Source no longer matches a reviewed card: '+card['id'])
+    cards = [c for c in cards if c['id'] not in pending]
     images = RUNTIME/'rendered'/pinned['sourceSha256']
     if args.render:
         images.mkdir(parents=True, exist_ok=True)
@@ -100,10 +105,11 @@ def main():
             (token_dir/(script+'.png')).write_bytes(archive.read(member))
     number = len(batches)
     generated = set(pinned.get('generatedOnlyIds', []))
-    latest = [c for c in pinned['cards'] if c['id'] not in generated]
+    latest = [c for c in pinned['cards'] if c['id'] not in generated and c['id'] not in pending and not c.get('token')]
     decks = [(f'Chaos Brawl Beta Batch {number:02d}', latest, 1, 10)]
     decks += [(f'Chaos Brawl Beta {number:02d} - Group {n//10+1}', latest[n:n+10], 4, 6) for n in range(0,len(latest),10)]
     for name, entries, copies, lands in decks:
+        lands = max(lands, math.ceil((60 - copies * len(entries)) / 5))
         lines = ['[metadata]', 'Name='+name, '[Main]']
         lines += [f'{copies} {c["name"]}|CBT' for c in entries]
         lines += [f'{lands} {land}' for land in ['Plains','Island','Swamp','Mountain','Forest']]

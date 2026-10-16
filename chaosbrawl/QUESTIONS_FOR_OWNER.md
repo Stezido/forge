@@ -41,3 +41,18 @@ The MSE subtype is “Euipment”. Forge normalizes it to “Equipment” so Equ
 ## cb-113 — Distant Cousin Shotcrusher: duplicate interaction
 
 The printed mandatory trigger is implemented per Drunken counter added to another creature you control. Two copies under one controller can trigger each other repeatedly. The source text is retained; collect an owner decision later if a non-looping design is desired.
+
+## Deferred batch 04 cards (not yet playable)
+
+- cb-154 Wedding Ring: what exactly does “bond” mean? Define duration, whether multiple bonds coexist, whether copied spells select new targets, and what happens when an original target cannot legally receive the copy.
+- cb-163 Just Do It: d20 determines how many lands to sacrifice after casting; when should affected opponents/creatures be chosen? Should the drawn land cards go straight onto the battlefield? An explicit reflexive trigger may be required; collect exact wording for approval.
+- cb-192 Annoying Running Gag: mandatory cast on draw with four lands—does the discard count casts of this physical card or every spell with this name? What happens if it cannot legally be cast, and does the shuffle replace going to the graveyard?
+- cb-199 Friend or Foe: who wins if both d20 rolls are 20? Does a critical 20 override the ordinary comparison even when the other player also rolls 20?
+
+## Additional source field corrections awaiting approval
+
+- cb-153 Magical Bucket Pump: Equipemnt → Equipment.
+- cb-184 Recycle: remove “Common” from the subtype field (retain rarity Common).
+- cb-186 Always With Us: remove “Rare” from the subtype field (retain rarity Rare).
+
+Forge normalizes these fields only; the canonical MSE remains unchanged.

@@ -16,3 +16,15 @@ SVar:DBWizard:DB$ Token | TokenScript$ u_1_1_wizard_flying
 DeckHas:Ability$Token|LifeGain
 DeckHints:Ability$Party
 Oracle:[+1]: Target opponent creates a 1/1 black Skeleton creature token with "When this creature dies, each opponent gains 2 life."\n[+1]: Roll a d20. If you roll a 1, skip your next turn. If you roll a 12 or higher, draw a card.\n[-6]: You get an adventuring party. (Your party is a 3/3 red Fighter with first strike, a 1/1 white Cleric with lifelink, a 2/2 black Rogue with hexproof, and a 1/1 blue Wizard with flying.)
+
+Variant:ChaosBrawlBeta:Independent:true
+Variant:ChaosBrawlBeta:ManaCost:2 W U
+Variant:ChaosBrawlBeta:Types:Creature Human Wizard
+Variant:ChaosBrawlBeta:PT:3/5
+Variant:ChaosBrawlBeta:T:Mode$ Phase | TriggerZones$ Battlefield | Execute$ Roll | TriggerDescription$ At the beginning of your upkeep, roll a d20 and get its result. | Phase$ Upkeep | ValidPlayer$ You
+Variant:ChaosBrawlBeta:SVar:Roll:DB$ RollDice | Sides$ 20 | ResultSubAbilities$ 1:Treasure,2:Treasure,3:Treasure,4:Treasure,5:Treasure,6:Beer,7:Beer,8:Beer,9:Beer,10:Beer,11:Beer,12:Beer,13:Beer,14:Beer,15:Beer,16:Draw,17:Draw,18:Draw,19:Draw,20:Play
+Variant:ChaosBrawlBeta:SVar:Treasure:DB$ Token | TokenScript$ c_a_treasure_sac
+Variant:ChaosBrawlBeta:SVar:Beer:DB$ Token | TokenScript$ chaosbrawl_beer
+Variant:ChaosBrawlBeta:SVar:Draw:DB$ Draw | NumCards$ 1
+Variant:ChaosBrawlBeta:SVar:Play:DB$ Play | Valid$ Card.nonLand+YouOwn | ValidZone$ Hand | ValidSA$ Spell | WithoutManaCost$ True | Optional$ True | Amount$ 1
+Variant:ChaosBrawlBeta:Oracle:At the beginning of your upkeep, roll a d20.\n1–5 | Create a Treasure token.\n6–15 | Create a Beer token.\n16–19 | Draw a card.\n20 | You may cast a spell from your hand without paying its mana cost.

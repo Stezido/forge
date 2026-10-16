@@ -1,0 +1,6 @@
+Name:Boosted Excitement
+ManaCost:W
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature | NumAtt$ 2 | NumDef$ 2 | SubAbility$ Hexproof | SpellDescription$ Target creature gets +2/+2. If you control three creatures, it also gains hexproof.
+SVar:Hexproof:DB$ Pump | Defined$ Targeted | KW$ Hexproof | ConditionPresent$ Creature.YouCtrl | ConditionCompare$ GE3
+Oracle:Target creature gets +2/+2 until end of turn. If you control three or more creatures, it also gains hexproof until end of turn.

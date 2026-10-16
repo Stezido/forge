@@ -8,3 +8,14 @@ T:Mode$ LandPlayed | ValidCard$ Land.YouCtrl | TriggerZones$ Battlefield | Execu
 SVar:TrigDraw:DB$ Draw | Defined$ You | NumCards$ 1
 AI:RemoveDeck:Random
 Oracle:Skip your draw step.\nWhenever you play a card, draw a card.\nYour maximum hand size is two.
+
+Variant:ChaosBrawlBeta:Independent:true
+Variant:ChaosBrawlBeta:ManaCost:X G
+Variant:ChaosBrawlBeta:Types:Sorcery
+Variant:ChaosBrawlBeta:A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ChangeType$ Card.YouOwn | DefinedPlayer$ You | ChangeNum$ X | Mandatory$ True | RememberChanged$ True | SubAbility$ Treasure | SpellDescription$ Exile X cards from your graveyard. Create that many Treasures. If X is 4 or greater, draw a card.
+Variant:ChaosBrawlBeta:SVar:X:Count$xPaid
+Variant:ChaosBrawlBeta:SVar:NumExiled:Count$ValidExile Card.IsRemembered+YouOwn
+Variant:ChaosBrawlBeta:SVar:Treasure:DB$ Token | TokenScript$ c_a_treasure_sac | TokenAmount$ NumExiled | SubAbility$ Draw
+Variant:ChaosBrawlBeta:SVar:Draw:DB$ Draw | NumCards$ 1 | ConditionCheckSVar$ X | ConditionSVarCompare$ GE4 | SubAbility$ Clear
+Variant:ChaosBrawlBeta:SVar:Clear:DB$ Cleanup | ClearRemembered$ True
+Variant:ChaosBrawlBeta:Oracle:Exile X cards from your graveyard. Create a Treasure token for each card exiled this way.\nIf X is 4 or greater, draw a card.

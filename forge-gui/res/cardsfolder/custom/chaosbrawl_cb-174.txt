@@ -1,0 +1,5 @@
+Name:Critical (S)hit
+ManaCost:1 B
+Types:Sorcery
+A:SP$ Destroy | ValidTgts$ Creature.tapped | SpellDescription$ Destroy target tapped creature.
+Oracle:Destroy target tapped creature.

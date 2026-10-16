@@ -1,0 +1,7 @@
+Name:Strange Allergic Reaction
+ManaCost:1 G
+Types:Enchantment Aura
+K:Enchant:Creature
+S:Mode$ Continuous | AffectedDefined$ Enchanted | SetPower$ 1 | SetToughness$ 1 | SetColor$ Green | AddType$ Creature & Plant | RemoveCreatureTypes$ True | AddAbility$ Mana | Description$ Enchanted creature is a 1/1 green Plant with "{T}: Add {G}."
+SVar:Mana:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
+Oracle:Enchant creature\nEnchanted creature is a 1/1 green Plant creature with “{T}: Add {G}.”

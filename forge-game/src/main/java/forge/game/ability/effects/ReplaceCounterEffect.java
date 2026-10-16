@@ -68,7 +68,13 @@ public class ReplaceCounterEffect extends SpellAbilityEffect {
                     CounterType ct = CounterType.getType(sa.getParam("ValidCounterType"));
                     if (e.getValue().contains(ct)) {
                         sa.setReplacingObject(AbilityKey.CounterNum, e.getValue().count(ct));
-                        e.getValue().setCount(ct, AbilityUtils.calculateAmount(card, sa.getParam("Amount"), sa));
+                        int amount = AbilityUtils.calculateAmount(card, sa.getParam("Amount"), sa);
+                        if (sa.hasParam("NewCounterType")) {
+                            e.getValue().setCount(ct, 0);
+                            e.getValue().add(CounterType.getType(sa.getParam("NewCounterType")), amount);
+                        } else {
+                            e.getValue().setCount(ct, amount);
+                        }
                     }
                 } else {
                     for (Multiset.Entry<CounterType> ec : Lists.newArrayList(e.getValue().entrySet())) {

@@ -1,0 +1,5 @@
+Name:Summon the Squad
+ManaCost:W U B R
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Library | Destination$ Battlefield | ChangeType$ Card.namedMarlene; the Leader,Card.namedRobin; the Pusher,Card.namedMax; the Sniper,Card.namedTobias; the Grenadier | ChangeNum$ 4 | DifferentNames$ True | SpellDescription$ Search your library for Marlene, Robin, Max and Tobias, put them onto the battlefield, then shuffle.
+Oracle:Search your library for Marlene, the Leader, Robin, the Pusher, Max, the Sniper, and Tobias, the Grenadier. Put them onto the battlefield, then shuffle.

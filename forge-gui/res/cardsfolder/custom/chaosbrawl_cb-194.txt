@@ -1,0 +1,7 @@
+Name:Frozen Taps
+ManaCost:1 U
+Types:Enchantment
+R:Event$ Tap | ActiveZones$ Battlefield | ValidCard$ Artifact | Layer$ CantHappen | Description$ Artifacts cannot be tapped.
+T:Mode$ Always | TriggerZones$ Battlefield | Execute$ Sacrifice | TriggerDescription$ When there are ten artifacts, sacrifice CARDNAME. | IsPresent$ Artifact | PresentCompare$ GE10
+SVar:Sacrifice:DB$ Sacrifice | Defined$ Self
+Oracle:Artifacts can’t be tapped.\nWhen there are ten or more artifacts on the battlefield, sacrifice Frozen Taps.

@@ -1,0 +1,6 @@
+Name:Tavern Bouncer
+ManaCost:1 W
+Types:Creature Dwarf
+PT:1/3
+A:AB$ Tap | Cost$ T | ValidTgts$ Creature.counters_GE1_DRUNKEN | SpellDescription$ Tap target drunken creature.
+Oracle:{T}: Tap target drunken creature.

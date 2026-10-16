@@ -109,7 +109,7 @@ public class PaperCard implements Comparable<IPaperCard>, InventoryItemFromSet, 
 
     @Override
     public CardRules getRules() {
-        return rules;
+        return rules.getRulesForFunctionalVariant(functionalVariant);
     }
 
     @Override

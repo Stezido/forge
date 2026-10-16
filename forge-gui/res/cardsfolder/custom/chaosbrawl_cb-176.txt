@@ -1,0 +1,9 @@
+Name:Designated Driver
+ManaCost:1 W W
+Types:Creature Human Pilot
+PT:6/3
+S:Mode$ Continuous | AffectedDefined$ Self | AddPower$ -X | Description$ CARDNAME gets -1/-0 for each Beer and each drunken creature on the battlefield.
+SVar:X:Count$Valid Beer/Plus.Y
+SVar:Y:Count$Valid Creature.counters_GE1_DRUNKEN
+S:Mode$ TapPowerValue | ValidSA$ Activated.Crew+Vehicle | ValidCard$ Card.Self | Value$ 3 | Minimum$ True | Description$ CARDNAME crews Vehicles as though its power were at least 3.
+Oracle:Designated Driver gets −1/−0 for each Beer and each drunken creature on the battlefield.\nDesignated Driver crews Vehicles as though its power were at least 3.

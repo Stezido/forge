@@ -1,0 +1,11 @@
+Name:Dungeon Master
+ManaCost:2 W U
+Types:Creature Human Wizard
+PT:3/5
+T:Mode$ Phase | TriggerZones$ Battlefield | Execute$ Roll | TriggerDescription$ At the beginning of your upkeep, roll a d20 and get its result. | Phase$ Upkeep | ValidPlayer$ You
+SVar:Roll:DB$ RollDice | Sides$ 20 | ResultSubAbilities$ 1:Treasure,2:Treasure,3:Treasure,4:Treasure,5:Treasure,6:Beer,7:Beer,8:Beer,9:Beer,10:Beer,11:Beer,12:Beer,13:Beer,14:Beer,15:Beer,16:Draw,17:Draw,18:Draw,19:Draw,20:Play
+SVar:Treasure:DB$ Token | TokenScript$ c_a_treasure_sac
+SVar:Beer:DB$ Token | TokenScript$ chaosbrawl_beer
+SVar:Draw:DB$ Draw | NumCards$ 1
+SVar:Play:DB$ Play | Valid$ Card.nonLand+YouOwn | ValidZone$ Hand | ValidSA$ Spell | WithoutManaCost$ True | Optional$ True | Amount$ 1
+Oracle:At the beginning of your upkeep, roll a d20.\n1–5 | Create a Treasure token.\n6–15 | Create a Beer token.\n16–19 | Draw a card.\n20 | You may cast a spell from your hand without paying its mana cost.

@@ -39,6 +39,7 @@ import static org.apache.commons.lang3.StringUtils.containsIgnoreCase;
  */
 public final class CardRules implements ICardCharacteristics {
     private String normalizedName;
+    private final Map<String, CardRules> independentVariantRules = new java.util.concurrent.ConcurrentHashMap<>();
     private CardSplitType splitType;
     private ICardFace mainPart;
     private ICardFace otherPart;
@@ -82,7 +83,24 @@ public final class CardRules implements ICardCharacteristics {
         colorIdentity = calculateColorIdentity(this);
     }
 
+    public CardRules getRulesForFunctionalVariant(final String name) {
+        if (name == null || name.isEmpty()) {
+            return this;
+        }
+        ICardFace face = mainPart.getFunctionalVariant(name);
+        if (!(face instanceof CardFace) || !((CardFace) face).isIndependentVariant()) {
+            return this;
+        }
+        return independentVariantRules.computeIfAbsent(name, key -> {
+            CardRules variant = new CardRules(new ICardFace[] {face, null}, CardSplitType.None, aiHints);
+            variant.custom = true;
+            variant.path = path;
+            return variant;
+        });
+    }
+
     void reinitializeFromRules(CardRules newRules) {
+        independentVariantRules.clear();
         if (!newRules.getName().equals(this.getName()))
             throw new UnsupportedOperationException("You cannot rename the card using the same CardRules object");
 
@@ -776,6 +794,12 @@ public final class CardRules implements ICardCharacteristics {
                 case 'H':
                     if ("HandLifeModifier".equals(key)) {
                         handLife = value;
+                    }
+                    break;
+
+                case 'I':
+                    if ("Independent".equals(key)) {
+                        face.setIndependentVariant(Boolean.parseBoolean(value));
                     }
                     break;
 

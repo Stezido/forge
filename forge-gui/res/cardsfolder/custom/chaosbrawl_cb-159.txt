@@ -1,0 +1,7 @@
+Name:Tobias, the Grenadier
+ManaCost:1 B
+Types:Legendary Creature Squadmember
+PT:2/2
+K:Deathtouch
+S:Mode$ Continuous | Affected$ Squadmember.YouCtrl+Other | AddPower$ 1 | AddToughness$ 0 | Description$ Other Squadmembers you control get +1/+0.
+Oracle:Deathtouch\nOther Squadmembers you control get +1/+0.

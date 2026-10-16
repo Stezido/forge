@@ -1,0 +1,6 @@
+Name:A Place to Stay
+ManaCost:1 W
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Location | ChangeNum$ 1 | Reveal$ True | SubAbility$ Life | SpellDescription$ Search for a Location, reveal it and put it into your hand, then shuffle. Gain 2 life.
+SVar:Life:DB$ GainLife | LifeAmount$ 2
+Oracle:Search your library for a Location card, reveal it, put it into your hand, then shuffle.\nYou gain 2 life.

@@ -1,0 +1,10 @@
+Name:Tavern Medic
+ManaCost:1 W
+Types:Creature Dwarf
+PT:2/2
+A:AB$ RemoveCounter | Cost$ T | ValidTgts$ Creature | CounterType$ DRUNKEN | CounterNum$ Any | RememberRemoved$ True | SubAbility$ Gain | SpellDescription$ Remove any number of Drunken counters. Gain that much life if it is yours, otherwise lose that much.
+SVar:Gain:DB$ GainLife | Defined$ You | LifeAmount$ X | ConditionDefined$ Targeted | ConditionPresent$ Creature.YouCtrl | SubAbility$ Lose
+SVar:Lose:DB$ LoseLife | Defined$ You | LifeAmount$ X | ConditionDefined$ Targeted | ConditionPresent$ Creature.YouCtrl | ConditionCompare$ EQ0 | SubAbility$ Clear
+SVar:X:Count$RememberedSize
+SVar:Clear:DB$ Cleanup | ClearRemembered$ True
+Oracle:{T}: Remove any number of Drunken counters from target creature. If it’s a creature you control, you gain 1 life for each counter removed this way. Otherwise, you lose 1 life for each counter removed this way.

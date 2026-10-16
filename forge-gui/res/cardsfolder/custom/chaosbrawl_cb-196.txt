@@ -1,0 +1,5 @@
+Name:Hosn Owe
+ManaCost:B
+Types:Sorcery
+A:SP$ Discard | ValidTgts$ Opponent | Mode$ RevealYouChoose | DiscardValid$ Card.nonCreature+nonLand | NumCards$ 1 | SpellDescription$ Target opponent reveals their hand. Choose a noncreature, nonland card for them to discard.
+Oracle:Target opponent reveals their hand. You choose a noncreature, nonland card from it. That player discards that card.

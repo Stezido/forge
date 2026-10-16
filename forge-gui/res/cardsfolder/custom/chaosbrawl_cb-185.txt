@@ -1,0 +1,5 @@
+Name:Closing Hour
+ManaCost:2 U
+Types:Instant
+A:SP$ ChangeZoneAll | Origin$ Battlefield | Destination$ Hand | ChangeType$ Permanent.token | SpellDescription$ Return all tokens to their owners' hands.
+Oracle:Return all tokens to their owners’ hands.

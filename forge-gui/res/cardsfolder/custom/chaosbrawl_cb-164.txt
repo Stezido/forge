@@ -1,0 +1,11 @@
+Name:Homemade Paranoia
+ManaCost:2 G
+Types:Sorcery
+A:SP$ PeekAndReveal | Defined$ You | PeekAmount$ 3 | RevealValid$ Card | RememberRevealed$ True | SubAbility$ Branch | SpellDescription$ Reveal three cards. Put a creature revealed this way into your hand, or all revealed lands onto the battlefield tapped if none is a creature. Put the rest into your graveyard.
+SVar:Branch:DB$ Branch | BranchConditionSVar$ X | TrueSubAbility$ Creature | FalseSubAbility$ Lands | SubAbility$ Grave
+SVar:X:Count$ValidLibrary Creature.IsRemembered+YouOwn
+SVar:Creature:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Creature.IsRemembered | DefinedPlayer$ You | ChangeNum$ 1 | Mandatory$ True | Shuffle$ False
+SVar:Lands:DB$ ChangeZoneAll | Origin$ Library | Destination$ Battlefield | ChangeType$ Land.IsRemembered | Defined$ You | Tapped$ True
+SVar:Grave:DB$ ChangeZoneAll | Origin$ Library | Destination$ Graveyard | ChangeType$ Card.IsRemembered | Defined$ You | SubAbility$ Clear
+SVar:Clear:DB$ Cleanup | ClearRemembered$ True
+Oracle:Reveal the top three cards of your library. If a creature card is revealed this way, put a creature card from among them into your hand. Otherwise, put all land cards revealed this way onto the battlefield tapped. Put the rest into your graveyard.

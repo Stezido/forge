@@ -29,6 +29,18 @@ import static org.testng.Assert.*;
 
 /** Exercise real cards, counter events, static effects and the actual untap step. */
 public class ChaosBrawlTest extends SimulationTest {
+    @Override
+    protected Card createCard(String name, Player player) {
+        // Strict printing selection avoids image-based fallbacks to an official
+        // printing when a custom set intentionally uses an existing card name.
+        for (forge.item.PaperCard paper : forge.StaticData.instance().getCommonCards().getAllCards(name)) {
+            if ("CBT".equals(paper.getEdition())) {
+                return Card.fromPaperCard(paper, player);
+            }
+        }
+        return super.createCard(name, player);
+    }
+
     private Game customGame() {
         Game game = initAndCreateGame();
         game.getRules().setChaosBrawl(true);
@@ -442,7 +454,53 @@ public class ChaosBrawlTest extends SimulationTest {
             {"The Rake", 1, "", "", "Equipped creature gets +1/+0.\nWhenever equipped creature attacks, you may remove a counter from target creature.\nEquip {2}", "Artifact \u2014 Euipment", ""},
             {"The Good Stuff", 3, "", "", "Choose one \u2014\n\u2022 Destroy target artifact.\n\u2022 Destroy target enchantment.\n\u2022 Destroy target creature with flying.", "Instant", "G"},
             {"Mimimi", 4, "", "", "Target creature\u2019s owner puts it on the top or bottom of their library.", "Instant", "U"},
-            {"Sleepless Night", 2, "", "", "Tap up to two target creatures. Then target creature you control with mana value 2 or less gets +2/+0 and gains haste until end of turn.", "Instant", "UR"}
+            {"Sleepless Night", 2, "", "", "Tap up to two target creatures. Then target creature you control with mana value 2 or less gets +2/+0 and gains haste until end of turn.", "Instant", "UR"},
+            {"Shut up", 3, "", "", "Enchant creature\nEnchanted creature loses all abilities and can\u2019t attack.", "Enchantment \u2014 Aura", "W"},
+            {"MAGAZIN!", 3, "", "", "Exile the top two cards of your library. Until the end of your next turn, you may play those cards.", "Sorcery", "R"},
+            {"Magical Bucket Pump", 1, "", "", "Equipped creature has \u201c{T}: Tap target creature.\u201d\nEquip {2}", "Artifact \u2014 Equipemnt", ""},
+            {"Unpleasant Surprise", 3, "", "", "Return target creature to its owner\u2019s hand. Its controller loses 3 life unless they sacrifice a nonland permanent or discard a card.", "Instant", "UB"},
+            {"Dungeon Master", 4, "3", "5", "At the beginning of your upkeep, roll a d20.\n1\u20135 | Create a Treasure token.\n6\u201315 | Create a Beer token.\n16\u201319 | Draw a card.\n20 | You may cast a spell from your hand without paying its mana cost.", "Creature \u2014 Human, Wizard", "WU"},
+            {"Marlene, the Leader", 2, "2", "2", "Vigilance\nOther Squadmembers you control get +0/+1.", "Legendary Creature \u2014 Squadmember", "W"},
+            {"Robin, the Pusher", 2, "2", "2", "Haste\nOther Squadmembers you control get +1/+0.", "Legendary Creature \u2014 Squadmember", "R"},
+            {"Tobias, the Grenadier", 2, "2", "2", "Deathtouch\nOther Squadmembers you control get +1/+0.", "Legendary Creature \u2014 Squadmember", "B"},
+            {"Max, the Sniper", 2, "1", "1", "Flying\nOther Squadmembers you control get +1/+0.", "Legendary Creature \u2014 Squadmember", "U"},
+            {"Let\u2019s Fucking Go", 1, "", "", "Target creature gets +3/+0 and gains haste until end of turn. You may discard a card. If you do, draw a card.", "Instant", "R"},
+            {"Summon the Squad", 4, "", "", "Search your library for Marlene, the Leader, Robin, the Pusher, Max, the Sniper, and Tobias, the Grenadier. Put them onto the battlefield, then shuffle.", "Sorcery", "WUBR"},
+            {"Homemade Paranoia", 3, "", "", "Reveal the top three cards of your library. If a creature card is revealed this way, put a creature card from among them into your hand. Otherwise, put all land cards revealed this way onto the battlefield tapped. Put the rest into your graveyard.", "Sorcery", "G"},
+            {"Flooded Palace", 0, "", "", "({T}: Add {U} or {W} to your mana pool.)\nAs Flooded Palace enters the battlefield, you may pay 2 life. If you don\u2019t, Flooded Palace enters the battlefield tapped.", "Land \u2014 Island Plains", ""},
+            {"Duskmire", 0, "", "", "({T}: Add {U} or {B} to your mana pool.)\nAs Duskmire enters the battlefield, you may pay 2 life. If you don\u2019t, Duskmire enters the battlefield tapped.", "Land \u2014 Island Swamp", ""},
+            {"Reefgarden", 0, "", "", "({T}: Add {G} or {U} to your mana pool.)\nAs Reefgarden enters the battlefield, you may pay 2 life. If you don\u2019t, Reefgarden enters the battlefield tapped.", "Land \u2014 Forest Island", ""},
+            {"The Stoned Peaks", 0, "", "", "({T}: Add {R} or {G} to your mana pool.)\nAs The Stoned Peaks enters the battlefield, you may pay 2 life. If you don\u2019t, The Stoned Peaks enters the battlefield tapped.", "Land \u2014 Mountain Forest", ""},
+            {"The Blessed Hideaway", 2, "", "", "Whenever a multicolored spell is cast, choose one \u2014\n\u2022 Create a Food token.\n\u2022 Create a Beer token.\n\u2022 Create a Treasure token.", "Enchantment \u2014 Location", ""},
+            {"Roadside Distraction", 2, "", "", "Target creature can\u2019t block this turn.\nDraw a card.", "Instant", "R"},
+            {"Have a Beer, or Three", 2, "", "", "Roll a d20. If the result is odd, create three Expired Beer tokens and lose 3 life. If the result is even, create three Beer tokens. If the result is 20, also draw a card.", "Sorcery", "BG"},
+            {"Draft Tap", 4, "", "", "When Draft Tap enters the battlefield, create three Beer tokens.\nWhenever you sacrifice a Beer token, put an additional Drunken counter on the creature it targets.", "Legendary Artifact", "W"},
+            {"Fill Em Up", 3, "", "", "Choose one \u2014\n\u2022 Put Drunken counters on target creature equal to its Drunken Tolerance plus one.\n\u2022 Deal 6 damage to target planeswalker.", "Sorcery", "R"},
+            {"Critical (S)hit", 2, "", "", "Destroy target tapped creature.", "Sorcery", "B"},
+            {"Stoned Speech", 2, "", "", "Put a +1/+1 counter on each creature you control.", "Sorcery", "G"},
+            {"Designated Driver", 3, "6", "3", "Designated Driver gets \u22121/\u22120 for each Beer and each drunken creature on the battlefield.\nDesignated Driver crews Vehicles as though its power were at least 3.", "Creature \u2014 Human Pilot", "W"},
+            {"A Place to Stay", 2, "", "", "Search your library for a Location card, reveal it, put it into your hand, then shuffle.\nYou gain 2 life.", "Sorcery", "W"},
+            {"Hexenschuss", 2, "", "", "Destroy target attacking creature.", "Instant", "W"},
+            {"Tavern Regular", 1, "1", "2", "When Tavern Regular enters the battlefield, you may reveal a card from your hand. If you do, create a Beer token.", "Creature \u2014 Human", "W"},
+            {"Tavern Bouncer", 2, "1", "3", "{T}: Tap target drunken creature.", "Creature \u2014 Dwarf", "W"},
+            {"Tavern Medic", 2, "2", "2", "{T}: Remove any number of Drunken counters from target creature. If it\u2019s a creature you control, you gain 1 life for each counter removed this way. Otherwise, you lose 1 life for each counter removed this way.", "Creature \u2014 Dwarf", "W"},
+            {"Edi, the Beerpig", 4, "3", "3", "Kicker\u2014Sacrifice one or more Beer (You may sacrifice one or more Beer in addition to any other costs as you cast this spell.)\nIf Edi was kicked, it enters with two +1/+1 counters on it for each Beer sacrificed to cast it.\nIf one or more Drunken counters would be put on Edi, instead put that many +1/+1 counters on it.", "Legendary Creature \u2014 Pig", "W"},
+            {"Goner", 1, "0", "2", "Goner enters tapped.\nIf Goner would be exiled from anywhere, put it into its owner\u2019s graveyard instead.", "Creature \u2014 Human", "B"},
+            {"Recycle", 1, "", "", "Exile X cards from your graveyard. Create a Treasure token for each card exiled this way.\nIf X is 4 or greater, draw a card.", "Sorcery \u2014 Common", "G"},
+            {"Closing Hour", 3, "", "", "Return all tokens to their owners\u2019 hands.", "Instant", "U"},
+            {"Always With Us", 3, "", "", "Whenever a creature you control becomes the target of a spell or ability, it gets +1/+1 until end of turn.", "Legendary Enchantment \u2014 Rare", "W"},
+            {"Innkeepers Daugther", 2, "1", "3", "{T}: Create a Treasure token for each drunken creature on the battlefield.", "Creature \u2014 Human", "W"},
+            {"Hoard Beast", 5, "*", "4", "When Hoard Beast enters the battlefield, create a Food token, a Beer token, and a Treasure token.\nThe Hoard Beast\u2019s power is equal to the number of artifact tokens on the battlefield.", "Creature \u2014 Horror", "G"},
+            {"Nadine, Sirens\u2019 Origin", 3, "3", "3", "Flying\nOther Sirens you control get +1/+1 and have ward {1}.", "Legendary Creature \u2014 Siren", "U"},
+            {"The Mind", 2, "", "", "You and target opponent each search your library for a card and reveal it. If those cards share a mana value or card type, put them into their owners\u2019 hands. Otherwise, each player shuffles. Draw a card.", "Sorcery", ""},
+            {"Boosted Excitement", 1, "", "", "Target creature gets +2/+2 until end of turn. If you control three or more creatures, it also gains hexproof until end of turn.", "Instant", "W"},
+            {"Provoker", 3, "3", "1", "Whenever Provoker enters the battlefield or attacks, put an Obsession counter on target creature an opponent controls.", "Creature \u2014 Goblin", "R"},
+            {"Frozen Taps", 2, "", "", "Artifacts can\u2019t be tapped.\nWhen there are ten or more artifacts on the battlefield, sacrifice Frozen Taps.", "Enchantment", "U"},
+            {"Experimental Invention", 2, "2", "2", "Flying\nWhenever Experimental Invention deals combat damage to a player, look at the top card of your library and the top card of that player\u2019s library.\nCrew 1", "Artifact \u2014 Vehicle", ""},
+            {"Hosn Owe", 1, "", "", "Target opponent reveals their hand. You choose a noncreature, nonland card from it. That player discards that card.", "Sorcery", "B"},
+            {"Improvised Escape", 1, "", "", "Exile target creature you control. Return that card to the battlefield under its owner\u2019s control at the beginning of the next end step.", "Instant", "W"},
+            {"Strange Allergic Reaction", 2, "", "", "Enchant creature\nEnchanted creature is a 1/1 green Plant creature with \u201c{T}: Add {G}.\u201d", "Enchantment \u2014 Aura", "G"},
+            {"The Fallen", 3, "3", "2", "The Fallen enters the battlefield tapped with a Drunken counter on it.\nIf you would discard The Fallen, put it onto the battlefield tapped with a Drunken counter on it instead.", "Creature \u2014 Orc", "R"}
         };
     }
 
@@ -453,7 +511,9 @@ public class ChaosBrawlTest extends SimulationTest {
         assertEquals(card.getManaCost().getCMC(), mv, name);
         // Normalize the source's known subtype spelling/punctuation without editing MSE.
         for (String type : types.replace(" — ", " ").replace(",", "")
-                .replace("Euipment", "Equipment").split(" ")) {
+                .replace("Euipment", "Equipment").replace("Equipemnt", "Equipment")
+                .replace(name.equals("Recycle") ? " Common" : "__none__", "")
+                .replace(name.equals("Always With Us") ? " Rare" : "__none__", "").split(" ")) {
             assertTrue(card.getType().hasStringType(type), name + " missing type " + type);
         }
         // Windtongue explicitly creates blue/black AJDE! cards; this generated-only

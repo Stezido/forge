@@ -1,0 +1,10 @@
+Name:Experimental Invention
+ManaCost:2
+Types:Artifact Vehicle
+PT:2/2
+K:Flying
+K:Crew:1
+T:Mode$ DamageDone | TriggerZones$ Battlefield | Execute$ OwnTop | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, look at the top card of each library. | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True
+SVar:OwnTop:DB$ PeekAndReveal | Defined$ You | PeekAmount$ 1 | NoReveal$ True | SubAbility$ OtherTop
+SVar:OtherTop:DB$ PeekAndReveal | Defined$ TriggeredTarget | PeekAmount$ 1 | NoReveal$ True
+Oracle:Flying\nWhenever Experimental Invention deals combat damage to a player, look at the top card of your library and the top card of that player’s library.\nCrew 1

@@ -25,6 +25,7 @@ final class CardFace implements ICardFace, Cloneable {
 
     private String name;
     private String flavorName = null;
+    private boolean independentVariant = false;
     private CardType type = null;
     private ManaCost manaCost = null;
     private ColorSet color = null;
@@ -191,7 +192,20 @@ final class CardFace implements ICardFace, Cloneable {
         }
     }
 
+    void setIndependentVariant(boolean independent) {
+        this.independentVariant = independent;
+    }
+
+    boolean isIndependentVariant() {
+        return independentVariant;
+    }
+
     void assignMissingFieldsToVariant(CardFace variant) {
+        if (variant.independentVariant) {
+            variant.assignMissingFields();
+            return;
+        }
+
         if(variant.oracleText == null) {
             if(variant.flavorName != null && this.oracleText != null) {
                 try {

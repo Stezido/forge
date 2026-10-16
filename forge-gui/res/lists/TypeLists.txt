@@ -18,6 +18,8 @@ Tower
 Town:Towns
 Urza's
 [CreatureTypes]
+Pig:Pigs
+Squadmember:Squadmembers
 Half-Giant:Half-Giants
 Advisor:Advisors
 Aetherborn:Aetherborn

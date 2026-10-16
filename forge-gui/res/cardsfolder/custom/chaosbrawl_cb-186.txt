@@ -1,0 +1,6 @@
+Name:Always With Us
+ManaCost:1 W W
+Types:Legendary Enchantment
+T:Mode$ BecomesTarget | TriggerZones$ Battlefield | Execute$ Pump | TriggerDescription$ Whenever a creature you control becomes a target, it gets +1/+1 until end of turn. | ValidTarget$ Creature.YouCtrl+inZoneBattlefield
+SVar:Pump:DB$ Pump | Defined$ TriggeredTarget | NumAtt$ 1 | NumDef$ 1
+Oracle:Whenever a creature you control becomes the target of a spell or ability, it gets +1/+1 until end of turn.

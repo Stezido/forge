@@ -1,0 +1,9 @@
+Name:Goner
+ManaCost:B
+Types:Creature Human
+PT:0/2
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Exile | ReplaceWith$ Grave | Description$ If CARDNAME would be exiled from anywhere, put it into its owner's graveyard instead.
+SVar:Grave:DB$ ChangeZone | Defined$ ReplacedCard | Origin$ All | Destination$ Graveyard
+Oracle:Goner enters tapped.\nIf Goner would be exiled from anywhere, put it into its owner’s graveyard instead.

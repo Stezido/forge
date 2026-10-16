@@ -1,0 +1,7 @@
+Name:Nadine, Sirens’ Origin
+ManaCost:U U U
+Types:Legendary Creature Siren
+PT:3/3
+K:Flying
+S:Mode$ Continuous | Affected$ Siren.YouCtrl+Other | AddPower$ 1 | AddToughness$ 1 | AddKeyword$ Ward:1 | Description$ Other Sirens you control get +1/+1 and have ward {1}.
+Oracle:Flying\nOther Sirens you control get +1/+1 and have ward {1}.

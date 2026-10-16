@@ -1,0 +1,12 @@
+Name:The Mind
+ManaCost:2
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Library | Destination$ Library | DefinedPlayer$ You | ValidTgts$ Opponent | ChangeType$ Card | ChangeNum$ 1 | Reveal$ True | RememberChanged$ True | Shuffle$ False | SubAbility$ Opponent | SpellDescription$ You and target opponent each search for and reveal a card. If they share mana value or card type, put both into their owners' hands. Otherwise both shuffle. Draw a card.
+SVar:Opponent:DB$ ChangeZone | Origin$ Library | Destination$ Library | DefinedPlayer$ Targeted | ChangeType$ Card | ChangeNum$ 1 | Reveal$ True | RememberChanged$ True | Shuffle$ False | SubAbility$ Match
+SVar:Match:DB$ Branch | BranchConditionSVar$ Count$RememberedShareManaOrType | TrueSubAbility$ Hand | FalseSubAbility$ ShuffleYou | SubAbility$ Draw
+SVar:Hand:DB$ ChangeZone | Defined$ Remembered | Origin$ Library | Destination$ Hand
+SVar:ShuffleYou:DB$ Shuffle | Defined$ You | SubAbility$ ShuffleOpponent
+SVar:ShuffleOpponent:DB$ Shuffle | Defined$ Targeted
+SVar:Draw:DB$ Draw | NumCards$ 1 | SubAbility$ Clear
+SVar:Clear:DB$ Cleanup | ClearRemembered$ True
+Oracle:You and target opponent each search your library for a card and reveal it. If those cards share a mana value or card type, put them into their owners’ hands. Otherwise, each player shuffles. Draw a card.

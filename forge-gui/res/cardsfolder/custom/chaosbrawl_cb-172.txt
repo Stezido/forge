@@ -1,0 +1,8 @@
+Name:Draft Tap
+ManaCost:3 W
+Types:Legendary Artifact
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Beer | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Beer:DB$ Token | TokenScript$ chaosbrawl_beer | TokenAmount$ 3
+T:Mode$ Sacrificed | TriggerZones$ Battlefield | Execute$ Extra | TriggerDescription$ Whenever you sacrifice a Beer token, put an additional Drunken counter on the creature targeted by its ability. | ValidPlayer$ You | ValidCard$ Beer.token
+SVar:Extra:DB$ PutCounter | Defined$ TriggeredCauseTargets | CounterType$ DRUNKEN | CounterNum$ 1
+Oracle:When Draft Tap enters the battlefield, create three Beer tokens.\nWhenever you sacrifice a Beer token, put an additional Drunken counter on the creature it targets.

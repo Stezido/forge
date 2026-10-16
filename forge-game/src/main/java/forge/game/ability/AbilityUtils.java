@@ -207,6 +207,11 @@ public class AbilityUtils {
             } else if (crd instanceof Iterable<?>) {
                 cards.addAll(IterableUtil.filter((Iterable<?>) crd, Card.class));
             }
+        } else if (defined.equals("TriggeredCauseTargets") && sa instanceof SpellAbility) {
+            Object cause = ((SpellAbility) sa).getRootAbility().getTriggeringObject(AbilityKey.Cause);
+            if (cause instanceof SpellAbility) {
+                cards.addAll(((SpellAbility) cause).findTargetedCards());
+            }
         } else if (defined.equals("Remembered") || defined.equals("RememberedCard")) {
             if (!hostCard.hasRemembered()) {
                 final Card newCard = game.getCardState(hostCard);
@@ -2068,6 +2073,18 @@ public class AbilityUtils {
             return doXMath(calculateAmount(c, sq[c.isOptionalCostPaid(OptionalCost.AltCost) ? 1 : 2], ctb), expr, c, ctb);
         }
 
+        if (sq[0].equals("CardDrunkenTolerance")) {
+            return doXMath(forge.game.ChaosBrawlRules.drunkenTolerance(c), expr, c, ctb);
+        }
+        if (sq[0].equals("RememberedShareManaOrType")) {
+            CardCollection pair = getDefinedCards(c, "Remembered", ctb);
+            if (pair.size() < 2) {
+                return 0;
+            }
+            Card first = pair.get(0), second = pair.get(1);
+            return first.getManaCost().getCMC() == second.getManaCost().getCMC()
+                    || first.getType().getCoreTypes().stream().anyMatch(second.getType().getCoreTypes()::contains) ? 1 : 0;
+        }
         if (sq[0].equals("CardPower")) {
             return doXMath(c.getNetPower(), expr, c, ctb);
         }

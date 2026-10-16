@@ -1,0 +1,8 @@
+Name:Provoker
+ManaCost:2 R
+Types:Creature Goblin
+PT:3/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Obsess | TriggerDescription$ When CARDNAME enters, ABILITY
+T:Mode$ Attacks | TriggerZones$ Battlefield | Execute$ Obsess | TriggerDescription$ Whenever CARDNAME attacks, obsess target creature an opponent controls. | ValidCard$ Card.Self
+SVar:Obsess:DB$ PutCounter | ValidTgts$ Creature.OppCtrl | CounterType$ OBSESSION | CounterNum$ 1
+Oracle:Whenever Provoker enters the battlefield or attacks, put an Obsession counter on target creature an opponent controls.

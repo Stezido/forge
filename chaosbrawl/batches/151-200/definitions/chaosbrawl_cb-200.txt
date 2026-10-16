@@ -1,0 +1,10 @@
+Name:The Fallen
+ManaCost:2 R
+Types:Creature Orc
+PT:3/2
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
+K:etbCounter:DRUNKEN:1
+R:Event$ Moved | ActiveZones$ Hand | ValidCard$ Card.Self | Discard$ True | ReplaceWith$ Surprise | Description$ If you would discard CARDNAME, put it onto the battlefield tapped with a Drunken counter instead.
+SVar:Surprise:DB$ ChangeZone | Defined$ ReplacedCard | Origin$ Hand | Destination$ Battlefield | Tapped$ True
+Oracle:The Fallen enters the battlefield tapped with a Drunken counter on it.\nIf you would discard The Fallen, put it onto the battlefield tapped with a Drunken counter on it instead.

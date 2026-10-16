@@ -1,0 +1,6 @@
+Name:Flooded Palace
+ManaCost:no cost
+Types:Land Island Plains
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplaceWith$ DBTap | ReplacementResult$ Updated | Description$ As CARDNAME enters, you may pay 2 life. If you do not, it enters tapped.
+SVar:DBTap:DB$ Tap | ETB$ True | Defined$ Self | UnlessCost$ PayLife<2> | UnlessPayer$ You | StackDescription$ enters tapped.
+Oracle:({T}: Add {U} or {W} to your mana pool.)\nAs Flooded Palace enters the battlefield, you may pay 2 life. If you don’t, Flooded Palace enters the battlefield tapped.

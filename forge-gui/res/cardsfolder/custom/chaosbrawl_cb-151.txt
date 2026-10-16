@@ -1,0 +1,7 @@
+Name:Shut up
+ManaCost:2 W
+Types:Enchantment Aura
+K:Enchant:Creature
+S:Mode$ Continuous | AffectedDefined$ Enchanted | RemoveAllAbilities$ True | Description$ Enchanted creature loses all abilities.
+S:Mode$ CantAttack | ValidCard$ Creature.EnchantedBy | Description$ Enchanted creature cannot attack.
+Oracle:Enchant creature\nEnchanted creature loses all abilities and can’t attack.

@@ -1,0 +1,7 @@
+Name:Marlene, the Leader
+ManaCost:1 W
+Types:Legendary Creature Squadmember
+PT:2/2
+K:Vigilance
+S:Mode$ Continuous | Affected$ Squadmember.YouCtrl+Other | AddPower$ 0 | AddToughness$ 1 | Description$ Other Squadmembers you control get +0/+1.
+Oracle:Vigilance\nOther Squadmembers you control get +0/+1.
