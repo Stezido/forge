@@ -211,6 +211,11 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
             System.out.println(source.getName() + " - activatingPlayer not set before adding to stack.");
         }
         Player activator = sp.getActivatingPlayer();
+        // AI target selection may already have chosen its creatures before setupTargets.
+        if (sp.hasParam("ChoosePlayerBeforeTargets") && !source.hasChosenPlayer()) {
+            source.setChosenPlayer(sp.getTargets().getTargetCards().isEmpty() ? activator
+                    : sp.getTargets().getTargetCards().getFirst().getController());
+        }
 
         // Stop infinite loop. E.g. Scalelord Reckoner mirrormatch with only triggering targets is a draw.
         // CR 104.4b the same goes for a mandatory trigger that keeps coming back before the stack clears

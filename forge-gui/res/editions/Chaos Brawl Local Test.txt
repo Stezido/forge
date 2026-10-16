@@ -60,26 +60,36 @@ Type=Custom_Set
 053 U Jealous Siren
 054 U Endless Expectations
 055 U Chaotic Council
+056 U Youthful Inner Heat
 057 C Flatfooted
+058 U Tactical Purge
 059 R Mysterious Remedy
+060 C Last Duel
+061 U Overdose Revival
+062 R Numbing Mass Resurrection
 063 C Hangry
 064 C Sweet Harmless Siren
 065 R Baiting Siren
 066 R The Hangry Games
 067 U Spar’s Bazaar
+068 C Owizahrer
 069 U Hungry Disgust
+070 U Academic Quarter
 071 C Straggler
 072 C Happy Hour
 073 C Echo of Empathy
 074 U Controlling Relationship
+075 C Confusing Signals
 076 C Weedfield Herbalist
 077 C Weedfield Grazer
 078 U Tavern Time Out
 079 C Tavern Hand
 080 U Coffee Shop
+081 R Pumpkin Catapult
 082 C Vandalism
 083 U Ogrontwin Steve
 084 U Ogrontwin Pete
+085 C Bromoment
 086 R Blood Moon Rising
 087 C Zimty
 088 C Mystic Herb Vegetative
@@ -95,8 +105,3 @@ Type=Custom_Set
 098 U Sarma
 099 U Soul Eater Siren
 100 U Baked Ham Noodle Casserole
-060 C Last Duel
-061 U Overdose Revival
-062 R Numbing Mass Resurrection
-068 C Owizahrer
-070 U Academic Quarter

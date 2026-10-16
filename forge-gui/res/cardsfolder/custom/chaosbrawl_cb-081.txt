@@ -1,0 +1,14 @@
+Name:Pumpkin Catapult
+ManaCost:3 B R
+Types:Artifact Vehicle
+PT:7/5
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Pilot | TriggerDescription$ When CARDNAME enters, create a Pumpkin Gang Driver token.
+SVar:Pilot:DB$ Token | TokenScript$ chaosbrawl_pumpkin_gang_driver
+K:Crew:3
+T:Mode$ BecomesCrewed | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ Sacrifice | TriggerDescription$ Whenever CARDNAME becomes crewed, you may sacrifice any number of drunken creatures that crewed it. When you sacrifice a creature this way, CARDNAME deals 2 damage to any target.
+SVar:Sacrifice:DB$ Sacrifice | Defined$ You | SacValid$ Creature.TriggeredCrew+counters_GE1_DRUNKEN | Amount$ X | Optional$ True | RememberSacrificed$ True | SubAbility$ DamageTriggers
+SVar:X:Count$Valid Creature.TriggeredCrew+counters_GE1_DRUNKEN
+SVar:DamageTriggers:DB$ ImmediateTrigger | TriggerAmount$ RememberedLKI$Amount | Execute$ Damage | TriggerDescription$ CARDNAME deals 2 damage to any target. | SubAbility$ Cleanup
+SVar:Damage:DB$ DealDamage | ValidTgts$ Any | NumDmg$ 2
+SVar:Cleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:When Pumpkin Catapult enters the battlefield, create a 1/1 red Pilot creature token named Pumpkin Gang Driver with “This creature crews Vehicles as though its power were 2 greater.”\nCrew 3\nWhenever Pumpkin Catapult becomes crewed, you may sacrifice any number of drunken creatures that crewed it. When you sacrifice a creature this way, Pumpkin Catapult deals 2 damage to any target.

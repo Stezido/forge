@@ -1,0 +1,9 @@
+Name:Tactical Purge
+ManaCost:W B
+Types:Enchantment Aura
+K:Flash
+K:Enchant:Creature
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Shield | TriggerDescription$ When CARDNAME enters, enchanted creature gains indestructible until end of turn.
+SVar:Shield:DB$ Pump | Defined$ Enchanted | KW$ Indestructible
+S:Mode$ Continuous | AffectedDefined$ Enchanted | RemoveAllAbilities$ True | Description$ Enchanted creature loses all abilities.
+Oracle:Flash\nEnchant creature\nWhen Tactical Purge enters the battlefield, enchanted creature gains indestructible until end of turn.\nEnchanted creature loses all abilities.

@@ -1,0 +1,8 @@
+Name:Confusing Signals
+ManaCost:2 U
+Types:Sorcery
+A:SP$ Tap | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 2 | TargetsWithSameController$ True | TargetsWithChosenPlayer$ True | ChoosePlayerBeforeTargets$ True | RememberTapped$ True | SubAbility$ Stun | SpellDescription$ Choose a player. Tap up to two target creatures they control, put a stun counter on each and have that player draw for each creature tapped this way.
+SVar:Stun:DB$ PutCounter | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1 | SubAbility$ Draw
+SVar:Draw:DB$ Draw | Defined$ ChosenPlayer | NumCards$ Remembered$Amount | SubAbility$ Cleanup
+SVar:Cleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Choose a player.\nTap up to two target creatures that player controls. Put a stun counter on each. That player draws a card for each creature tapped this way.

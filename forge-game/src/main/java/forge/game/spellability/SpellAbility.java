@@ -1404,6 +1404,11 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
             if (tr.isUniqueTargets() && getUniqueTargets().contains(entity))
                 return false;
 
+            if (hasParam("TargetsWithChosenPlayer") && entity instanceof Card
+                    && getHostCard().hasChosenPlayer()
+                    && !((Card) entity).getController().equals(getHostCard().getChosenPlayer())) {
+                return false;
+            }
             // If the cards must have a specific controller
             if (hasParam("TargetsWithDefinedController") && entity instanceof Card) {
                 final Card c = (Card) entity;
@@ -2142,6 +2147,11 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
     }
 
     public boolean setupTargets() {
+        if (hasParam("ChoosePlayerBeforeTargets")) {
+            Player chosen = getActivatingPlayer().getController().chooseSingleEntityForEffect(
+                    getHostCard().getGame().getPlayers(), this, "Choose a player", false, null);
+            getHostCard().setChosenPlayer(chosen);
+        }
         // Skip to paying if parent ability doesn't target and has no subAbilities.
         // (or trigger case where its already targeted)
         SpellAbility currentAbility = this;

@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "websiteRepository": "Stezido/Chaosbrawl-Website",
-  "websiteCommit": "b064dcc52233c9e8894bd8e29a658470b10de1b3",
+  "websiteCommit": "0f7b6060ff4f3da4fd530a42d563efeb66efeb03",
   "variant": "the-foul-realms-beta",
   "sourcePath": "sets/the-foul-realms/beta/Chaos Brawl - The Foul Realms - Beta.mse-set",
-  "sourceSha256": "b5c544235ed6f533ad04429e2f30c6109dc7829461c18646b0214900dda962c3",
+  "sourceSha256": "81e36272d3d2fc4308dc4d65c54be779944733010ed44ba167acd34c82da15ef",
   "upstreamCommit": "34a8662b7966a6ee757411feae2ae8ff38cce436",
   "range": [
     "cb-051",
@@ -212,7 +212,7 @@
         "Enchantment"
       ],
       "rarity": "Uncommon",
-      "rulesText": "Flash\nEnchant creature\nEnchanted creature loses all abilities.\nEnchanted creature gains indestructible until end of turn.",
+      "rulesText": "Flash\nEnchant creature\nWhen Tactical Purge enters the battlefield, enchanted creature gains indestructible until end of turn.\nEnchanted creature loses all abilities.",
       "flavorText": "“Rally, reset, and refill.”",
       "power": "",
       "toughness": "",
@@ -853,7 +853,7 @@
         "Artifact"
       ],
       "rarity": "Rare",
-      "rulesText": "When Pumpkin Catapult enters the battlefield, create a 1/1 red Pilot creature token named Pumpkin Gang Driver with “This creature crews Vehicles as though its power were 2 greater.”\nCrew 3\nWhenever you crew Pumpkin Catapult, you may sacrifice any number of drunken creatures that are crewing it. Pumpkin Catapult deals 2 damage to any target for each creature sacrificed this way. You may choose new targets for each instance of damage.",
+      "rulesText": "When Pumpkin Catapult enters the battlefield, create a 1/1 red Pilot creature token named Pumpkin Gang Driver with “This creature crews Vehicles as though its power were 2 greater.”\nCrew 3\nWhenever Pumpkin Catapult becomes crewed, you may sacrifice any number of drunken creatures that crewed it. When you sacrifice a creature this way, Pumpkin Catapult deals 2 damage to any target.",
       "flavorText": "“Read the signs before the pumpkins make them disappear”",
       "power": "7",
       "toughness": "5",

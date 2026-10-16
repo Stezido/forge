@@ -4,7 +4,7 @@ Types:Creature Human Wizard
 PT:1/4
 T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ Choose | TriggerDescription$ At the beginning of your upkeep, tap another untapped creature you control and put a stun counter on it. If you do, draw a card. Otherwise, sacrifice CARDNAME.
 SVar:Choose:DB$ ChooseCard | Defined$ You | Choices$ Creature.Other+YouCtrl+untapped | Amount$ 1 | MinAmount$ 0 | SubAbility$ Check
-SVar:Check:DB$ Branch | BranchConditionSVar$ Count$ChosenCardAmount | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ Tap | FalseSubAbility$ Sacrifice
+SVar:Check:DB$ Branch | BranchConditionSVar$ ChosenCard$Amount | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ Tap | FalseSubAbility$ Sacrifice
 SVar:Tap:DB$ Tap | Defined$ ChosenCard | SubAbility$ Stun
 SVar:Stun:DB$ PutCounter | Defined$ ChosenCard | CounterType$ STUN | CounterNum$ 1 | SubAbility$ Draw
 SVar:Draw:DB$ Draw | NumCards$ 1 | SubAbility$ Clear

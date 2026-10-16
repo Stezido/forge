@@ -348,26 +348,36 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Jealous Siren", 3, "2", "3", "Whenever an opponent targets another creature you control with a spell or ability, Jealous Siren deals 2 damage to that player."},
             {"Endless Expectations", 2, "", "", "At the beginning of your end step, if you control X or more untapped lands, where X is the number of Fulfillment counters on Endless Expectations, put a Fulfillment counter on it and draw a card. If you do not control X or more untapped lands, sacrifice Endless Expectations."},
             {"Chaotic Council", 5, "", "", "For each color of mana spent to cast this spell, create a 2/2 Spirit creature token of that color."},
+            {"Youthful Inner Heat", 2, "", "", "Flash\nEnchant creature\nWhen Youthful Inner Heat enters the battlefield, enchanted creature gains hexproof until end of turn.\nEnchanted creature has ward\u2014\u201cGift a card.\u201d"},
             {"Flatfooted", 3, "", "", "Enchant creature\nWhenever enchanted creature becomes tapped, put a stun counter on it.\nWhen Flatfooted enters the battlefield, tap enchanted creature."},
+            {"Tactical Purge", 2, "", "", "Flash\nEnchant creature\nWhen Tactical Purge enters the battlefield, enchanted creature gains indestructible until end of turn.\nEnchanted creature loses all abilities."},
             {"Mysterious Remedy", 4, "", "", "Return target creature card from any graveyard to the battlefield under your control. Put a finality counter on it.(If it would die, exile it instead.)"},
+            {"Last Duel", 2, "", "", "For each player, choose a target creature card in that player's graveyard if able. Return those cards to the battlefield under their owners' control with a finality counter on each of them. (If a creature with a finality counter on it would die, exile it instead.)"},
+            {"Overdose Revival", 2, "", "", "Return target creature card from your graveyard to the battlefield. Put a finality counter on it. It gains\nUpkeep\u2014 Pay 2{B}"},
+            {"Numbing Mass Resurrection", 6, "", "", "When Numbing Mass Resurrection enters the battlefield, each player returns all creature cards from their graveyard to the battlefield with a finality counter on each of them. (If a creature with a finality counter on it would die, exile it instead.)\nCreatures with finality counters on them lose all abilities."},
             {"Hangry", 2, "", "", "Target creature gets +3/+0 and gains haste until end of turn.\nIf you control a Food, it also gains first strike until end of turn."},
             {"Sweet Harmless Siren", 2, "0", "4", "When Sweet Harmless Siren enters the battlefield, obsess up to one target creature."},
             {"Baiting Siren", 4, "3", "4", "{2U}: Obsess target creature. Whenever a obsessed creature attacks, draw a card."},
             {"The Hangry Games", 3, "", "", "Until end of turn, each creature becomes a 1/1 red and blue Siren creature with haste and loses all abilities, other creature types and colors.\nCreate three 1/1 red and blue \u201cHangry Siren\u201d creature tokens with haste."},
             {"Spar\u2019s Bazaar", 3, "", "", "{T}: Add one mana of any color.\nActivated abilities of Beer and Food tokens cost {1} less to activate."},
+            {"Owizahrer", 4, "1", "4", "upkeep \u2014 Tap another untapped creature you control and put a stun counter on it. If you do, draw a card. Otherwise, sacrifice Owizahrer.\nOwizahrer can\u2019t attack."},
             {"Hungry Disgust", 2, "2", "3", "When Hungry Disgust enters the battlefield, create a Food token.\nUpkeep\u2014 Sacrifice a Food. (At the beginning of your upkeep, you must Sacrifice a Food. If you don\u2019t, sacrifice this permanent.)\nWhenever you sacrifice a Food, put a +1/+1 counter on Hungry Disgust."},
+            {"Academic Quarter", 2, "", "", "Until end of turn, you may plot a creature card from your hand by paying its mana cost. You may do this only once. (Plot only as a sorcery. You may cast that card as a sorcery on a later turn without paying its mana cost.)\nDraw a card."},
             {"Straggler", 1, "2", "2", "Straggler enters the battlefield tapped."},
             {"Happy Hour", 3, "", "", "Each player creates two Beer tokens.\nThen each creature gains an obsession counter."},
             {"Echo of Empathy", 2, "", "", "Move all counters from target creature onto another target creature."},
             {"Controlling Relationship", 4, "", "", "Enchant creature.\nWhen this Aura enters, tap enchanted permanent.\nYou control enchanted permanent.\nEnchanted permanent doesn\u2019t untap during its controller\u2019s untap step."},
+            {"Confusing Signals", 3, "", "", "Choose a player.\nTap up to two target creatures that player controls. Put a stun counter on each. That player draws a card for each creature tapped this way."},
             {"Weedfield Herbalist", 2, "1", "3", "{T}: Add {G}."},
             {"Weedfield Grazer", 4, "3", "4", "{T}, Sacrifice a Forest: Create a Food token."},
             {"Tavern Time Out", 2, "", "", "When Tavern Time-Out enters the battlefield, exile target drunken creature an opponent controls until Tavern Time-Out leaves the battlefield."},
             {"Tavern Hand", 2, "2", "2", "When Tavern Hand enters the battlefield, create a Beer token."},
             {"Coffee Shop", 2, "", "", "Tokens you control have \u201c{T}: Add {G}.\u201d"},
+            {"Pumpkin Catapult", 5, "7", "5", "When Pumpkin Catapult enters the battlefield, create a 1/1 red Pilot creature token named Pumpkin Gang Driver with \u201cThis creature crews Vehicles as though its power were 2 greater.\u201d\nCrew 3\nWhenever Pumpkin Catapult becomes crewed, you may sacrifice any number of drunken creatures that crewed it. When you sacrifice a creature this way, Pumpkin Catapult deals 2 damage to any target."},
             {"Vandalism", 3, "", "", "Destroy target artifact or enchantment.\nIf a permanent is destroyed this way, its controller loses 2 life."},
             {"Ogrontwin Steve", 4, "3", "4", "Trample\nAs long as you control a creature named \u201cOgrontwin Pete\u201d, Ogrontwin Steve gets +3/+3."},
             {"Ogrontwin Pete", 4, "4", "3", "Menace\nAs long as you control a creature named \u201cOgrontwin Steve\u201d, Ogrontwin Pete gets +3/+3."},
+            {"Bromoment", 3, "", "", "Search your library for a card named Ogrontwin Pete or Ogrontwin Steve, reveal it, and put it into your hand. If you control one with that name, you may put it onto the battlefield instead. Then shuffle."},
             {"Blood Moon Rising", 3, "", "", "Enchant creature\nAt the beginning of enchanted creature\u2019s controller\u2019s upkeep, they lose 2 life.\nWhenever another permanent enters the battlefield, put a obsession counter on enchanted creature.\nAs long as enchanted creature has five or more obsession counters on it, it gets +10/+0, has menace and first strike."},
             {"Zimty", 3, "2", "3", "When Zimty dies, target opponent discards a card.\n{2}, {T}, Sacrifice Zimty: You gain 3 life."},
             {"Mystic Herb Vegetative", 3, "2", "2", "When Mystic Herb Vegetative enters the battlefield, mill three cards. You may put a land card from among the cards milled this way into your hand. If you don\u2019t, put a +1/+1 counter on Mystic Herb Vegetative."},
@@ -883,4 +893,269 @@ public class ChaosBrawlTest extends SimulationTest {
             assertFalse(p.hasLost());
         }
     }
+    private void phaseEvent(Game game, Player player, PhaseType phase) {
+        game.getPhaseHandler().devModeSet(phase, player);
+        game.getTriggerHandler().resetActiveTriggers();
+        game.getTriggerHandler().runTrigger(TriggerType.Phase, AbilityKey.mapFromPlayer(player), false);
+        resolveTriggers(game);
+    }
+
+    @Test
+    public void lastDuelRequiresOneLegalTargetPerGraveyardIfAble() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        SpellAbility duel = spell("Last Duel", p);
+        assertEquals(duel.getMinTargets(), 0);
+        Card own = addCardToZone("Couchpotato", p, ZoneType.Graveyard);
+        Card spare = addCardToZone("Puddinghead", p, ZoneType.Graveyard);
+        Card theirs = addCardToZone("Drunken Warrior", other, ZoneType.Graveyard);
+        assertEquals(duel.getMinTargets(), 2);
+        assertEquals(duel.getMaxTargets(), 2);
+        duel.getTargets().add(own);
+        assertFalse(duel.isTargetNumberValid());
+        assertFalse(duel.canTarget(spare));
+        assertTrue(duel.canTarget(theirs));
+        duel.getTargets().add(theirs);
+        assertTrue(duel.isTargetNumberValid());
+        AbilityUtils.resolve(duel);
+        for (Player owner : game.getPlayers()) {
+            Card returned = owner.getCardsIn(ZoneType.Battlefield).getFirst();
+            assertEquals(returned.getOwner(), owner);
+            assertEquals(returned.getController(), owner);
+            assertEquals(returned.getCounters(CounterEnumType.FINALITY), 1);
+        }
+        assertTrue(spare.isInZone(ZoneType.Graveyard));
+        addCard("Ground Seal", p);
+        game.getAction().checkStaticAbilities();
+        SpellAbility protectedDuel = spell("Last Duel", p);
+        assertEquals(protectedDuel.getMinTargets(), 0);
+    }
+
+    @Test
+    public void numbingResurrectionReturnsBothSidesAndFinalitySurvivesAbilityLoss() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        addCardToZone("Drunken Warrior", p, ZoneType.Graveyard);
+        addCardToZone("Caring Siren", other, ZoneType.Graveyard);
+        Card enchantment = enter("Numbing Mass Resurrection", p);
+        resolveTriggers(game);
+        game.getAction().checkStaticAbilities();
+        Card warrior = p.getCreaturesInPlay().getFirst();
+        Card siren = other.getCreaturesInPlay().getFirst();
+        assertEquals(warrior.getCounters(CounterEnumType.FINALITY), 1);
+        assertEquals(siren.getCounters(CounterEnumType.FINALITY), 1);
+        assertFalse(warrior.hasKeyword("Haste"));
+        assertFalse(siren.hasKeyword("Flying"));
+        Card later = addCardToZone("Couchpotato", other, ZoneType.Graveyard);
+        game.getAction().checkStaticAbilities();
+        assertTrue(later.isInZone(ZoneType.Graveyard));
+        AbilityUtils.resolve(AbilityFactory.getAbility("DB$ Destroy | Defined$ Self", warrior));
+        assertTrue(warrior.isInZone(ZoneType.Exile));
+        game.getAction().moveTo(ZoneType.Graveyard, enchantment, null, null);
+        game.getAction().checkStaticAbilities();
+        assertTrue(siren.hasKeyword("Flying"));
+    }
+
+    @Test
+    public void mysteriousRemedyStealsOpponentCreatureWithFinality() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card target = addCardToZone("Couchpotato", other, ZoneType.Graveyard);
+        SpellAbility remedy = spell("Mysterious Remedy", p);
+        remedy.getTargets().add(target);
+        AbilityUtils.resolve(remedy);
+        Card returned = p.getCreaturesInPlay().getFirst();
+        assertEquals(returned.getOwner(), other);
+        assertEquals(returned.getController(), p);
+        assertEquals(returned.getCounters(CounterEnumType.FINALITY), 1);
+    }
+
+    @Test
+    public void owizahrerDrawsOnlyAfterTappingAndStunningOneOtherCreature() {
+        for (boolean keep : new boolean[] {false, true}) {
+            Game game = customGame();
+            Player p = game.getPlayers().get(0);
+            Card owl = enter("Owizahrer", p);
+            Card helper = addCard("Couchpotato", p);
+            addCardToZone("Island", p, ZoneType.Library);
+            PlayerController choices = spy(p.getController());
+            doReturn(keep ? new forge.game.card.CardCollection(helper) : forge.game.card.CardCollection.EMPTY)
+                    .when(choices).chooseCardsForEffect(any(), any(), anyString(), anyInt(), anyInt(), anyBoolean(), any());
+            p.dangerouslySetController(choices);
+            phaseEvent(game, p, PhaseType.UPKEEP);
+            assertEquals(helper.isTapped(), keep);
+            assertEquals(helper.getCounters(CounterEnumType.STUN), keep ? 1 : 0);
+            assertEquals(p.getCardsIn(ZoneType.Hand).size(), keep ? 1 : 0);
+            assertEquals(owl.isInZone(ZoneType.Battlefield), keep);
+        }
+    }
+
+    @Test
+    public void soulEaterCountsAllCounterKindsOnBothSidesButNotNoncreatures() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card own = addCard("Couchpotato", p), theirs = addCard("Couchpotato", other);
+        counters(own, CounterEnumType.STUN, 2);
+        counters(theirs, CounterEnumType.OBSESSION, 3);
+        Card artifact = addCard("Blue Cow", p);
+        counters(artifact, CounterEnumType.CHARGE, 7);
+        Card siren = addCard("Soul Eater Siren", p);
+        game.getAction().checkStaticAbilities();
+        assertEquals(siren.getNetPower(), 5);
+        assertEquals(siren.getNetToughness(), 5);
+        counters(own, CounterEnumType.FINALITY, 1);
+        game.getAction().checkStaticAbilities();
+        assertEquals(siren.getNetPower(), 6);
+    }
+
+    @Test
+    public void hangryGamesTransformsExistingCreaturesAndCreatesThreeHastySirens() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card own = addCard("Darksteel Myr", p), theirs = addCard("Caring Siren", other);
+        AbilityUtils.resolve(spell("The Hangry Games", p));
+        game.getAction().checkStaticAbilities();
+        for (Card creature : new Card[] {own, theirs}) {
+            assertEquals(creature.getNetPower(), 1);
+            assertEquals(creature.getNetToughness(), 1);
+            assertTrue(creature.getType().hasSubtype("Siren"));
+            assertTrue(creature.hasKeyword("Haste"));
+            assertFalse(creature.hasKeyword("Flying"));
+            assertFalse(creature.hasKeyword("Indestructible"));
+        }
+        assertEquals(p.getCreaturesInPlay().stream().filter(c -> c.isToken() && c.getName().equals("Hangry Siren")).count(), 3L);
+        game.getEndOfTurn().executeUntil();
+        game.getAction().checkStaticAbilities();
+        assertTrue(own.hasKeyword("Indestructible"));
+        assertEquals(own.getNetPower(), 0);
+    }
+
+    @Test
+    public void echoMovesEveryCounterKindAndLibraryMovesOnlyOneChosenCounter() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card source = addCard("Couchpotato", other), target = addCard("Couchpotato", p);
+        counters(source, CounterEnumType.STUN, 2);
+        counters(source, CounterEnumType.OBSESSION, 3);
+        SpellAbility echo = spell("Echo of Empathy", p);
+        echo.getTargets().add(source); echo.getTargets().add(target);
+        AbilityUtils.resolve(echo);
+        assertEquals(source.getCounters(CounterEnumType.STUN), 0);
+        assertEquals(source.getCounters(CounterEnumType.OBSESSION), 0);
+        assertEquals(target.getCounters(CounterEnumType.STUN), 2);
+        assertEquals(target.getCounters(CounterEnumType.OBSESSION), 3);
+        Card library = addCard("Library of Shared Memories", p);
+        Card second = addCard("Couchpotato", p);
+        SpellAbility move = library.getSpellAbilities().stream().filter(sa -> sa.getApi() == ApiType.MoveCounter).findFirst().orElseThrow();
+        move.setActivatingPlayer(p); move.getTargets().add(target); move.getTargets().add(second);
+        AbilityUtils.resolve(move);
+        assertEquals(target.getCounters().size(), 4);
+        assertEquals(second.getCounters().size(), 1);
+    }
+
+    @Test
+    public void rottenCellarTriggersForOpponentsNontokenFoodAndDoesNotGainLife() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        p.setLife(10, null); other.setLife(10, null);
+        enter("Rotten Cellar", p);
+        Card food = addCard("Couchpotato", other);
+        AbilityUtils.resolve(AbilityFactory.getAbility("DB$ Sacrifice | Defined$ Self", food));
+        resolveTriggers(game);
+        assertEquals(other.getLife(), 9);
+        assertEquals(p.getLife(), 10);
+    }
+
+    @Test
+    public void happyHourMakesTwoBeersPerPlayerAndObsessesAllCreatures() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0);
+        for (Player player : game.getPlayers()) addCard("Couchpotato", player);
+        AbilityUtils.resolve(spell("Happy Hour", p));
+        for (Player player : game.getPlayers()) {
+            assertEquals(player.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.isToken() && c.getName().equals("Beer")).count(), 2L);
+            assertEquals(player.getCreaturesInPlay().getFirst().getCounters(CounterEnumType.OBSESSION), 1);
+        }
+    }
+
+    @Test
+    public void twinsOnlyGrowWhileTheNamedOtherTwinIsControlled() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card steve = addCard("Ogrontwin Steve", p), enemy = addCard("Ogrontwin Pete", other);
+        game.getAction().checkStaticAbilities();
+        assertEquals(steve.getNetPower(), 3);
+        Card pete = addCard("Ogrontwin Pete", p);
+        game.getAction().checkStaticAbilities();
+        assertEquals(steve.getNetPower(), 6);
+        assertEquals(pete.getNetToughness(), 6);
+        game.getAction().moveTo(ZoneType.Graveyard, pete, null, null);
+        game.getAction().checkStaticAbilities();
+        assertEquals(steve.getNetPower(), 3);
+        assertEquals(enemy.getNetPower(), 4);
+    }
+
+    @Test
+    public void blueCowOnlySacrificesAfterLastChargeIsRemoved() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0);
+        Card cow = enter("Blue Cow", p);
+        assertEquals(cow.getCounters(CounterEnumType.CHARGE), 3);
+        cow.subtractCounter(CounterEnumType.CHARGE, 2, p);
+        resolveTriggers(game);
+        assertTrue(cow.isInZone(ZoneType.Battlefield));
+        cow.subtractCounter(CounterEnumType.CHARGE, 1, p);
+        resolveTriggers(game);
+        assertTrue(cow.isInZone(ZoneType.Graveyard));
+    }
+
+    @Test
+    public void vandalismDoesNotDrainIfThePermanentCannotBeDestroyed() {
+        for (boolean indestructible : new boolean[] {false, true}) {
+            Game game = customGame();
+            Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+            other.setLife(10, null);
+            Card target = addCard(indestructible ? "Darksteel Ingot" : "Sol Ring", other);
+            SpellAbility vandalism = spell("Vandalism", p); vandalism.getTargets().add(target);
+            AbilityUtils.resolve(vandalism);
+            assertEquals(other.getLife(), indestructible ? 10 : 8);
+            assertEquals(target.isInZone(ZoneType.Graveyard), !indestructible);
+        }
+    }
+
+    @Test
+    public void endlessExpectationsUsesTheOldCounterCountAndSacrificesWhenShort() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0);
+        for (int n = 0; n < 3; n++) addCardToZone("Island", p, ZoneType.Library);
+        Card expectation = enter("Endless Expectations", p);
+        phaseEvent(game, p, PhaseType.END_OF_TURN);
+        assertEquals(expectation.getCounters(CounterEnumType.FULFILLMENT), 1);
+        assertEquals(p.getCardsIn(ZoneType.Hand).size(), 1);
+        Card land = addCard("Island", p);
+        phaseEvent(game, p, PhaseType.END_OF_TURN);
+        assertEquals(expectation.getCounters(CounterEnumType.FULFILLMENT), 2);
+        assertEquals(p.getCardsIn(ZoneType.Hand).size(), 2);
+        phaseEvent(game, p, PhaseType.END_OF_TURN);
+        assertTrue(expectation.isInZone(ZoneType.Graveyard));
+        assertTrue(land.isUntapped());
+    }
+
+    @Test
+    public void confusingSignalsDrawsOnlyForNewlyTappedCreaturesAndFixesChosenPlayer() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card first = addCard("Couchpotato", other), second = addCard("Couchpotato", other);
+        second.tap(true, null, other);
+        addCardToZone("Island", other, ZoneType.Library);
+        SpellAbility signals = spell("Confusing Signals", p);
+        signals.getHostCard().setChosenPlayer(other);
+        assertFalse(signals.canTarget(addCard("Couchpotato", p)));
+        signals.getTargets().add(first); signals.getTargets().add(second);
+        AbilityUtils.resolve(signals);
+        assertEquals(other.getCardsIn(ZoneType.Hand).size(), 1);
+        assertEquals(first.getCounters(CounterEnumType.STUN), 1);
+        assertEquals(second.getCounters(CounterEnumType.STUN), 1);
+    }
+
 }

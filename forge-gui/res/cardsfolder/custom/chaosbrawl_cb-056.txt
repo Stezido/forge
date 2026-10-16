@@ -1,0 +1,9 @@
+Name:Youthful Inner Heat
+ManaCost:U R
+Types:Enchantment Aura
+K:Flash
+K:Enchant:Creature
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Hexproof | TriggerDescription$ When CARDNAME enters, enchanted creature gains hexproof until end of turn.
+SVar:Hexproof:DB$ Pump | Defined$ Enchanted | KW$ Hexproof
+S:Mode$ Continuous | AffectedDefined$ Enchanted | AddKeyword$ Ward:Draw<1/Player.Activator> | Description$ Enchanted creature has ward—Gift a card.
+Oracle:Flash\nEnchant creature\nWhen Youthful Inner Heat enters the battlefield, enchanted creature gains hexproof until end of turn.\nEnchanted creature has ward—“Gift a card.”
