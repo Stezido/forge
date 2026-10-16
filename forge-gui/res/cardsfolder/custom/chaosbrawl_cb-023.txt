@@ -4,5 +4,5 @@ Types:Creature Half-Giant
 PT:6/6
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Beer | TriggerDescription$ When CARDNAME enters the battlefield, create two Beer tokens.
 SVar:Beer:DB$ Token | TokenScript$ chaosbrawl_beer | TokenAmount$ 2
-SVar:ChaosBrawlTolerance:4
+S:Mode$ ChaosBrawlTolerance | ValidCard$ Card.Self | Base$ 4 | Description$ Drunken Tolerance 4
 Oracle:When Kegbearer, the Barrelback enters the battlefield, create two Beer token.\nDrunken Tolerance 4

@@ -2,5 +2,5 @@ Name:Trained Drinker
 ManaCost:3 G
 Types:Creature Troll
 PT:4/3
-SVar:ChaosBrawlTolerance:4
+S:Mode$ ChaosBrawlTolerance | ValidCard$ Card.Self | Base$ 4 | Description$ Drunken Tolerance 4
 Oracle:Drunken Tolerance 4 (At the beginning of its controller’s turn, if a creature has more drunken counters than its Drunken Tolerance, remove the excess counters and put that many stun counters on it.)

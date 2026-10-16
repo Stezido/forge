@@ -3,5 +3,5 @@ ManaCost:5 R
 Types:Creature Goblin
 PT:4/4
 K:Affinity:Beer
-SVar:ChaosBrawlTolerance:5
+S:Mode$ ChaosBrawlTolerance | ValidCard$ Card.Self | Base$ 5 | Description$ Drunken Tolerance 5
 Oracle:Affinity for Beer (This spell costs {1} less to cast for each Beer you control.)\nDrunken Tolerance 5

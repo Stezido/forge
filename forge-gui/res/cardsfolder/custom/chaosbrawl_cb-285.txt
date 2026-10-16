@@ -8,7 +8,7 @@ A:AB$ LoseLife | Cost$ AddCounter<2/LOYALTY> | Planeswalker$ True | ValidTgts$ O
 SVar:Gain:DB$ GainLife | Defined$ You | LifeAmount$ 1 | SubAbility$ Family
 A:AB$ Token | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | TokenScript$ chaosbrawl_another_brother | SpellDescription$ Create a 2/2 black Gnome named Another Brother.
 A:AB$ RemoveCounter | Cost$ SubCounter<6/LOYALTY> | Planeswalker$ True | Ultimate$ True | Defined$ Self | CounterType$ LOSTFAMILY | CounterNum$ All | RememberRemoved$ True | SubAbility$ Pack | SpellDescription$ Remove all Lost Family counters. Create that many 4/4 black Gnomes with haste named Vengeful Gnome Pack.
-SVar:Pack:DB$ Token | TokenScript$ chaosbrawl_vengeful_gnome_pack | TokenAmount$ X | SubAbility$ Clear
+SVar:Pack:DB$ Token | TokenScript$ chaosbrawl_vengeful_gnome_pack_haste | TokenAmount$ X | SubAbility$ Clear
 SVar:X:Count$RememberedSize
 SVar:Clear:DB$ Cleanup | ClearRemembered$ True
 Oracle: — Whenever a Gnome you control dies, put a\n“Lost Family” counter on Sasa, the Big Brother.\n+2 — Target opponent loses 1 life and you gain 1 life. Put a “Lost Family” counter on Sasa.\n-2 — Create a 2/2 black Gnome creature token named “Another Brother.”\n-6 — Remove all “Lost Family” counters from Sasa. Create that many 4/4 black Gnome creature tokens with haste named the “Vengeful Gnome Pack”.

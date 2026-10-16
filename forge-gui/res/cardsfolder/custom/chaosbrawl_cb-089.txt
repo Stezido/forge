@@ -3,7 +3,7 @@ ManaCost:1 R W
 Types:Creature Dwarf Warrior
 PT:3/2
 K:Haste
-SVar:ChaosBrawlTolerance:5
+S:Mode$ ChaosBrawlTolerance | ValidCard$ Card.Self | Base$ 5 | Description$ Drunken Tolerance 5
 T:Mode$ Phase | TriggerZones$ Battlefield | Execute$ Upkeep | TriggerDescription$ At the beginning of your upkeep, sacrifice CARDNAME unless you sacrifice a Beer token. | Phase$ Upkeep | ValidPlayer$ You | ChaosBrawlUpkeep$ True
 SVar:Upkeep:DB$ Sacrifice | Defined$ Self | UnlessCost$ Sac<1/Beer.token> | UnlessPayer$ You
 T:Mode$ Attacks | TriggerZones$ Battlefield | Execute$ Beer | TriggerDescription$ Whenever CARDNAME attacks, create a Beer token. | ValidCard$ Card.Self

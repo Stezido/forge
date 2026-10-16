@@ -2,7 +2,7 @@ Name:Wandering Culinarian
 ManaCost:1 G
 Types:Creature Human
 PT:2/2
-S:Mode$ Continuous | Affected$ You | RaiseMaxLandPlay$ 1 | Description$ You may play an additional land each turn.
+S:Mode$ Continuous | Affected$ You | AdjustLandPlays$ 1 | Description$ You may play an additional land each turn.
 T:Mode$ ChangesZone | TriggerZones$ Battlefield | Execute$ Food | TriggerDescription$ Whenever the second land enters under your control each turn, create a Food token. | Origin$ Any | Destination$ Battlefield | ValidCard$ Land.YouCtrl | CheckSVar$ X | SVarCompare$ EQ2
 SVar:X:Count$ThisTurnEntered_Battlefield_Land.YouCtrl
 SVar:Food:DB$ Token | TokenScript$ c_a_food_sac

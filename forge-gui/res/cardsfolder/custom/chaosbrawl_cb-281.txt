@@ -4,8 +4,8 @@ Types:Enchantment Saga
 K:Chapter:3:Mill,Return,BounceChoice
 SVar:Mill:DB$ Mill | Defined$ You | NumCards$ 4 | SpellDescription$ Mill four cards.
 SVar:Return:DB$ ChangeZone | Hidden$ True | Origin$ Graveyard | Destination$ Hand | ChangeType$ Instant,Sorcery | ChangeNum$ 1 | Mandatory$ True | SpellDescription$ Choose an instant or sorcery in your graveyard and put it into your hand.
-SVar:BounceChoice:DB$ ChooseCard | Choices$ Creature | ChoiceZone$ Battlefield | Amount$ 1 | ChoiceOptional$ True | SubAbility$ Bounce | SpellDescription$ You may return a creature. If it is yours, draw a card.
+SVar:BounceChoice:DB$ ChooseCard | Choices$ Creature | ChoiceZone$ Battlefield | Amount$ 1 | MinAmount$ 0 | SubAbility$ Bounce | SpellDescription$ You may return a creature. If it is yours, draw a card.
 SVar:Bounce:DB$ ChangeZone | Defined$ ChosenCard | Origin$ Battlefield | Destination$ Hand | RememberLKI$ True | SubAbility$ Draw
-SVar:Draw:DB$ Draw | NumCards$ 1 | ConditionDefined$ Remembered | ConditionPresent$ Creature.YouCtrl | SubAbility$ Clear
+SVar:Draw:DB$ Draw | NumCards$ 1 | ConditionDefined$ RememberedLKI | ConditionPresent$ Creature.YouCtrl | SubAbility$ Clear
 SVar:Clear:DB$ Cleanup | ClearRemembered$ True
 Oracle:I — Mill four cards.\nII — Choose an instant or sorcery card from your graveyard and put it into your hand.\nIII — You may return a creature to its owner’s hand. If it’s one of your creatures, draw a card.

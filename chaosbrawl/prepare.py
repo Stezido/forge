@@ -94,7 +94,8 @@ def main():
     identity = {c['name']:c for c in pinned['supportingTokens']}
     scripts = [('Beer','chaosbrawl_beer'),('Hangry Siren','chaosbrawl_hangry_siren'),
                ('Another Brother','chaosbrawl_another_brother'),('Vengeful Gnome Pack','chaosbrawl_vengeful_gnome_pack'),
-               ('Stinky Elemental','chaosbrawl_stinky_elemental')]
+               ('Stinky Elemental','chaosbrawl_stinky_elemental'),
+               ('Vengeful Gnome Pack','chaosbrawl_vengeful_gnome_pack_haste')]
     scripts += [(n+' Beer','chaosbrawl_'+n.lower()+'_beer') for n in ['Expired','Zwickl','Wheat','Dark','Pils','Bock']]
     by_id = {c['id']:c for c in cards}
     scripts += [(by_id[cid]['name'], script) for cid, script in token_bindings.items() if cid in by_id]

@@ -10,5 +10,5 @@ SVar:Wheat:DB$ Token | TokenScript$ chaosbrawl_wheat_beer
 SVar:Dark:DB$ Token | TokenScript$ chaosbrawl_dark_beer
 SVar:Pils:DB$ Token | TokenScript$ chaosbrawl_pils_beer
 SVar:Bock:DB$ Token | TokenScript$ chaosbrawl_bock_beer
-SVar:ChaosBrawlTolerance:6
+S:Mode$ ChaosBrawlTolerance | ValidCard$ Card.Self | Base$ 6 | Description$ Drunken Tolerance 6
 Oracle:At the beginning of each upkeep, roll a six-sided die. Create a Beer token with the result indicated below.\n1 — Expired Beer\n2 — Zwickl Beer\n3 — Wheat Beer\n4 — Dark Beer\n5 — Pils Beer\n6 — Bock Beer\nDrunken tolerance 6

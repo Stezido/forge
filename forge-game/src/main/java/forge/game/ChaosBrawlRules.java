@@ -162,16 +162,21 @@ public final class ChaosBrawlRules {
     }
 
     public static int drunkenTolerance(final Card card) {
-        int result = card.hasSVar("ChaosBrawlTolerance") ? Integer.parseInt(card.getSVar("ChaosBrawlTolerance")) : 2;
+        int base = 2;
+        int modifier = 0;
         for (Card source : card.getGame().getCardsIn(forge.game.zone.ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
             for (forge.game.staticability.StaticAbility ability : source.getStaticAbilities()) {
                 if (ability.checkConditions(forge.game.staticability.StaticAbilityMode.ChaosBrawlTolerance)
                         && ability.matchesValidParam("ValidCard", card)) {
-                    result += forge.game.ability.AbilityUtils.calculateAmount(source, ability.getParam("Amount"), ability);
+                    if (ability.hasParam("Base")) {
+                        base = forge.game.ability.AbilityUtils.calculateAmount(source, ability.getParam("Base"), ability);
+                    } else {
+                        modifier += forge.game.ability.AbilityUtils.calculateAmount(source, ability.getParam("Amount"), ability);
+                    }
                 }
             }
         }
-        return Math.max(0, result);
+        return Math.max(0, base + modifier);
     }
 
 }

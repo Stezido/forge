@@ -52,3 +52,5 @@ Batch 05 checkpoint: 40 new definitions and eight repeated shock-land printings 
 Batch 05 complete for 48 clear entries: 244 cumulative non-token records (236 names), 337 passing checks, desktop build, 244 native PNGs, six decks and completed AI game (turn 11, Ai(2), 2108 ms). Six deferred cards remain excluded. Continue 251–300.
 
 Batch 06 checkpoint: 275 cumulative non-token entries and 15 authored token bindings. Four additional cards are excluded pending rule clarification; metadata and new mechanics checks are in progress. New tolerance modifiers and one-native-d20-per-Beer replacement are implemented but not yet verified.
+
+Batch 06 behavior checkpoint: all 397 checks pass (275 non-token source comparisons, 15 token type/stat checks, 107 behavior checks). Fixed native additional-land field and separate copiable haste token for Sasa. Printed tolerances now use real static abilities, so blanking removes them while external tolerance modifiers remain; regression covered. Build and AI smoke still pending.

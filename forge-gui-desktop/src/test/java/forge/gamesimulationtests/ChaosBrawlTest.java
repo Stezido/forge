@@ -608,7 +608,7 @@ public class ChaosBrawlTest extends SimulationTest {
         if (name.equals("Inspiring Bard")) {
             oracle = oracle.replace("enters, the battlefield,", "enters,");
         }
-        assertEquals(displayed, oracle, name);
+        assertEquals(displayed, card.isPlaneswalker() ? oracle.stripLeading() : oracle, name);
         if (!power.isEmpty() && !power.equals("*")) {
             assertEquals(card.getBasePower(), Integer.parseInt(power), name);
             assertEquals(card.getBaseToughness(), Integer.parseInt(toughness), name);
@@ -2001,6 +2001,206 @@ public class ChaosBrawlTest extends SimulationTest {
             assertEquals(sauna.getCounters(CounterEnumType.P1P1), n < 2 ? 0 : 1);
             assertEquals(sauna.hasKeyword("Menace"), n >= 2);
         }
+    }
+
+    @DataProvider(name = "authoredTokens")
+    public Object[][] authoredTokens() {
+        return new Object[][] {
+            {"cb-275", "chaosbrawl_beer", "Artifact \u2014 Beer", "", ""},
+            {"cb-276", "chaosbrawl_jade_dragon", "Legendary Creature \u2014 Dragon", "7", "7"},
+            {"cb-277", "chaosbrawl_another_brother", "Creature \u2014 Gnome", "2", "2"},
+            {"cb-288", "chaosbrawl_expired_beer", "Artifact \u2014 Beer", "", ""},
+            {"cb-289", "chaosbrawl_pils_beer", "Artifact \u2014 Beer", "", ""},
+            {"cb-290", "chaosbrawl_zwickl_beer", "Artifact \u2014 Beer", "", ""},
+            {"cb-291", "chaosbrawl_wheat_beer", "Artifact \u2014 Beer", "", ""},
+            {"cb-292", "chaosbrawl_dark_beer", "Artifact \u2014 Beer", "", ""},
+            {"cb-293", "chaosbrawl_bock_beer", "Artifact \u2014 Beer", "", ""},
+            {"cb-294", "chaosbrawl_hangry_siren", "Creature \u2014 Siren", "1", "1"},
+            {"cb-295", "g_2_2_elemental", "Creature \u2014 Elemental", "2", "2"},
+            {"cb-296", "chaosbrawl_stinky_elemental", "Creature \u2014 Elemental", "1", "1"},
+            {"cb-297", "chaosbrawl_vengeful_gnome_pack", "Creature \u2014 Gnome", "4", "4"},
+            {"cb-299", "chaosbrawl_ari_the_ripper", "Legendary Creature \u2014 Dog", "3", "3"},
+            {"cb-300", "c_a_food_sac", "Artifact \u2014 Food", "", ""}
+        };
+    }
+
+    @Test(dataProvider = "authoredTokens")
+    public void authoredTokenBindingsRetainTypesAndStats(String id, String script, String types, String power, String toughness) {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card host = createCard("Couchpotato", p); SpellAbility source = host.getFirstSpellAbility(); source.setActivatingPlayer(p);
+        Card token = forge.game.card.token.TokenInfo.getProtoType(script, source, p);
+        for (String type : types.replace(" — ", " ").split(" ")) assertTrue(token.getType().hasStringType(type), id + " " + type);
+        if (!power.isEmpty()) { assertEquals(token.getBasePower(), Integer.parseInt(power), id); assertEquals(token.getBaseToughness(), Integer.parseInt(toughness), id); }
+    }
+
+    @Test
+    public void professionalToleranceStacksAndAffectsConversionBeforeUntapping() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card first = enter("Professional Drunk", p), second = enter("Professional Drunk", p);
+        Card target = addCard("Couchpotato", p), fixed = addCard("Trained Drinker", p), opponent = addCard("Couchpotato", other);
+        assertEquals(ChaosBrawlRules.drunkenTolerance(target), 4); assertEquals(ChaosBrawlRules.drunkenTolerance(fixed), 6);
+        assertEquals(ChaosBrawlRules.drunkenTolerance(opponent), 2);
+        counters(target, CounterEnumType.DRUNKEN, 5); untap(game, p); resolveTriggers(game);
+        assertEquals(target.getCounters(CounterEnumType.DRUNKEN), 4); assertEquals(target.getCounters(CounterEnumType.STUN), 0);
+        assertEquals(countCardsWithName(game, "Beer"), 2, "Each Professional triggers once for the removed excess");
+        game.getAction().moveTo(ZoneType.Graveyard, first, null, null); game.getAction().checkStaticAbilities();
+        assertEquals(ChaosBrawlRules.drunkenTolerance(target), 3);
+    }
+
+    @Test
+    public void wildFermentationRollsOnceForEachBeerAndPreservesTokenCount() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card wild = enter("Wild Fermentation", p); resolveTriggers(game); int before = p.getNumRollsThisTurn();
+        resolveEffect("DB$ Token | TokenScript$ chaosbrawl_beer | TokenAmount$ 20", wild); resolveTriggers(game);
+        assertEquals(p.getNumRollsThisTurn() - before, 20);
+        assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.isToken() && c.getType().hasSubtype("Beer")).count(), 20L);
+        assertTrue(p.getCardsIn(ZoneType.Battlefield).stream().filter(Card::isToken)
+                .allMatch(c -> c.getName().equals("Beer") || c.getName().equals("Bock Beer")));
+        Card host = addCard("Couchpotato", other); resolveEffect("DB$ Token | TokenScript$ chaosbrawl_beer", host);
+        assertEquals(other.getNumRollsThisTurn(), 0);
+    }
+
+    @Test
+    public void brewbellyMakesOneBeerPerCreatedFoodAndHearthkeeperFeedsEveryPlayer() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card brew = enter("Brewbelly Jumbo", p); resolveTriggers(game); assertEquals(countCardsWithName(game, "Beer"), 1);
+        enter("Tavern Hearthkeeper", p); resolveTriggers(game);
+        assertEquals(countCardsWithName(game, "Beer"), 3);
+        assertEquals(other.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.isToken() && c.getType().hasSubtype("Food")).count(), 2L);
+    }
+
+    @Test
+    public void scrapgulperPaysRealMillCostAndGrowsForEachFoodMilled() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card ooze = enter("Tavern Scrapgulper", p); addCardToZone("Couchpotato", p, ZoneType.Library); addCardToZone("Wixbirne", p, ZoneType.Library);
+        PlayerController choices = spy(p.getController());
+        doAnswer(i -> new forge.game.cost.CostPayment(i.getArgument(0), i.getArgument(1))
+                .payComputerCosts(new forge.ai.AiCostDecision(p, i.getArgument(1), true)))
+                .when(choices).payCostToPreventEffect(any(), any(), anyBoolean(), any()); p.dangerouslySetController(choices);
+        phaseEvent(game, p, PhaseType.UPKEEP); resolveTriggers(game);
+        assertTrue(ooze.isInZone(ZoneType.Battlefield)); assertEquals(ooze.getCounters(CounterEnumType.P1P1), 2);
+        phaseEvent(game, p, PhaseType.UPKEEP); assertTrue(ooze.isInZone(ZoneType.Graveyard));
+    }
+
+    @Test
+    public void culinarianGrantsOneExtraLandAndOnlyTheSecondLandMakesFood() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card cook = enter("Wandering Culinarian", p);
+        assertEquals(p.getMaxLandPlays(), 2);
+        for (int n = 1; n <= 3; n++) {
+            enter("Forest", p); resolveTriggers(game);
+            assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.isToken() && c.getType().hasSubtype("Food")).count(), n < 2 ? 0L : 1L);
+        }
+    }
+
+    @Test
+    public void latePlaneswalkersEnterWithTheirSourceLoyalty() {
+        for (String name : new String[] {"Peter, the Manipulative", "Sasa, the Big Brother", "Stefan, the Eternal Annoyer", "Alex, the Cozy", "Peter, the Stoned Hunter"}) {
+            Game game = customGame(); Card walker = enter(name, game.getPlayers().get(0));
+            assertEquals(walker.getCounters(CounterEnumType.LOYALTY), 3, name);
+        }
+    }
+
+    @Test
+    public void sasaTracksFamilyAndItsUltimateCreatesThatManyHastyGnomes() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card sasa = enter("Sasa, the Big Brother", p); resolveEffect("DB$ Token | TokenScript$ chaosbrawl_another_brother", sasa);
+        game.getAction().checkStateEffects(true); resolveEffect("DB$ Sacrifice | SacValid$ Gnome.YouCtrl | Amount$ 1", sasa); resolveTriggers(game);
+        assertEquals(sasa.getCounters(CounterEnumType.LOSTFAMILY), 1);
+        counters(sasa, CounterEnumType.LOSTFAMILY, 2); counters(sasa, CounterEnumType.LOYALTY, 4);
+        SpellAbility ultimate = sasa.getSpellAbilities().stream().filter(c -> c.getApi() == ApiType.RemoveCounter).findFirst().orElseThrow();
+        ultimate.setActivatingPlayer(p); assertTrue(ComputerUtil.playNoStack(p, ultimate, game, false));
+        assertEquals(sasa.getCounters(CounterEnumType.LOSTFAMILY), 0);
+        assertEquals(p.getCreaturesInPlay().stream().filter(c -> c.getName().equals("Vengeful Gnome Pack") && c.hasKeyword("Haste") && c.getNetPower() == 4).count(), 3L);
+    }
+
+    @Test
+    public void peterCreatesAriOnceThenPutsThreeCountersOnTheExistingDog() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card peter = enter("Peter, the Stoned Hunter", p);
+        SpellAbility ability = peter.getSpellAbilities().stream().filter(c -> c.getApi() == ApiType.Branch).findFirst().orElseThrow();
+        ability.setActivatingPlayer(p); AbilityUtils.resolve(ability);
+        Card dog = p.getCreaturesInPlay().stream().filter(c -> c.getName().equals("Ari, the Ripper")).findFirst().orElseThrow();
+        assertTrue(dog.getType().isLegendary()); assertTrue(dog.hasKeyword("Vigilance"));
+        AbilityUtils.resolve(ability); assertEquals(dog.getCounters(CounterEnumType.P1P1), 3);
+        assertEquals(p.getCreaturesInPlay().size(), 1);
+    }
+
+    @Test
+    public void stefanUltimateCastsForFreeAndExilesTheResolvedSpell() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card stefan = enter("Stefan, the Eternal Annoyer", p), target = addCard("Couchpotato", p);
+        Card card = addCardToZone("Take a Sniff", p, ZoneType.Graveyard); counters(stefan, CounterEnumType.LOYALTY, 4);
+        SpellAbility ultimate = stefan.getSpellAbilities().stream().filter(c -> c.getApi() == ApiType.Effect && c.hasParam("Ultimate")).findFirst().orElseThrow();
+        ultimate.setActivatingPlayer(p); assertTrue(ComputerUtil.playNoStack(p, ultimate, game, false));
+        game.getAction().checkStaticAbilities(); assertFalse(card.mayPlay(p).isEmpty());
+        SpellAbility cast = card.getFirstSpellAbility(); cast.setActivatingPlayer(p); cast.setMayPlay(card.mayPlay(p).get(0)); cast.getTargets().add(target);
+        cast.setHostCard(game.getAction().moveToStack(card, cast)); game.getStack().add(cast); resolveTriggers(game);
+        assertEquals(p.getCardsIn(ZoneType.Exile).stream().filter(c -> c.getName().equals("Take a Sniff")).count(), 1L);
+        assertEquals(target.getNetPower(), 1);
+    }
+
+    @Test
+    public void alexFindsAForestAndKeepsItALandWhileAnimatingPermanently() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card alex = enter("Alex, the Cozy", p); addCardToZone("Forest", p, ZoneType.Library);
+        SpellAbility ability = alex.getSpellAbilities().stream().filter(c -> c.getApi() == ApiType.ChangeZone).findFirst().orElseThrow();
+        ability.setActivatingPlayer(p); assertTrue(ComputerUtil.playNoStack(p, ability, game, false));
+        Card forest = p.getCardsIn(ZoneType.Battlefield).stream().filter(Card::isLand).findFirst().orElseThrow();
+        assertTrue(forest.isCreature()); assertEquals(forest.getNetPower(), 2); assertTrue(forest.hasKeyword("Haste"));
+        game.getEndOfTurn().executeUntil(); game.getAction().checkStaticAbilities(); assertTrue(forest.isCreature());
+    }
+
+    @Test
+    public void weekOfExcessReturnsOnlyCreaturesMilledThisWayWithTemporaryHaste() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card saga = createCard("A Week of Excess", p); addCardToZone("Raging Alcoholic", p, ZoneType.Graveyard);
+        for (int n = 0; n < 7; n++) addCardToZone(n < 2 ? "Couchpotato" : "Forest", p, ZoneType.Library);
+        AbilityUtils.resolve(db(saga, "Mill"));
+        assertEquals(p.getCreaturesInPlay().size(), 2); assertTrue(p.getCreaturesInPlay().stream().allMatch(c -> c.hasKeyword("Haste")));
+        assertEquals(p.getCardsIn(ZoneType.Graveyard).size(), 6);
+        game.getEndOfTurn().executeUntil(); assertTrue(p.getCreaturesInPlay().stream().noneMatch(c -> c.hasKeyword("Haste")));
+    }
+
+    @Test
+    public void kissOfPoseidonCanDeclineAndUsesTheBouncedCreaturesFormerController() {
+        for (int mode = 0; mode < 3; mode++) {
+            Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+            Card saga = createCard("Kiss of Poseidon", p), creature = addCard("Couchpotato", mode == 2 ? other : p);
+            if (mode == 2) { creature.setController(p, game.getNextTimestamp()); game.getAction().checkStaticAbilities(); }
+            addCardToZone("Island", p, ZoneType.Library);
+            PlayerController choices = spy(p.getController());
+            doReturn(mode == 0 ? forge.game.card.CardCollection.EMPTY : new forge.game.card.CardCollection(creature))
+                    .when(choices).chooseCardsForEffect(any(), any(), anyString(), anyInt(), anyInt(), anyBoolean(), any());
+            p.dangerouslySetController(choices); AbilityUtils.resolve(db(saga, "BounceChoice"));
+            assertEquals(p.getCardsIn(ZoneType.Library).size(), mode == 0 ? 1 : 0);
+            if (mode == 2) assertEquals(other.getCardsIn(ZoneType.Hand).size(), 1);
+        }
+    }
+
+    @Test
+    public void fruehshoppenActuallyAdvancesChaptersAndSacrificesAfterTheLast() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card creature = addCard("Couchpotato", p), saga = enter("Frühshoppen", p); resolveTriggers(game);
+        assertEquals(saga.getCounters(CounterEnumType.LORE), 1);
+        assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.isToken() && c.getType().hasSubtype("Food")).count(), 1L);
+        counters(saga, CounterEnumType.LORE, 1); resolveTriggers(game); assertEquals(countCardsWithName(game, "Beer"), 1);
+        counters(saga, CounterEnumType.LORE, 1); resolveTriggers(game); game.getAction().checkStateEffects(true);
+        assertEquals(creature.getCounters(CounterEnumType.P1P1), 3); // creature itself is Food, plus Food and Beer tokens
+        assertTrue(saga.isInZone(ZoneType.Graveyard));
+    }
+
+    @Test
+    public void blankingPrintedToleranceRestoresDefaultWhileExternalModifiersRemain() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card fixed = enter("Trained Drinker", p), professional = enter("Professional Drunk", p);
+        assertEquals(ChaosBrawlRules.drunkenTolerance(fixed), 5);
+        Card aura = addCardToZone("Shut up", p, ZoneType.Hand);
+        SpellAbility cast = aura.getFirstSpellAbility(); cast.setActivatingPlayer(p); cast.getTargets().add(fixed);
+        cast.setHostCard(game.getAction().moveToStack(aura, cast)); AbilityUtils.resolve(cast); game.getAction().checkStaticAbilities();
+        assertEquals(ChaosBrawlRules.drunkenTolerance(fixed), 3);
+        game.getAction().moveTo(ZoneType.Graveyard, professional, null, null); game.getAction().checkStaticAbilities();
+        assertEquals(ChaosBrawlRules.drunkenTolerance(fixed), 2);
     }
 
 }
