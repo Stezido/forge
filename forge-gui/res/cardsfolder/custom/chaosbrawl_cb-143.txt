@@ -1,0 +1,7 @@
+Name:Süüü, the Fourth Child
+ManaCost:2 U
+Types:Legendary Creature Human
+PT:3/2
+S:Mode$ Continuous | AffectedDefined$ Self | AddType$ Siren | IsPresent$ Card.namedNatalie; Mother Siren+YouCtrl | Description$ As long as you control Natalie, CARDNAME is a Siren.
+S:Mode$ Continuous | Affected$ Siren.YouCtrl | IsPresent$ Card.namedNatalie; Mother Siren+YouCtrl | ChaosBrawlWaiveSirenUpkeep$ True | Description$ As long as you control Natalie, Sirens you control cannot have upkeep costs.
+Oracle:Süüünergy — As long as you control Natalie, Mother Siren, Süüü is a Siren and Sirens you control can’t have upkeep costs.

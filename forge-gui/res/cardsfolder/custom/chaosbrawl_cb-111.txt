@@ -1,0 +1,8 @@
+Name:AJDE!
+ManaCost:0
+Types:Sorcery
+Colors:blue,black
+K:DeckLimit:0:This card cannot be in your starting deck.
+A:SP$ Draw | NumCards$ 1 | SpellDescription$ Draw a card.
+AI:RemoveDeck:All
+Oracle:This card can’t be in your starting deck.\nDraw a card.

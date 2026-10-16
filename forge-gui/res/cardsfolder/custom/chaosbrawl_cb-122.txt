@@ -1,0 +1,7 @@
+Name:Indica Hedge
+ManaCost:1 G
+Types:Creature Plant
+PT:0/4
+K:Defender
+K:Ward:1
+Oracle:Defender, Ward {1}

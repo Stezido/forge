@@ -6,7 +6,7 @@ Canonical source: the registered development MSE in `Stezido/Chaosbrawl-Website`
 | --- | --- | --- |
 | 01 | cb-001–cb-050 | 50 definitions verified; native images/decks prepared; AI smoke passed |
 | 02 | cb-051–cb-100 | 50 definitions verified; 157 cumulative checks; build/images/decks/AI smoke passed |
-| 03 | cb-101–cb-150 | Pending |
+| 03 | cb-101–cb-150 | 50 definitions drafted; engine and tests in progress |
 | 04 | cb-151–cb-200 | Pending |
 | 05 | cb-201–cb-250 | Pending |
 | 06 | cb-251–cb-300 | Pending |
@@ -36,3 +36,5 @@ Batch 02 validation update: first behavior run executed 150 checks, with 148 pas
 Batch 02 checkpoint: 157 checks now exercise the 100 source records plus 57 rule/effect checks. The latest completed run had 156 passing checks and one remaining Catapult test; paid Plot/later free cast, two independent Plot allowances, ETB-only Aura protection, finality/ability loss and unpaid reanimation upkeep passed. The Catapult test's target-selection spy did not observe native AI selection; the current rerun checks actual life loss from its fixed 2-damage effects. Questions are collected in QUESTIONS_FOR_OWNER.md. No completed build/smoke claim yet.
 
 Batch 02 completed: all 157 checks passed, desktop build passed, 100 native full card faces and six latest-batch test decks prepared. Seeded AI game completed on turn 10 in 1790 ms with Ai(2) winning, no custom exception or undefined-SVar error. The cumulative package contains 100 records (99 names; duplicated Spar’s Bazaar printing retained). Reviewed manifests pin 130 executable resources to the five-card-wording MSE hash 81e36272d3d2fc4308dc4d65c54be779944733010ed44ba167acd34c82da15ef. Confusing Signals wording is a collected question; current implementation/timing is explicitly documented. Next: cb-101–cb-150 on its own stacked branch, regular pushes, questions collected for later.
+
+Batch 03 started from verified batch-02 commit 3c9f9af1. All 50 definition drafts and three supporting Gnome/Elemental tokens are saved. Generated-only AJDE! has a zero deck limit and is excluded from prepared starting decks. Native support is being extended for restricted counter removal, the original declared attacking pair, colored upkeep reduction, Siren upkeep waiver and upkeep-only mana. The 150-card metadata/baseline suite is running; no completed validation/build/smoke claim yet. Questions continue to be collected for later.

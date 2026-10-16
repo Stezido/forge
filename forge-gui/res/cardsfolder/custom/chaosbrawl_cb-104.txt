@@ -1,0 +1,7 @@
+Name:Bochana Jugobeidl
+ManaCost:2 GW
+Types:Artifact Food
+T:Mode$ Sacrificed | TriggerZones$ Battlefield | Execute$ Revive | TriggerDescription$ When you sacrifice CARDNAME, return target creature with mana value 3 or less from your graveyard tapped. | ValidCard$ Card.Self | ValidPlayer$ You
+SVar:Revive:DB$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Creature.YouOwn+cmcLE3 | Tapped$ True
+A:AB$ GainLife | Cost$ 2 T Sac<1/CARDNAME> | LifeAmount$ 4 | SpellDescription$ You gain 4 life.
+Oracle:When you sacrifice Bochana Jugobeidl, return target creature card with mana value 3 or less from your graveyard to the battlefield tapped.\n{2}, {T}, Sacrifice Bochana Jugobeidl: You gain 4 life.

@@ -85,7 +85,9 @@ def main():
         shutil.copyfile(original, cards_dir/(name+'.full.png'))
     # Illustrations for source-defined tokens are copied byte-for-byte from the MSE.
     identity = {c['name']:c for c in pinned['supportingTokens']}
-    scripts = [('Beer','chaosbrawl_beer'),('Hangry Siren','chaosbrawl_hangry_siren')]
+    scripts = [('Beer','chaosbrawl_beer'),('Hangry Siren','chaosbrawl_hangry_siren'),
+               ('Another Brother','chaosbrawl_another_brother'),('Vengeful Gnome Pack','chaosbrawl_vengeful_gnome_pack'),
+               ('Stinky Elemental','chaosbrawl_stinky_elemental')]
     scripts += [(n+' Beer','chaosbrawl_'+n.lower()+'_beer') for n in ['Expired','Zwickl','Wheat','Dark','Pils','Bock']]
     with zipfile.ZipFile(source) as archive:
         sys.path.insert(0, str(website/'scripts/mse'))
@@ -97,7 +99,8 @@ def main():
             member = native[identity[name]['nativeUid']][2]['image']
             (token_dir/(script+'.png')).write_bytes(archive.read(member))
     number = len(batches)
-    latest = pinned['cards']
+    generated = set(pinned.get('generatedOnlyIds', []))
+    latest = [c for c in pinned['cards'] if c['id'] not in generated]
     decks = [(f'Chaos Brawl Beta Batch {number:02d}', latest, 1, 10)]
     decks += [(f'Chaos Brawl Beta {number:02d} - Group {n//10+1}', latest[n:n+10], 4, 6) for n in range(0,len(latest),10)]
     for name, entries, copies, lands in decks:

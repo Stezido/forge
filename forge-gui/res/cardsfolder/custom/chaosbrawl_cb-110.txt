@@ -1,0 +1,7 @@
+Name:Distant Cousin Windtongue
+ManaCost:1 UB
+Types:Creature Gnome
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Conjure | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Conjure:DB$ MakeCard | Name$ AJDE! | Amount$ 3 | Zone$ Library | Conjure$ True
+Oracle:When Distant Cousin Windtongue enters the battlefield, create three blue and black Sorcery cards named AJDE! with mana cost {0} and “Draw a card.” Shuffle them into your library.

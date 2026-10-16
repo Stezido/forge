@@ -1,0 +1,7 @@
+Name:Rowdy Riot
+ManaCost:2 R
+Types:Creature Human Berserker
+PT:3/2
+T:Mode$ Sacrificed | TriggerZones$ Battlefield | Execute$ Pump | TriggerDescription$ Whenever a Beer token is sacrificed, CARDNAME gets +1/+0 until end of turn. | ValidCard$ Beer.token
+SVar:Pump:DB$ Pump | Defined$ Self | NumAtt$ 1
+Oracle:Whenever a Beer token is sacrificed, Rowdy Riot gets +1/+0 until end of turn.

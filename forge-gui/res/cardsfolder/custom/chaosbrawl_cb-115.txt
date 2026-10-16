@@ -1,0 +1,10 @@
+Name:Grandma Dragana Blackbrew
+ManaCost:2 B
+Types:Legendary Creature Gnome
+PT:1/3
+S:Mode$ Continuous | Affected$ Gnome.YouCtrl+Other | AddPower$ 1 | AddToughness$ 1 | Description$ Other Gnomes you control get +1/+1.
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Execute$ Life | TriggerDescription$ Whenever another Gnome enters under your control, gain 2 life. | Origin$ Any | Destination$ Battlefield | ValidCard$ Gnome.YouCtrl+Other
+SVar:Life:DB$ GainLife | LifeAmount$ 2
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Execute$ Lose | TriggerDescription$ Whenever another Gnome you control dies, target opponent loses 2 life. | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Gnome.YouCtrl+Other
+SVar:Lose:DB$ LoseLife | ValidTgts$ Opponent | LifeAmount$ 2
+Oracle:Other Gnomes you control get +1/+1.\nWhenever another Gnome enters the battlefield under your control, you gain 2 life.\nWhenever another Gnome you control dies, target opponent loses 2 life.

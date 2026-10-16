@@ -1,0 +1,8 @@
+Name:Distant Cousin Shotcrusher
+ManaCost:BR
+Types:Creature Gnome
+PT:2/1
+SVar:ChaosBrawlTolerance:3
+T:Mode$ CounterAdded | TriggerZones$ Battlefield | Execute$ Drunken | TriggerDescription$ Whenever another creature you control gets a Drunken counter, put a Drunken counter on CARDNAME. | ValidCard$ Creature.YouCtrl+Other | CounterType$ DRUNKEN
+SVar:Drunken:DB$ PutCounter | Defined$ Self | CounterType$ DRUNKEN | CounterNum$ 1
+Oracle:Drunken Tolerance 3\nWhenever another creature you control gets a Drunken counter, Distant Cousin Shotcrusher also gets a Drunken counter.

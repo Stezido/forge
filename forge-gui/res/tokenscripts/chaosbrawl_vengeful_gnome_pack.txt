@@ -1,0 +1,6 @@
+Name:Vengeful Gnome Pack
+ManaCost:no cost
+Colors:black
+Types:Creature Gnome
+PT:4/4
+Oracle:

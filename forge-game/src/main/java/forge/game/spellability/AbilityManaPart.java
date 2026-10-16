@@ -383,6 +383,9 @@ public class AbilityManaPart implements java.io.Serializable {
 
         // Loop over restrictions
         for (String restriction : restrictions.split(",")) {
+            if (restriction.equals("ChaosBrawlUpkeep")) {
+                return forge.game.ChaosBrawlRules.isUpkeepCost(sa);
+            }
             if (restriction.equals("nonSpell")) {
                 return !sa.isSpell();
             }

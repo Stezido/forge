@@ -1,0 +1,7 @@
+Name:White Sausage Leberkäse
+ManaCost:2 GW
+Types:Artifact Food
+K:etbCounter:CHARGE:4
+A:AB$ Pump | Cost$ T SubCounter<1/CHARGE> | ValidTgts$ Creature | NumAtt$ 1 | NumDef$ 1 | KW$ Vigilance | SorcerySpeed$ True | SpellDescription$ Target creature gets +1/+1 and gains vigilance until end of turn. Activate only as a sorcery.
+A:AB$ GainLife | Cost$ 2 T Sac<1/CARDNAME> | LifeAmount$ 4 | SpellDescription$ You gain 4 life.
+Oracle:White Sausage Leberkäse enters the battlefield with four charge counters on it.\n{T}, Remove a charge counter from White Sausage Leberkäse: Target creature gets +1/+1 and gains vigilance until end of turn. Activate only as a sorcery.\n{2}, {T}, Sacrifice White Sausage Leberkäse: You gain 4 life.

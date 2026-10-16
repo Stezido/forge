@@ -1,0 +1,8 @@
+Name:Distant Uncle Goldbeard
+ManaCost:3 WB
+Types:Creature Gnome
+PT:3/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Beer | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Beer:DB$ Token | TokenScript$ chaosbrawl_beer | TokenAmount$ X
+SVar:X:Count$Valid Creature.YouCtrl+Other
+Oracle:When Distant Uncle Goldbeard enters the battlefield, create a Beer token for each other creature you control.

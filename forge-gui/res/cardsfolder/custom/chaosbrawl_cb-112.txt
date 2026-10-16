@@ -1,0 +1,7 @@
+Name:Distant Cousin Stinkpot
+ManaCost:2 BG
+Types:Creature Gnome
+PT:2/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Return | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Return:DB$ ChangeZone | Origin$ Graveyard | Destination$ Hand | ValidTgts$ Food.YouOwn | TargetMin$ 0 | TargetMax$ 1
+Oracle:When Distant Cousin Stinkpot enters the battlefield, return up to one target Food card from your graveyard to your hand.

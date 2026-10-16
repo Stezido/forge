@@ -54,6 +54,9 @@ public class TriggerPhase extends Trigger {
      * @param runParams*/
     @Override
     public final boolean performTest(final Map<AbilityKey, Object> runParams) {
+        if (hasParam("ChaosBrawlUpkeep") && forge.game.ChaosBrawlRules.isUpkeepWaived(getHostCard())) {
+            return false;
+        }
         if (!matchesValidParam("ValidPlayer", runParams.get(AbilityKey.Player))) {
             return false;
         }

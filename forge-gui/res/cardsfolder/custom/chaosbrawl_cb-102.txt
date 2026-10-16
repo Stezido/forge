@@ -1,0 +1,7 @@
+Name:Stink Normale Birnen
+ManaCost:3 GW
+Types:Artifact Food
+A:AB$ PumpAll | Cost$ Sac<1/CARDNAME> | ValidCards$ Creature.YouCtrl | NumDef$ 1 | SubAbility$ Tokens | SpellDescription$ Creatures you control get +0/+1. Create a Stinky Elemental for each creature affected.
+SVar:Tokens:DB$ Token | TokenScript$ chaosbrawl_stinky_elemental | TokenAmount$ X
+SVar:X:Count$Valid Creature.YouCtrl
+Oracle:Sacrifice Stink Normale Birnen:\nCreatures you control get +0/+1 until end of turn. For each creature buffed this way, create a 1/1 green Elemental creature token named Stinky Elemental.

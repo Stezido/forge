@@ -1,0 +1,6 @@
+Name:Cold Splash
+ManaCost:U
+Types:Instant
+A:SP$ RemoveCounter | ValidTgts$ Creature | CounterType$ Any | CounterTypes$ STUN,OBSESSION | CounterNum$ 2 | UpTo$ True | SubAbility$ Draw | SpellDescription$ Remove up to two stun and/or obsession counters from target creature. Draw a card.
+SVar:Draw:DB$ Draw | NumCards$ 1
+Oracle:Remove up to two Stun counters and/or Obsession counters from target creature.\nDraw a card.

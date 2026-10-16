@@ -1,0 +1,8 @@
+Name:Loyal Watchdog
+ManaCost:1 W
+Types:Creature Dog
+PT:2/2
+T:Mode$ Attacks | TriggerZones$ Battlefield | Execute$ Untap | TriggerDescription$ Whenever CARDNAME attacks with exactly one other creature, untap both and give each +1/+0. | ValidCard$ Card.Self | OtherAttackers$ EQ1
+SVar:Untap:DB$ Untap | Defined$ Valid Creature.Self,Creature.TriggeredOtherAttackers | SubAbility$ Pump
+SVar:Pump:DB$ PumpAll | ValidCards$ Creature.Self,Creature.TriggeredOtherAttackers | NumAtt$ 1
+Oracle:Whenever Loyal Watchdog attacks with exactly one other creature, untap Loyal Watchdog and that creature. They each get +1/+0 until end of turn.

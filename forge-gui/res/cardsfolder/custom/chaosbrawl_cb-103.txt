@@ -1,0 +1,7 @@
+Name:Mixed Grill Platter
+ManaCost:3 GW
+Types:Artifact Food
+K:etbCounter:CHARGE:4
+A:AB$ Pump | Cost$ T SubCounter<1/CHARGE> | ValidTgts$ Creature | NumAtt$ 2 | NumDef$ 1 | KW$ Trample | SorcerySpeed$ True | SpellDescription$ Target creature gets +2/+1 and gains trample until end of turn. Activate only as a sorcery.
+A:AB$ GainLife | Cost$ 2 T Sac<1/CARDNAME> | LifeAmount$ 4 | SpellDescription$ You gain 4 life.
+Oracle:Mixed Grill Platter enters the battlefield with four charge counters on it.\n{T}, Remove a charge counter from Mixed Grill Platter: Target creature gets +2/+1 and trample until end of turn. Activate only as a sorcery.\n{2}, {T}, Sacrifice Mixed Grill Platter: You gain 4 life.

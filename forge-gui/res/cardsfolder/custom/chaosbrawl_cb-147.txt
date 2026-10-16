@@ -1,0 +1,8 @@
+Name:The Rake
+ManaCost:1
+Types:Artifact Equipment
+K:Equip:2
+S:Mode$ Continuous | AffectedDefined$ Equipped | AddPower$ 1 | Description$ Equipped creature gets +1/+0.
+T:Mode$ Attacks | TriggerZones$ Battlefield | Execute$ Remove | TriggerDescription$ Whenever equipped creature attacks, you may remove a counter from target creature. | ValidCard$ Creature.EquippedBy | OptionalDecider$ You
+SVar:Remove:DB$ RemoveCounter | ValidTgts$ Creature | CounterType$ Any | CounterNum$ 1
+Oracle:Equipped creature gets +1/+0.\nWhenever equipped creature attacks, you may remove a counter from target creature.\nEquip {2}

@@ -1,0 +1,6 @@
+Name:Du gibst dem Baby a Müch
+ManaCost:1 W
+Types:Enchantment Aura
+K:Enchant:Creature
+S:Mode$ CantAttack,CantBlock,CantBeActivated | ValidCard$ Creature.EnchantedBy | Description$ Enchanted creature cannot attack or block and its activated abilities cannot be activated.
+Oracle:Enchant creature\nEnchanted creature can’t attack or block, and its activated abilities can’t be activated.

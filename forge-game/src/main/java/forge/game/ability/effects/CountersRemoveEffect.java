@@ -235,7 +235,8 @@ public class CountersRemoveEffect extends SpellAbilityEffect {
         final PlayerController pc = activator.getController();
         final Multiset<CounterType> tgtCounters = HashMultiset.create(entity.getCounters());
         for (CounterType ct : ImmutableList.copyOf(tgtCounters.elementSet())) {
-            if (!entity.canRemoveCounters(ct)) {
+            if (!entity.canRemoveCounters(ct) || (sa.hasParam("CounterTypes")
+                    && !java.util.Arrays.asList(sa.getParam("CounterTypes").split(",")).contains(ct.toString()))) {
                 tgtCounters.remove(ct);
             }
         }

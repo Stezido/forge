@@ -1503,7 +1503,7 @@ public class AbilityUtils {
             cost = new Cost(unlessCost, true);
         }
         cost = CostAdjustment.adjust(cost, sa, true);
-        return cost;
+        return forge.game.ChaosBrawlRules.adjustUpkeepCost(cost, sa, beforePayment);
     }
 
     /**

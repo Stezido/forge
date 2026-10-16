@@ -1,0 +1,6 @@
+Name:Paladin’s Nose Protection
+ManaCost:2
+Types:Artifact Equipment
+K:Equip:2
+S:Mode$ Continuous | AffectedDefined$ Equipped | AddToughness$ 2 | AddKeyword$ Ward:1 | Description$ Equipped creature gets +0/+2 and has ward {1}.
+Oracle:Equipped creature gets +0/+2 and has Ward {1}.\nEquip {2}

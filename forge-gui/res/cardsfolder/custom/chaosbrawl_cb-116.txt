@@ -1,0 +1,7 @@
+Name:Distant Aunt Alestorm
+ManaCost:1 BR
+Types:Creature Gnome
+PT:3/1
+T:Mode$ Attacks | TriggerZones$ Battlefield | Execute$ Lose | TriggerDescription$ Whenever a Gnome you control attacks, each opponent loses 1 life. | ValidCard$ Gnome.YouCtrl
+SVar:Lose:DB$ LoseLife | Defined$ Player.Opponent | LifeAmount$ 1
+Oracle:Whenever a Gnome you control attacks, each opponent loses 1 life.

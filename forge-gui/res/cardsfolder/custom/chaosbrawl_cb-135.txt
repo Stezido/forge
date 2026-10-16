@@ -1,0 +1,7 @@
+Name:Overgrown Fermentation Beds
+ManaCost:2 G
+Types:Enchantment Location
+A:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
+T:Mode$ Phase | TriggerZones$ Battlefield | Execute$ Drunken | TriggerDescription$ At the beginning of your end step, you may put a Drunken counter on target Plant creature. | Phase$ End of Turn | ValidPlayer$ You | OptionalDecider$ You
+SVar:Drunken:DB$ PutCounter | ValidTgts$ Creature.Plant | CounterType$ DRUNKEN | CounterNum$ 1
+Oracle:{T}: Add {G}.\nAt the beginning of your end step, you may put a Drunken counter on a Plant creature.

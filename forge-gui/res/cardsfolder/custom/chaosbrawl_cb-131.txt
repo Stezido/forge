@@ -1,0 +1,5 @@
+Name:Bottomless Keg
+ManaCost:2
+Types:Legendary Artifact
+A:AB$ Token | Cost$ 2 T | TokenScript$ chaosbrawl_beer | SpellDescription$ Create a Beer token.
+Oracle:{2}, {T}: Create a Beer token.

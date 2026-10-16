@@ -1,0 +1,6 @@
+Name:Too Drunk to Dodge
+ManaCost:U
+Types:Instant
+A:SP$ Tap | ValidTgts$ Creature | SubAbility$ Stun | SpellDescription$ Tap target creature. If it has a drunken counter, put a stun counter on it.
+SVar:Stun:DB$ PutCounter | Defined$ Targeted | CounterType$ STUN | CounterNum$ 1 | ConditionDefined$ Targeted | ConditionPresent$ Creature.counters_GE1_DRUNKEN
+Oracle:Tap target creature.\nIf it has one or more Drunken counters, put a stun counter on it.

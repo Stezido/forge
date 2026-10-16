@@ -1,0 +1,8 @@
+Name:Mocking Parrot
+ManaCost:U R
+Types:Creature Bird
+PT:1/2
+K:Flying
+T:Mode$ SpellCast | TriggerZones$ Battlefield | Execute$ Copy | TriggerDescription$ Whenever you cast your first instant or sorcery spell with mana value 2 or less each turn, you may copy it. | ValidCard$ Instant.cmcLE2,Sorcery.cmcLE2 | ValidActivatingPlayer$ You | ActivatorThisTurnCast$ EQ1 | OptionalDecider$ You
+SVar:Copy:DB$ CopySpellAbility | Defined$ TriggeredSpellAbility | MayChooseTarget$ True
+Oracle:Flying\nWhenever you cast an instant or sorcery spell with mana value 2 or less for the first time each turn, you may copy that spell. You may choose new targets for the copy.

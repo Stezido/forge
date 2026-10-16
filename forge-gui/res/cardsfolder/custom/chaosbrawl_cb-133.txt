@@ -1,0 +1,6 @@
+Name:Way Expired Wiener
+ManaCost:B
+Types:Creature Food Mutant
+PT:1/1
+K:Deathtouch
+Oracle:Deathtouch

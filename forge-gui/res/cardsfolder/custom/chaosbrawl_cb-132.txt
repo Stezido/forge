@@ -1,0 +1,7 @@
+Name:Wobbly Gnome
+ManaCost:1 B
+Types:Creature Gnome
+PT:2/2
+S:Mode$ Continuous | AffectedDefined$ Self | CheckSVar$ X | SVarCompare$ GE1 | AddKeyword$ Menace | Description$ As long as CARDNAME is drunken, it has menace.
+SVar:X:Count$CardCounters.DRUNKEN
+Oracle:As long as Wobbly Gnome is Drunken, it has menace.

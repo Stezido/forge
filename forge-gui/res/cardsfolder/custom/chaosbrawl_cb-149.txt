@@ -1,0 +1,7 @@
+Name:Mimimi
+ManaCost:3 U
+Types:Instant
+A:SP$ GenericChoice | ValidTgts$ Creature | Defined$ TargetedOwner | Choices$ Top,Bottom | SpellDescription$ Target creature's owner puts it on the top or bottom of their library.
+SVar:Top:DB$ ChangeZone | Defined$ Targeted | Origin$ Battlefield | Destination$ Library | LibraryPosition$ 0 | SpellDescription$ Top of library
+SVar:Bottom:DB$ ChangeZone | Defined$ Targeted | Origin$ Battlefield | Destination$ Library | LibraryPosition$ -1 | SpellDescription$ Bottom of library
+Oracle:Target creature’s owner puts it on the top or bottom of their library.

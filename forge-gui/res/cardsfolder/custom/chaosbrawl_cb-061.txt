@@ -3,6 +3,6 @@ ManaCost:1 B
 Types:Sorcery
 A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Creature.YouOwn | WithCountersType$ FINALITY | SubAbility$ Upkeep | SpellDescription$ Return target creature card from your graveyard with a finality counter. It gains upkeep—Pay {2}{B}.
 SVar:Upkeep:DB$ Animate | Defined$ Targeted | Triggers$ PayUpkeep | sVars$ Sacrifice | Duration$ Permanent
-SVar:PayUpkeep:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ Sacrifice | TriggerDescription$ At the beginning of your upkeep, sacrifice this creature unless you pay {2}{B}.
-SVar:Sacrifice:DB$ Sacrifice | Defined$ Self | UnlessCost$ 2 B | UnlessPayer$ You
+SVar:PayUpkeep:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ Sacrifice | TriggerDescription$ At the beginning of your upkeep, sacrifice this creature unless you pay {2}{B}. | ChaosBrawlUpkeep$ True
+SVar:Sacrifice:DB$ Sacrifice | Defined$ Self | UnlessCost$ 2 B | UnlessPayer$ You | ChaosBrawlUpkeep$ True
 Oracle:Return target creature card from your graveyard to the battlefield. Put a finality counter on it. It gains\nUpkeep— Pay 2{B}

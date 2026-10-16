@@ -1,0 +1,6 @@
+Name:Stinky Elemental
+ManaCost:no cost
+Colors:green
+Types:Creature Elemental
+PT:1/1
+Oracle:

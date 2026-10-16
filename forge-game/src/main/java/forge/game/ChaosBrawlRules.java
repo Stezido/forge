@@ -94,4 +94,72 @@ public final class ChaosBrawlRules {
         allowance.setSVar("ChaosBrawlPlotUsed", "1");
     }
 
+    public static boolean isUpkeepCost(final SpellAbility ability) {
+        return ability.getHostCard().getGame().getRules().isChaosBrawl()
+                && (ability.hasParam("ChaosBrawlUpkeep") || ability.getRootAbility().hasParam("ChaosBrawlUpkeep"));
+    }
+
+    public static boolean isUpkeepWaived(final Card creature) {
+        if (!creature.getGame().getRules().isChaosBrawl() || !creature.getType().hasSubtype("Siren")) {
+            return false;
+        }
+        for (Card permanent : creature.getController().getCardsIn(ZoneType.Battlefield)) {
+            for (forge.game.staticability.StaticAbility ability : permanent.getStaticAbilities()) {
+                if (ability.hasParam("ChaosBrawlWaiveSirenUpkeep")
+                        && ability.checkConditions(forge.game.staticability.StaticAbilityMode.Continuous)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static forge.game.cost.Cost adjustUpkeepCost(final forge.game.cost.Cost original,
+            final SpellAbility ability, final boolean beforePayment) {
+        if (!isUpkeepCost(ability) || !original.hasManaCost()) {
+            return original;
+        }
+        int reductions = 0;
+        Player payer = ability.getActivatingPlayer();
+        for (Card permanent : payer.getCardsIn(ZoneType.Battlefield)) {
+            for (forge.game.staticability.StaticAbility effect : permanent.getStaticAbilities()) {
+                if (effect.hasParam("ChaosBrawlUpkeepReduction")
+                        && effect.checkConditions(forge.game.staticability.StaticAbilityMode.Continuous)) {
+                    reductions += Integer.parseInt(effect.getParam("ChaosBrawlUpkeepReduction"));
+                }
+            }
+        }
+        if (reductions == 0) {
+            return original;
+        }
+        forge.game.cost.Cost result = original.copy();
+        forge.game.mana.ManaCostBeingPaid mana = new forge.game.mana.ManaCostBeingPaid(original.getTotalMana());
+        if (!beforePayment && ability.hasSVar("ChaosBrawlReducedMana")) {
+            result.getCostParts().removeIf(p -> p instanceof forge.game.cost.CostPartMana);
+            result.add(new forge.game.cost.Cost(ability.getSVar("ChaosBrawlReducedMana"), true));
+            return result;
+        }
+        for (int n = 0; n < reductions && !mana.getUnpaidShards().isEmpty(); n++) {
+            java.util.Map<String, forge.card.mana.ManaCostShard> options = new java.util.LinkedHashMap<>();
+            for (forge.card.mana.ManaCostShard shard : mana.getUnpaidShards()) {
+                options.put(shard.toString(), shard);
+            }
+            String selected = beforePayment && options.size() > 1
+                    ? payer.getController().chooseSomeType("Mana symbol to reduce", ability, options.keySet())
+                    : options.keySet().iterator().next();
+            forge.card.mana.ManaCostShard shard = options.get(selected);
+            if (shard == null) {
+                shard = options.values().iterator().next();
+            }
+            mana.decreaseShard(shard, 1);
+        }
+        result.getCostParts().removeIf(p -> p instanceof forge.game.cost.CostPartMana);
+        result.add(new forge.game.cost.Cost(mana.toManaCost(), true));
+        if (beforePayment) {
+            ability.setSVar("ChaosBrawlReducedMana", mana.toManaCost().toString()
+                    .replace("{", "").replace("}", " ").replace("/", "").trim());
+        }
+        return result;
+    }
+
 }

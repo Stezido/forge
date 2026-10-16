@@ -65,6 +65,16 @@ public class TriggerAttacks extends Trigger {
             return false;
         }
 
+        if (hasParam("OtherAttackers")) {
+            Object others = runParams.get(AbilityKey.OtherAttackers);
+            if (!(others instanceof java.util.Collection)
+                    || !forge.util.Expressions.compare(((java.util.Collection<?>) others).size(),
+                            getParam("OtherAttackers").substring(0, 2),
+                            Integer.parseInt(getParam("OtherAttackers").substring(2)))) {
+                return false;
+            }
+        }
+
         if (hasParam("Alone")) {
             @SuppressWarnings("unchecked")
             final List<Card> otherAttackers = (List<Card>) runParams.get(AbilityKey.OtherAttackers);
@@ -121,6 +131,16 @@ public class TriggerAttacks extends Trigger {
     @Override
     public final void setTriggeringObjects(final SpellAbility sa, Map<AbilityKey, Object> runParams) {
         sa.setTriggeringObject(AbilityKey.Defender, runParams.get(AbilityKey.Attacked));
+        if (runParams.get(AbilityKey.OtherAttackers) instanceof Iterable) {
+            forge.game.card.CardCollection others = new forge.game.card.CardCollection();
+            for (Object card : (Iterable<?>) runParams.get(AbilityKey.OtherAttackers)) {
+                if (card instanceof Card) {
+                    others.add((Card) card);
+                }
+            }
+            sa.setTriggeringObject(AbilityKey.OtherAttackers, others);
+        }
+
         sa.setTriggeringObjectsFrom(
             runParams,
             AbilityKey.Attacker,

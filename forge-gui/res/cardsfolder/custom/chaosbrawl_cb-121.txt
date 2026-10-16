@@ -1,0 +1,7 @@
+Name:The Unflushed
+ManaCost:1 B
+Types:Creature Ooze Mutant Food
+PT:1/1
+S:Mode$ Continuous | AffectedDefined$ Self | AddToughness$ X | Description$ CARDNAME gets +0/+1 for each Food card in your graveyard.
+SVar:X:Count$ValidGraveyard Food.YouOwn
+Oracle:The Unflushed gets +0/+1 for each Food card in your graveyard.

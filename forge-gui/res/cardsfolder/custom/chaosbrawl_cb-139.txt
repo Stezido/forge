@@ -1,0 +1,8 @@
+Name:Hanna, Nature’s Siren
+ManaCost:G U
+Types:Legendary Creature Siren
+PT:2/2
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Execute$ Grow | TriggerDescription$ Whenever another Plant or Siren creature dies, put a +1/+1 and an obsession counter on CARDNAME. | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.Plant+Other,Creature.Siren+Other
+SVar:Grow:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1 | SubAbility$ Obsession
+SVar:Obsession:DB$ PutCounter | Defined$ Self | CounterType$ OBSESSION | CounterNum$ 1
+Oracle:Whenever another Plant or Siren creature dies, put a +1/+1 counter and an Obsession counter on Hanna.

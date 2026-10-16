@@ -4,7 +4,7 @@ Types:Creature Human
 PT:2/3
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Food | TriggerDescription$ When CARDNAME enters, ABILITY
 SVar:Food:DB$ Token | TokenScript$ c_a_food_sac
-T:Mode$ Phase | TriggerZones$ Battlefield | Execute$ Upkeep | TriggerDescription$ At the beginning of your upkeep, sacrifice CARDNAME unless you sacrifice a Food. | Phase$ Upkeep | ValidPlayer$ You
+T:Mode$ Phase | TriggerZones$ Battlefield | Execute$ Upkeep | TriggerDescription$ At the beginning of your upkeep, sacrifice CARDNAME unless you sacrifice a Food. | Phase$ Upkeep | ValidPlayer$ You | ChaosBrawlUpkeep$ True
 SVar:Upkeep:DB$ Sacrifice | Defined$ Self | UnlessCost$ Sac<1/Food> | UnlessPayer$ You
 T:Mode$ Sacrificed | TriggerZones$ Battlefield | Execute$ Grow | TriggerDescription$ Whenever you sacrifice a Food, put a +1/+1 counter on CARDNAME. | ValidPlayer$ You | ValidCard$ Food
 SVar:Grow:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1

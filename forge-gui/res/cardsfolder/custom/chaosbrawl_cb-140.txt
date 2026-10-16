@@ -1,0 +1,10 @@
+Name:Natalie, Mother Siren
+ManaCost:2 U R
+Types:Legendary Creature Siren
+PT:3/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Sirens | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Sirens:DB$ Token | TokenScript$ chaosbrawl_hangry_siren | TokenAmount$ 3
+S:Mode$ Continuous | Affected$ Siren.YouCtrl+Other | AddTrigger$ SirenUpkeep | AddSVar$ PaySirenUpkeep | Description$ Other Sirens you control have upkeep {1}.
+SVar:SirenUpkeep:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ PaySirenUpkeep | TriggerDescription$ At the beginning of your upkeep, sacrifice this creature unless you pay {1}. | ChaosBrawlUpkeep$ True
+SVar:PaySirenUpkeep:DB$ Sacrifice | Defined$ Self | UnlessCost$ 1 | UnlessPayer$ You | ChaosBrawlUpkeep$ True
+Oracle:When Natalie, Mother Siren enters the battlefield, create three 1/1 Hangry Siren tokens with haste.\nOther Sirens you control have Upkeep {1}.

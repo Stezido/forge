@@ -1,0 +1,8 @@
+Name:The Good Stuff
+ManaCost:2 G
+Types:Instant
+A:SP$ Charm | Choices$ Artifact,Enchantment,Flying | SpellDescription$ Choose one — destroy target artifact, enchantment or creature with flying.
+SVar:Artifact:DB$ Destroy | ValidTgts$ Artifact | SpellDescription$ Destroy target artifact.
+SVar:Enchantment:DB$ Destroy | ValidTgts$ Enchantment | SpellDescription$ Destroy target enchantment.
+SVar:Flying:DB$ Destroy | ValidTgts$ Creature.withFlying | SpellDescription$ Destroy target creature with flying.
+Oracle:Choose one —\n• Destroy target artifact.\n• Destroy target enchantment.\n• Destroy target creature with flying.

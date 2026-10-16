@@ -105,3 +105,53 @@ Type=Custom_Set
 098 U Sarma
 099 U Soul Eater Siren
 100 U Baked Ham Noodle Casserole
+101 C White Sausage Leberkäse
+102 C Stink Normale Birnen
+103 U Mixed Grill Platter
+104 C Bochana Jugobeidl
+105 C Hairy Surprise
+106 C Paladin’s Nose Protection
+107 C Party Foul
+108 R Golden Stethoscope
+109 U Tschuschnpfeiferl
+110 C Distant Cousin Windtongue
+111 S AJDE!
+112 C Distant Cousin Stinkpot
+113 U Distant Cousin Shotcrusher
+114 C Distant Uncle Goldbeard
+115 R Grandma Dragana Blackbrew
+116 C Distant Aunt Alestorm
+117 C Bottle Bash
+118 U Mocking Parrot
+119 C Loyal Watchdog
+120 C Goblin Party Mob
+121 C The Unflushed
+122 C Indica Hedge
+123 C Cannabis Field Defender
+124 U Du gibst dem Baby a Müch
+125 C Milk
+126 C Cini Minis
+127 C Rowdy Riot
+128 C Hangover
+129 C Cold Splash
+130 C Too Drunk to Dodge
+131 U Bottomless Keg
+132 C Wobbly Gnome
+133 C Way Expired Wiener
+134 U Undercity Back Room
+135 U Overgrown Fermentation Beds
+136 R Blightborne Colossus
+137 R Untamable Grove Colossus
+138 U Lena, the Silent One
+139 U Hanna, Nature’s Siren
+140 U Natalie, Mother Siren
+141 C Shady Herb Dealer
+142 U Mutating Sapling
+143 U Süüü, the Fourth Child
+144 U The Loan Syndicate
+145 C Gnome Loan
+146 C Debt Collector
+147 C The Rake
+148 C The Good Stuff
+149 C Mimimi
+150 U Sleepless Night

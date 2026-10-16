@@ -1,0 +1,8 @@
+Name:Mutating Sapling
+ManaCost:1 G
+Types:Creature Plant
+PT:2/2
+A:AB$ Pump | Cost$ W | Defined$ Self | KW$ Vigilance | Duration$ Permanent | GameActivationLimit$ 1 | SpellDescription$ Exhaust — CARDNAME gains vigilance.
+A:AB$ Pump | Cost$ B | Defined$ Self | KW$ Deathtouch | Duration$ Permanent | GameActivationLimit$ 1 | SpellDescription$ Exhaust — CARDNAME gains deathtouch.
+A:AB$ PutCounter | Cost$ GU | Defined$ Self | CounterType$ P1P1 | CounterNum$ 2 | GameActivationLimit$ 1 | SpellDescription$ Exhaust — Put two +1/+1 counters on CARDNAME.
+Oracle:Exhaust — {W}: Mutating Sapling gains vigilance. (Activate each exhaust ability only once.)\nExhaust — {B}: Mutating Sapling gains deathtouch. (Activate each exhaust ability only once.)\nExhaust — {GU}: Put two +1/+1 counters on Mutating Sapling. (Activate each exhaust ability only once.)

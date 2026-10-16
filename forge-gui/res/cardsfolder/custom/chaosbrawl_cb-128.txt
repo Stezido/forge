@@ -1,0 +1,7 @@
+Name:Hangover
+ManaCost:2 U
+Types:Instant
+A:SP$ Tap | ValidTgts$ Creature | SubAbility$ Clear | SpellDescription$ Tap target creature, remove all its counters, then put three stun counters on it.
+SVar:Clear:DB$ RemoveCounter | Defined$ Targeted | CounterType$ All | CounterNum$ All | SubAbility$ Stun
+SVar:Stun:DB$ PutCounter | Defined$ Targeted | CounterType$ STUN | CounterNum$ 3
+Oracle:Tap target creature. Remove all counters from it. Then put three stun counters on it.

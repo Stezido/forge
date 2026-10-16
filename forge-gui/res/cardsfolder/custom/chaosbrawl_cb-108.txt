@@ -1,0 +1,13 @@
+Name:Golden Stethoscope
+ManaCost:5
+Types:Legendary Artifact Equipment
+K:Equip:3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Attach | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Attach:DB$ Attach | ValidTgts$ Creature
+T:Mode$ Attacks | TriggerZones$ Battlefield | Execute$ Dig | TriggerDescription$ Whenever equipped creature attacks, look at the defending player's top two cards. Exile one and put the other on the bottom. You may play the exiled card. | ValidCard$ Creature.EquippedBy
+SVar:Dig:DB$ Dig | Defined$ TriggeredDefendingPlayer | DigNum$ 2 | ChangeNum$ 1 | DestinationZone$ Exile | DestinationZone2$ Library | LibraryPosition2$ -1 | RememberChanged$ True | SubAbility$ Play
+SVar:Play:DB$ Effect | RememberObjects$ Remembered | StaticAbilities$ STPlay,STMana | Duration$ Permanent | ForgetOnMoved$ Exile | SubAbility$ Clear
+SVar:STPlay:Mode$ Continuous | MayPlay$ True | Affected$ Card.IsRemembered | AffectedZone$ Exile | Description$ You may play this card for as long as it remains exiled.
+SVar:STMana:Mode$ ManaConvert | ValidPlayer$ You | ValidCard$ Card.IsRemembered | ManaConversion$ AnyType->AnyColor | Description$ You may spend mana as though it were any color to cast this card.
+SVar:Clear:DB$ Cleanup | ClearRemembered$ True
+Oracle:Equip {3}\nWhen Golden Stethoscope enters the battlefield, attach it to target creature.\nWhenever equipped creature attacks, look at the top two cards of attacked opponent’s library. Exile one of them and put the other on the bottom of that library.\nYou may play cards exiled this way for as long as they remain exiled. You may spend mana as though it were of any color to cast those spells.

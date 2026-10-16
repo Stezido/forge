@@ -1,0 +1,8 @@
+Name:Untamable Grove Colossus
+ManaCost:2 G G
+Types:Creature Plant Giant
+PT:8/8
+K:etbTapped:
+K:etbCounter:STUN:3
+K:Reach
+Oracle:This creature enters tapped with three stun counters on it.\nReach
