@@ -1,0 +1,23 @@
+package forge.game.event;
+
+import forge.game.PlanarDice;
+
+public record GameEventRollDie(int sides, int result, PlanarDice planar) implements GameEvent {
+
+    public GameEventRollDie() {
+        this(0, 0, null);
+    }
+
+    public GameEventRollDie(int sides, int result) {
+        this(sides, result, null);
+    }
+
+    public GameEventRollDie(PlanarDice planar) {
+        this(6, 0, planar);
+    }
+
+    @Override
+    public <T> T visit(IGameEventVisitor<T> visitor) {
+        return visitor.visit(this);
+    }
+}

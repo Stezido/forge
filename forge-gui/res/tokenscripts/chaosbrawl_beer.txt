@@ -1,0 +1,5 @@
+Name:Beer
+ManaCost:no cost
+Types:Artifact Beer
+A:AB$ PutCounter | Cost$ 1 T Sac<1/CARDNAME> | ValidTgts$ Creature | CounterType$ DRUNKEN | CounterNum$ 1 | SorcerySpeed$ True | SpellDescription$ Put a Drunken counter on target creature. Activate only as a sorcery.
+Oracle:{1}, {T}, Sacrifice this artifact: Put a Drunken counter on target creature. Activate only as a sorcery.

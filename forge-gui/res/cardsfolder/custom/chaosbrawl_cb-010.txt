@@ -1,0 +1,5 @@
+Name:Toast of Comfort
+ManaCost:W
+Types:Instant
+A:SP$ PutCounterAll | ValidCards$ Creature | CounterType$ DRUNKEN | CounterNum$ 1 | SpellDescription$ Each creature gains a Drunken counter.
+Oracle:Each creature gains a Drunken counter.

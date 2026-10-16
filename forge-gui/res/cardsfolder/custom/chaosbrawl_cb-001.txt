@@ -1,0 +1,8 @@
+Name:Wasted
+ManaCost:1 B B
+Types:Instant
+A:SP$ Branch | ValidTgts$ Creature | BranchConditionSVar$ X | BranchConditionSVarCompare$ GE1 | TrueSubAbility$ Exile | FalseSubAbility$ Destroy | SpellDescription$ Destroy target creature. If that creature had one or more drunk counters on it, exile it instead.
+SVar:X:Targeted$CardCounters.DRUNKEN
+SVar:Exile:DB$ ChangeZone | Defined$ Targeted | Origin$ Battlefield | Destination$ Exile
+SVar:Destroy:DB$ Destroy | Defined$ Targeted
+Oracle:Destroy target creature. If that creature had one or more drunk counters on it, exile it instead.

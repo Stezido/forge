@@ -1,0 +1,6 @@
+Name:Buy a Round
+ManaCost:2 W
+Types:Sorcery
+A:SP$ Token | TokenScript$ chaosbrawl_beer | TokenAmount$ 2 | SpellDescription$ Create two Beer tokens.
+DeckHas:Ability$Token
+Oracle:Create two Beer Token.

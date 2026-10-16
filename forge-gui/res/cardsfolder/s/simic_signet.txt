@@ -1,0 +1,5 @@
+Name:Simic Signet
+ManaCost:2
+Types:Artifact
+A:AB$ Mana | Cost$ 1 T | Produced$ G U | SpellDescription$ Add {G}{U}.
+Oracle:{1}, {T}: Add {G}{U}.
