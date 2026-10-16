@@ -1,0 +1,13 @@
+# Batch 06 — cb-251–cb-300
+
+31 additional non-token entries (30 new definitions and one repeated land printing) reach **275 non-token records**. **15 authored token records** are mapped separately, making **290 implemented/mapped records through cb-300** (280 names including token names). Moshpit, Gastronomic Downfall, Rollercoaster of Emotions and Hofi remain excluded pending the exact rules decisions in QUESTIONS_FOR_OWNER.md; ten cards total are deferred.
+
+All **397 checks passed**: 275 source comparisons, 15 token type/stat checks and 107 behavior checks. Coverage includes stacking tolerance modifiers and printed tolerance loss under blanking, one native d20 roll per replaced Beer without changing token quantity or affecting opponents, per-Food creation triggers, real Mill upkeep payment and Food-mill growth, actual additional land plays/second-land trigger, all five new planeswalkers entering with three loyalty, Sasa's Lost Family accounting/haste packs, Peter's one-Ari-then-grow branch, Stefan's real free graveyard cast and post-resolution exile, Alex's permanent land animation, Week of Excess's milled-only creature selection/temporary haste, Poseidon's optional non-targeted bounce including a stolen creature's previous controller, and real Saga chapter progression/final sacrifice.
+
+Tolerance is now represented by native static abilities, so removing abilities restores default tolerance while external Professional Drunk modifiers remain. This fixes an interaction affecting earlier fixed-tolerance definitions too. Sasa uses a separate intrinsically hasty Vengeful Gnome Pack definition; the ordinary Pack token remains without haste, preserving the authored token face and other creators. Native MSE card_color fields confirm green Jade Dragon/Elemental and white-green Ari, independent of the catalogue's cost-derived empty token colors. Forge-only source typo normalizations are listed for later approval; MSE is unchanged.
+
+Desktop build and preparation passed: **290 full native PNGs**, five current-batch decks (main 81, groups 70/70/70/64). Authored token records and deferred cards are excluded from starting decks. Token illustrations are copied byte-for-byte from MSE; full faces preserve each printing separately.
+
+Seed 20261016: completed on **turn 21**, **Ai(1) won**, **10082 ms**. No exception or undefined SVar; the native shock-land AI emitted activating-player warnings for Reefgarden. Local evidence: .chaosbrawl-local/{verified-290-tests,prepare-290,build-290,smoke-290}.log. No manual human playtest is claimed. Continue the final 301–311 entries.
+
+Canonical Beta remains SHA-256 81e36272d3d2fc4308dc4d65c54be779944733010ed44ba167acd34c82da15ef (website PR #50).

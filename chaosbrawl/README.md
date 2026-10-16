@@ -4,14 +4,14 @@ Private development: `Stezido/Chaosbrawl-Forge`. The full upstream source and it
 
 The authoritative set is the registered **The Foul Realms — Beta** MSE in the companion website repository. The published website catalogue still selects Alpha. A source hash/native UID snapshot and reviewed executable-file hashes pin each migration batch. AI interpretation produces the executable rules; displaying Oracle text alone does not implement a card.
 
-See [migration status](MIGRATION_STATUS.md) and [batch 05](batches/201-250/README.md). The current package covers 244 implemented non-token records through cb-250 (236 distinct names); six unresolved cards are explicitly excluded. Supporting tokens accompany their first dependent card.
+See [migration status](MIGRATION_STATUS.md) and [batch 06](batches/251-300/README.md). The current package covers 275 implemented non-token records plus 15 authored token mappings through cb-300; ten unresolved cards are explicitly excluded. Supporting tokens accompany their first dependent card.
 
 ## Run locally
 
 Requires Java JDK 17+ and Maven. The wrapper recognizes the isolated Java 21/Maven tools under `~/.local/share/chaosbrawl/forge-tools`, or `CHAOSBRAWL_FORGE_TOOLS`. Runtime profiles, generated decks and pictures remain under ignored `.chaosbrawl-local`; the wrapper disables Sentry reporting.
 
 ```sh
-cd /home/stefan/github/Chaosbrawl-Forge-Private-201-250
+cd /home/stefan/github/Chaosbrawl-Forge-Private-251-300
 bash chaosbrawl/forge.sh test
 bash chaosbrawl/forge.sh build
 python3 chaosbrawl/prepare.py --website /home/stefan/github/Chaosbrawl-Beta-Forge-Wording --render
@@ -19,13 +19,13 @@ bash chaosbrawl/forge.sh smoke
 bash chaosbrawl/forge.sh launch
 ```
 
-Preparation verifies the canonical MSE hash, imported card metadata and reviewed executable files. `--render` uses the installed native `mse.com` to render the full source, with UID filenames, before copying this batch's complete card faces into Forge. Pass `--mse` for a different native installation. Omit `--render` to reuse the already verified renders. This machine already has all 311 native source renders for the pinned Beta archive; preparation and six batch-05 decks are ready. The source currently lives in website PR #50; use a checkout of that reviewed source until it is merged.
+Preparation verifies the canonical MSE hash, imported card metadata and reviewed executable files. `--render` uses the installed native `mse.com` to render the full source, with UID filenames, before copying this batch's complete card faces into Forge. Pass `--mse` for a different native installation. Omit `--render` to reuse the already verified renders. This machine already has all 311 native source renders for the pinned Beta archive; preparation and five batch-06 decks are ready. The source currently lives in website PR #50; use a checkout of that reviewed source until it is merged.
 
-In Constructed, select **Chaos Brawl Beta Batch 05** for yourself and an AI opponent (98 cards). Five smaller **Chaos Brawl Beta 05 - Group N** decks contain four copies of the new cards and basics (62–70 cards). These are mechanics exercises, not balanced competitive decks. Filter cards to **Chaos Brawl Beta Local Test (CBT)**. Restart Forge after preparing a changed package. Six deferred cards and generated-only AJDE! are excluded from starting decks.
+In Constructed, select **Chaos Brawl Beta Batch 06** for yourself and an AI opponent (81 cards). Four smaller **Chaos Brawl Beta 06 - Group N** decks contain four copies of the new cards and basics (64–70 cards). These are mechanics exercises, not balanced competitive decks. Filter cards to **Chaos Brawl Beta Local Test (CBT)**. Restart Forge after preparing a changed package. Ten deferred cards and generated-only AJDE! are excluded from starting decks.
 
 ## Validation and scope
 
-The current suite has **337 passing checks**: 244 source comparisons and 93 behavior checks. Desktop build, native image/deck preparation and the seeded AI game passed (turn 11; 2108 ms). See the batch report for exact scope. A full manual playtest and exhaustive multiplayer/replacement combinations remain separate checks. AI strategy is not tuned for Chaos Brawl. Questions collected for later owner review are in [QUESTIONS_FOR_OWNER.md](QUESTIONS_FOR_OWNER.md).
+The current suite has **397 passing checks**: 275 non-token source comparisons, 15 token type/stat checks and 107 behavior checks. Desktop build, native image/deck preparation and the seeded AI game passed (turn 21; 10082 ms). See the batch report for exact scope. A full manual playtest and exhaustive multiplayer/replacement combinations remain separate checks. AI strategy is not tuned for Chaos Brawl. Questions collected for later owner review are in [QUESTIONS_FOR_OWNER.md](QUESTIONS_FOR_OWNER.md).
 
 Custom Drunken/Obsession/turn-order rules are enabled per match through `GameRules.isChaosBrawl()`, initialized from `-Dforge.chaosbrawl=true`. Default tolerance is 2; fixed printed tolerances are supported. Celestial Waters is the owner-confirmed exception: move counters before tolerance conversion and normal untapping. Food remains when explicitly printed on nonartifact creatures; it is not added to changeling's global creature-type list.
 
