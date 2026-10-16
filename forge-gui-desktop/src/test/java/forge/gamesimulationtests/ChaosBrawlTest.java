@@ -797,7 +797,8 @@ public class ChaosBrawlTest extends SimulationTest {
         Player other = game.getPlayers().get(1);
         AbilityUtils.resolve(spell("Overdose", p));
         for (int n = 1; n <= 3; n++) {
-            Card card = addCardToZone("Double Burn", p, ZoneType.Graveyard);
+            Card card = n == 1 ? addCardToZone("Double Burn", p, ZoneType.Graveyard)
+                    : p.getCardsIn(ZoneType.Graveyard).stream().filter(c -> c.getName().equals("Double Burn")).findFirst().orElseThrow();
             game.getAction().checkStaticAbilities();
             SpellAbility cast = card.getFirstSpellAbility();
             cast.setActivatingPlayer(p);
@@ -812,8 +813,34 @@ public class ChaosBrawlTest extends SimulationTest {
         }
         game.getAction().checkStaticAbilities();
         game.getPhaseHandler().devModeSet(PhaseType.END_OF_TURN, p);
+        game.getTriggerHandler().resetActiveTriggers();
         game.getTriggerHandler().runTrigger(TriggerType.Phase, AbilityKey.mapFromPlayer(p), false);
         resolveTriggers(game);
         assertTrue(p.hasLost());
+    }
+
+    @Test
+    public void overdoseDoesNotLoseAtEndStepWithFewerThanThreeCasts() {
+        for (int count : new int[] {0, 1, 2}) {
+            Game game = customGame();
+            Player p = game.getPlayers().get(0);
+            AbilityUtils.resolve(spell("Overdose", p));
+            for (int n = 0; n < count; n++) {
+                Card card = addCardToZone("Double Burn", p, ZoneType.Graveyard);
+                game.getAction().checkStaticAbilities();
+                SpellAbility cast = card.getFirstSpellAbility();
+                cast.setActivatingPlayer(p);
+                cast.setMayPlay(card.mayPlay(p).get(0));
+                cast.getTargets().add(game.getPlayers().get(1));
+                cast.setHostCard(game.getAction().moveToStack(card, cast));
+                game.getStack().add(cast);
+                resolveTriggers(game);
+            }
+            game.getPhaseHandler().devModeSet(PhaseType.END_OF_TURN, p);
+            game.getTriggerHandler().resetActiveTriggers();
+            game.getTriggerHandler().runTrigger(TriggerType.Phase, AbilityKey.mapFromPlayer(p), false);
+            resolveTriggers(game);
+            assertFalse(p.hasLost());
+        }
     }
 }

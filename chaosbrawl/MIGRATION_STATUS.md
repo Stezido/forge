@@ -4,7 +4,7 @@ Canonical source: the registered development MSE in `Stezido/Chaosbrawl-Website`
 
 | Batch | Range | Status |
 | --- | --- | --- |
-| 01 | cb-001–cb-050 | 50 definitions written; behavior verification in progress |
+| 01 | cb-001–cb-050 | 50 definitions verified; native images/decks prepared; AI smoke passed |
 | 02 | cb-051–cb-100 | Pending |
 | 03 | cb-101–cb-150 | Pending |
 | 04 | cb-151–cb-200 | Pending |
@@ -14,7 +14,7 @@ Canonical source: the registered development MSE in `Stezido/Chaosbrawl-Website`
 
 Supporting tokens are implemented with their first dependent card, without consuming the batch's normal-card slots. Final batch accounting will distinguish token printings from playable cards; native UIDs/stable IDs are never reassigned.
 
-The first ten-card baseline passed its 12 original integration tests before migration. The expanded suite verifies all 50 cards against the reviewed MSE metadata, plus real game effects, payments and timing. Latest completed expanded run: 84 of 85 checks passed; the Overdose end-step case is being corrected/verified. Full native MSE rendering completed successfully for all 311 source records without warnings. Desktop packaging and a completed AI smoke game are still pending.
+The first ten-card baseline passed its 12 original integration tests before migration. The expanded suite verifies all 50 cards against the reviewed MSE metadata, plus real game effects, payments and timing. The final expanded run passed all 86 checks, including repeated casts of the same graveyard card and the zero/one/two-cast controls for Overdose. Full native MSE rendering completed successfully for all 311 source records without warnings. The desktop dependency JAR built successfully. The seeded AI-versus-AI game completed successfully with Ai(2) winning; Forge reported 2425 ms. Six isolated test decks and full card-face images are prepared.
 
 Owner decisions for batch 01:
 

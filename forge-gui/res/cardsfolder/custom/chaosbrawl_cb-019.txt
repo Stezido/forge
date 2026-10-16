@@ -7,6 +7,6 @@ SVar:Cast:Mode$ SpellCast | ValidCard$ Card | ValidSA$ Spell.MayPlaySource | Val
 SVar:CountCast:DB$ StoreSVar | SVar$ OverdoseCasts | Type$ AdditiveForEach | Expression$ 1 | SubAbility$ LoseLife
 SVar:LoseLife:DB$ LoseLife | Defined$ You | LifeAmount$ X
 SVar:X:TriggeredSpellAbility$CardManaCostLKI
-SVar:End:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Command | CheckSVar$ OverdoseCasts | SVarCompare$ GE3 | Execute$ Lose | TriggerDescription$ If you cast three spells this way, you lose the game.
+SVar:End:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Command | CheckSVar$ Count$SVar$OverdoseCasts | SVarCompare$ GE3 | Execute$ Lose | TriggerDescription$ If you cast three spells this way, you lose the game.
 SVar:Lose:DB$ LosesGame | Defined$ You
 Oracle:Until end of turn, you may cast spells from your graveyard, but you lose life equal to their mana value.\nAt the end of the turn, if you cast three or more spells this way, you lose the game.
