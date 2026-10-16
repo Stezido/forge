@@ -32,6 +32,8 @@ public enum CounterEnumType implements CounterType {
     P1P1("+1/+1", "+1/+1", 96, 226, 23, CounterAiCategory.Positive),
 
     DRUNKEN("Drunken", "DRUNK", 226, 175, 23, CounterAiCategory.Neutral),
+    OBSESSION("Obsession", "OBSESS", 200, 95, 195, CounterAiCategory.Negative),
+    HAZE("Haze", "HAZE", 120, 170, 100, CounterAiCategory.Neutral),
 
     LOYALTY("LOYAL", 198, 198, 198, CounterAiCategory.Positive),
 

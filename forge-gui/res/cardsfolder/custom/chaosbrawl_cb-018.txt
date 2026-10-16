@@ -1,0 +1,6 @@
+Name:Ambush on the Throne
+ManaCost:1 B
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature | NumAtt$ -X | NumDef$ -X | SpellDescription$ Target creature gets -1/-1 until end of turn. It gets an additional -1/-1 until end of turn for each creature you control.
+SVar:X:Count$Valid Creature.YouCtrl/Plus.1
+Oracle:Target creature gets -1/-1 until end of turn. It gets an additional -1/-1 until end of turn for each creature you control.

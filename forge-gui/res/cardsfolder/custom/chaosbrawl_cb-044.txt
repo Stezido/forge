@@ -1,0 +1,8 @@
+Name:Chaotic Kitchen
+ManaCost:1 B G
+Types:Enchantment Location
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Food | TriggerDescription$ When CARDNAME enters the battlefield, create a Food token.
+SVar:Food:DB$ Token | TokenScript$ c_a_food_sac
+S:Mode$ Continuous | Affected$ Food.token+YouCtrl | SetPower$ 2 | SetToughness$ 2 | AddType$ Creature | AddAbility$ FoodLife | Description$ Food tokens you control are 2/2 creatures with "{2}, {T}, Sacrifice this artifact: You gain 3 life" in addition to their other types.
+SVar:FoodLife:AB$ GainLife | Cost$ 2 T Sac<1/CARDNAME> | LifeAmount$ 3 | SpellDescription$ You gain 3 life.
+Oracle:When Chaotic Kitchen enters the battlefield, create a Food token.\nFood tokens you control are 2/2 creatures with “{2}, {T}, Sacrifice this artifact: You gain 3 life” in addition to their other types.

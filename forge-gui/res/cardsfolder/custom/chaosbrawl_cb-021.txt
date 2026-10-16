@@ -1,0 +1,8 @@
+Name:Drunken Warrior
+ManaCost:1 R
+Types:Creature Human Warrior
+PT:1/1
+K:Haste
+K:etbCounter:DRUNKEN:3
+R:Event$ RemoveCounter | ActiveZones$ Battlefield | ValidCard$ Card.Self | ValidCounterType$ DRUNKEN | Layer$ CantHappen | Description$ Drunken counters cannot be removed from CARDNAME.
+Oracle:Haste\nDrunken Warrior enters the battlefield with three Drunken counter on it.\nDrunken counters cannot be removed from Drunken Warrior.

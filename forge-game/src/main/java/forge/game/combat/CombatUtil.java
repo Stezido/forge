@@ -379,6 +379,7 @@ public class CombatUtil {
                 }
             }
             runParams.put(AbilityKey.Defenders, defenders);
+            forge.game.ChaosBrawlRules.beforeAttackTrigger(c);
             game.getTriggerHandler().runTrigger(TriggerType.Attacks, runParams, false);
         }
 

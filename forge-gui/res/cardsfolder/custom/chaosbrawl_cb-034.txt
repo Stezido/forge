@@ -1,0 +1,7 @@
+Name:Wake and Bake
+ManaCost:1 G W
+Types:Sorcery
+A:SP$ Draw | NumCards$ 1 | SubAbility$ Land | SpellDescription$ Draw a card, then you may put a land card from your hand onto the battlefield tapped. Create a Food token.
+SVar:Land:DB$ ChangeZone | Origin$ Hand | Destination$ Battlefield | ChangeType$ Land | ChangeNum$ 1 | Optional$ True | Tapped$ True | SubAbility$ Food
+SVar:Food:DB$ Token | TokenScript$ c_a_food_sac
+Oracle:Draw a card, then you may put a land card from your hand onto the battlefield tapped. Create a Food token.

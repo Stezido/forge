@@ -1,0 +1,5 @@
+Name:Noxious Cloud
+ManaCost:2 B B
+Types:Sorcery
+A:SP$ PumpAll | ValidCards$ Creature | NumAtt$ -4 | NumDef$ -4 | SpellDescription$ All creatures get -4/-4 until end of turn.
+Oracle:All creatures get -4/-4 until end of turn.

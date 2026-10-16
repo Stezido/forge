@@ -1,0 +1,7 @@
+Name:Nagging Siren Twin
+ManaCost:2 U
+Types:Creature Siren
+PT:2/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigTwin | TriggerDescription$ When CARDNAME enters the battlefield, create a 1/1 blue Siren creature token with flying named Nagging Siren Twin.
+SVar:TrigTwin:DB$ Token | TokenScript$ chaosbrawl_nagging_siren_twin
+Oracle:When Nagging Siren Twin enters the battlefield, create a 1/1 blue Siren creature with flying that is also named Nagging Siren Twin.

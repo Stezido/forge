@@ -1,0 +1,9 @@
+Name:Nutten und Koks
+ManaCost:1 B R
+Types:Enchantment
+T:Mode$ Phase | Phase$ Upkeep | ValidPlayer$ You | TriggerZones$ Battlefield | Execute$ TrigLose | TriggerDescription$ At the beginning of your upkeep, you lose 2 life. Then choose one — create a Treasure token or draw a card.
+SVar:TrigLose:DB$ LoseLife | Defined$ You | LifeAmount$ 2 | SubAbility$ DBChoice
+SVar:DBChoice:DB$ Charm | Choices$ Treasure,Draw
+SVar:Treasure:DB$ Token | TokenScript$ c_a_treasure_sac | SpellDescription$ Create a Treasure token.
+SVar:Draw:DB$ Draw | NumCards$ 1 | SpellDescription$ Draw a card.
+Oracle:At the beginning of your upkeep, you lose 2 life. Then choose one —\nCreate a Treasure token.\nDraw a card.

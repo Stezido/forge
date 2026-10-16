@@ -38,6 +38,10 @@ public class AttackRequirement {
             nAttackAnything += attacker.getGoaded().size();
         }
 
+        if (forge.game.ChaosBrawlRules.mustAttack(attacker)) {
+            nAttackAnything++;
+        }
+
         //MustAttack static check
         final List<GameEntity> mustAttack = StaticAbilityMustAttack.entitiesMustAttack(attacker);
         for (GameEntity e : mustAttack) {

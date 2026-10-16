@@ -1,0 +1,6 @@
+Name:Double Burn
+ManaCost:1 R
+Types:Instant
+A:SP$ DealDamage | ValidTgts$ Any | NumDmg$ 2 | SpellDescription$ CARDNAME deals 2 damage to any target.
+K:Flashback:3 R
+Oracle:Double Burn deals 2 damage to any target.\nFlashback—{3R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)

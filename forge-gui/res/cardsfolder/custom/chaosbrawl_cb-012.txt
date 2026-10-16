@@ -1,0 +1,8 @@
+Name:Charming Siren
+ManaCost:1 U U
+Types:Creature Siren
+PT:2/3
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigObsess | TriggerDescription$ When CARDNAME enters the battlefield, obsess target creature an opponent controls.
+SVar:TrigObsess:DB$ PutCounter | ValidTgts$ Creature.OppCtrl | CounterType$ OBSESSION | CounterNum$ 1
+Oracle:Flash\nWhen Charming Siren enters the battlefield, obsess target creature an opponent controls.

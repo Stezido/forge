@@ -1,17 +1,57 @@
 [metadata]
 Code=CBT
-Date=2026-10-15
-Name=Chaos Brawl Local Test
+Date=2026-10-16
+Name=Chaos Brawl Beta Batch 01
 Type=Custom_Set
 
 [cards]
 001 C Wasted
+002 M Nutten und Koks
 003 C Wixbirne
 004 C Couchpotato
 005 C Puddinghead
 006 C Buy a Round
+007 U Food Coma
+008 U Last Man Standing
 009 U The Tipsy Ram
 010 C Toast of Comfort
 011 C A Wife's Argument
+012 U Charming Siren
+013 C Circular Conversation
+014 U Enraged Reef Leviathan
+015 U Mom's advice
+016 C Nagging Siren Twin
 017 C Nutshot overload
+018 U Ambush on the Throne
+019 R Overdose
 020 C Drunkard
+021 C Drunken Warrior
+022 C Hopsfield Vale
+023 C Kegbearer
+024 C Blunt Force Trauma
+025 C Gimme the herbs
+026 U Hallucinating Trip
+027 C Inspiring Bard
+028 U Mystic Herb Buddy
+029 C Mystic Herb Seedling
+030 U Mystic Hotbox Hut
+031 U Brewmaster Grunthar
+032 M Brüder Hopfenblüte
+033 U Ice Cold Siren
+034 U Wake and Bake
+035 C Rotting Flesh
+036 C Decaying Orchard
+037 C Distillery of Silent Death
+038 M Feuerball, Junge!
+039 C Sacred Brewery
+040 C Parsley Root
+041 R Celestial Waters
+042 R Gluttonous Scavenger
+043 U Brie-lliant Trapper
+044 R Chaotic Kitchen
+045 C Double Burn
+046 U Pumpkin Barrage Crew
+047 M Mattn, the Tasty Prince
+048 M Anschnly, the Vengeful Siren
+049 R Noxious Cloud
+050 C Mistcliff Springs

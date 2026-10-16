@@ -1,0 +1,6 @@
+Name:Mystic Herb Buddy
+ManaCost:3 G
+Types:Creature Plant
+PT:4/4
+S:Mode$ Continuous | AffectedDefined$ Self | AddKeyword$ Reach & Trample | IsPresent$ Forest.YouCtrl | PresentCompare$ GE4 | Description$ If you control four or more Forests, CARDNAME has reach and trample.
+Oracle:If you control four or more Forests, Mystic Herb Buddy has Reach and Trample.

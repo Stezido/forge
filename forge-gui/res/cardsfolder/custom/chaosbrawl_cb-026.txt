@@ -1,0 +1,5 @@
+Name:Hallucinating Trip
+ManaCost:2 G
+Types:Sorcery
+A:SP$ AnimateAll | ValidCards$ Forest.YouCtrl | Power$ 1 | Toughness$ 1 | Types$ Creature,Plant | Colors$ Green | Keywords$ Haste | SpellDescription$ Until end of turn, all Forests you control become 1/1 green Plant creatures with haste in addition to their other types. They are still lands.
+Oracle:Until end of turn, all Forests you control become 1/1 green Plant creatures with haste in addition to their other types. They’re still lands.

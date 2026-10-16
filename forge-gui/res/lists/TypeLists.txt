@@ -18,6 +18,7 @@ Tower
 Town:Towns
 Urza's
 [CreatureTypes]
+Half-Giant:Half-Giants
 Advisor:Advisors
 Aetherborn:Aetherborn
 Alien:Aliens

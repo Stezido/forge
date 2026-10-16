@@ -1,0 +1,12 @@
+Name:Overdose
+ManaCost:2 B B
+Types:Sorcery
+A:SP$ Effect | StaticAbilities$ STPlay | Triggers$ Cast,End | SpellDescription$ Until end of turn, you may cast spells from your graveyard, losing life equal to their mana value. At the end of the turn, if you cast three or more spells this way, you lose the game.
+SVar:STPlay:Mode$ Continuous | Affected$ Card.nonLand+YouOwn | AffectedZone$ Graveyard | MayPlay$ True | Description$ You may cast spells from your graveyard this turn.
+SVar:Cast:Mode$ SpellCast | ValidCard$ Card | ValidSA$ Spell.MayPlaySource | ValidActivatingPlayer$ You | TriggerZones$ Command | Execute$ CountCast | TriggerDescription$ When you cast a spell this way, lose life equal to its mana value.
+SVar:CountCast:DB$ StoreSVar | SVar$ OverdoseCasts | Type$ AdditiveForEach | Expression$ 1 | SubAbility$ LoseLife
+SVar:LoseLife:DB$ LoseLife | Defined$ You | LifeAmount$ X
+SVar:X:TriggeredSpellAbility$CardManaCostLKI
+SVar:End:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Command | CheckSVar$ OverdoseCasts | SVarCompare$ GE3 | Execute$ Lose | TriggerDescription$ If you cast three spells this way, you lose the game.
+SVar:Lose:DB$ LosesGame | Defined$ You
+Oracle:Until end of turn, you may cast spells from your graveyard, but you lose life equal to their mana value.\nAt the end of the turn, if you cast three or more spells this way, you lose the game.

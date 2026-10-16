@@ -1,0 +1,6 @@
+Name:Enraged Reef Leviathan
+ManaCost:4 U
+Types:Creature Fish Leviathan
+PT:4/4
+S:Mode$ Continuous | AffectedDefined$ Self | AddPower$ 3 | AddToughness$ 3 | IsPresent$ Siren.YouCtrl | PresentZone$ Graveyard | PresentCompare$ GE3 | Description$ CARDNAME gets +3/+3 as long as there are three or more Sirens in your graveyard.
+Oracle:Enraged Reef Leviathan gets +3/+3 as long as there are three or more Sirens in your graveyard.

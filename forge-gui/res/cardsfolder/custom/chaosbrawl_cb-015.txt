@@ -1,0 +1,8 @@
+Name:Mom's advice
+ManaCost:2 U U
+Types:Instant
+A:SP$ Charm | Choices$ Counter,Surveil | SpellDescription$ Choose one — counter target spell; or surveil 2, then draw two cards.
+SVar:Counter:DB$ Counter | ValidTgts$ Spell | SpellDescription$ Counter target spell.
+SVar:Surveil:DB$ Surveil | Amount$ 2 | SubAbility$ Draw | SpellDescription$ Surveil 2, then draw two cards.
+SVar:Draw:DB$ Draw | NumCards$ 2
+Oracle:Choose one —\n• Counter target spell.\n• Surveil 2, then draw two cards.

@@ -1,0 +1,9 @@
+Name:Celestial Waters
+ManaCost:2 U
+Types:Enchantment Location
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TapAll | TriggerDescription$ When CARDNAME enters, tap each creature and put a stun counter on each of them.
+SVar:TapAll:DB$ TapAll | ValidCards$ Creature | SubAbility$ Stun
+SVar:Stun:DB$ PutCounterAll | ValidCards$ Creature | CounterType$ STUN | CounterNum$ 1
+SVar:Move:DB$ MoveCounter | ValidTgts$ Creature | TargetMin$ 2 | TargetMax$ 2 | CounterType$ Any | CounterNum$ Any
+Oracle:When Celestial Waters enters, tap each creature and put a stun counter on each of them.\nAt the beginning of your turn, you may move any number of counters of your choice from one target creature onto another target creature.
+SVar:ChaosBrawlBeforeTolerance:Move

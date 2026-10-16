@@ -1,0 +1,8 @@
+Name:Mystic Hotbox Hut
+ManaCost:2 G
+Types:Enchantment Location
+T:Mode$ ManaAdded | ValidSource$ Permanent.nonLand | Player$ You | Execute$ Haze | TriggerZones$ Battlefield | TriggerDescription$ Whenever you produce mana from a nonland source, put a Haze counter on CARDNAME.
+SVar:Haze:DB$ PutCounter | Defined$ Self | CounterType$ HAZE | CounterNum$ 1
+A:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
+A:AB$ Token | Cost$ T SubCounter<3/HAZE> | TokenScript$ g_2_2_elemental | SpellDescription$ Create a 2/2 green Elemental creature token.
+Oracle:Whenever you produce mana from a non-land source, put a Haze counter on Mystic Hotbox Hut.\n{T}: Add {G}.\n{T}, Remove three Haze counters: Create a 2/2 green Elemental creature token.

@@ -1,0 +1,8 @@
+Name:Rotting Flesh
+ManaCost:1 B
+Types:Creature Food Mutant
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self | Execute$ Lose | TriggerDescription$ When CARDNAME dies, you lose 2 life.
+SVar:Lose:DB$ LoseLife | Defined$ You | LifeAmount$ 2
+A:AB$ GainLife | Cost$ 2 T Sac<1/CARDNAME> | LifeAmount$ 3 | SpellDescription$ You gain 3 life.
+Oracle:When Rotting Flesh dies, you lose 2 life.\n{2},{T}, Sacrifice Rotting Flesh: You gain 3 life.

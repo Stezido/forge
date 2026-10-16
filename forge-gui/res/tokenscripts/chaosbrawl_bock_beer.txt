@@ -1,0 +1,6 @@
+Name:Bock Beer
+ManaCost:no cost
+Types:Artifact Beer
+A:AB$ PutCounter | Cost$ 1 T Sac<1/CARDNAME> | ValidTgts$ Creature | CounterType$ DRUNKEN | CounterNum$ 1 | SorcerySpeed$ True | SubAbility$ Extra | SpellDescription$ Put a Drunken counter on target creature, then apply the Bock Beer effect. Activate only as a sorcery.
+SVar:Extra:DB$ MultiplyCounter | Defined$ Targeted | CounterType$ DRUNKEN
+Oracle:{1},{T}, Sacrifice this artifact: Put a Drunken counter on target creature, then double the number of drunken counters on that creature. Activate only as a sorcery.

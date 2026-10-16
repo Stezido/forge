@@ -1,0 +1,8 @@
+Name:Pumpkin Barrage Crew
+ManaCost:3 B
+Types:Creature Human Rogue
+PT:3/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Food | TriggerDescription$ When CARDNAME enters the battlefield, create a Food token.
+SVar:Food:DB$ Token | TokenScript$ c_a_food_sac
+A:AB$ DealDamage | Cost$ 2 Sac<1/Food.token> | ValidTgts$ Creature | NumDmg$ 2 | SpellDescription$ CARDNAME deals 2 damage to target creature.
+Oracle:When Pumpkin Barrage Crew enters the battlefield, create a Food token.\n{2}, Sacrifice a Food token: Pumpkin Barrage Crew deals 2 damage to target creature.

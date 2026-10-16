@@ -1,0 +1,8 @@
+Name:Brewmaster Grunthar
+ManaCost:1 R W
+Types:Creature Dwarf
+PT:3/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Beer | TriggerDescription$ When CARDNAME enters the battlefield, create a Beer token.
+SVar:Beer:DB$ Token | TokenScript$ chaosbrawl_beer
+SVar:ChaosBrawlTolerance:4
+Oracle:Drunken Tolerance 4\nWhen Brewmaster Grunthar enters the battlefield, create a Beer Token

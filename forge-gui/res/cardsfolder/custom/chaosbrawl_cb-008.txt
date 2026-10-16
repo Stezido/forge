@@ -1,0 +1,6 @@
+Name:Last Man Standing
+ManaCost:2 W W
+Types:Sorcery
+A:SP$ ChooseCard | Defined$ You | Amount$ 1 | Choices$ Creature | AtRandom$ True | SubAbility$ DBDestroyAll | SpellDescription$ Choose a creature at random. Destroy all other creatures.
+SVar:DBDestroyAll:DB$ DestroyAll | ValidCards$ Creature.nonChosenCard
+Oracle:Choose a creature at random. Destroy all other creatures.

@@ -1,0 +1,5 @@
+Name:Gimme the herbs
+ManaCost:G
+Types:Sorcery
+A:SP$ Dig | DigNum$ 4 | ChangeNum$ All | ChangeValid$ Forest | DestinationZone$ Hand | DestinationZone2$ Graveyard | Reveal$ True | SpellDescription$ Reveal the top four cards of your library. Put all Forest cards revealed this way into your hand and the rest into your graveyard.
+Oracle:Reveal the top four cards of your library. Put all forest cards revealed this way into your hand and the rest into your graveyard.

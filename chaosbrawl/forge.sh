@@ -37,7 +37,7 @@ case "${1:-launch}" in
     fi
     cd "$runtime/run"
     if [[ "${1:-launch}" == smoke ]]; then
-      exec java -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabled=false -jar "${jars[0]}" sim -d 'Chaos Brawl Ten Card Test.dck' 'Chaos Brawl Ten Card Test.dck' -n 1 -s 20261015
+      exec java -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabled=false -jar "${jars[0]}" sim -d 'Chaos Brawl Beta Batch 01.dck' 'Chaos Brawl Beta Batch 01.dck' -n 1 -s 20261016
     fi
     exec java -Dsentry.enabled=false -Xmx4g -Dforge.chaosbrawl=true -Dio.netty.tryReflectionSetAccessible=true -Dfile.encoding=UTF-8 -jar "${jars[0]}"
     ;;

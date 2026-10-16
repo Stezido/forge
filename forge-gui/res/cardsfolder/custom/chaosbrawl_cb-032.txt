@@ -1,0 +1,14 @@
+Name:Brüder Hopfenblüte
+ManaCost:2 R W
+Types:Legendary Creature Human
+PT:2/5
+T:Mode$ Phase | Phase$ Upkeep | TriggerZones$ Battlefield | Execute$ Roll | TriggerDescription$ At the beginning of each upkeep, roll a six-sided die and create the indicated Beer token.
+SVar:Roll:DB$ RollDice | Sides$ 6 | ResultSubAbilities$ 1:Expired,2:Zwickl,3:Wheat,4:Dark,5:Pils,6:Bock
+SVar:Expired:DB$ Token | TokenScript$ chaosbrawl_expired_beer
+SVar:Zwickl:DB$ Token | TokenScript$ chaosbrawl_zwickl_beer
+SVar:Wheat:DB$ Token | TokenScript$ chaosbrawl_wheat_beer
+SVar:Dark:DB$ Token | TokenScript$ chaosbrawl_dark_beer
+SVar:Pils:DB$ Token | TokenScript$ chaosbrawl_pils_beer
+SVar:Bock:DB$ Token | TokenScript$ chaosbrawl_bock_beer
+SVar:ChaosBrawlTolerance:6
+Oracle:At the beginning of each upkeep, roll a six-sided die. Create a Beer token with the result indicated below.\n1 — Expired Beer\n2 — Zwickl Beer\n3 — Wheat Beer\n4 — Dark Beer\n5 — Pils Beer\n6 — Bock Beer\nDrunken tolerance 6

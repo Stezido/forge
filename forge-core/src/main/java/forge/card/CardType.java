@@ -674,6 +674,9 @@ public final class CardType implements Comparable<CardType>, CardTypeView {
         Predicate<String> allowedTypes = x -> false;
         if (isCreature() || isKindred()) {
             allowedTypes = allowedTypes.or(CardType::isACreatureType);
+            // Chaos Brawl explicitly prints Food on nonartifact creatures. Preserve that
+            // subtype without adding Food to every creature type (and thus changelings).
+            allowedTypes = allowedTypes.or("Food"::equals);
         }
         if (isLand()) {
             allowedTypes = allowedTypes.or(CardType::isALandType);
