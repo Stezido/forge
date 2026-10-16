@@ -1,37 +1,28 @@
-# Batch 02 — saved draft, not ready for play
+# Batch 02 — cb-051–cb-100
 
-Owner requested saving work and continuing later. This branch is stacked on batch 01 and contains **45 definition drafts**, not 50 verified additions. The original 50-card worktree/PR remains independently runnable.
+50 new card records are implemented on top of batch 01. The cumulative package has 100 records and 99 distinct names: Spar’s Bazaar cb-067/cb-095 has identical mechanics and two native printings. Stable IDs and both native image indices are preserved.
 
-The source snapshot contains all 50 records cb-051–cb-100 from the owner-approved three-card wording source in website PR #50. It does not yet contain the subsequently approved Tactical Purge/Pumpkin Catapult text changes.
+## Observed validation
 
-Missing definitions: cb-056 Youthful Inner Heat, cb-058 Tactical Purge, cb-075 Confusing Signals, cb-081 Pumpkin Catapult, cb-085 Bromoment. Six draft supporting tokens were added: five colors of 2/2 Spirit and Hangry Siren. Spar’s Bazaar cb-067/cb-095 has duplicate printings; preserve both stable IDs but use shared mechanics and distinct native images.
+- All **157 checks passed**: 100 source metadata comparisons and 57 effect/rules checks. The original 86-check suite remains included.
+- New behavior checks exercise Last Duel’s mandatory per-graveyard legal targeting, simultaneous resurrection/finality and persistent ability loss, opponent-card reanimation under your control, Owizahrer’s one-other-creature upkeep, all-creature counter totals, Hangry transformations, all-counter and one-counter transfer, global Food sacrifice, Beer production for both players, twin conditions, last-charge sacrifice, conditional destruction drain, increasing Fulfillment requirements and tap/draw accounting.
+- Paid normal Plot is tested as a special action: immediate shared allowance consumption, no cast now, no same-turn free cast, later sorcery-speed free casting, multiple allowances and end-of-turn expiry. Tactical Purge is cast as an actual Aura and its ETB protection expires while blanking remains. Unpaid Overdose Revival upkeep exiles the creature via finality.
+- Pumpkin Driver actually pays Crew 3 alone at printed power 1. Sacrifice eligibility is restricted to the triggering crew group; two sacrifices resolve independent fixed 2-damage triggers for 4 life loss. Native AI target selection bypasses the controller spy, so the test asserts the actual effect instead of a spy invocation count.
+- Desktop package build passed. Preparation validated the canonical source and executable hashes, all 100 full-face PNG headers/dimensions and six batch decks. Duplicate Bazaar faces use suffixes 1 and 2. Native MSE rendered all 311 records for this archive without warnings.
+- Seed **20261016**: completed AI game, turn 10, Ai(2) won; Forge reported **1790 ms**. Catapult dealt the winning combat damage. No exception/undefined-SVar/custom API error appeared in the smoke log.
 
-## Checks actually observed
+Local evidence is ignored under `.chaosbrawl-local`: `verified-100-tests-2.log`, `build-100.log`, `prepare-100.log`, `smoke-100.log` and native image caches. The source/executable manifests are committed. First batch’s separate branch/worktree remains reproducible against its own pinned source.
 
-- `git diff --check` passed.
-- The first expanded suite (40 new metadata rows plus the original suite) had one loader failure: Controlling Relationship used an invalid GainControl static mode. That script was corrected afterwards.
-- There was no rerun after that correction and the later five scripts/Plot/targeting engine edits. These additions are unverified. The metadata data provider does not yet include those five cards.
-- No batch-02 build, decks, image preparation or AI smoke has passed. `prepare.py` and `forge.sh` still select batch 01. The old executable hashes deliberately reject the changed engine; do not bypass the guard or report this draft as playable.
+## Canonical source and approved decisions
 
-## Owner decisions to preserve
+The pinned source is website PR #50, MSE SHA-256 `81e36272d3d2fc4308dc4d65c54be779944733010ed44ba167acd34c82da15ef`. Five owner-approved wording changes are applied to that review source: Last Duel, Numbing Mass Resurrection, Academic Quarter, Tactical Purge and Pumpkin Catapult. Alpha remains the published website variant.
 
-- Numbing Mass Resurrection: one ETB resurrection; persistent ability loss for all creatures with finality counters. Approved wording is already in source snapshot.
-- Academic Quarter: one normal Plot special action this turn, paying the card’s mana cost, no cast event now. Cast free only as a sorcery on a later turn. Approved wording is already in source snapshot.
-- Last Duel: the caster must select one legal creature target per graveyard if able. The earlier optional “up to one” wording was superseded. Empty graveyards do not stop casting. Approved wording is already in source snapshot.
-- Tactical Purge: owner approved ETB indestructible until end of turn, persistent ability loss. Apply approved wording to Beta before pinning final source.
-- Pumpkin Catapult: owner approved one reflexive damage trigger per sacrificed drunken crew member, each with its own target. Sacrifice eligibility is limited to the specific crew event. Apply approved wording to Beta before pinning final source.
-- Youthful Inner Heat: behavior confirmed as ward requiring the targeting opponent to let the enchanted creature’s controller draw one card. Keep current short MSE wording; the long text replacement was not approved.
-- Confusing Signals: explicit as-you-cast player-choice wording was proposed and remains pending. Do not change MSE or assume its approval.
+Last Duel’s earlier optional “up to one” proposal was superseded: the caster must choose one legal target per graveyard if able. Numbing is one ETB reanimation followed by persistent blanking. Plot follows normal Plot timing/payment. Owizahrer keeps the owner’s one-other-creature version. Pumpkin uses one reflexive damage trigger per drunken crew sacrifice.
 
-Exact follow-up texts and approval state are stored in website PR #50 at `sets/the-foul-realms/changes/beta-20261016-forge-handoff.md`.
+Youthful Inner Heat keeps its current short MSE wording and implements the owner-confirmed Ward draw payment. **Confusing Signals wording approval remains collected for later**: the implementation fixes a non-targeted chosen player during casting, targets only their creatures, and draws only for creatures actually tapped. Its MSE text is unchanged. See `QUESTIONS_FOR_OWNER.md`.
 
-## Resume
+Seven supporting tokens are new in this batch: five colors of 2/2 Spirit, Hangry Siren and Pumpkin Gang Driver. The dynamic Spirit/Driver tokens have no corresponding authored MSE token illustration; their rules work with Forge’s token presentation. Full card faces for the 100 source records come from native MSE, not from editing rendered text.
 
-1. Apply only the two newly approved MSE texts through the website owner-chat workflow, regenerate the snapshot/hash/report and push the review branch. Await Confusing Signals approval before changing that card.
-2. Refresh this batch’s source metadata/hash/commit from the exact review archive. Reuse native MSE rendering only when its archive hash matches.
-3. Finish the five missing definitions; review the other 45 drafts with behavior tests. New generic OneEachIfAble target counting and the opt-in shared Plot allowance need tests, including empty/protected graveyards, casting triggers, multiple allowance effects and second-plot rejection.
-4. Check Owizahrer’s draft condition: `Count$ChosenCardAmount` is not the native expression; use/review `ChosenCard$Amount` and test paid/declined/missing-creature upkeep. Source requires ONE other untapped creature.
-5. Extend the metadata provider to all 100 records, then cover cross-player resurrection/finality, global Food sacrifice, counters/auras/costs and actual Crew/Plot execution. Do not count metadata checks as proof of card behavior.
-6. Generalize preparation/decks for batch 02, handle duplicate-name image suffixes, refresh reviewed executable hashes only after checks pass, build desktop, run seeded AI game, and push reviewable results.
+## Manual testing
 
-Local logs and scratch generators are ignored under `.chaosbrawl-local`. The generators append data/engine blocks and MUST NOT be rerun blindly. Continue from these committed definitions.
+Use the commands in `chaosbrawl/README.md`. Default preparation selects this latest batch and its cumulative metadata/scripts. The main 100-card deck includes one of each record 51–100 plus 50 basic lands; five smaller group decks focus on ten cards each. Restart Forge after preparation. A full manual human playtest has not been claimed.
