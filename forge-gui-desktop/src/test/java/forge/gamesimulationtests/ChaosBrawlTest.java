@@ -1608,4 +1608,175 @@ public class ChaosBrawlTest extends SimulationTest {
         assertTrue(straggler.isTapped());
     }
 
+    @Test
+    public void betaNameCollisionsPreserveOfficialRules() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card recycle = createCard("Recycle", p), fallen = createCard("The Fallen", p), master = createCard("Dungeon Master", p);
+        assertTrue(recycle.isSorcery()); assertEquals(recycle.getManaCost().getCMC(), 1);
+        assertTrue(fallen.getType().hasSubtype("Orc")); assertEquals(fallen.getBasePower(), 3);
+        assertTrue(master.isCreature()); assertFalse(master.isPlaneswalker());
+        forge.item.PaperCard official = forge.StaticData.instance().getCommonCards().getAllCards("Recycle").stream()
+                .filter(c -> c.getEdition().equals("TMP")).findFirst().orElseThrow();
+        Card original = Card.fromPaperCard(official, p);
+        assertTrue(original.isEnchantment()); assertEquals(original.getManaCost().getCMC(), 6);
+        official = forge.StaticData.instance().getCommonCards().getAllCards("The Fallen").stream()
+                .filter(c -> c.getEdition().equals("DRK")).findFirst().orElseThrow();
+        original = Card.fromPaperCard(official, p);
+        assertTrue(original.getType().hasSubtype("Zombie")); assertEquals(original.getBasePower(), 2);
+    }
+
+    @Test
+    public void homemadeParanoiaPutsEveryRevealedLandTappedAndMillsTheRest() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        addCardToZone("Forest", p, ZoneType.Library); addCardToZone("Swamp", p, ZoneType.Library);
+        addCardToZone("Critical (S)hit", p, ZoneType.Library);
+        AbilityUtils.resolve(spell("Homemade Paranoia", p));
+        assertEquals(p.getCardsIn(ZoneType.Battlefield).size(), 2);
+        assertTrue(p.getCardsIn(ZoneType.Battlefield).stream().allMatch(c -> c.isLand() && c.isTapped()));
+        assertEquals(p.getCardsIn(ZoneType.Graveyard).size(), 1); assertEquals(p.getCardsIn(ZoneType.Library).size(), 0);
+    }
+
+    @Test
+    public void homemadeParanoiaWithACreatureKeepsOneCreatureAndMillsEvenLands() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        addCardToZone("Forest", p, ZoneType.Library); addCardToZone("Couchpotato", p, ZoneType.Library);
+        addCardToZone("Critical (S)hit", p, ZoneType.Library);
+        AbilityUtils.resolve(spell("Homemade Paranoia", p));
+        assertEquals(p.getCardsIn(ZoneType.Hand).size(), 1); assertTrue(p.getCardsIn(ZoneType.Hand).getFirst().isCreature());
+        assertEquals(p.getCardsIn(ZoneType.Graveyard).size(), 2); assertTrue(p.getCardsIn(ZoneType.Battlefield).isEmpty());
+    }
+
+    @Test
+    public void draftTapAddsOneCounterToTheSacrificedBeersActualTarget() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card tap = enter("Draft Tap", p); resolveTriggers(game);
+        assertEquals(countCardsWithName(game, "Beer"), 3);
+        Card target = addCard("Couchpotato", p), beer = findCardWithName(game, "Beer");
+        addCard("Swamp", p); game.getAction().checkStateEffects(true);
+        SpellAbility drink = beer.getSpellAbilities().stream().filter(a -> a.getApi() == ApiType.PutCounter).findFirst().orElseThrow();
+        drink.setActivatingPlayer(p); drink.getTargets().add(target);
+        assertTrue(ComputerUtil.playNoStack(p, drink, game, false)); resolveTriggers(game);
+        assertEquals(target.getCounters(CounterEnumType.DRUNKEN), 2);
+        resolveEffect("DB$ Sacrifice | SacValid$ Beer.YouCtrl | Amount$ 1", tap); resolveTriggers(game);
+        assertEquals(target.getCounters(CounterEnumType.DRUNKEN), 2, "A Beer sacrificed without a targeting ability adds no counter");
+    }
+
+    @Test
+    public void fillEmUpUsesTheTargetsOwnTolerance() {
+        for (String name : new String[] {"Couchpotato", "Brüder Hopfenblüte"}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0);
+            Card target = addCard(name, p), host = createCard("Fill Em Up", p);
+            SpellAbility drink = db(host, "Drunken"); drink.getTargets().add(target); AbilityUtils.resolve(drink);
+            assertEquals(target.getCounters(CounterEnumType.DRUNKEN), ChaosBrawlRules.drunkenTolerance(target) + 1);
+        }
+    }
+
+    @Test
+    public void driverUsesAMinimumCrewPowerRatherThanAddingThree() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card driver = addCard("Designated Driver", p), vehicle = addCard("Experimental Invention", p);
+        SpellAbility crew = vehicle.getSpellAbilities().stream().filter(SpellAbility::isCrew).findFirst().orElseThrow();
+        assertEquals(driver.getNetPower(), 6);
+        assertEquals(forge.game.staticability.StaticAbilityTapPowerValue.getMod(driver, crew), 0);
+        for (int n = 0; n < 5; n++) resolveEffect("DB$ Token | TokenScript$ chaosbrawl_beer", driver);
+        game.getAction().checkStaticAbilities(); assertEquals(driver.getNetPower(), 1);
+        assertEquals(forge.game.staticability.StaticAbilityTapPowerValue.getMod(driver, crew), 2);
+    }
+
+    @Test
+    public void ediConvertsEveryDrunkenCounterAndPreservesExistingPlusCounters() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card edi = enter("Edi, the Beerpig", p);
+        counters(edi, CounterEnumType.P1P1, 2); counters(edi, CounterEnumType.DRUNKEN, 3);
+        assertEquals(edi.getCounters(CounterEnumType.DRUNKEN), 0); assertEquals(edi.getCounters(CounterEnumType.P1P1), 5);
+        assertEquals(edi.getNetPower(), 8);
+    }
+
+    @Test
+    public void gonerEntersTappedAndCannotBeExiledFromBattlefieldOrGraveyard() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card goner = enter("Goner", p); assertTrue(goner.isTapped());
+        goner = game.getAction().moveTo(ZoneType.Exile, goner, null, null); assertTrue(goner.isInZone(ZoneType.Graveyard));
+        goner = game.getAction().moveTo(ZoneType.Exile, goner, null, null); assertTrue(goner.isInZone(ZoneType.Graveyard));
+    }
+
+    @Test
+    public void recycleOnlyCountsActuallyExiledCardsAndDrawsForXFour() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        addCardToZone("Goner", p, ZoneType.Graveyard); addCardToZone("Forest", p, ZoneType.Graveyard);
+        addCardToZone("Swamp", p, ZoneType.Graveyard); addCardToZone("Couchpotato", p, ZoneType.Graveyard);
+        addCardToZone("Island", p, ZoneType.Library);
+        SpellAbility recycle = spell("Recycle", p); recycle.setXManaCostPaid(4); assertEquals(AbilityUtils.calculateAmount(recycle.getHostCard(), "X", recycle), 4);
+        AbilityUtils.resolve(recycle);
+        assertEquals(p.getCardsIn(ZoneType.Exile).size(), 3, "Exiled cards; grave=" + p.getCardsIn(ZoneType.Graveyard));
+        assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.isToken() && c.getType().hasSubtype("Treasure")).count(), 3L); assertEquals(p.getCardsIn(ZoneType.Hand).size(), 1);
+        assertEquals(p.getCardsIn(ZoneType.Graveyard).size(), 1);
+    }
+
+    @Test
+    public void frozenTapsPreventsTapCostsAndSacrificesAtTenArtifacts() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card frozen = enter("Frozen Taps", p), beerHost = addCard("Couchpotato", p);
+        resolveEffect("DB$ Token | TokenScript$ chaosbrawl_beer | TokenAmount$ 9", beerHost);
+        game.getAction().checkStateEffects(true); resolveTriggers(game);
+        assertTrue(frozen.isInZone(ZoneType.Battlefield));
+        Card beer = findCardWithName(game, "Beer"); assertFalse(beer.canTap(false));
+        resolveEffect("DB$ Token | TokenScript$ chaosbrawl_beer", beerHost);
+        game.getAction().checkStateEffects(true); resolveTriggers(game);
+        assertTrue(frozen.isInZone(ZoneType.Graveyard)); assertTrue(beer.canTap(false));
+    }
+
+    @Test
+    public void theFallenReplacesBothOrdinaryDiscardAndDiscardCostsWithOneCounter() {
+        for (boolean cost : new boolean[] {false, true}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0);
+            Card fallen = addCardToZone("The Fallen", p, ZoneType.Hand);
+            Card host = addCard("Couchpotato", p); game.getAction().checkStateEffects(true);
+            if (cost) {
+                SpellAbility activation = AbilityFactory.getAbility("AB$ Draw | Cost$ Discard<1/Card> | NumCards$ 0", host);
+                activation.setActivatingPlayer(p); assertTrue(ComputerUtil.playNoStack(p, activation, game, false));
+            } else resolveEffect("DB$ Discard | Mode$ TgtChoose | Defined$ You | NumCards$ 1", host);
+            Card returned = p.getCreaturesInPlay().stream().filter(c -> c.getName().equals("The Fallen")).findFirst().orElseThrow();
+            assertTrue(returned.isTapped()); assertEquals(returned.getCounters(CounterEnumType.DRUNKEN), 1);
+        }
+    }
+
+    @Test
+    public void hoardBeastCountsArtifactTokensOnlyOnBothSides() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card beast = enter("Hoard Beast", p); resolveTriggers(game); assertEquals(beast.getNetPower(), 3);
+        Card host = addCard("Couchpotato", other);
+        resolveEffect("DB$ Token | TokenScript$ chaosbrawl_beer", host);
+        resolveEffect("DB$ Token | TokenScript$ chaosbrawl_hangry_siren", host);
+        addCard("Darksteel Myr", other); game.getAction().checkStaticAbilities();
+        assertEquals(beast.getNetPower(), 4);
+    }
+
+    @Test
+    public void theMindReturnsTheTwoChosenCardsOnlyOnSharedManaValueOrType() {
+        for (boolean match : new boolean[] {false, true}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+            addCardToZone("Couchpotato", p, ZoneType.Library); addCardToZone("Couchpotato", p, ZoneType.Library);
+            addCardToZone(match ? "Wixbirne" : "Forest", other, ZoneType.Library);
+            SpellAbility mind = spell("The Mind", p); mind.getTargets().add(other); AbilityUtils.resolve(mind);
+            assertEquals(p.getCardsIn(ZoneType.Hand).size(), match ? 2 : 1);
+            assertEquals(other.getCardsIn(ZoneType.Hand).size(), match ? 1 : 0);
+        }
+    }
+
+    @Test
+    public void ediPaysTwoRealBeerSacrificesAndEntersWithFourCounters() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card host = addCard("Couchpotato", p); resolveEffect("DB$ Token | TokenScript$ chaosbrawl_beer | TokenAmount$ 2", host);
+        addCards("Plains", 4, p); Card edi = addCardToZone("Edi, the Beerpig", p, ZoneType.Hand);
+        SpellAbility cast = edi.getFirstSpellAbility(); cast.setActivatingPlayer(p);
+        PlayerController choices = spy(p.getController());
+        doReturn(2).when(choices).chooseNumberForKeywordCost(any(), any(), any(), anyString(), anyInt());
+        p.dangerouslySetController(choices);
+        game.getAction().checkStateEffects(true);
+        assertTrue(ComputerUtil.playNoStack(p, cast, game, false));
+        Card played = p.getCreaturesInPlay().stream().filter(c -> c.getName().equals("Edi, the Beerpig")).findFirst().orElseThrow();
+        assertEquals(countCardsWithName(game, "Beer"), 0); assertEquals(played.getCounters(CounterEnumType.P1P1), 4);
+    }
+
 }

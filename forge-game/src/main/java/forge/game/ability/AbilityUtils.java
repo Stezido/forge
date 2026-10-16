@@ -164,7 +164,12 @@ public class AbilityUtils {
             if (parent != null) {
                 parent.getTargets().getTargetCards().forEach(cards::add);
             }
-        }  else if (defined.startsWith("Triggered") && sa instanceof SpellAbility) {
+        } else if (defined.equals("TriggeredCauseTargets") && sa instanceof SpellAbility) {
+            Object cause = ((SpellAbility) sa).getRootAbility().getTriggeringObject(AbilityKey.Cause);
+            if (cause instanceof SpellAbility) {
+                cards.addAll(((SpellAbility) cause).findTargetedCards());
+            }
+        } else if (defined.startsWith("Triggered") && sa instanceof SpellAbility) {
             final SpellAbility root = ((SpellAbility)sa).getRootAbility();
             if (defined.contains("LKICopy")) { //Triggered*LKICopy
                 int lkiPosition = defined.indexOf("LKICopy");
@@ -206,11 +211,6 @@ public class AbilityUtils {
                 c = (Card) crd;
             } else if (crd instanceof Iterable<?>) {
                 cards.addAll(IterableUtil.filter((Iterable<?>) crd, Card.class));
-            }
-        } else if (defined.equals("TriggeredCauseTargets") && sa instanceof SpellAbility) {
-            Object cause = ((SpellAbility) sa).getRootAbility().getTriggeringObject(AbilityKey.Cause);
-            if (cause instanceof SpellAbility) {
-                cards.addAll(((SpellAbility) cause).findTargetedCards());
             }
         } else if (defined.equals("Remembered") || defined.equals("RememberedCard")) {
             if (!hostCard.hasRemembered()) {

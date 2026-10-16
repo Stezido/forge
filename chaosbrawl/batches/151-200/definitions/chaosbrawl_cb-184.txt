@@ -1,7 +1,7 @@
 Name:Recycle
 ManaCost:X G
 Types:Sorcery
-A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ChangeType$ Card.YouOwn | DefinedPlayer$ You | ChangeNum$ X | Mandatory$ True | RememberChanged$ True | SubAbility$ Treasure | SpellDescription$ Exile X cards from your graveyard. Create that many Treasures. If X is 4 or greater, draw a card.
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Exile | Hidden$ True | ChangeType$ Card.YouOwn | DefinedPlayer$ You | ChangeNum$ X | Mandatory$ True | RememberChanged$ True | SubAbility$ Treasure | SpellDescription$ Exile X cards from your graveyard. Create that many Treasures. If X is 4 or greater, draw a card.
 SVar:X:Count$xPaid
 SVar:NumExiled:Count$ValidExile Card.IsRemembered+YouOwn
 SVar:Treasure:DB$ Token | TokenScript$ c_a_treasure_sac | TokenAmount$ NumExiled | SubAbility$ Draw

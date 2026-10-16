@@ -12,7 +12,7 @@ Oracle:Skip your draw step.\nWhenever you play a card, draw a card.\nYour maximu
 Variant:ChaosBrawlBeta:Independent:true
 Variant:ChaosBrawlBeta:ManaCost:X G
 Variant:ChaosBrawlBeta:Types:Sorcery
-Variant:ChaosBrawlBeta:A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Exile | ChangeType$ Card.YouOwn | DefinedPlayer$ You | ChangeNum$ X | Mandatory$ True | RememberChanged$ True | SubAbility$ Treasure | SpellDescription$ Exile X cards from your graveyard. Create that many Treasures. If X is 4 or greater, draw a card.
+Variant:ChaosBrawlBeta:A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Exile | Hidden$ True | ChangeType$ Card.YouOwn | DefinedPlayer$ You | ChangeNum$ X | Mandatory$ True | RememberChanged$ True | SubAbility$ Treasure | SpellDescription$ Exile X cards from your graveyard. Create that many Treasures. If X is 4 or greater, draw a card.
 Variant:ChaosBrawlBeta:SVar:X:Count$xPaid
 Variant:ChaosBrawlBeta:SVar:NumExiled:Count$ValidExile Card.IsRemembered+YouOwn
 Variant:ChaosBrawlBeta:SVar:Treasure:DB$ Token | TokenScript$ c_a_treasure_sac | TokenAmount$ NumExiled | SubAbility$ Draw
