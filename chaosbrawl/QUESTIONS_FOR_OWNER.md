@@ -79,3 +79,5 @@ Sofa Pizza's graveyard trigger grants a paid {1}{B} activated return option unti
 - cb-263 Fighting Pit Champion: “Plaincycling” and “Plain” are interpreted as Plainscycling and Plains. Source text unchanged; approve these exact spelling corrections later.
 - cb-299 authored token says “Ari, the ripper”, while Peter creates “Ari, the Ripper”. Runtime uses the creator's name. Propose capitalizing the token name's R, pending approval.
 - cb-297 authored Vengeful Gnome Pack face lacks haste, while Sasa explicitly creates it with haste. The runtime token used by Sasa has haste as instructed by Sasa; no MSE change was made.
+
+- cb-308 The Awaitening: source type “Entchantment” is normalized to Enchantment in Forge only; proposed source field correction awaits approval. No other new design question in 301–311.

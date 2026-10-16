@@ -1,0 +1,7 @@
+Name:Wagon Enthusiast
+ManaCost:2 U
+Types:Creature Human
+PT:2/3
+T:Mode$ Attacks | TriggerZones$ Battlefield | ValidCard$ Card.Self | Execute$ Obsess | TriggerDescription$ Whenever CARDNAME attacks, put an Obsession counter on target creature.
+SVar:Obsess:DB$ PutCounter | ValidTgts$ Creature | CounterType$ OBSESSION | CounterNum$ 1
+Oracle:Whenever Wagon Enthusiast attacks, put an Obsession counter on target creature.

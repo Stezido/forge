@@ -1,0 +1,8 @@
+Name:Ragebait
+ManaCost:3 U
+Types:Sorcery
+A:SP$ PutCounter | ValidTgts$ Creature | CounterType$ OBSESSION | CounterNum$ 1 | SubAbility$ Effect | SpellDescription$ Obsess target creature. Until your next turn, draw whenever an obsessed creature attacks.
+SVar:Effect:DB$ Effect | Duration$ UntilYourNextTurn | Triggers$ Attack
+SVar:Attack:Mode$ Attacks | TriggerZones$ Command | ValidCard$ Creature.counters_GE1_OBSESSION | Execute$ Draw | TriggerDescription$ Whenever a creature with an Obsession counter attacks, draw a card.
+SVar:Draw:DB$ Draw | NumCards$ 1
+Oracle:Obsess target creature. Until your next turn, whenever a creature with an Obsession counter on it attacks, draw a card.

@@ -280,3 +280,7 @@ Type=Custom_Set
 286 C Stefan, the Eternal Annoyer
 287 C Alex, the Cozy
 298 C Peter, the Stoned Hunter
+308 R The Awaitening
+309 C Wagon Enthusiast
+310 C Ball Scratching
+311 U Ragebait

@@ -49,11 +49,13 @@ def main():
                     '--output', str(current), '--metadata-only'], check=True)
     live = {c['id']:c for c in json.loads(current.read_text())}
     cards = []
+    documents = []
     pending = set()
     token_bindings = {}
     batches = sorted(p for p in (ROOT/'chaosbrawl/batches').glob('*/source.json') if p.parent.name <= args.batch)
     for previous in batches:
         document = json.loads(previous.read_text())
+        documents.append(document)
         cards.extend(document['cards'])
         pending.update(document.get('pendingCardIds', []))
         token_bindings.update(document.get('tokenBindings', {}))
@@ -108,11 +110,18 @@ def main():
                 continue
             member = native[identity[name]['nativeUid']][2]['image']
             (token_dir/(script+'.png')).write_bytes(archive.read(member))
-    number = len(batches)
-    generated = set(pinned.get('generatedOnlyIds', []))
-    latest = [c for c in pinned['cards'] if c['id'] not in generated and c['id'] not in pending and not c.get('token')]
-    decks = [(f'Chaos Brawl Beta Batch {number:02d}', latest, 1, 10)]
-    decks += [(f'Chaos Brawl Beta {number:02d} - Group {n//10+1}', latest[n:n+10], 4, 6) for n in range(0,len(latest),10)]
+    generated = {cid for document in documents for cid in document.get('generatedOnlyIds', [])}
+    decks = []
+    active_deck = None
+    for number, document in enumerate(documents, 1):
+        eligible = [c for c in document['cards'] if c['id'] not in generated
+                    and c['id'] not in pending and not c.get('token')]
+        if not eligible:
+            continue
+        active_deck = f'Chaos Brawl Beta Batch {number:02d}'
+        decks.append((active_deck, eligible, 1, 10))
+        decks += [(f'Chaos Brawl Beta {number:02d} - Group {n//10+1}', eligible[n:n+10], 4, 6)
+                  for n in range(0, len(eligible), 10)]
     for name, entries, copies, lands in decks:
         lands = max(lands, math.ceil((60 - copies * len(entries)) / 5))
         lines = ['[metadata]', 'Name='+name, '[Main]']
@@ -126,7 +135,7 @@ def main():
     elif not resources.is_symlink() or resources.resolve() != ROOT/'forge-gui/res':
         raise ValueError('Refusing to replace an unrelated resource directory.')
     (run/'forge.profile.properties').write_text(f'userDir={RUNTIME}/user\ncacheDir={RUNTIME}/cache\ndecksDir={RUNTIME}/decks\ndecksConstructedDir={RUNTIME}/decks/constructed\n')
-    (RUNTIME/'active-deck.txt').write_text(decks[0][0]+'.dck\n')
+    (RUNTIME/'active-deck.txt').write_text(active_deck+'.dck\n')
     print(f'Prepared {len(cards)} reviewed Beta records ({len(names)} names), native full renders and {len(decks)} batch decks.')
 
 

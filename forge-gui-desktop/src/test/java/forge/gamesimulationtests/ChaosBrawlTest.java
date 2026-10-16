@@ -579,7 +579,11 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Sasa, the Big Brother", 4, "", "", " \u2014 Whenever a Gnome you control dies, put a\n\u201cLost Family\u201d counter on Sasa, the Big Brother.\n+2 \u2014 Target opponent loses 1 life and you gain 1 life. Put a \u201cLost Family\u201d counter on Sasa.\n-2 \u2014 Create a 2/2 black Gnome creature token named \u201cAnother Brother.\u201d\n-6 \u2014 Remove all \u201cLost Family\u201d counters from Sasa. Create that many 4/4 black Gnome creature tokens with haste named the \u201cVengeful Gnome Pack\u201d.", "Legendary Planeswalker \u2014 Sasa", "WB"},
             {"Stefan, the Eternal Annoyer", 4, "", "", " \u2014 Whenever a noncreature spell is cast, you gain 2 life.\n+1 \u2014 Until your next upkeep, each opponent may only cast spells any time they could cast a sorcery.\n-2 \u2014 Search your library for a noncreature, nonplaneswalker card, reveal it, and put it into your hand. Then shuffle.\n-6 \u2014 Until end of turn, you may cast noncreature, nonplaneswalker spells from your graveyard without paying their mana costs. If a spell cast this way would be put into a graveyard, exile it instead.", "Legendary Planeswalker \u2014 Stefan", "WU"},
             {"Alex, the Cozy", 4, "", "", "+1 \u2014 Search your library for a Forest card and put it onto the battlefield. It becomes a 2/2 green Elemental creature with haste. It\u2019s still a land.\n-2 \u2014 Deal damage equal to the number of Forests you control to target creature.\n-6 \u2014 You get an emblem with \u201cForests you control are 3/3 green Elemental creatures with haste and trample. They\u2019re still lands.", "Legendary Planeswalker \u2014 Alex", "RG"},
-            {"Peter, the Stoned Hunter", 3, "", "", "+1 \u2014 Search your library for a basic land card, reveal it, put it into your hand, then shuffle.\n-2 \u2014 If you control a creature named Ari, the Ripper, put three +1/+1 counters on it. Otherwise, create Ari, the Ripper, a legendary 3/3 green and white Dog creature token with vigilance.\n-6 \u2014 Creatures you control get +1/+1 for each land you control and gain trample and vigilance until end of turn.", "Legendary Planeswalker \u2014 Peter", "WG"}
+            {"Peter, the Stoned Hunter", 3, "", "", "+1 \u2014 Search your library for a basic land card, reveal it, put it into your hand, then shuffle.\n-2 \u2014 If you control a creature named Ari, the Ripper, put three +1/+1 counters on it. Otherwise, create Ari, the Ripper, a legendary 3/3 green and white Dog creature token with vigilance.\n-6 \u2014 Creatures you control get +1/+1 for each land you control and gain trample and vigilance until end of turn.", "Legendary Planeswalker \u2014 Peter", "WG"},
+            {"The Awaitening", 4, "", "", "I \u2014 Search your library for up to two basic land cards, reveal them, put them into your hand, then shuffle.\nII \u2014 Creatures you control get +2/+2 until end of turn.\nIII \u2014 Create two Food tokens and two Beer tokens.\nIV \u2014 After your next combat phase this turn, there is an additional combat phase. At the beginning of that combat, untap all creatures you control.", "Entchantment \u2014 Saga", "RG"},
+            {"Wagon Enthusiast", 3, "2", "3", "Whenever Wagon Enthusiast attacks, put an Obsession counter on target creature.", "Creature \u2014 Human", "U"},
+            {"Ball Scratching", 2, "", "", "Obsess target creature. (To obsess a creature, put an Obsession counter on it. A creature with an Obsession counter on it must attack each combat if able. Whenever that creature attacks, remove an Obsession counter from it.)", "Sorcery", "U"},
+            {"Ragebait", 4, "", "", "Obsess target creature. Until your next turn, whenever a creature with an Obsession counter on it attacks, draw a card.", "Sorcery", "U"}
         };
     }
 
@@ -2020,7 +2024,14 @@ public class ChaosBrawlTest extends SimulationTest {
             {"cb-296", "chaosbrawl_stinky_elemental", "Creature \u2014 Elemental", "1", "1"},
             {"cb-297", "chaosbrawl_vengeful_gnome_pack", "Creature \u2014 Gnome", "4", "4"},
             {"cb-299", "chaosbrawl_ari_the_ripper", "Legendary Creature \u2014 Dog", "3", "3"},
-            {"cb-300", "c_a_food_sac", "Artifact \u2014 Food", "", ""}
+            {"cb-300", "c_a_food_sac", "Artifact \u2014 Food", "", ""},
+            {"cb-301", "c_a_food_sac", "Artifact \u2014 Food", "", ""},
+            {"cb-302", "c_a_food_sac", "Artifact \u2014 Food", "", ""},
+            {"cb-303", "c_a_treasure_sac", "Artifact \u2014 Treasure", "", ""},
+            {"cb-304", "c_a_treasure_sac", "Artifact \u2014 Treasure", "", ""},
+            {"cb-305", "c_a_treasure_sac", "Artifact \u2014 Treasure", "", ""},
+            {"cb-306", "chaosbrawl_beer", "Artifact \u2014 Beer", "", ""},
+            {"cb-307", "chaosbrawl_beer", "Artifact \u2014 Beer", "", ""}
         };
     }
 
@@ -2201,6 +2212,50 @@ public class ChaosBrawlTest extends SimulationTest {
         assertEquals(ChaosBrawlRules.drunkenTolerance(fixed), 3);
         game.getAction().moveTo(ZoneType.Graveyard, professional, null, null); game.getAction().checkStaticAbilities();
         assertEquals(ChaosBrawlRules.drunkenTolerance(fixed), 2);
+    }
+
+    @Test
+    public void ballScratchingObsessesAnOpponentsCreatureWithoutOtherCounters() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card target = addCard("Couchpotato", other); SpellAbility ball = spell("Ball Scratching", p);
+        ball.getTargets().add(target); AbilityUtils.resolve(ball);
+        assertEquals(target.getCounters(CounterEnumType.OBSESSION), 1); assertEquals(target.getNumAllCounters(), 1);
+    }
+
+    @Test
+    public void ragebaitDrawsForEachObsessedAttackerEvenWhenItsLastCounterIsRemoved() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card first = addCard("Couchpotato", other), second = addCard("Wixbirne", other);
+        for (int n = 0; n < 3; n++) addCardToZone("Island", p, ZoneType.Library);
+        SpellAbility rage = spell("Ragebait", p); rage.getTargets().add(first); AbilityUtils.resolve(rage);
+        counters(second, CounterEnumType.OBSESSION, 1);
+        game.getPhaseHandler().devModeSet(PhaseType.COMBAT_DECLARE_ATTACKERS, other);
+        Combat combat = new Combat(other); game.getPhaseHandler().setCombat(combat);
+        combat.addAttacker(first, p); combat.addAttacker(second, p);
+        game.getTriggerHandler().resetActiveTriggers();
+        CombatUtil.checkDeclaredAttacker(game, first, combat, true); CombatUtil.checkDeclaredAttacker(game, second, combat, true);
+        resolveTriggers(game); assertEquals(p.getCardsIn(ZoneType.Hand).size(), 2);
+        assertEquals(first.getCounters(CounterEnumType.OBSESSION), 0); assertEquals(second.getCounters(CounterEnumType.OBSESSION), 0);
+    }
+
+    @Test
+    public void awaiteningSchedulesOnlyOneExtraCombatAndUntapsAtItsBeginning() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card saga = createCard("The Awaitening", p), own = addCard("Couchpotato", p), theirs = addCard("Couchpotato", other);
+        own.setTapped(true); theirs.setTapped(true); AbilityUtils.resolve(db(saga, "Combat"));
+        assertTrue(own.isTapped()); assertTrue(game.getPhaseHandler().hasExtraPhaseAfter(PhaseType.COMBAT_END, PhaseType.COMBAT_BEGIN));
+        game.getPhaseHandler().devModeSet(PhaseType.COMBAT_END, p);
+        assertTrue(game.getPhaseHandler().devAdvanceToPhase(PhaseType.MAIN2, () -> resolveTriggers(game)));
+        resolveTriggers(game); assertFalse(own.isTapped()); assertTrue(theirs.isTapped());
+        assertFalse(game.getPhaseHandler().hasExtraPhaseAfter(PhaseType.COMBAT_END, PhaseType.COMBAT_BEGIN));
+    }
+
+    @Test
+    public void awaiteningCreatesExactlyTwoFoodAndTwoBeerTokens() {
+        Game game = customGame(); Player p = game.getPlayers().get(0); Card saga = createCard("The Awaitening", p);
+        AbilityUtils.resolve(db(saga, "Food"));
+        assertEquals(countCardsWithName(game, "Beer"), 2);
+        assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.isToken() && c.getType().hasSubtype("Food")).count(), 2L);
     }
 
 }

@@ -10,7 +10,7 @@ Canonical source: the registered development MSE in `Stezido/Chaosbrawl-Website`
 | 04 | cb-151–cb-200 | 46 implemented, four deferred; 277 checks/build/native images/decks/AI smoke passed |
 | 05 | cb-201–cb-250 | 48 implemented, two deferred; 337 checks/build/native images/decks/AI smoke passed |
 | 06 | cb-251–cb-300 | 31 non-token entries and 15 token mappings verified; four deferred; 397 checks/build/AI passed |
-| 07 | cb-301–cb-311 | Pending |
+| 07 | cb-301–cb-311 | WIP: four definitions and seven token bindings; final checks running |
 
 Supporting tokens are implemented with their first dependent card, without consuming the batch's normal-card slots. Final batch accounting will distinguish token printings from playable cards; native UIDs/stable IDs are never reassigned.
 
@@ -56,3 +56,5 @@ Batch 06 checkpoint: 275 cumulative non-token entries and 15 authored token bind
 Batch 06 behavior checkpoint: all 397 checks pass (275 non-token source comparisons, 15 token type/stat checks, 107 behavior checks). Fixed native additional-land field and separate copiable haste token for Sasa. Printed tolerances now use real static abilities, so blanking removes them while external tolerance modifiers remain; regression covered. Build and AI smoke still pending.
 
 Batch 06 completed: 275 non-token records plus 15 token mappings = 290 records, 397 passing checks, desktop build, 290 native PNGs, five decks, completed AI game (turn 21, Ai(1), 10082 ms). Native Reefgarden activator warnings are recorded. Ten cards remain deferred. Proceed to 301–311.
+
+Final batch checkpoint: all 311 source records inspected. 279 non-token records are implemented and all 22 authored token records are mapped. Ten cards are explicitly deferred. Final suite/build/smoke and all-batch deck preparation are running.

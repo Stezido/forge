@@ -1,0 +1,5 @@
+Name:Ball Scratching
+ManaCost:1 U
+Types:Sorcery
+A:SP$ PutCounter | ValidTgts$ Creature | CounterType$ OBSESSION | CounterNum$ 1 | SpellDescription$ Obsess target creature.
+Oracle:Obsess target creature. (To obsess a creature, put an Obsession counter on it. A creature with an Obsession counter on it must attack each combat if able. Whenever that creature attacks, remove an Obsession counter from it.)

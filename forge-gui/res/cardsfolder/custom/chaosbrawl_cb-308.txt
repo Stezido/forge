@@ -1,0 +1,12 @@
+Name:The Awaitening
+ManaCost:2 R G
+Types:Enchantment Saga
+K:Chapter:4:Search,Pump,Food,Combat
+SVar:Search:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Land.Basic | ChangeNum$ 2 | Reveal$ True | SpellDescription$ Search for up to two basic lands, reveal them and put them into your hand, then shuffle.
+SVar:Pump:DB$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ 2 | NumDef$ 2 | SpellDescription$ Your creatures get +2/+2 this turn.
+SVar:Food:DB$ Token | TokenScript$ c_a_food_sac | TokenAmount$ 2 | SubAbility$ Beer | SpellDescription$ Create two Food and two Beer tokens.
+SVar:Beer:DB$ Token | TokenScript$ chaosbrawl_beer | TokenAmount$ 2
+SVar:Combat:DB$ AddPhase | ExtraPhase$ Combat | AfterPhase$ EndCombat | ExtraPhaseDelayedTrigger$ UntapTrigger | ExtraPhaseDelayedTriggerExcute$ Untap | SpellDescription$ After your next combat phase this turn, there is an additional combat phase. Untap your creatures at its beginning.
+SVar:UntapTrigger:Mode$ Phase | Phase$ BeginCombat | TriggerDescription$ At the beginning of that combat, untap all creatures you control.
+SVar:Untap:DB$ UntapAll | ValidCards$ Creature.YouCtrl
+Oracle:I — Search your library for up to two basic land cards, reveal them, put them into your hand, then shuffle.\nII — Creatures you control get +2/+2 until end of turn.\nIII — Create two Food tokens and two Beer tokens.\nIV — After your next combat phase this turn, there is an additional combat phase. At the beginning of that combat, untap all creatures you control.
