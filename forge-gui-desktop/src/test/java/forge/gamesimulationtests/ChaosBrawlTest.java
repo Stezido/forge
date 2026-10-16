@@ -1827,4 +1827,149 @@ public class ChaosBrawlTest extends SimulationTest {
         assertEquals(countCardsWithName(game, "Beer"), 0); assertEquals(played.getCounters(CounterEnumType.P1P1), 4);
     }
 
+    @Test
+    public void grinderPaysLandSacrificeAndProducesExactlyTwoGreenMana() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card grinder = addCard("Grinder", p), land = addCard("Forest", p); game.getAction().checkStateEffects(true);
+        SpellAbility mana = grinder.getSpellAbilities().stream().filter(SpellAbility::isManaAbility).findFirst().orElseThrow();
+        mana.setActivatingPlayer(p); assertTrue(ComputerUtil.playNoStack(p, mana, game, false));
+        assertTrue(grinder.isTapped()); assertTrue(land.isInZone(ZoneType.Graveyard)); assertEquals(p.getManaPool().totalMana(), 2);
+    }
+
+    @Test
+    public void rotbornOnlyGetsUpkeepBonusFromATokenFoodAndDiesWithoutPayment() {
+        for (int foodType = 0; foodType < 3; foodType++) {
+            Game game = customGame(); Player p = game.getPlayers().get(0);
+            Card rot = enter("Rotborn Colossus", p);
+            if (foodType == 1) resolveEffect("DB$ Token | TokenScript$ c_a_food_sac", rot);
+            if (foodType == 2) addCard("Couchpotato", p);
+            PlayerController choices = spy(p.getController());
+            doAnswer(i -> new forge.game.cost.CostPayment(i.getArgument(0), i.getArgument(1))
+                    .payComputerCosts(new forge.ai.AiCostDecision(p, i.getArgument(1), true)))
+                    .when(choices).payCostToPreventEffect(any(), any(), anyBoolean(), any());
+            p.dangerouslySetController(choices); game.getAction().checkStateEffects(true);
+            phaseEvent(game, p, PhaseType.UPKEEP);
+            assertEquals(rot.isInZone(ZoneType.Battlefield), foodType > 0);
+            if (foodType > 0) assertEquals(rot.getCounters(CounterEnumType.P1P1), foodType == 1 ? 2 : 0);
+        }
+    }
+
+    @Test
+    public void obsessionRemovalDrainsOncePerEventRatherThanPerCounter() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card duo = enter("Devious Duo", p), target = addCard("Couchpotato", other);
+        counters(target, CounterEnumType.OBSESSION, 3); int life = other.getLife();
+        SpellAbility remove = AbilityFactory.getAbility("DB$ RemoveCounter | ValidTgts$ Creature | CounterType$ OBSESSION | CounterNum$ All", duo);
+        remove.setActivatingPlayer(p); remove.getTargets().add(target); AbilityUtils.resolve(remove); resolveTriggers(game);
+        assertEquals(other.getLife(), life - 1);
+    }
+
+    @Test
+    public void austrianSlapDealsFourOnlyWhenTheTargetIsDrunken() {
+        for (boolean drunk : new boolean[] {false, true}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0);
+            Card target = addCard("Couchpotato", p); counters(target, CounterEnumType.P1P1, 5);
+            if (drunk) counters(target, CounterEnumType.DRUNKEN, 1);
+            SpellAbility slap = spell("Austrian Slap", p); slap.getTargets().add(target); AbilityUtils.resolve(slap);
+            assertEquals(target.getDamage(), drunk ? 4 : 2);
+        }
+    }
+
+    @Test
+    public void lecherousPatronTriggersForEachCounterButPuffMamaOnlyOncePerPlacement() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card patron = enter("Lecherous Patron", p), mama = enter("Puff Mama", p);
+        counters(patron, CounterEnumType.DRUNKEN, 3); resolveTriggers(game);
+        assertEquals(patron.getNetPower(), 11); // printed 2 + drunken 3 + three +2 triggers
+        counters(patron, CounterEnumType.OBSESSION, 3); resolveTriggers(game);
+        assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.isToken() && c.getType().hasSubtype("Treasure")).count(), 1L);
+    }
+
+    @Test
+    public void jollyBrewbellyPaysOneDrunkenCounterOrIsSacrificed() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card dwarf = enter("Jolly Brewbelly", p); assertEquals(dwarf.getCounters(CounterEnumType.DRUNKEN), 3);
+        PlayerController choices = spy(p.getController());
+        doAnswer(i -> new forge.game.cost.CostPayment(i.getArgument(0), i.getArgument(1))
+                .payComputerCosts(new forge.ai.AiCostDecision(p, i.getArgument(1), true)))
+                .when(choices).payCostToPreventEffect(any(), any(), anyBoolean(), any());
+        p.dangerouslySetController(choices);
+        phaseEvent(game, p, PhaseType.UPKEEP); assertEquals(dwarf.getCounters(CounterEnumType.DRUNKEN), 2);
+        resolveEffect("DB$ RemoveCounter | Defined$ Self | CounterType$ DRUNKEN | CounterNum$ All", dwarf);
+        phaseEvent(game, p, PhaseType.UPKEEP); assertTrue(dwarf.isInZone(ZoneType.Graveyard));
+    }
+
+    @Test
+    public void locationAndDrunkenKeywordsUpdateContinuously() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card bird = addCard("Big Ball Bluebird", p), home = addCard("Devoted Homebody", p), drunk = addCard("Bad Drunk", p);
+        assertFalse(bird.hasKeyword("Vigilance")); assertFalse(drunk.hasKeyword("Flying"));
+        assertFalse(forge.game.staticability.StaticAbilityCantAttackBlock.canAttackDefender(home, game.getPlayers().get(1)));
+        Card location = enter("The Blessed Hideaway", p); game.getAction().checkStaticAbilities();
+        assertTrue(bird.hasKeyword("Vigilance")); assertTrue(forge.game.staticability.StaticAbilityCantAttackBlock.canAttackDefender(home, game.getPlayers().get(1)));
+        counters(drunk, CounterEnumType.DRUNKEN, 1); game.getAction().checkStaticAbilities(); assertTrue(drunk.hasKeyword("Flying"));
+    }
+
+    @Test
+    public void paidOverstimulatedUpkeepGrowsOnlyOnSuccessfulPayment() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card flora = enter("Overstimulated Flora", p); addCards("Forest", 2, p);
+        PlayerController choices = spy(p.getController());
+        doAnswer(i -> new forge.game.cost.CostPayment(i.getArgument(0), i.getArgument(1))
+                .payComputerCosts(new forge.ai.AiCostDecision(p, i.getArgument(1), true)))
+                .when(choices).payCostToPreventEffect(any(), any(), anyBoolean(), any()); p.dangerouslySetController(choices);
+        phaseEvent(game, p, PhaseType.UPKEEP); assertEquals(flora.getCounters(CounterEnumType.P1P1), 1);
+        phaseEvent(game, p, PhaseType.UPKEEP); assertTrue(flora.isInZone(ZoneType.Graveyard));
+    }
+
+    @Test
+    public void copycatCopiesTheEventCounterMapRatherThanAllExistingCounters() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card copy = enter("Copycat", p), other = addCard("Couchpotato", p);
+        assertTrue(copy.getType().isLegendary()); counters(other, CounterEnumType.P1P1, 2); resolveTriggers(game);
+        assertEquals(copy.getCounters(CounterEnumType.P1P1), 2);
+        GameEntityCounterTable table = new GameEntityCounterTable();
+        other.addCounter(CounterEnumType.STUN, 2, p, table); other.addCounter(CounterEnumType.OBSESSION, 3, p, table);
+        table.replaceCounterEffect(game, null); resolveTriggers(game);
+        assertEquals(copy.getCounters(CounterEnumType.P1P1), 2);
+        assertEquals(copy.getCounters(CounterEnumType.STUN), 2); assertEquals(copy.getCounters(CounterEnumType.OBSESSION), 3);
+    }
+
+    @Test
+    public void sofaPizzaReturnPermissionTracksTheGraveyardObject() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card pizza = addCardToZone("Sofa Pizza", p, ZoneType.Hand); addCards("Swamp", 2, p);
+        pizza = game.getAction().moveTo(ZoneType.Graveyard, pizza, null, null); resolveTriggers(game);
+        SpellAbility back = pizza.getSpellAbilities().stream().filter(a -> a.getApi() == ApiType.ChangeZone).findFirst().orElseThrow();
+        back.setActivatingPlayer(p); assertTrue(back.canPlay());
+        assertTrue(ComputerUtil.playNoStack(p, back, game, false)); assertEquals(p.getCardsIn(ZoneType.Hand).size(), 1);
+        assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.isLand() && c.isTapped()).count(), 2L);
+    }
+
+    @Test
+    public void honestLaborerRequiresAnActualAttackThisTurn() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card laborer = addCard("Honest Laborer", p); laborer.setSickness(false);
+        SpellAbility beer = laborer.getSpellAbilities().stream().filter(c -> c.getApi() == ApiType.Token).findFirst().orElseThrow();
+        beer.setActivatingPlayer(p); assertFalse(beer.canPlay());
+        game.getPhaseHandler().devModeSet(PhaseType.COMBAT_DECLARE_ATTACKERS, p);
+        Combat combat = new Combat(p); game.getPhaseHandler().setCombat(combat); combat.addAttacker(laborer, other);
+        CombatUtil.checkDeclaredAttacker(game, laborer, combat, true);
+        game.getPhaseHandler().devModeSet(PhaseType.MAIN2, p); assertTrue(beer.canPlay());
+        assertTrue(ComputerUtil.playNoStack(p, beer, game, false)); assertEquals(countCardsWithName(game, "Beer"), 1);
+    }
+
+    @Test
+    public void saunaElementalGrowsOnOnlyTheSecondInstantOrSorcery() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card sauna = enter("Sauna Elemental", p), target = addCard("Couchpotato", p);
+        for (int n = 1; n <= 3; n++) {
+            Card hand = addCardToZone("Take a Sniff", p, ZoneType.Hand);
+            SpellAbility cast = hand.getFirstSpellAbility(); cast.setActivatingPlayer(p); cast.getTargets().add(target);
+            cast.setHostCard(game.getAction().moveToStack(hand, cast)); game.getStack().add(cast); resolveTriggers(game);
+            assertEquals(sauna.getCounters(CounterEnumType.P1P1), n < 2 ? 0 : 1);
+            assertEquals(sauna.hasKeyword("Menace"), n >= 2);
+        }
+    }
+
 }

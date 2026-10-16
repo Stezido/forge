@@ -8,7 +8,7 @@ Canonical source: the registered development MSE in `Stezido/Chaosbrawl-Website`
 | 02 | cb-051–cb-100 | 50 definitions verified; 157 cumulative checks; build/images/decks/AI smoke passed |
 | 03 | cb-101–cb-150 | 50 definitions verified; 217 cumulative checks; build/images/decks/AI smoke passed |
 | 04 | cb-151–cb-200 | 46 implemented, four deferred; 277 checks/build/native images/decks/AI smoke passed |
-| 05 | cb-201–cb-250 | WIP: 48 entries drafted; two deferred; checks pending |
+| 05 | cb-201–cb-250 | 48 implemented, two deferred; 337 checks/build/native images/decks/AI smoke passed |
 | 06 | cb-251–cb-300 | Pending |
 | 07 | cb-301–cb-311 | Pending |
 
@@ -48,3 +48,5 @@ Batch 04 checkpoint: 46 clear definitions drafted (196 cumulative), four rule qu
 Batch 04 completed for all 46 unambiguous cards: 196 cumulative records (195 names), 277 passing checks, successful desktop build, 196 full native images, six decks and completed seed-20261016 AI game (turn 11, Ai(1), 2061 ms). Four cards remain explicitly deferred in QUESTIONS_FOR_OWNER.md. Continue 201–250 without asking now.
 
 Batch 05 checkpoint: 40 new definitions and eight repeated shock-land printings drafted (244 cumulative implemented candidates). Tavern Slot Machine and Culinary Disaster are excluded pending rule decisions. Metadata and behavior validation in progress.
+
+Batch 05 complete for 48 clear entries: 244 cumulative non-token records (236 names), 337 passing checks, desktop build, 244 native PNGs, six decks and completed AI game (turn 11, Ai(2), 2108 ms). Six deferred cards remain excluded. Continue 251–300.
