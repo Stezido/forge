@@ -949,7 +949,7 @@ public class ChaosBrawlTest extends SimulationTest {
         Card later = addCardToZone("Couchpotato", other, ZoneType.Graveyard);
         game.getAction().checkStaticAbilities();
         assertTrue(later.isInZone(ZoneType.Graveyard));
-        AbilityUtils.resolve(AbilityFactory.getAbility("DB$ Destroy | Defined$ Self", warrior));
+        resolveEffect("DB$ Destroy | Defined$ Self", warrior);
         assertTrue(warrior.isInZone(ZoneType.Exile));
         game.getAction().moveTo(ZoneType.Graveyard, enchantment, null, null);
         game.getAction().checkStaticAbilities();
@@ -1060,7 +1060,7 @@ public class ChaosBrawlTest extends SimulationTest {
         p.setLife(10, null); other.setLife(10, null);
         enter("Rotten Cellar", p);
         Card food = addCard("Couchpotato", other);
-        AbilityUtils.resolve(AbilityFactory.getAbility("DB$ Sacrifice | Defined$ Self", food));
+        resolveEffect("DB$ Sacrifice | Defined$ Self", food);
         resolveTriggers(game);
         assertEquals(other.getLife(), 9);
         assertEquals(p.getLife(), 10);
@@ -1156,6 +1156,162 @@ public class ChaosBrawlTest extends SimulationTest {
         assertEquals(other.getCardsIn(ZoneType.Hand).size(), 1);
         assertEquals(first.getCounters(CounterEnumType.STUN), 1);
         assertEquals(second.getCounters(CounterEnumType.STUN), 1);
+    }
+
+    private void resolveEffect(String text, Card host) {
+        SpellAbility effect = AbilityFactory.getAbility(text, host);
+        effect.setActivatingPlayer(host.getController());
+        AbilityUtils.resolve(effect);
+    }
+
+    @Test
+    public void academicQuarterPaysPlotNowAndOnlyCastsForFreeOnALaterTurn() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0);
+        Card first = addCardToZone("Couchpotato", p, ZoneType.Hand);
+        Card second = addCardToZone("Couchpotato", p, ZoneType.Hand);
+        addCardToZone("Island", p, ZoneType.Library);
+        addCards("Swamp", 2, p);
+        AbilityUtils.resolve(spell("Academic Quarter", p));
+        game.getAction().checkStaticAbilities();
+        SpellAbility plot = first.getSpellAbilities().stream().filter(SpellAbility::isPlotting).findFirst().orElseThrow();
+        plot.setActivatingPlayer(p);
+        assertTrue(plot.canPlay());
+        assertTrue(ComputerUtil.playNoStack(p, plot, game, false));
+        Card exiled = p.getCardsIn(ZoneType.Exile).getFirst();
+        assertTrue(exiled.isPlotted());
+        assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.getName().equals("Swamp") && c.isTapped()).count(), 2L);
+        assertTrue(game.getCardsIn(ZoneType.Stack).stream().noneMatch(c -> c.getName().equals("Couchpotato")));
+        SpellAbility again = second.getSpellAbilities().stream().filter(SpellAbility::isPlotting).findFirst().orElseThrow();
+        again.setActivatingPlayer(p);
+        assertFalse(again.canPlay(), "A normal trigger would leave a window for a second Plot; allowance must be consumed immediately.");
+        SpellAbility cast = exiled.getFirstSpellAbility(); cast.setActivatingPlayer(p);
+        assertTrue(forge.game.GameActionUtil.getAlternativeCosts(cast, p, false).stream()
+                .noneMatch(sa -> sa.isAlternativeCost(forge.game.spellability.AlternativeCost.Plotted)));
+        game.getPhaseHandler().devModeSet(PhaseType.MAIN1, p, 3);
+        SpellAbility free = forge.game.GameActionUtil.getAlternativeCosts(cast, p, false).stream()
+                .filter(sa -> sa.isAlternativeCost(forge.game.spellability.AlternativeCost.Plotted)).findFirst().orElseThrow();
+        assertEquals(free.getPayCosts().getTotalMana().getCMC(), 0);
+        assertTrue(ComputerUtil.playNoStack(p, free, game, false));
+        assertEquals(p.getCreaturesInPlay().getFirst().getName(), "Couchpotato");
+    }
+
+    @Test
+    public void twoAcademicQuartersGrantTwoSeparateAllowancesAndExpire() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0);
+        for (int n = 0; n < 2; n++) {
+            addCardToZone("Island", p, ZoneType.Library);
+            AbilityUtils.resolve(spell("Academic Quarter", p));
+        }
+        assertNotNull(ChaosBrawlRules.grantedPlotAllowance(p));
+        ChaosBrawlRules.consumeGrantedPlotAllowance(p);
+        assertNotNull(ChaosBrawlRules.grantedPlotAllowance(p));
+        ChaosBrawlRules.consumeGrantedPlotAllowance(p);
+        assertNull(ChaosBrawlRules.grantedPlotAllowance(p));
+        addCardToZone("Island", p, ZoneType.Library);
+        AbilityUtils.resolve(spell("Academic Quarter", p));
+        game.getEndOfTurn().executeUntil();
+        assertNull(ChaosBrawlRules.grantedPlotAllowance(p));
+    }
+
+    @Test
+    public void tacticalPurgeBlanksPermanentlyAndItsEtbShieldExpires() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0);
+        Card creature = addCard("Caring Siren", p);
+        Card aura = enter("Tactical Purge", p);
+        aura.attachToEntity(creature, null);
+        game.getAction().checkStaticAbilities(); resolveTriggers(game);
+        assertFalse(creature.hasKeyword("Flying"));
+        assertTrue(creature.hasKeyword("Indestructible"));
+        game.getEndOfTurn().executeUntil(); game.getAction().checkStaticAbilities();
+        assertFalse(creature.hasKeyword("Flying"));
+        assertFalse(creature.hasKeyword("Indestructible"));
+        game.getAction().moveTo(ZoneType.Graveyard, aura, null, null);
+        game.getAction().checkStaticAbilities();
+        assertTrue(creature.hasKeyword("Flying"));
+    }
+
+    @Test
+    public void overdoseRevivalAddsFinalityAndRequiresManaOnEachUpkeep() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0);
+        Card dead = addCardToZone("Couchpotato", p, ZoneType.Graveyard);
+        SpellAbility revive = spell("Overdose Revival", p); revive.getTargets().add(dead);
+        AbilityUtils.resolve(revive);
+        Card returned = p.getCreaturesInPlay().getFirst();
+        assertEquals(returned.getCounters(CounterEnumType.FINALITY), 1);
+        phaseEvent(game, p, PhaseType.UPKEEP);
+        assertTrue(returned.isInZone(ZoneType.Exile));
+    }
+
+    @Test
+    public void pumpkinSacrificesOnlyDrunkenCrewAndCreatesSeparateDamageTriggers() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        other.setLife(10, null);
+        Card catapult = enter("Pumpkin Catapult", p); resolveTriggers(game);
+        Card first = addCard("Couchpotato", p), second = addCard("Couchpotato", p), outsider = addCard("Couchpotato", p);
+        counters(first, CounterEnumType.DRUNKEN, 1); counters(second, CounterEnumType.DRUNKEN, 2); counters(outsider, CounterEnumType.DRUNKEN, 1);
+        PlayerController choices = spy(p.getController());
+        doReturn(true).when(choices).confirmAction(any(), any(), anyString(), any());
+        doAnswer(invocation -> {
+            forge.game.card.CardCollectionView eligible = invocation.getArgument(3);
+            assertTrue(eligible.contains(first)); assertTrue(eligible.contains(second)); assertFalse(eligible.contains(outsider));
+            return new forge.game.card.CardCollection(java.util.List.of(first, second));
+        }).when(choices).choosePermanentsToSacrifice(any(), anyInt(), anyInt(), any(), anyString());
+        java.util.concurrent.atomic.AtomicInteger damages = new java.util.concurrent.atomic.AtomicInteger();
+        doAnswer(invocation -> {
+            SpellAbility damage = invocation.getArgument(0);
+            if (damage.getApi() == ApiType.DealDamage) {
+                damages.incrementAndGet(); damage.getTargets().add(other); return true;
+            }
+            return invocation.callRealMethod();
+        }).when(choices).chooseTargetsFor(any());
+        p.dangerouslySetController(choices);
+        java.util.Map<AbilityKey, Object> event = AbilityKey.mapFromCard(catapult);
+        event.put(AbilityKey.Crew, new forge.game.card.CardCollection(java.util.List.of(first, second)));
+        game.getTriggerHandler().runTrigger(TriggerType.BecomesCrewed, event, false);
+        resolveTriggers(game);
+        assertEquals(damages.get(), 2);
+        assertEquals(other.getLife(), 6);
+        assertTrue(first.isInZone(ZoneType.Graveyard)); assertTrue(second.isInZone(ZoneType.Graveyard));
+        assertTrue(outsider.isInZone(ZoneType.Battlefield));
+    }
+
+    @Test
+    public void pumpkinDriverActuallyCrewsThreeAlone() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0);
+        Card catapult = enter("Pumpkin Catapult", p); resolveTriggers(game);
+        Card driver = p.getCreaturesInPlay().stream().filter(c -> c.getName().equals("Pumpkin Gang Driver")).findFirst().orElseThrow();
+        assertEquals(driver.getNetPower(), 1);
+        SpellAbility crew = catapult.getSpellAbilities().stream().filter(SpellAbility::isCrew).findFirst().orElseThrow();
+        crew.setActivatingPlayer(p);
+        assertTrue(ComputerUtil.playNoStack(p, crew, game, false));
+        assertTrue(driver.isTapped());
+        assertTrue(catapult.isCreature());
+        assertEquals(catapult.getNetPower(), 7);
+    }
+
+    @Test
+    public void youthWardDrawCostNamesTheCreatureControllerNotTheAuraOwner() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card creature = addCard("Couchpotato", other), aura = addCard("Youthful Inner Heat", p);
+        aura.attachToEntity(creature, null); game.getAction().checkStaticAbilities();
+        assertTrue(creature.getKeywords().stream().anyMatch(k -> k.getOriginal().startsWith("Ward:")));
+        SpellAbility ward = AbilityFactory.getAbility("DB$ Counter | Defined$ TriggeredSourceSA | UnlessCost$ Draw<1/Player.Activator> | UnlessPayer$ TriggeredSourceSAController", creature);
+        ward.setActivatingPlayer(other);
+        forge.game.cost.CostDraw draw = (forge.game.cost.CostDraw)new forge.game.cost.Cost("Draw<1/Player.Activator>", true).getCostParts().get(0);
+        assertEquals(draw.getPotentialPlayers(p, ward).size(), 1);
+        assertEquals(draw.getPotentialPlayers(p, ward).getFirst(), other);
+        addCardToZone("Island", other, ZoneType.Library);
+        forge.game.cost.PaymentDecision payment = forge.game.cost.PaymentDecision.players(java.util.List.of(other));
+        payment.c = 1;
+        assertTrue(draw.payAsDecided(p, payment, ward, true));
+        assertEquals(other.getCardsIn(ZoneType.Hand).size(), 1);
     }
 
 }

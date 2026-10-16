@@ -27,7 +27,7 @@ case "${1:-launch}" in
     ;;
   launch|smoke)
     if [[ ! -f "$runtime/run/forge.profile.properties" ]]; then
-      echo 'Prepare the isolated deck/profile with the website prepare.mjs helper first.' >&2
+      echo 'Prepare the isolated deck/profile with python3 chaosbrawl/prepare.py first.' >&2
       exit 1
     fi
     jars=("$root"/forge-gui-desktop/target/*-jar-with-dependencies.jar)
@@ -37,7 +37,7 @@ case "${1:-launch}" in
     fi
     cd "$runtime/run"
     if [[ "${1:-launch}" == smoke ]]; then
-      exec java -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabled=false -jar "${jars[0]}" sim -d 'Chaos Brawl Beta Batch 01.dck' 'Chaos Brawl Beta Batch 01.dck' -n 1 -s 20261016
+      exec java -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabled=false -jar "${jars[0]}" sim -d "$(cat "$runtime/active-deck.txt")" "$(cat "$runtime/active-deck.txt")" -n 1 -s 20261016
     fi
     exec java -Dsentry.enabled=false -Xmx4g -Dforge.chaosbrawl=true -Dio.netty.tryReflectionSetAccessible=true -Dfile.encoding=UTF-8 -jar "${jars[0]}"
     ;;
