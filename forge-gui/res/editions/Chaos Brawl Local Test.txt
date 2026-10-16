@@ -26,7 +26,7 @@ Type=Custom_Set
 019 R Overdose
 020 C Drunkard
 021 C Drunken Warrior
-022 C Hopsfield Vale
+022 L Hopsfield Vale
 023 C Kegbearer
 024 C Blunt Force Trauma
 025 C Gimme the herbs
@@ -40,10 +40,10 @@ Type=Custom_Set
 033 U Ice Cold Siren
 034 U Wake and Bake
 035 C Rotting Flesh
-036 C Decaying Orchard
-037 C Distillery of Silent Death
+036 L Decaying Orchard
+037 L Distillery of Silent Death
 038 M Feuerball, Junge!
-039 C Sacred Brewery
+039 L Sacred Brewery
 040 C Parsley Root
 041 R Celestial Waters
 042 R Gluttonous Scavenger
@@ -54,8 +54,8 @@ Type=Custom_Set
 047 M Mattn, the Tasty Prince
 048 M Anschnly, the Vengeful Siren
 049 R Noxious Cloud
-050 C Mistcliff Springs
-051 C Mistcliff Waterfall
+050 L Mistcliff Springs
+051 L Mistcliff Waterfall
 052 U Caring Siren
 053 U Jealous Siren
 054 U Endless Expectations
@@ -167,10 +167,10 @@ Type=Custom_Set
 161 C Let’s Fucking Go
 162 R Summon the Squad
 164 C Homemade Paranoia
-165 C Flooded Palace
-166 C Duskmire
-167 C Reefgarden
-168 C The Stoned Peaks
+165 L Flooded Palace
+166 L Duskmire
+167 L Reefgarden
+168 L The Stoned Peaks
 169 R The Blessed Hideaway
 170 C Roadside Distraction
 171 U Have a Beer, or Three
@@ -201,3 +201,51 @@ Type=Custom_Set
 197 C Improvised Escape
 198 C Strange Allergic Reaction
 200 U The Fallen ${"variant": "ChaosBrawlBeta"}
+201 C Grinder
+202 C Zigeuner-Duo
+203 R Sauna Elemental
+204 R Rotborn Colossus
+205 C Igy's Astronomical Return
+206 C Fat Felicia
+207 C Devious Duo
+208 C Big Ball Bluebird
+209 C Austrian Slap
+210 C Lecherous Patron
+211 C Jolly Brewbelly
+212 C Desperate Hydrator
+213 U Puff Mama
+214 C Domina’s Devotee
+216 C Honest Laborer
+217 U Gonorrhea
+218 C Ale Addict
+219 C Devoted Homebody
+220 C Bad Drunk
+221 C Attention Seeker
+222 C Take a Sniff
+223 C Midnight Fridge Raider
+224 C Hitman
+226 C Still Good
+227 R Stingats Gsöchts
+228 U Sofa Pizza
+229 C Nagging Little Sister
+230 C Manipulative Temptress
+231 C Cold Water Coward
+232 C Hunting Siren
+233 C Canonball Carl
+234 C Barmaid
+235 C Coastal Watchman
+236 C Not Invited
+237 C Information Broker
+238 U Copycat
+239 C Blightpear Ancient
+240 U Overstimulated Flora
+241 C Ravenous Trollkin
+242 C Exasperated Patriarch
+243 L The Stoned Peaks
+244 L Hopsfield Vale
+245 L Sacred Brewery
+246 L Decaying Orchard
+247 L Flooded Palace
+248 L Underground District
+249 L Underground District
+250 L Duskmire

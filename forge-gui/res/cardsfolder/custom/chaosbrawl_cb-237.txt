@@ -1,0 +1,7 @@
+Name:Information Broker
+ManaCost:2 U
+Types:Creature Gnome
+PT:1/3
+T:Mode$ SpellCast | TriggerZones$ Battlefield | Execute$ Draw | TriggerDescription$ Whenever you cast an instant or sorcery spell, you may pay {1}{U}. If you do, draw a card. | ValidCard$ Instant.YouCtrl,Sorcery.YouCtrl
+SVar:Draw:DB$ Draw | NumCards$ 1 | UnlessCost$ 1 U | UnlessPayer$ You | UnlessSwitched$ True
+Oracle:Whenever you cast an instant or sorcery spell, you may pay {1U}. If you do, draw a card.

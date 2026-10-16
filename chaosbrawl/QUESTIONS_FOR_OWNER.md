@@ -56,3 +56,12 @@ The printed mandatory trigger is implemented per Drunken counter added to anothe
 - cb-186 Always With Us: remove “Rare” from the subtype field (retain rarity Rare).
 
 Forge normalizes these fields only; the canonical MSE remains unchanged.
+
+## Deferred batch 05 cards
+
+- cb-215 Tavern Slot Machine: on a 20, after choosing to sacrifice the Machine, should the damage use a separate reflexive “When you do” trigger, with the target chosen then and a response window? Proposed text for that last part: “Then you may sacrifice Tavern Slot Machine. When you do, it deals damage equal to the number of artifact tokens you control to any target.” Await approval before editing MSE or loading this card.
+- cb-225 Culinary Disaster: does “Upkeep—Lose 2 life” mean paying 2 life as an upkeep cost (impossible at 1 life), or choosing to lose 2 life as an effect even at 1 life? The current text distinguishes neither the payment restriction nor the choice to sacrifice instead. Await an owner decision; no approximation loaded.
+
+## Batch 05 implementation interpretation
+
+Sofa Pizza's graveyard trigger grants a paid {1}{B} activated return option until the end of your next turn, usable with ordinary priority, not only sorcery speed. The permission tracks that graveyard object and expires when it leaves. Source wording remains unchanged; confirm this timing when reviewing questions.

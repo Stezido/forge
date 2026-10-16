@@ -1,0 +1,7 @@
+Name:Devious Duo
+ManaCost:1 R
+Types:Creature Human
+PT:3/1
+T:Mode$ CounterRemovedOnce | TriggerZones$ Battlefield | Execute$ Drain | TriggerDescription$ Whenever one or more obsession counters are removed from a creature an opponent controls, that creature's controller loses 1 life. | ValidCard$ Creature.OppCtrl | CounterType$ OBSESSION
+SVar:Drain:DB$ LoseLife | Defined$ TriggeredCardController | LifeAmount$ 1
+Oracle:Whenever one or more obsession counters are removed from a creature an opponent controls, that creature’s controller loses 1 life.

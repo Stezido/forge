@@ -1,0 +1,6 @@
+Name:Nagging Little Sister
+ManaCost:1 U
+Types:Creature Siren
+PT:2/1
+S:Mode$ Continuous | AffectedDefined$ Self | AddKeyword$ Flying | IsPresent$ Creature.counters_GE1_OBSESSION | Description$ CARDNAME has flying while there is an obsessed creature.
+Oracle:As long as there is an obsessed creature on the battlefield, Nagging Little Sister has flying.

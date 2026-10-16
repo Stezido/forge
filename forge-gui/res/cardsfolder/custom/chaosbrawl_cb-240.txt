@@ -1,0 +1,8 @@
+Name:Overstimulated Flora
+ManaCost:3 G
+Types:Creature Plant
+PT:4/4
+T:Mode$ Phase | TriggerZones$ Battlefield | Execute$ Upkeep | TriggerDescription$ At the beginning of your upkeep, sacrifice CARDNAME unless you pay its upkeep cost. | Phase$ Upkeep | ValidPlayer$ You | ChaosBrawlUpkeep$ True
+SVar:Upkeep:DB$ Sacrifice | Defined$ Self | UnlessCost$ 1 G | UnlessPayer$ You | ChaosBrawlUpkeep$ True | UnlessResolveSubs$ WhenPaid | SubAbility$ Grow
+SVar:Grow:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+Oracle:Upkeep {1G} (At the beginning of your upkeep, you must pay {1G}. If you don’t, sacrifice this permanent.)\nWhenever you pay Overstimulated Flora’s upkeep cost, put a +1/+1 counter on it.

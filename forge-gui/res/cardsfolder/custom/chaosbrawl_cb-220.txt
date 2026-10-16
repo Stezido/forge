@@ -1,0 +1,6 @@
+Name:Bad Drunk
+ManaCost:2 W
+Types:Creature Dwarf
+PT:3/2
+S:Mode$ Continuous | Affected$ Card.Self+counters_GE1_DRUNKEN | AddKeyword$ Flying | Description$ CARDNAME has flying while drunken.
+Oracle:As long as Bad Drunk is Drunken, it has flying.

@@ -1,0 +1,8 @@
+Name:Canonball Carl
+ManaCost:3 U
+Types:Creature Human
+PT:2/2
+K:Flash
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Bounce | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Bounce:DB$ ChangeZone | ValidTgts$ Creature.Other | Origin$ Battlefield | Destination$ Hand
+Oracle:Flash\nWhen Canonball Carl enters, return another target creature to its owner’s hand.

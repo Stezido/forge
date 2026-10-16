@@ -1,0 +1,7 @@
+Name:Midnight Fridge Raider
+ManaCost:1 B
+Types:Creature Gnome
+PT:2/2
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Execute$ Pump | TriggerDescription$ Whenever a Food you control dies, CARDNAME gets +1/+1 until end of turn. | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Food.YouCtrl
+SVar:Pump:DB$ Pump | Defined$ Self | NumAtt$ 1 | NumDef$ 1
+Oracle:Whenever a Food you control is put into a graveyard from the battlefield, Midnight Fridge Raider gets +1/+1 until end of turn.

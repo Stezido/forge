@@ -8,7 +8,7 @@ Canonical source: the registered development MSE in `Stezido/Chaosbrawl-Website`
 | 02 | cb-051–cb-100 | 50 definitions verified; 157 cumulative checks; build/images/decks/AI smoke passed |
 | 03 | cb-101–cb-150 | 50 definitions verified; 217 cumulative checks; build/images/decks/AI smoke passed |
 | 04 | cb-151–cb-200 | 46 implemented, four deferred; 277 checks/build/native images/decks/AI smoke passed |
-| 05 | cb-201–cb-250 | Pending |
+| 05 | cb-201–cb-250 | WIP: 48 entries drafted; two deferred; checks pending |
 | 06 | cb-251–cb-300 | Pending |
 | 07 | cb-301–cb-311 | Pending |
 
@@ -46,3 +46,5 @@ Batch 03 completed: all 217 checks passed (150 source comparisons now include ty
 Batch 04 checkpoint: 46 clear definitions drafted (196 cumulative), four rule questions deferred. Initial run: 262/263 checks pass; discovered an upstream Dungeon Master name collision, now isolated with a Beta functional variant, as for Recycle and The Fallen. Build, new behavior validation and smoke remain pending. No source wording edits.
 
 Batch 04 completed for all 46 unambiguous cards: 196 cumulative records (195 names), 277 passing checks, successful desktop build, 196 full native images, six decks and completed seed-20261016 AI game (turn 11, Ai(1), 2061 ms). Four cards remain explicitly deferred in QUESTIONS_FOR_OWNER.md. Continue 201–250 without asking now.
+
+Batch 05 checkpoint: 40 new definitions and eight repeated shock-land printings drafted (244 cumulative implemented candidates). Tavern Slot Machine and Culinary Disaster are excluded pending rule decisions. Metadata and behavior validation in progress.

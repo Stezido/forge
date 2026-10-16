@@ -1,0 +1,7 @@
+Name:Exasperated Patriarch
+ManaCost:5 G
+Types:Creature Troll
+PT:6/6
+K:Reach
+K:Trample
+Oracle:Reach, trample

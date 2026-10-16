@@ -1,0 +1,7 @@
+Name:Cold Water Coward
+ManaCost:2 U
+Types:Creature Human
+PT:4/3
+T:Mode$ Phase | TriggerZones$ Battlefield | Execute$ Bounce | TriggerDescription$ At the beginning of your upkeep, if CARDNAME is not drunken, return it to its owner's hand. | Phase$ Upkeep | ValidPlayer$ You | IsPresent$ Card.Self+counters_EQ0_DRUNKEN
+SVar:Bounce:DB$ ChangeZone | Defined$ Self | Origin$ Battlefield | Destination$ Hand | ConditionPresent$ Card.Self+counters_EQ0_DRUNKEN
+Oracle:At the beginning of your upkeep, if Cold Water Coward isn’t Drunken, return it to its owner’s hand.

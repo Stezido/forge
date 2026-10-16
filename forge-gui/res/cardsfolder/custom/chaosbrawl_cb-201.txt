@@ -1,0 +1,5 @@
+Name:Grinder
+ManaCost:1
+Types:Artifact
+A:AB$ Mana | Cost$ T Sac<1/Land> | Produced$ G | Amount$ 2 | SpellDescription$ Add {G}{G}.
+Oracle:{T}, Sacrifice a land: Add {GG}.

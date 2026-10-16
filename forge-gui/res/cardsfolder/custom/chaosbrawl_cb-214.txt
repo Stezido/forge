@@ -1,0 +1,10 @@
+Name:Domina’s Devotee
+ManaCost:3 R
+Types:Creature Human
+PT:2/2
+K:Haste
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Obsess | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Obsess:DB$ PutCounter | Defined$ Self | CounterType$ OBSESSION | CounterNum$ 1
+T:Mode$ CounterAdded | TriggerZones$ Battlefield | Execute$ Grow | TriggerDescription$ Whenever an Obsession counter is put on CARDNAME, it gets +3/+3 until end of turn. | ValidCard$ Card.Self | CounterType$ OBSESSION
+SVar:Grow:DB$ Pump | Defined$ Self | NumAtt$ 3 | NumDef$ 3
+Oracle:Haste\nWhen Domina’s Devotee enters, put an Obsession counter on it.\nWhenever an Obsession counter is put on Domina’s Devotee, it gets +3/+3 until end of turn.

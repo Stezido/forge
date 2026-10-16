@@ -1,0 +1,7 @@
+Name:Lecherous Patron
+ManaCost:2 R
+Types:Creature Gnome
+PT:2/2
+T:Mode$ CounterAdded | TriggerZones$ Battlefield | Execute$ Pump | TriggerDescription$ Whenever a Drunken counter is put on CARDNAME, it gets +2/+0 until end of turn. | ValidCard$ Card.Self | CounterType$ DRUNKEN
+SVar:Pump:DB$ Pump | Defined$ Self | NumAtt$ 2
+Oracle:Whenever a Drunken counter is put on Lecherous Patron, it gets +2/+0 until end of turn.

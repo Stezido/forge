@@ -1,0 +1,8 @@
+Name:Desperate Hydrator
+ManaCost:3 R
+Types:Creature Human
+PT:3/3
+T:Mode$ SpellCast | TriggerZones$ Battlefield | Execute$ Draw | TriggerDescription$ Whenever you cast an instant or sorcery spell, draw a card, then discard unless you remove a Drunken counter from a creature you control. | ValidCard$ Instant.YouCtrl,Sorcery.YouCtrl
+SVar:Draw:DB$ Draw | NumCards$ 1 | SubAbility$ Discard
+SVar:Discard:DB$ Discard | Mode$ TgtChoose | Defined$ You | NumCards$ 1 | UnlessCost$ SubCounter<1/DRUNKEN/Creature.YouCtrl> | UnlessPayer$ You
+Oracle:Whenever you cast an instant or sorcery spell, draw a card, then discard a card unless you remove a Drunken counter from a creature you control.

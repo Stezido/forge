@@ -1,0 +1,7 @@
+Name:Hitman
+ManaCost:2 B
+Types:Creature Gnome
+PT:5/3
+T:Mode$ Phase | TriggerZones$ Battlefield | Execute$ Upkeep | TriggerDescription$ At the beginning of your upkeep, sacrifice CARDNAME unless you pay its upkeep cost. | Phase$ Upkeep | ValidPlayer$ You | ChaosBrawlUpkeep$ True
+SVar:Upkeep:DB$ Sacrifice | Defined$ Self | UnlessCost$ B | UnlessPayer$ You | ChaosBrawlUpkeep$ True
+Oracle:Upkeep {B} (At the beginning of your upkeep, you must pay {B}. If you don’t, sacrifice this permanent.)

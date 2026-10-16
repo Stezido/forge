@@ -1,0 +1,7 @@
+Name:Zigeuner-Duo
+ManaCost:3 R
+Types:Creature Gnome Goblin
+PT:4/3
+T:Mode$ DamageDone | TriggerZones$ Battlefield | Execute$ Steal | TriggerDescription$ Whenever CARDNAME deals combat damage to a player, you may gain control of target artifact token they control. | ValidSource$ Card.Self | ValidTarget$ Player | CombatDamage$ True | OptionalDecider$ You
+SVar:Steal:DB$ GainControl | ValidTgts$ Artifact.token+ControlledBy TriggeredTarget | SpellDescription$ Gain control of target artifact token that player controls.
+Oracle:Whenever Zigeuner-Duo deals combat damage to a player, you may gain control of target artifact token that player controls.

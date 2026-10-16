@@ -1,0 +1,7 @@
+Name:Big Ball Bluebird
+ManaCost:2 W
+Types:Creature Bird
+PT:2/2
+K:Flying
+S:Mode$ Continuous | AffectedDefined$ Self | AddKeyword$ Vigilance | IsPresent$ Location.YouCtrl | Description$ CARDNAME has vigilance as long as you control a Location.
+Oracle:Flying\nBig-Ball Bluebird has vigilance as long as you control a Location.

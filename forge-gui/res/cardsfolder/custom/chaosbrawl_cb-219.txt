@@ -1,0 +1,7 @@
+Name:Devoted Homebody
+ManaCost:1 W
+Types:Creature Human
+PT:3/3
+K:Defender
+S:Mode$ CanAttackDefender | ValidCard$ Card.Self | IsPresent$ Location.YouCtrl | Description$ CARDNAME can attack as though it did not have defender while you control a Location.
+Oracle:Defender\nAs long as you control a Location, Devoted Homebody can attack as though it didn’t have defender.

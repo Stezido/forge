@@ -1,0 +1,8 @@
+Name:Stingats Gsöchts
+ManaCost:4 B B
+Types:Creature Food Horror
+PT:4/4
+S:Mode$ Continuous | Affected$ Creature.OppCtrl | AddPower$ -1 | AddToughness$ -1 | Description$ Creatures your opponents control get -1/-1.
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Execute$ Grow | TriggerDescription$ Whenever another creature dies, put a +1/+1 counter on CARDNAME. | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature.Other
+SVar:Grow:DB$ PutCounter | Defined$ Self | CounterType$ P1P1 | CounterNum$ 1
+Oracle:Creatures your opponents control get -1/-1.\nWhenever another creature dies, put a +1/+1 counter on Stingats Gsöchts.

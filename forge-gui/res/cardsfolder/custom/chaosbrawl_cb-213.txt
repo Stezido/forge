@@ -1,0 +1,8 @@
+Name:Puff Mama
+ManaCost:3 R
+Types:Creature Tiefling
+PT:2/4
+K:Menace
+T:Mode$ CounterAddedOnce | TriggerZones$ Battlefield | Execute$ Treasure | TriggerDescription$ Whenever one or more Obsession counters are put on a creature, create a Treasure token. | ValidCard$ Creature | CounterType$ OBSESSION
+SVar:Treasure:DB$ Token | TokenScript$ c_a_treasure_sac
+Oracle:Menace\nWhenever one or more Obsession counters are put on a creature, create a Treasure token.

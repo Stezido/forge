@@ -1,0 +1,5 @@
+Name:Not Invited
+ManaCost:U U
+Types:Instant
+A:SP$ Counter | ValidTgts$ Creature,Planeswalker | SpellDescription$ Counter target creature or planeswalker spell.
+Oracle:Counter target creature or planeswalker spell.

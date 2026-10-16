@@ -1,0 +1,8 @@
+Name:Honest Laborer
+ManaCost:3 W
+Types:Creature Dwarf
+PT:3/4
+K:Vigilance
+A:AB$ Token | Cost$ T | TokenScript$ chaosbrawl_beer | CheckSVar$ X | SVarCompare$ GE1 | SpellDescription$ Create a Beer token. Activate only if you attacked this turn.
+SVar:X:Count$AttackersDeclared
+Oracle:Vigilance\n{T}: Create a Beer token. Activate only if you attacked this turn.

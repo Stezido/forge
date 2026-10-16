@@ -1,0 +1,8 @@
+Name:Blightpear Ancient
+ManaCost:3 G
+Types:Creature Treefolk
+PT:1/6
+K:Defender
+K:Reach
+A:AB$ Token | Cost$ 2 G G | TokenScript$ c_a_food_sac | TokenAmount$ 2 | Exhaust$ True | SpellDescription$ Create two Food tokens.
+Oracle:Defender, reach\nExhaust — {2GG}: Create two Food tokens. (Activate each exhaust ability only once.)

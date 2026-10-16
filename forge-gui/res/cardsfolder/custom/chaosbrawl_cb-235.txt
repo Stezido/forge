@@ -1,0 +1,7 @@
+Name:Coastal Watchman
+ManaCost:2 U
+Types:Creature Human
+PT:3/2
+T:Mode$ AttackersDeclared | TriggerZones$ Battlefield | Execute$ Untap | TriggerDescription$ Whenever one or more obsessed creatures attack, untap target creature you control. | ValidAttackers$ Creature.counters_GE1_OBSESSION
+SVar:Untap:DB$ Untap | ValidTgts$ Creature.YouCtrl
+Oracle:Whenever one or more obsessed creatures attack, untap target creature you control.

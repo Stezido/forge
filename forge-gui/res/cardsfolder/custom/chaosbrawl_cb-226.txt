@@ -1,0 +1,7 @@
+Name:Still Good
+ManaCost:2 B
+Types:Sorcery
+A:SP$ ChangeZone | ValidTgts$ Food.YouOwn | Origin$ Graveyard | Destination$ Hand | SubAbility$ Draw | SpellDescription$ Return target Food from your graveyard to your hand. Draw a card and lose 2 life.
+SVar:Draw:DB$ Draw | NumCards$ 1 | SubAbility$ Lose
+SVar:Lose:DB$ LoseLife | Defined$ You | LifeAmount$ 2
+Oracle:Return target Food card from your graveyard to your hand. Draw a card and lose 2 life.

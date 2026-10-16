@@ -1,0 +1,7 @@
+Name:Copycat
+ManaCost:2 U
+Types:Legendary Creature Shapeshifter
+PT:2/2
+T:Mode$ CounterPlayerAddedAll | TriggerZones$ Battlefield | Execute$ Copy | TriggerDescription$ Whenever one or more counters are put on another creature you control, you may put the same numbers and kinds on CARDNAME. | ValidObject$ Creature.Other+YouCtrl+inRealZoneBattlefield | OptionalDecider$ You
+SVar:Copy:DB$ PutCounter | Defined$ Self | TriggeredCounterMap$ True
+Oracle:Whenever one or more counters are put on another creature you control, you may put the same number and kinds of counters on Copycat.

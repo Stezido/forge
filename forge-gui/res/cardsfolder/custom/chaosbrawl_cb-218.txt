@@ -1,0 +1,9 @@
+Name:Ale Addict
+ManaCost:2 W
+Types:Creature Dwarf
+PT:*/3
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Beer | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Beer:DB$ Token | TokenScript$ chaosbrawl_beer
+S:Mode$ Continuous | AffectedDefined$ Self | SetPower$ X | CharacteristicDefining$ True | Description$ Power equals the number of Beer tokens you control.
+SVar:X:Count$Valid Beer.token+YouCtrl
+Oracle:When Ale Addict enters, create a Beer token.\nAle Addict’s power is equal to the number of Beer tokens you control.

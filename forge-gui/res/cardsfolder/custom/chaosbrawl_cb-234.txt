@@ -1,0 +1,7 @@
+Name:Barmaid
+ManaCost:1 U
+Types:Creature Siren
+PT:2/1
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Obsess | IsPresent$ Artifact.token+YouCtrl | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Obsess:DB$ PutCounter | ValidTgts$ Creature.OppCtrl | CounterType$ OBSESSION | CounterNum$ 1 | ConditionPresent$ Artifact.token+YouCtrl
+Oracle:When Barmaid enters, if you control an artifact token, put an Obsession counter on target creature an opponent controls. (A creature with one or more Obsession counters on it attacks each combat if able. Whenever a creature with one or more Obsession counters on it attacks, remove an Obsession counter from it.)

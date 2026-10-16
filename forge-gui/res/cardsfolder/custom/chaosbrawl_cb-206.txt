@@ -1,0 +1,8 @@
+Name:Fat Felicia
+ManaCost:5 U
+Types:Creature Siren
+PT:4/6
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Bounce | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Bounce:DB$ ChangeZone | Origin$ Battlefield | Destination$ Hand | ValidTgts$ Creature.powerLE2
+S:Mode$ CantBlockBy | ValidAttacker$ Card.Self | ValidBlocker$ Creature.powerLE2 | Description$ Creatures with power 2 or less cannot block CARDNAME.
+Oracle:When Fat Felicia enters, you may return target creature with power 2 or less to its owner’s hand.\nFat Felicia can’t be blocked by creatures with power 2 or less.

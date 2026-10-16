@@ -1,0 +1,7 @@
+Name:Attention Seeker
+ManaCost:4 W
+Types:Creature Human
+PT:3/4
+S:Mode$ Continuous | AffectedDefined$ Self | AddPower$ X | AddToughness$ X | Description$ CARDNAME gets +1/+1 for each other creature you control.
+SVar:X:Count$Valid Creature.YouCtrl+Other
+Oracle:Attention Seeker gets +1/+1 for each other creature you control.

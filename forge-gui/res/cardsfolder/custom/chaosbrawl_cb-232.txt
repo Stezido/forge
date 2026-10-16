@@ -1,0 +1,8 @@
+Name:Hunting Siren
+ManaCost:4 U
+Types:Creature Siren
+PT:3/3
+K:Flying
+T:Mode$ Attacks | TriggerZones$ Battlefield | Execute$ Buff | TriggerDescription$ Whenever CARDNAME attacks, another target Siren you control gets +1/+1 and flying until end of turn. | ValidCard$ Card.Self
+SVar:Buff:DB$ Pump | ValidTgts$ Siren.YouCtrl+Other | NumAtt$ 1 | NumDef$ 1 | KW$ Flying
+Oracle:Flying\nWhenever Hunting Siren attacks, another target Siren you control gets +1/+1 and gains flying until end of turn.

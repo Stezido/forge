@@ -1,0 +1,7 @@
+Name:Igy's Astronomical Return
+ManaCost:3 B
+Types:Sorcery
+A:SP$ Charm | Choices$ Creature,Food | MinCharmNum$ 1 | CharmNum$ 2 | SpellDescription$ Choose one or both.
+SVar:Creature:DB$ ChangeZone | ValidTgts$ Creature.YouOwn | Origin$ Graveyard | Destination$ Hand | SpellDescription$ Return target creature card from your graveyard to your hand.
+SVar:Food:DB$ ChangeZone | ValidTgts$ Food.YouOwn | Origin$ Graveyard | Destination$ Hand | SpellDescription$ Return target Food card from your graveyard to your hand.
+Oracle:Choose one or both —\n• Return target creature card from your graveyard to your hand.\n• Return target Food card from your graveyard to your hand.
