@@ -1,0 +1,7 @@
+Name:The Executioner
+ManaCost:5 B
+Types:Creature Gnome
+PT:6/5
+K:Menace
+K:TypeCycling:Swamp:2
+Oracle:Menace\nSwampcycling {2} ({2}, Discard this card: Search your library for a Swamp card, reveal it, put it into your hand, then shuffle.)

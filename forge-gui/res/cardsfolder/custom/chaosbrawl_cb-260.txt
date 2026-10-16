@@ -1,0 +1,7 @@
+Name:Siren Raiders
+ManaCost:5 U
+Types:Creature Siren
+PT:5/5
+K:TypeCycling:Island:2
+S:Mode$ CantBlockBy | ValidAttacker$ Siren.YouCtrl | ValidBlocker$ Creature.powerLE2 | IsPresent$ Siren.YouCtrl+Other | PresentCompare$ GE2 | Description$ With two other Sirens, your Sirens cannot be blocked by creatures with power 2 or less.
+Oracle:As long as you control two or more other Sirens, Siren creatures you control can’t be blocked by creatures with power 2 or less.\nIslandcycling {2} ({2}, Discard this card: Search your library for an Island card, reveal it, put it into your hand, then shuffle.)

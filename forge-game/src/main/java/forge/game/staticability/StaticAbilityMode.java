@@ -192,6 +192,7 @@ public enum StaticAbilityMode {
 
     // StaticAbilityTapPowerValue
     TapPowerValue,
+    ChaosBrawlTolerance,
 
     // StaticAbilityUnspentMana
     UnspentMana,

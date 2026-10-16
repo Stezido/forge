@@ -1,0 +1,11 @@
+Name:Peter, the Manipulative
+ManaCost:1 U R
+Types:Legendary Planeswalker Peter
+Loyalty:3
+T:Mode$ AttackersDeclared | TriggerZones$ Battlefield | Execute$ Draw | TriggerDescription$ Whenever a player attacks with one or more obsessed creatures, draw a card. | ValidAttackers$ Creature.counters_GE1_OBSESSION
+SVar:Draw:DB$ Draw | NumCards$ 1
+A:AB$ PutCounter | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | ValidTgts$ Creature | CounterType$ OBSESSION | CounterNum$ 1 | SpellDescription$ Obsess target creature.
+A:AB$ Effect | Cost$ SubCounter<8/LOYALTY> | Planeswalker$ True | Ultimate$ True | Name$ Emblem — Peter, the Manipulative | Duration$ Permanent | Triggers$ Obsess | SpellDescription$ You get an emblem with "Whenever you obsess a creature, gain control of it."
+SVar:Obsess:Mode$ CounterAddedOnce | TriggerZones$ Command | ValidCard$ Creature | ValidSource$ You | CounterType$ OBSESSION | Execute$ Steal | TriggerDescription$ Whenever you obsess a creature, gain control of it.
+SVar:Steal:DB$ GainControl | Defined$ TriggeredCard
+Oracle: — Whenever a player attacks with one or more obsessed creatures, draw a card.\n+1 — Obsess target creature.\n-8 — You get an emblem with “Whenever you obsess a creature, take control of it.”

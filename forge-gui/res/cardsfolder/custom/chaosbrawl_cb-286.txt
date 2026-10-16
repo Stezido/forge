@@ -1,0 +1,14 @@
+Name:Stefan, the Eternal Annoyer
+ManaCost:2 W U
+Types:Legendary Planeswalker Stefan
+Loyalty:3
+T:Mode$ SpellCast | TriggerZones$ Battlefield | Execute$ Gain | TriggerDescription$ Whenever a noncreature spell is cast, gain 2 life. | ValidCard$ Card.nonCreature
+SVar:Gain:DB$ GainLife | Defined$ You | LifeAmount$ 2
+A:AB$ Effect | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | StaticAbilities$ Restrict | Duration$ UntilYourNextUpkeep | SpellDescription$ Until your next upkeep, opponents can cast spells only at sorcery speed.
+SVar:Restrict:Mode$ CantBeCast | ValidCard$ Card | Caster$ Opponent | OnlySorcerySpeed$ True | Description$ Opponents can cast spells only at sorcery speed.
+A:AB$ ChangeZone | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | Origin$ Library | Destination$ Hand | ChangeType$ Card.nonCreature+nonPlaneswalker | ChangeNum$ 1 | Reveal$ True | SpellDescription$ Search for a noncreature, nonplaneswalker card, reveal it and put it into your hand, then shuffle.
+A:AB$ Effect | Cost$ SubCounter<6/LOYALTY> | Planeswalker$ True | Ultimate$ True | StaticAbilities$ Free | ReplacementEffects$ Exile | SpellDescription$ This turn you may cast noncreature, nonplaneswalker spells from your graveyard without paying mana. Exile those spells instead of putting them into a graveyard.
+SVar:Free:Mode$ Continuous | Affected$ Card.YouOwn+nonCreature+nonPlaneswalker+nonLand | AffectedZone$ Graveyard | MayPlay$ True | MayPlayWithoutManaCost$ True | Description$ You may cast these spells without paying their mana costs this turn.
+SVar:Exile:Event$ Moved | ValidLKI$ Card.CastSa Spell.MayPlaySource | Origin$ Stack | Destination$ Graveyard | ReplaceWith$ ToExile
+SVar:ToExile:DB$ ChangeZone | Defined$ ReplacedCard | Origin$ Stack | Destination$ Exile
+Oracle: — Whenever a noncreature spell is cast, you gain 2 life.\n+1 — Until your next upkeep, each opponent may only cast spells any time they could cast a sorcery.\n-2 — Search your library for a noncreature, nonplaneswalker card, reveal it, and put it into your hand. Then shuffle.\n-6 — Until end of turn, you may cast noncreature, nonplaneswalker spells from your graveyard without paying their mana costs. If a spell cast this way would be put into a graveyard, exile it instead.

@@ -1,0 +1,7 @@
+Name:Brawl Enthusiast
+ManaCost:1 R
+Types:Creature Dwarf
+PT:2/1
+T:Mode$ Attacks | TriggerZones$ Battlefield | Execute$ Damage | TriggerDescription$ Whenever you attack with a drunken creature, deal 1 to target opponent. | ValidCard$ Creature.YouCtrl+counters_GE1_DRUNKEN
+SVar:Damage:DB$ DealDamage | ValidTgts$ Opponent | NumDmg$ 1
+Oracle:Whenever you attack with a Drunken creature, Brawl Enthusiast deals 1 damage to target opponent.

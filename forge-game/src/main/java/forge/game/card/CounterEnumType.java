@@ -37,6 +37,8 @@ public enum CounterEnumType implements CounterType {
 
     FULFILLMENT("Fulfillment", "FULFILL", 125, 165, 230, CounterAiCategory.Neutral),
 
+    LOSTFAMILY("Lost Family", "FAMILY", 160, 140, 210, CounterAiCategory.Positive),
+
     LOYALTY("LOYAL", 198, 198, 198, CounterAiCategory.Positive),
 
     ACORN("ACORN", 139, 69, 19, CounterAiCategory.Positive),

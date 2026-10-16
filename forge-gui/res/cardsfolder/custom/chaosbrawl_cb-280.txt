@@ -1,0 +1,11 @@
+Name:A Week of Excess
+ManaCost:2 W U B R G
+Types:Enchantment Saga
+K:Chapter:3:Mill,Drunk,Double
+SVar:Mill:DB$ Mill | Defined$ You | NumCards$ 7 | RememberMilled$ True | SubAbility$ Revive | SpellDescription$ Mill seven. Put any number of creatures milled this way onto the battlefield. They gain haste this turn.
+SVar:Revive:DB$ ChangeZone | Hidden$ True | Origin$ Graveyard | Destination$ Battlefield | ChangeType$ Creature.IsRemembered | ChangeNum$ 7 | RememberChanged$ True | ForgetOtherRemembered$ True | SubAbility$ Haste
+SVar:Haste:DB$ Pump | Defined$ Remembered | KW$ Haste | SubAbility$ Clear
+SVar:Clear:DB$ Cleanup | ClearRemembered$ True
+SVar:Drunk:DB$ PutCounterAll | ValidCards$ Creature.YouCtrl | CounterType$ DRUNKEN | CounterNum$ 2 | SpellDescription$ Put two Drunken counters on each creature you control.
+SVar:Double:DB$ MultiplyCounter | Defined$ Valid Creature.YouCtrl | CounterType$ DRUNKEN | SpellDescription$ Double all Drunken counters on creatures you control.
+Oracle:I — Mill 7 cards. Put any number of creatures that were milled this way onto the battlefield under your control. Those creatures gain haste until end of turn.\nII — Put two Drunken counters on each creature you control.\nIII — Double all Drunken counters on creatures you control.

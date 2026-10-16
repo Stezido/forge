@@ -1,0 +1,5 @@
+Name:Desperate Foraging
+ManaCost:2 G
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Library | Destination$ Battlefield | ChangeType$ Land.Basic | ChangeNum$ 1 | Tapped$ True | SpellDescription$ Search for a basic land, put it onto the battlefield tapped, then shuffle.
+Oracle:Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.

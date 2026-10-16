@@ -1,0 +1,9 @@
+Name:Wild Fermentation
+ManaCost:3 G
+Types:Legendary Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Beer | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Beer:DB$ Token | TokenScript$ chaosbrawl_beer | TokenAmount$ X
+SVar:X:Count$Valid Plant.YouCtrl
+R:Event$ CreateToken | ActiveZones$ Battlefield | ValidToken$ Beer.YouCtrl | ReplaceWith$ Roll | Description$ For each Beer you would create, roll a d20. 1–10 Beer; 11–20 Bock Beer.
+SVar:Roll:DB$ ReplaceToken | Type$ RollDiceToken | Sides$ 20 | Threshold$ 10 | TokenScript$ chaosbrawl_beer | HighTokenScript$ chaosbrawl_bock_beer
+Oracle:When Wild Fermentation enters, create a Beer token for each Plant you control.\nIf you would create one or more Beer tokens, roll a d20 for each of those tokens instead.\n1–10 | Create a Beer token.\n11–20| Create a Bock Beer token.

@@ -140,6 +140,25 @@ public class ReplaceTokenEffect extends SpellAbilityEffect {
                     table.put(affected, token, amt);
                 }
             }
+        } else if ("RollDiceToken".equals(sa.getParam("Type"))) {
+            // Replace each matching token independently, using native dice events.
+            // Retain the original controller, spawning ability and remembered objects.
+            for (Map.Entry<Card, Integer> entry : new java.util.ArrayList<>(table.row(affected).entrySet())) {
+                if (!re.matchesValidParam("ValidToken", entry.getKey())) {
+                    continue;
+                }
+                table.row(affected).remove(entry.getKey());
+                for (int i = 0; i < entry.getValue(); i++) {
+                    int roll = RollDiceEffect.rollDiceForPlayer(sa, affected, 1, Integer.parseInt(sa.getParam("Sides")));
+                    String script = roll <= Integer.parseInt(sa.getParam("Threshold"))
+                            ? sa.getParam("TokenScript") : sa.getParam("HighTokenScript");
+                    Card token = TokenInfo.getProtoType(script, sa, entry.getKey().getController());
+                    token.setTokenSpawningAbility((SpellAbility) repSA.getReplacingObject(AbilityKey.Cause));
+                    token.setController(entry.getKey().getController(), game.getNextTimestamp());
+                    token.addRemembered(entry.getKey().getRemembered());
+                    table.put(affected, token, 1);
+                }
+            }
         } else if ("ReplaceController".equals(sa.getParam("Type"))) {
             long timestamp = game.getNextTimestamp();
             Player newController = p;

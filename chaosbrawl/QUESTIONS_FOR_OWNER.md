@@ -65,3 +65,17 @@ Forge normalizes these fields only; the canonical MSE remains unchanged.
 ## Batch 05 implementation interpretation
 
 Sofa Pizza's graveyard trigger grants a paid {1}{B} activated return option until the end of your next turn, usable with ordinary priority, not only sorcery speed. The permission tracks that graveyard object and expires when it leaves. Source wording remains unchanged; confirm this timing when reviewing questions.
+
+## Deferred batch 06 cards
+
+- cb-269 Moshpit: does “dies this way” count only the immediate deaths from this damage, or any later death that turn of a creature dealt damage? Proposed standard wording for the latter: “Moshpit deals 2 damage to each creature. Whenever a creature dealt damage this way dies this turn, Moshpit deals 1 damage to that creature's controller.” The immediate-only interpretation needs a different implementation. No source edit or card loaded yet.
+- cb-279 Gastronomic Downfall: chapter III is blank. Should this be a two-chapter Saga, or what should III do? Chapter II also needs explicit targeting timing if damage is intended as a separate trigger after counter removal.
+- cb-282 Rollercoaster of Emotions: should chapter II simultaneously move each creature's original counters, or process creatures in a chosen order (which can move newly received counters again)? Who chooses that order and each destination? Preserve source until clarified.
+- cb-283 Hofi, the Fragrant: is sacrificing a Food required to get the -2 ability's -3/-3? For the ultimate, when and how should the creatures “that died due to this effect” be counted for the life loss? A death trigger/delayed count needs precise timing and source wording approval.
+
+## Additional batch 06 source corrections/interpretations
+
+- cb-254 Wild Fermentation: source type “Entchantment” is normalized to Enchantment in Forge only; proposed source field correction awaits approval.
+- cb-263 Fighting Pit Champion: “Plaincycling” and “Plain” are interpreted as Plainscycling and Plains. Source text unchanged; approve these exact spelling corrections later.
+- cb-299 authored token says “Ari, the ripper”, while Peter creates “Ari, the Ripper”. Runtime uses the creator's name. Propose capitalizing the token name's R, pending approval.
+- cb-297 authored Vengeful Gnome Pack face lacks haste, while Sasa explicitly creates it with haste. The runtime token used by Sasa has haste as instructed by Sasa; no MSE change was made.

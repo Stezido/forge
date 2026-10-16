@@ -1,0 +1,7 @@
+Name:Ari, the Ripper
+ManaCost:no cost
+Colors:Green,White
+Types:Legendary Creature Dog
+PT:3/3
+K:Vigilance
+Oracle:Vigilance

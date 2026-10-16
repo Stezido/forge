@@ -1,0 +1,7 @@
+Name:Tavern Hearthkeeper
+ManaCost:2 G
+Types:Creature Troll
+PT:3/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Food | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Food:DB$ Token | TokenOwner$ Player | TokenScript$ c_a_food_sac | TokenAmount$ 2
+Oracle:When Tavern Hearthkeeper enters, each player creates two Food tokens.

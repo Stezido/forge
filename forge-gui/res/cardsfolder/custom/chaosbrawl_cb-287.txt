@@ -1,0 +1,12 @@
+Name:Alex, the Cozy
+ManaCost:2 R G
+Types:Legendary Planeswalker Alex
+Loyalty:3
+A:AB$ ChangeZone | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | Origin$ Library | Destination$ Battlefield | ChangeType$ Forest | ChangeNum$ 1 | RememberChanged$ True | SubAbility$ Animate | SpellDescription$ Search for a Forest and put it onto the battlefield. It becomes a 2/2 green Elemental with haste.
+SVar:Animate:DB$ Animate | Defined$ Remembered | Power$ 2 | Toughness$ 2 | Types$ Creature,Elemental | Colors$ Green | Keywords$ Haste | Duration$ Permanent | SubAbility$ Clear
+SVar:Clear:DB$ Cleanup | ClearRemembered$ True
+A:AB$ DealDamage | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | ValidTgts$ Creature | NumDmg$ X | SpellDescription$ Deal damage to target creature equal to your Forests.
+SVar:X:Count$Valid Forest.YouCtrl
+A:AB$ Effect | Cost$ SubCounter<6/LOYALTY> | Planeswalker$ True | Ultimate$ True | Duration$ Permanent | Name$ Emblem — Alex, the Cozy | StaticAbilities$ Forests | SpellDescription$ You get an emblem that makes your Forests 3/3 green Elementals with haste and trample, still lands.
+SVar:Forests:Mode$ Continuous | Affected$ Forest.YouCtrl | SetPower$ 3 | SetToughness$ 3 | AddType$ Creature & Elemental | SetColor$ Green | AddKeyword$ Haste & Trample | Description$ Your Forests are 3/3 green Elemental creatures with haste and trample. They are still lands.
+Oracle:+1 — Search your library for a Forest card and put it onto the battlefield. It becomes a 2/2 green Elemental creature with haste. It’s still a land.\n-2 — Deal damage equal to the number of Forests you control to target creature.\n-6 — You get an emblem with “Forests you control are 3/3 green Elemental creatures with haste and trample. They’re still lands.

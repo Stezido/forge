@@ -1,0 +1,9 @@
+Name:Brewbelly Jumbo
+ManaCost:5 G
+Types:Creature Plant Troll
+PT:5/5
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Food | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Food:DB$ Token | TokenScript$ c_a_food_sac
+T:Mode$ TokenCreated | TriggerZones$ Battlefield | Execute$ Beer | TriggerDescription$ Whenever you create a Food token, create a Beer token. | ValidToken$ Food.token | ValidPlayer$ You
+SVar:Beer:DB$ Token | TokenScript$ chaosbrawl_beer
+Oracle:When Brewbelly Jumbo enters, create a Food token.\nWhenever you create a Food token, create a Beer token.

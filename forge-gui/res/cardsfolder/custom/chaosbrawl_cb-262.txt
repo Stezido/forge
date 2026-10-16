@@ -1,0 +1,10 @@
+Name:Escalating Adventurer
+ManaCost:5 R
+Types:Creature Dwarf
+PT:3/2
+K:Haste
+SVar:ChaosBrawlTolerance:4
+K:TypeCycling:Mountain:2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Drunk | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Drunk:DB$ PutCounter | Defined$ Self | CounterType$ DRUNKEN | CounterNum$ 2
+Oracle:Haste\nDrunken Tolerance 4\nWhen Escalating Adventurer enters the battlefield, put two Drunken counters on it.\nMountaincycling {2} ({2}, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)

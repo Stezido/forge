@@ -1,0 +1,7 @@
+Name:Deepwood Abomination
+ManaCost:5 G
+Types:Creature Plant Horror
+PT:5/5
+K:TypeCycling:Forest:2
+S:Mode$ Continuous | AffectedDefined$ Self | AddPower$ 2 | AddToughness$ 2 | AddKeyword$ Trample | IsPresent$ Forest.YouCtrl | PresentCompare$ GE5 | Description$ With five Forests, CARDNAME gets +2/+2 and trample.
+Oracle:As long as you control five or more Forests, Deepwood Abomination gets +2/+2 and has trample.\nForestcycling {2} ({2}, Discard this card: Search your library for a Forest card, reveal it, put it into your hand, then shuffle.)

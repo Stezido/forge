@@ -1,0 +1,7 @@
+Name:Keeper’s Lucky Mascot
+ManaCost:U
+Types:Creature Drake
+PT:1/1
+K:Flying
+A:AB$ CopyPermanent | Cost$ T | ValidTgts$ Artifact.token+YouCtrl | SpellDescription$ Create a token copy of target artifact token you control.
+Oracle:Flying\n{T}: Create a token that’s a copy of target artifact token you control.

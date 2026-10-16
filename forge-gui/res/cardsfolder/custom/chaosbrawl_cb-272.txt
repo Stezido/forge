@@ -1,0 +1,6 @@
+Name:Questionable First Responder
+ManaCost:2 W
+Types:Creature Human
+PT:1/4
+A:AB$ Pump | Cost$ T Sac<2/Beer> | ValidTgts$ Creature.Other+YouCtrl | KW$ Indestructible | SpellDescription$ Another target creature you control gains indestructible until end of turn.
+Oracle:{T}, Sacrifice two Beers: Another target creature you control gains indestructible until end of turn.

@@ -50,11 +50,13 @@ def main():
     live = {c['id']:c for c in json.loads(current.read_text())}
     cards = []
     pending = set()
+    token_bindings = {}
     batches = sorted(p for p in (ROOT/'chaosbrawl/batches').glob('*/source.json') if p.parent.name <= args.batch)
     for previous in batches:
         document = json.loads(previous.read_text())
         cards.extend(document['cards'])
         pending.update(document.get('pendingCardIds', []))
+        token_bindings.update(document.get('tokenBindings', {}))
     for card in cards:
         expected = {k:v for k,v in card.items() if k != 'nativeUid'}
         if live.get(card['id']) != expected:
@@ -94,6 +96,8 @@ def main():
                ('Another Brother','chaosbrawl_another_brother'),('Vengeful Gnome Pack','chaosbrawl_vengeful_gnome_pack'),
                ('Stinky Elemental','chaosbrawl_stinky_elemental')]
     scripts += [(n+' Beer','chaosbrawl_'+n.lower()+'_beer') for n in ['Expired','Zwickl','Wheat','Dark','Pils','Bock']]
+    by_id = {c['id']:c for c in cards}
+    scripts += [(by_id[cid]['name'], script) for cid, script in token_bindings.items() if cid in by_id]
     with zipfile.ZipFile(source) as archive:
         sys.path.insert(0, str(website/'scripts/mse'))
         from archive import card_sections, read_archive

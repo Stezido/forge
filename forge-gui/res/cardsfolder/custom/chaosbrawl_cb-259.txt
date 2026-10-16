@@ -1,0 +1,8 @@
+Name:Wrathroot Colossus
+ManaCost:5 G G
+Types:Creature Plant Colossus
+PT:7/7
+K:Trample
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Destroy | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Destroy:DB$ Destroy | ValidTgts$ Artifact,Enchantment
+Oracle:Trample\nWhen this creature enters, destroy target artifact or enchantment.

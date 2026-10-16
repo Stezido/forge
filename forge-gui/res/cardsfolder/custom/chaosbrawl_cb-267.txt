@@ -1,0 +1,8 @@
+Name:Professional Drunk
+ManaCost:2 R
+Types:Creature Dwarf
+PT:3/2
+S:Mode$ ChaosBrawlTolerance | ValidCard$ Creature.YouCtrl | Amount$ 1 | Description$ Creatures you control get +1 Drunken Tolerance.
+T:Mode$ CounterRemovedOnce | TriggerZones$ Battlefield | Execute$ Beer | TriggerDescription$ Whenever one or more Drunken counters are removed from a creature you control, create a Beer token. | ValidCard$ Creature.YouCtrl | CounterType$ DRUNKEN
+SVar:Beer:DB$ Token | TokenScript$ chaosbrawl_beer
+Oracle:Creatures you control get +1 Drunken Tolerance.\nWhenever one or more Drunken counters are removed from a creature you control, create a Beer token.

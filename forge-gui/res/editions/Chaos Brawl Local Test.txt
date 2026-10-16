@@ -249,3 +249,34 @@ Type=Custom_Set
 248 L Underground District
 249 L Underground District
 250 L Duskmire
+251 L Reefgarden
+252 L Distillery of Silent Death
+253 U Brewbelly Jumbo
+254 U Wild Fermentation
+255 C Desperate Foraging
+256 C Trained Drinker
+257 C Tavern Scrapgulper
+258 C Tavern Hearthkeeper
+259 C Wrathroot Colossus
+260 C Siren Raiders
+261 C The Executioner
+262 C Escalating Adventurer
+263 C Fighting Pit Champion
+264 C Deepwood Abomination
+265 C Tavern Ban
+266 U Pushy Pourer
+267 U Professional Drunk
+268 U Brawl Enthusiast
+270 C Brawl Encourager
+271 C Server Veteran
+272 C Questionable First Responder
+273 R Keeper’s Lucky Mascot
+274 R Wandering Culinarian
+278 U Frühshoppen
+280 M A Week of Excess
+281 U Kiss of Poseidon
+284 C Peter, the Manipulative
+285 C Sasa, the Big Brother
+286 C Stefan, the Eternal Annoyer
+287 C Alex, the Cozy
+298 C Peter, the Stoned Hunter

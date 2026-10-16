@@ -1,0 +1,7 @@
+Name:Brawl Encourager
+ManaCost:4 R
+Types:Creature Human
+PT:5/4
+T:Mode$ Attacks | TriggerZones$ Battlefield | Execute$ Pump | TriggerDescription$ Whenever CARDNAME attacks, target drunken creature you control gets +2/+0 and trample. | ValidCard$ Card.Self
+SVar:Pump:DB$ Pump | ValidTgts$ Creature.YouCtrl+counters_GE1_DRUNKEN | NumAtt$ 2 | KW$ Trample
+Oracle:Whenever Brawl Encourager attacks, target Drunken creature you control gets +2/+0 and gains trample until end of turn.

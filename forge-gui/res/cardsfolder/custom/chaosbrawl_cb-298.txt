@@ -1,0 +1,12 @@
+Name:Peter, the Stoned Hunter
+ManaCost:1 G W
+Types:Legendary Planeswalker Peter
+Loyalty:3
+A:AB$ ChangeZone | Cost$ AddCounter<1/LOYALTY> | Planeswalker$ True | Origin$ Library | Destination$ Hand | ChangeType$ Land.Basic | ChangeNum$ 1 | Reveal$ True | SpellDescription$ Search for a basic land, reveal it and put it into your hand, then shuffle.
+A:AB$ Branch | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | BranchConditionSVar$ X | TrueSubAbility$ Grow | FalseSubAbility$ Dog | SpellDescription$ Put three +1/+1 counters on your Ari, the Ripper, or create Ari if you have none.
+SVar:X:Count$Valid Creature.namedAri; the Ripper+YouCtrl
+SVar:Grow:DB$ PutCounter | Defined$ Valid Creature.namedAri; the Ripper+YouCtrl | CounterType$ P1P1 | CounterNum$ 3
+SVar:Dog:DB$ Token | TokenScript$ chaosbrawl_ari_the_ripper
+A:AB$ PumpAll | Cost$ SubCounter<6/LOYALTY> | Planeswalker$ True | Ultimate$ True | ValidCards$ Creature.YouCtrl | NumAtt$ Lands | NumDef$ Lands | KW$ Trample & Vigilance | SpellDescription$ Your creatures get +1/+1 for each land you control, trample and vigilance this turn.
+SVar:Lands:Count$Valid Land.YouCtrl
+Oracle:+1 — Search your library for a basic land card, reveal it, put it into your hand, then shuffle.\n-2 — If you control a creature named Ari, the Ripper, put three +1/+1 counters on it. Otherwise, create Ari, the Ripper, a legendary 3/3 green and white Dog creature token with vigilance.\n-6 — Creatures you control get +1/+1 for each land you control and gain trample and vigilance until end of turn.
