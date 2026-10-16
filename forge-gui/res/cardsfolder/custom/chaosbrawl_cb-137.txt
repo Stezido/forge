@@ -2,7 +2,8 @@ Name:Untamable Grove Colossus
 ManaCost:2 G G
 Types:Creature Plant Giant
 PT:8/8
-K:etbTapped:
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
 K:etbCounter:STUN:3
 K:Reach
 Oracle:This creature enters tapped with three stun counters on it.\nReach

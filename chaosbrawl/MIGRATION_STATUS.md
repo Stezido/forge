@@ -6,7 +6,7 @@ Canonical source: the registered development MSE in `Stezido/Chaosbrawl-Website`
 | --- | --- | --- |
 | 01 | cb-001–cb-050 | 50 definitions verified; native images/decks prepared; AI smoke passed |
 | 02 | cb-051–cb-100 | 50 definitions verified; 157 cumulative checks; build/images/decks/AI smoke passed |
-| 03 | cb-101–cb-150 | 50 definitions drafted; engine and tests in progress |
+| 03 | cb-101–cb-150 | 50 definitions verified; 217 cumulative checks; build/images/decks/AI smoke passed |
 | 04 | cb-151–cb-200 | Pending |
 | 05 | cb-201–cb-250 | Pending |
 | 06 | cb-251–cb-300 | Pending |
@@ -40,3 +40,5 @@ Batch 02 completed: all 157 checks passed, desktop build passed, 100 native full
 Batch 03 started from verified batch-02 commit 3c9f9af1. All 50 definition drafts and three supporting Gnome/Elemental tokens are saved. Generated-only AJDE! has a zero deck limit and is excluded from prepared starting decks. Native support is being extended for restricted counter removal, the original declared attacking pair, colored upkeep reduction, Siren upkeep waiver and upkeep-only mana. The 150-card metadata/baseline suite is running; no completed validation/build/smoke claim yet. Questions continue to be collected for later.
 
 Batch 03 checkpoint: all 207 source/baseline checks passed. Expanded behavior run now has 216 checks; latest completed run had 215 passing and one Colossus test depending on the AI voluntarily paying a negative-counter cost. The test now explicitly selects payment through the native cost transaction. Generated real blue/black AJDE! cards, selective counter removal, Natalie/Dealer/Süüü interactions, upkeep-only mana payment, original attack-pair tracking and persistent Stethoscope permission/color conversion passed. Build/images/decks/smoke remain pending. Native counter-cost syntax and multiset filtering were corrected from observed failures.
+
+Batch 03 completed: all 217 checks passed (150 source comparisons now include types and colors; 67 behavior checks), desktop build passed, 150 native full faces and six batch decks prepared. AJDE! is excluded from all starting decks and created as three real blue/black cards during play. Seeded AI game completed on turn 13 in 2384 ms with Ai(1) winning, no custom exception/undefined-SVar error. Added entry regression coverage fixed Straggler’s previously untested ETB-tapped shorthand as well as Untamable Grove Colossus. Source MSE is unchanged; pending wording/interpretation questions remain collected. Next: 151–200 on a separate stacked branch.

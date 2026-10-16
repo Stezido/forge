@@ -2,5 +2,6 @@ Name:Straggler
 ManaCost:R
 Types:Creature Human
 PT:2/2
-K:etbTapped:
+R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ CARDNAME enters tapped.
+SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True
 Oracle:Straggler enters the battlefield tapped.
