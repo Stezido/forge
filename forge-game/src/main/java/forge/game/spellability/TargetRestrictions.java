@@ -323,7 +323,8 @@ public class TargetRestrictions {
      * @return a int.
      */
     public final int getMinTargets(final Card c, final SpellAbility sa) {
-        return AbilityUtils.calculateAmount(c, this.minTargets, sa);
+        return "OneEachIfAble".equals(this.minTargets) ? countTargetableControllers(sa)
+                : AbilityUtils.calculateAmount(c, this.minTargets, sa);
     }
 
     /**
@@ -338,7 +339,8 @@ public class TargetRestrictions {
      * @return a int.
      */
     public final int getMaxTargets(final Card c, final SpellAbility sa) {
-        return AbilityUtils.calculateAmount(c, this.maxTargets, sa);
+        return "OneEachIfAble".equals(this.maxTargets) ? countTargetableControllers(sa)
+                : AbilityUtils.calculateAmount(c, this.maxTargets, sa);
     }
 
     /**
@@ -590,6 +592,19 @@ public class TargetRestrictions {
         }
 
         return candidates;
+    }
+
+    private int countTargetableControllers(final SpellAbility sa) {
+        java.util.Set<Player> controllers = new java.util.HashSet<>();
+        for (Card selected : sa.getTargets().getTargetCards()) {
+            controllers.add(selected.getController());
+        }
+        for (GameEntity candidate : getAllCandidates(sa)) {
+            if (candidate instanceof Card) {
+                controllers.add(((Card) candidate).getController());
+            }
+        }
+        return controllers.size();
     }
 
     public final boolean isUniqueTargets() {

@@ -1,0 +1,7 @@
+Name:Baked Ham Noodle Casserole
+ManaCost:2 GW
+Types:Artifact Food
+K:etbCounter:CHARGE:4
+A:AB$ PumpAll | ValidCards$ Creature.YouCtrl | NumAtt$ 1 | NumDef$ 1 | Cost$ T SubCounter<1/CHARGE> | SorcerySpeed$ True | SpellDescription$ Creatures you control get +1/+1 until end of turn. Activate only as a sorcery.
+A:AB$ GainLife | Cost$ 2 T Sac<1/CARDNAME> | LifeAmount$ 4 | SpellDescription$ You gain 4 life.
+Oracle:Baked Ham Noodle Casserole enters the battlefield with four charge counters on it.\n{T}, Remove a charge counter from Baked Ham Noodle Casserole: Creatures you control get +1/+1 until end of turn. Activate only as a sorcery.\n{2}, {T}, Sacrifice Baked Ham Noodle Casserole: You gain 4 life.

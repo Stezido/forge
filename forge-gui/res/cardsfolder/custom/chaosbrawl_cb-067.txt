@@ -1,0 +1,6 @@
+Name:Spar’s Bazaar
+ManaCost:3
+Types:Enchantment Location
+A:AB$ Mana | Cost$ T | Produced$ Any | SpellDescription$ Add one mana of any color.
+S:Mode$ ReduceCost | ValidCard$ Beer.token,Food.token | Type$ Ability | Amount$ 1 | MinMana$ 0 | AffectedZone$ Battlefield | Description$ Activated abilities of Beer and Food tokens cost {1} less to activate.
+Oracle:{T}: Add one mana of any color.\nActivated abilities of Beer and Food tokens cost {1} less to activate.

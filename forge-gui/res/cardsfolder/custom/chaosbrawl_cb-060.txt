@@ -1,0 +1,5 @@
+Name:Last Duel
+ManaCost:1 B
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Creature | TargetMin$ OneEachIfAble | TargetMax$ OneEachIfAble | TargetsForEachPlayer$ True | WithCountersType$ FINALITY | SpellDescription$ For each player, choose a target creature card in their graveyard if able. Return those cards under their owners' control with a finality counter on each.
+Oracle:For each player, choose a target creature card in that player's graveyard if able. Return those cards to the battlefield under their owners' control with a finality counter on each of them. (If a creature with a finality counter on it would die, exile it instead.)

@@ -342,7 +342,47 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Mattn, the Tasty Prince", 5, "4", "5", "At the beginning of each upkeep, create a Food token.\nWhenever you sacrifice a Food token, put a +1/+1 counter on Mattn, the Tasty Prince."},
             {"Anschnly, the Vengeful Siren", 5, "4", "3", "Flying\nWhenever you cast a spell with mana value 2 or less, draw a card.\nWhenever you cast a spell with mana value 3 or greater, Anschnly, the Vengeful Siren deals 2 damage to target creature."},
             {"Noxious Cloud", 4, "", "", "All creatures get -4/-4 until end of turn."},
-            {"Mistcliff Springs", 0, "", "", "({T}: Add {U} or {R} to your mana pool.)\nAs Mistcliff Springs enters the battlefield, you may pay 2 life. If you don\u2019t, Mistcliff Springs enters the battlefield tapped."}
+            {"Mistcliff Springs", 0, "", "", "({T}: Add {U} or {R} to your mana pool.)\nAs Mistcliff Springs enters the battlefield, you may pay 2 life. If you don\u2019t, Mistcliff Springs enters the battlefield tapped."},
+            {"Mistcliff Waterfall", 0, "", "", "({T}: Add {U} or {R} to your mana pool.)\nAs Mistcliff Waterfall enters the battlefield, you may pay 2 life. If you don\u2019t, Mistcliff Waterfall enters the battlefield tapped."},
+            {"Caring Siren", 2, "2", "1", "Flash\nFlying\nWhen Caring Siren enters, target creature you control gains hexproof until end of turn."},
+            {"Jealous Siren", 3, "2", "3", "Whenever an opponent targets another creature you control with a spell or ability, Jealous Siren deals 2 damage to that player."},
+            {"Endless Expectations", 2, "", "", "At the beginning of your end step, if you control X or more untapped lands, where X is the number of Fulfillment counters on Endless Expectations, put a Fulfillment counter on it and draw a card. If you do not control X or more untapped lands, sacrifice Endless Expectations."},
+            {"Chaotic Council", 5, "", "", "For each color of mana spent to cast this spell, create a 2/2 Spirit creature token of that color."},
+            {"Flatfooted", 3, "", "", "Enchant creature\nWhenever enchanted creature becomes tapped, put a stun counter on it.\nWhen Flatfooted enters the battlefield, tap enchanted creature."},
+            {"Mysterious Remedy", 4, "", "", "Return target creature card from any graveyard to the battlefield under your control. Put a finality counter on it.(If it would die, exile it instead.)"},
+            {"Hangry", 2, "", "", "Target creature gets +3/+0 and gains haste until end of turn.\nIf you control a Food, it also gains first strike until end of turn."},
+            {"Sweet Harmless Siren", 2, "0", "4", "When Sweet Harmless Siren enters the battlefield, obsess up to one target creature."},
+            {"Baiting Siren", 4, "3", "4", "{2U}: Obsess target creature. Whenever a obsessed creature attacks, draw a card."},
+            {"The Hangry Games", 3, "", "", "Until end of turn, each creature becomes a 1/1 red and blue Siren creature with haste and loses all abilities, other creature types and colors.\nCreate three 1/1 red and blue \u201cHangry Siren\u201d creature tokens with haste."},
+            {"Spar\u2019s Bazaar", 3, "", "", "{T}: Add one mana of any color.\nActivated abilities of Beer and Food tokens cost {1} less to activate."},
+            {"Hungry Disgust", 2, "2", "3", "When Hungry Disgust enters the battlefield, create a Food token.\nUpkeep\u2014 Sacrifice a Food. (At the beginning of your upkeep, you must Sacrifice a Food. If you don\u2019t, sacrifice this permanent.)\nWhenever you sacrifice a Food, put a +1/+1 counter on Hungry Disgust."},
+            {"Straggler", 1, "2", "2", "Straggler enters the battlefield tapped."},
+            {"Happy Hour", 3, "", "", "Each player creates two Beer tokens.\nThen each creature gains an obsession counter."},
+            {"Echo of Empathy", 2, "", "", "Move all counters from target creature onto another target creature."},
+            {"Controlling Relationship", 4, "", "", "Enchant creature.\nWhen this Aura enters, tap enchanted permanent.\nYou control enchanted permanent.\nEnchanted permanent doesn\u2019t untap during its controller\u2019s untap step."},
+            {"Weedfield Herbalist", 2, "1", "3", "{T}: Add {G}."},
+            {"Weedfield Grazer", 4, "3", "4", "{T}, Sacrifice a Forest: Create a Food token."},
+            {"Tavern Time Out", 2, "", "", "When Tavern Time-Out enters the battlefield, exile target drunken creature an opponent controls until Tavern Time-Out leaves the battlefield."},
+            {"Tavern Hand", 2, "2", "2", "When Tavern Hand enters the battlefield, create a Beer token."},
+            {"Coffee Shop", 2, "", "", "Tokens you control have \u201c{T}: Add {G}.\u201d"},
+            {"Vandalism", 3, "", "", "Destroy target artifact or enchantment.\nIf a permanent is destroyed this way, its controller loses 2 life."},
+            {"Ogrontwin Steve", 4, "3", "4", "Trample\nAs long as you control a creature named \u201cOgrontwin Pete\u201d, Ogrontwin Steve gets +3/+3."},
+            {"Ogrontwin Pete", 4, "4", "3", "Menace\nAs long as you control a creature named \u201cOgrontwin Steve\u201d, Ogrontwin Pete gets +3/+3."},
+            {"Blood Moon Rising", 3, "", "", "Enchant creature\nAt the beginning of enchanted creature\u2019s controller\u2019s upkeep, they lose 2 life.\nWhenever another permanent enters the battlefield, put a obsession counter on enchanted creature.\nAs long as enchanted creature has five or more obsession counters on it, it gets +10/+0, has menace and first strike."},
+            {"Zimty", 3, "2", "3", "When Zimty dies, target opponent discards a card.\n{2}, {T}, Sacrifice Zimty: You gain 3 life."},
+            {"Mystic Herb Vegetative", 3, "2", "2", "When Mystic Herb Vegetative enters the battlefield, mill three cards. You may put a land card from among the cards milled this way into your hand. If you don\u2019t, put a +1/+1 counter on Mystic Herb Vegetative."},
+            {"Raging Alcoholic", 3, "3", "2", "Haste\nDrunken Tolerance 5\nUpkeep\u2014 Sacrifice a Beer token.\nWhenever Raging Alcoholic attacks, create a Beer token."},
+            {"Rotten Cellar", 1, "", "", "Whenever a Food is sacrificed, each opponent loses 1 life."},
+            {"Rowdy Tavern", 2, "", "", "Drunken creatures you control get +1/+0 and have haste."},
+            {"Laughing fit", 2, "", "", "As an additional cost to cast this spell, discard a card.\nDraw two cards."},
+            {"Puzzlemaster's Grimoire", 4, "", "", "When Puzzlemaster\u2019s Grimoire enters the battlefield, create a Treasure Token.\n{T}: Add one mana of any color."},
+            {"Brotherhoods Impact", 2, "", "", "Choose one \u2014\n\u2022 Up to two target creatures each get +1/+2 until end of turn.\n\u2022 Target creature an opponent controls loses all abilities until end of turn."},
+            {"Spar\u2019s Bazaar", 3, "", "", "{T}: Add one mana of any color.\nActivated abilities of Beer and Food tokens cost {1} less to activate."},
+            {"Blue Cow", 2, "", "", "Blue Cow enters the battlefield with three charge counters on it.\n{T}, Remove a charge counter from Blue Cow: Target creature gains flying until end of turn.\nWhen the last charge counter is removed from Blue Cow, sacrifice it."},
+            {"Library of Shared Memories", 1, "", "", "{T}: Move a counter from one creature you control to another creature you control. Activate only as a sorcery."},
+            {"Sarma", 4, "", "", "Sarma enters the battlefield with four charge counters on it.\n{T}, Remove a charge counter from Sarma: Target creature gets +2/+2 until end of turn. Activate only as a sorcery.\n{2}, {T}, Sacrifice Sarma: You gain 4 life."},
+            {"Soul Eater Siren", 2, "*", "*", "Soul Eater Siren\u2019s power and toughness are each equal to the number of counters on creatures on the battlefield."},
+            {"Baked Ham Noodle Casserole", 3, "", "", "Baked Ham Noodle Casserole enters the battlefield with four charge counters on it.\n{T}, Remove a charge counter from Baked Ham Noodle Casserole: Creatures you control get +1/+1 until end of turn. Activate only as a sorcery.\n{2}, {T}, Sacrifice Baked Ham Noodle Casserole: You gain 4 life."}
         };
     }
 
@@ -360,7 +400,7 @@ public class ChaosBrawlTest extends SimulationTest {
             oracle = oracle.replace("enters, the battlefield,", "enters,");
         }
         assertEquals(displayed, oracle, name);
-        if (!power.isEmpty()) {
+        if (!power.isEmpty() && !power.equals("*")) {
             assertEquals(card.getBasePower(), Integer.parseInt(power), name);
             assertEquals(card.getBaseToughness(), Integer.parseInt(toughness), name);
         }

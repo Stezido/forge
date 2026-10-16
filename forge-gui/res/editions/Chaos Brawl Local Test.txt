@@ -1,7 +1,7 @@
 [metadata]
 Code=CBT
 Date=2026-10-16
-Name=Chaos Brawl Beta Batch 01
+Name=Chaos Brawl Beta Local Test
 Type=Custom_Set
 
 [cards]
@@ -55,3 +55,48 @@ Type=Custom_Set
 048 M Anschnly, the Vengeful Siren
 049 R Noxious Cloud
 050 C Mistcliff Springs
+051 C Mistcliff Waterfall
+052 U Caring Siren
+053 U Jealous Siren
+054 U Endless Expectations
+055 U Chaotic Council
+057 C Flatfooted
+059 R Mysterious Remedy
+063 C Hangry
+064 C Sweet Harmless Siren
+065 R Baiting Siren
+066 R The Hangry Games
+067 U Spar’s Bazaar
+069 U Hungry Disgust
+071 C Straggler
+072 C Happy Hour
+073 C Echo of Empathy
+074 U Controlling Relationship
+076 C Weedfield Herbalist
+077 C Weedfield Grazer
+078 U Tavern Time Out
+079 C Tavern Hand
+080 U Coffee Shop
+082 C Vandalism
+083 U Ogrontwin Steve
+084 U Ogrontwin Pete
+086 R Blood Moon Rising
+087 C Zimty
+088 C Mystic Herb Vegetative
+089 U Raging Alcoholic
+090 U Rotten Cellar
+091 U Rowdy Tavern
+092 C Laughing fit
+093 C Puzzlemaster's Grimoire
+094 C Brotherhoods Impact
+095 U Spar’s Bazaar
+096 U Blue Cow
+097 C Library of Shared Memories
+098 U Sarma
+099 U Soul Eater Siren
+100 U Baked Ham Noodle Casserole
+060 C Last Duel
+061 U Overdose Revival
+062 R Numbing Mass Resurrection
+068 C Owizahrer
+070 U Academic Quarter

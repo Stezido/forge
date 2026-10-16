@@ -1,0 +1,6 @@
+Name:Tavern Time Out
+ManaCost:1 W
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Exile | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Exile:DB$ ChangeZone | Origin$ Battlefield | Destination$ Exile | ValidTgts$ Creature.OppCtrl+counters_GE1_DRUNKEN | Duration$ UntilHostLeavesPlay
+Oracle:When Tavern Time-Out enters the battlefield, exile target drunken creature an opponent controls until Tavern Time-Out leaves the battlefield.

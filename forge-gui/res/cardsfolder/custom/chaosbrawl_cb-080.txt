@@ -1,0 +1,6 @@
+Name:Coffee Shop
+ManaCost:G W
+Types:Enchantment Location
+S:Mode$ Continuous | Affected$ Permanent.token+YouCtrl | AddAbility$ GreenMana | Description$ Tokens you control have "{T}: Add {G}."
+SVar:GreenMana:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
+Oracle:Tokens you control have “{T}: Add {G}.”

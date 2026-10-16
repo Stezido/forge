@@ -1,0 +1,6 @@
+Name:Happy Hour
+ManaCost:2 R
+Types:Sorcery
+A:SP$ Token | TokenScript$ chaosbrawl_beer | TokenAmount$ 2 | TokenOwner$ Player | SubAbility$ Obsession | SpellDescription$ Each player creates two Beer tokens. Put an obsession counter on each creature.
+SVar:Obsession:DB$ PutCounterAll | ValidCards$ Creature | CounterType$ OBSESSION | CounterNum$ 1
+Oracle:Each player creates two Beer tokens.\nThen each creature gains an obsession counter.

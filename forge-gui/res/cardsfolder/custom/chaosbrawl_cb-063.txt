@@ -1,0 +1,6 @@
+Name:Hangry
+ManaCost:1 R
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature | NumAtt$ 3 | KW$ Haste | SubAbility$ FirstStrike | SpellDescription$ Target creature gets +3/+0 and haste. If you control a Food, it gains first strike.
+SVar:FirstStrike:DB$ Pump | Defined$ Targeted | KW$ First strike | ConditionPresent$ Food.YouCtrl
+Oracle:Target creature gets +3/+0 and gains haste until end of turn.\nIf you control a Food, it also gains first strike until end of turn.

@@ -1,0 +1,9 @@
+Name:Caring Siren
+ManaCost:1 U
+Types:Creature Siren
+PT:2/1
+K:Flash
+K:Flying
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Hexproof | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Hexproof:DB$ Pump | ValidTgts$ Creature.YouCtrl | KW$ Hexproof
+Oracle:Flash\nFlying\nWhen Caring Siren enters, target creature you control gains hexproof until end of turn.

@@ -1,0 +1,5 @@
+Name:Mysterious Remedy
+ManaCost:2 W W
+Types:Sorcery
+A:SP$ ChangeZone | Origin$ Graveyard | Destination$ Battlefield | ValidTgts$ Creature | GainControl$ True | WithCountersType$ FINALITY | SpellDescription$ Return target creature card from a graveyard under your control with a finality counter.
+Oracle:Return target creature card from any graveyard to the battlefield under your control. Put a finality counter on it.(If it would die, exile it instead.)

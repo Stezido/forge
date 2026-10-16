@@ -1,0 +1,7 @@
+Name:Soul Eater Siren
+ManaCost:W U
+Types:Creature Siren
+PT:*/*
+S:Mode$ Continuous | CharacteristicDefining$ True | SetPower$ X | SetToughness$ X | Description$ CARDNAME's power and toughness are each equal to the number of counters on creatures.
+SVar:X:Count$Valid Creature$CardCounters.ALL
+Oracle:Soul Eater Siren’s power and toughness are each equal to the number of counters on creatures on the battlefield.

@@ -1,0 +1,7 @@
+Name:Numbing Mass Resurrection
+ManaCost:4 W B
+Types:Enchantment
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Revive | TriggerDescription$ When CARDNAME enters, each player returns all creature cards from their graveyard with a finality counter.
+SVar:Revive:DB$ ChangeZoneAll | Origin$ Graveyard | Destination$ Battlefield | ChangeType$ Creature | WithCountersType$ FINALITY
+S:Mode$ Continuous | Affected$ Creature.counters_GE1_FINALITY | RemoveAllAbilities$ True | Description$ Creatures with finality counters lose all abilities.
+Oracle:When Numbing Mass Resurrection enters the battlefield, each player returns all creature cards from their graveyard to the battlefield with a finality counter on each of them. (If a creature with a finality counter on it would die, exile it instead.)\nCreatures with finality counters on them lose all abilities.

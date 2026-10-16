@@ -1,0 +1,8 @@
+Name:Baiting Siren
+ManaCost:2 U U
+Types:Legendary Creature Siren
+PT:3/4
+A:AB$ PutCounter | Cost$ 2 U | ValidTgts$ Creature | CounterType$ OBSESSION | CounterNum$ 1 | SpellDescription$ Obsess target creature.
+T:Mode$ Attacks | TriggerZones$ Battlefield | Execute$ Draw | TriggerDescription$ Whenever an obsessed creature attacks, draw a card. | ValidCard$ Creature.counters_GE1_OBSESSION
+SVar:Draw:DB$ Draw | NumCards$ 1
+Oracle:{2U}: Obsess target creature. Whenever a obsessed creature attacks, draw a card.

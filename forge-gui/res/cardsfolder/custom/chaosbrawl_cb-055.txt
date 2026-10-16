@@ -1,0 +1,9 @@
+Name:Chaotic Council
+ManaCost:3 G W
+Types:Sorcery
+A:SP$ Token | TokenScript$ chaosbrawl_w_spirit | ConditionManaSpent$ W | SubAbility$ U | SpellDescription$ For each color spent to cast this spell, create a 2/2 Spirit of that color.
+SVar:U:DB$ Token | TokenScript$ chaosbrawl_u_spirit | ConditionManaSpent$ U | SubAbility$ B
+SVar:B:DB$ Token | TokenScript$ chaosbrawl_b_spirit | ConditionManaSpent$ B | SubAbility$ R
+SVar:R:DB$ Token | TokenScript$ chaosbrawl_r_spirit | ConditionManaSpent$ R | SubAbility$ G
+SVar:G:DB$ Token | TokenScript$ chaosbrawl_g_spirit | ConditionManaSpent$ G
+Oracle:For each color of mana spent to cast this spell, create a 2/2 Spirit creature token of that color.

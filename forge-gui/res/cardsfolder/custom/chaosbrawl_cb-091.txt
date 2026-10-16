@@ -1,0 +1,5 @@
+Name:Rowdy Tavern
+ManaCost:1 R
+Types:Enchantment Location
+S:Mode$ Continuous | Affected$ Creature.YouCtrl+counters_GE1_DRUNKEN | AddPower$ 1 | AddKeyword$ Haste | Description$ Drunken creatures you control get +1/+0 and have haste.
+Oracle:Drunken creatures you control get +1/+0 and have haste.

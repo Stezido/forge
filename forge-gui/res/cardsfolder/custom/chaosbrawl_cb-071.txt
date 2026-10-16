@@ -1,0 +1,6 @@
+Name:Straggler
+ManaCost:R
+Types:Creature Human
+PT:2/2
+K:etbTapped:
+Oracle:Straggler enters the battlefield tapped.

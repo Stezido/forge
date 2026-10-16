@@ -69,4 +69,29 @@ public final class ChaosBrawlRules {
         }
         counters.replaceCounterEffect(game, null);
     }
+    public static Card grantedPlotAllowance(final Player player) {
+        if (!player.getGame().getRules().isChaosBrawl()) {
+            return null;
+        }
+        for (Card effect : player.getCardsIn(forge.game.zone.ZoneType.Command)) {
+            if (effect.hasSVar("ChaosBrawlPlotUsed")) {
+                continue;
+            }
+            for (forge.game.staticability.StaticAbility ability : effect.getStaticAbilities()) {
+                if (ability.hasParam("ChaosBrawlPlotAllowance")) {
+                    return effect;
+                }
+            }
+        }
+        return null;
+    }
+
+    public static void consumeGrantedPlotAllowance(final Player player) {
+        Card allowance = grantedPlotAllowance(player);
+        if (allowance == null) {
+            throw new IllegalStateException("No unused Plot allowance");
+        }
+        allowance.setSVar("ChaosBrawlPlotUsed", "1");
+    }
+
 }

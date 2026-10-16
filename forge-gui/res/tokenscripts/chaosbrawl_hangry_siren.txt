@@ -1,0 +1,7 @@
+Name:Hangry Siren
+ManaCost:no cost
+Colors:red,blue
+Types:Creature Siren
+PT:1/1
+K:Haste
+Oracle:Haste

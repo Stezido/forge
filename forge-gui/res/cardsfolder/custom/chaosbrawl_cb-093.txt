@@ -1,0 +1,7 @@
+Name:Puzzlemaster's Grimoire
+ManaCost:4
+Types:Artifact
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Treasure | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Treasure:DB$ Token | TokenScript$ c_a_treasure_sac
+A:AB$ Mana | Cost$ T | Produced$ Any | SpellDescription$ Add one mana of any color.
+Oracle:When Puzzlemaster’s Grimoire enters the battlefield, create a Treasure Token.\n{T}: Add one mana of any color.

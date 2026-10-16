@@ -1,0 +1,8 @@
+Name:Zimty
+ManaCost:2 B
+Types:Creature Food Mutant
+PT:2/3
+T:Mode$ ChangesZone | TriggerZones$ Battlefield | Execute$ Discard | TriggerDescription$ When CARDNAME dies, target opponent discards a card. | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Card.Self
+SVar:Discard:DB$ Discard | ValidTgts$ Opponent | Mode$ TgtChoose | NumCards$ 1
+A:AB$ GainLife | Cost$ 2 T Sac<1/CARDNAME> | LifeAmount$ 3 | SpellDescription$ You gain 3 life.
+Oracle:When Zimty dies, target opponent discards a card.\n{2}, {T}, Sacrifice Zimty: You gain 3 life.

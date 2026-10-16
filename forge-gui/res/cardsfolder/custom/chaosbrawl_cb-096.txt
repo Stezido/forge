@@ -1,0 +1,8 @@
+Name:Blue Cow
+ManaCost:2
+Types:Artifact
+K:etbCounter:CHARGE:3
+A:AB$ Pump | Cost$ T SubCounter<1/CHARGE> | ValidTgts$ Creature | KW$ Flying | SpellDescription$ Target creature gains flying until end of turn.
+T:Mode$ CounterRemoved | TriggerZones$ Battlefield | Execute$ Sacrifice | TriggerDescription$ When the last charge counter is removed from CARDNAME, sacrifice it. | ValidCard$ Card.Self | CounterType$ CHARGE | NewCounterAmount$ 0
+SVar:Sacrifice:DB$ Sacrifice | Defined$ Self
+Oracle:Blue Cow enters the battlefield with three charge counters on it.\n{T}, Remove a charge counter from Blue Cow: Target creature gains flying until end of turn.\nWhen the last charge counter is removed from Blue Cow, sacrifice it.

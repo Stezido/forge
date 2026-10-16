@@ -1,0 +1,6 @@
+Name:The Hangry Games
+ManaCost:1 U R
+Types:Instant
+A:SP$ AnimateAll | ValidCards$ Creature | Power$ 1 | Toughness$ 1 | Types$ Creature,Siren | Colors$ Red,Blue | OverwriteColors$ True | RemoveCreatureTypes$ True | RemoveAllAbilities$ True | Keywords$ Haste | SubAbility$ Tokens | SpellDescription$ Until end of turn, each creature becomes a 1/1 red and blue Siren with haste and loses all other abilities. Create three Hangry Sirens.
+SVar:Tokens:DB$ Token | TokenScript$ chaosbrawl_hangry_siren | TokenAmount$ 3
+Oracle:Until end of turn, each creature becomes a 1/1 red and blue Siren creature with haste and loses all abilities, other creature types and colors.\nCreate three 1/1 red and blue “Hangry Siren” creature tokens with haste.

@@ -1,0 +1,1975 @@
+{
+  "schemaVersion": 1,
+  "websiteRepository": "Stezido/Chaosbrawl-Website",
+  "websiteCommit": "b064dcc52233c9e8894bd8e29a658470b10de1b3",
+  "variant": "the-foul-realms-beta",
+  "sourcePath": "sets/the-foul-realms/beta/Chaos Brawl - The Foul Realms - Beta.mse-set",
+  "sourceSha256": "b5c544235ed6f533ad04429e2f30c6109dc7829461c18646b0214900dda962c3",
+  "upstreamCommit": "34a8662b7966a6ee757411feae2ae8ff38cce436",
+  "range": [
+    "cb-051",
+    "cb-100"
+  ],
+  "cards": [
+    {
+      "id": "cb-051",
+      "name": "Mistcliff Waterfall",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Land — Island Mountain",
+      "cardTypes": [
+        "Land"
+      ],
+      "rarity": "Basic Land",
+      "rulesText": "({T}: Add {U} or {R} to your mana pool.)\nAs Mistcliff Waterfall enters the battlefield, you may pay 2 life. If you don’t, Mistcliff Waterfall enters the battlefield tapped.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/cd45084ace22c24e50fe8eb2.webp",
+      "token": false,
+      "nativeUid": "12046125791639025128253207262841"
+    },
+    {
+      "id": "cb-052",
+      "name": "Caring Siren",
+      "manaCost": "1U",
+      "manaValue": 2,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Creature — Siren",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Flash\nFlying\nWhen Caring Siren enters, target creature you control gains hexproof until end of turn.",
+      "flavorText": "“She’ll protect you from harm—but only if you remembered her birthday.”",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Siren"
+      ],
+      "image": "/card-art/a81c75f0abc31e2de8545d13.webp",
+      "token": false,
+      "nativeUid": "56505876363925822009661335626788"
+    },
+    {
+      "id": "cb-053",
+      "name": "Jealous Siren",
+      "manaCost": "2U",
+      "manaValue": 3,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Creature — Siren",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Whenever an opponent targets another creature you control with a spell or ability, Jealous Siren deals 2 damage to that player.",
+      "flavorText": "“Look at someone else, and she’ll make sure you never look at anything again.”",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Siren"
+      ],
+      "image": "/card-art/d76fe6824bb95c668ae08afd.webp",
+      "token": false,
+      "nativeUid": "82182444291981285017958791371584"
+    },
+    {
+      "id": "cb-054",
+      "name": "Endless Expectations",
+      "manaCost": "1U",
+      "manaValue": 2,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Enchantment",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "At the beginning of your end step, if you control X or more untapped lands, where X is the number of Fulfillment counters on Endless Expectations, put a Fulfillment counter on it and draw a card. If you do not control X or more untapped lands, sacrifice Endless Expectations.",
+      "flavorText": "“You’ve met her expectations—too bad they changed five minutes ago.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/1e79474dceeb4f2e1f94a2f9.webp",
+      "token": false,
+      "nativeUid": "95595765536760670554837381803544"
+    },
+    {
+      "id": "cb-055",
+      "name": "Chaotic Council",
+      "manaCost": "3GW",
+      "manaValue": 5,
+      "colors": [
+        "W",
+        "G"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "For each color of mana spent to cast this spell, create a 2/2 Spirit creature token of that color.",
+      "flavorText": "“Getting them to the table was nearly impossible. Once united, they’re crushing it.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/03556f851a578108c9f5f0a9.webp",
+      "token": false,
+      "nativeUid": "97375133299389585938392936230749"
+    },
+    {
+      "id": "cb-056",
+      "name": "Youthful Inner Heat",
+      "manaCost": "UR",
+      "manaValue": 2,
+      "colors": [
+        "U",
+        "R"
+      ],
+      "typeLine": "Enchantment — Aura",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Flash\nEnchant creature\nWhen Youthful Inner Heat enters the battlefield, enchanted creature gains hexproof until end of turn.\nEnchanted creature has ward—“Gift a card.”",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/840f6ae17611e0158c49847e.webp",
+      "token": false,
+      "nativeUid": "33278281875643572462362999508455"
+    },
+    {
+      "id": "cb-057",
+      "name": "Flatfooted",
+      "manaCost": "2U",
+      "manaValue": 3,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Enchantment — Aura",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Common",
+      "rulesText": "Enchant creature\nWhenever enchanted creature becomes tapped, put a stun counter on it.\nWhen Flatfooted enters the battlefield, tap enchanted creature.",
+      "flavorText": "“Some say it’s real, others a myth. Either way, it’s the best excuse to skip carrying gear.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Stun",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/256198fe4bed0335761f40da.webp",
+      "token": false,
+      "nativeUid": "88992951934004437880241817021652"
+    },
+    {
+      "id": "cb-058",
+      "name": "Tactical Purge",
+      "manaCost": "WB",
+      "manaValue": 2,
+      "colors": [
+        "W",
+        "B"
+      ],
+      "typeLine": "Enchantment — Aura",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Flash\nEnchant creature\nEnchanted creature loses all abilities.\nEnchanted creature gains indestructible until end of turn.",
+      "flavorText": "“Rally, reset, and refill.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/a663e2e7ed83788b705149e3.webp",
+      "token": false,
+      "nativeUid": "74478275589919537619563241750612"
+    },
+    {
+      "id": "cb-059",
+      "name": "Mysterious Remedy",
+      "manaCost": "2WW",
+      "manaValue": 4,
+      "colors": [
+        "W"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Rare",
+      "rulesText": "Return target creature card from any graveyard to the battlefield under your control. Put a finality counter on it.(If it would die, exile it instead.)",
+      "flavorText": "“He was done. Then someone whispered, ‘Here, try this.’”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/a8a16d1b0f2102af2a42033e.webp",
+      "token": false,
+      "nativeUid": "59128786512515008559948906113074"
+    },
+    {
+      "id": "cb-060",
+      "name": "Last Duel",
+      "manaCost": "1B",
+      "manaValue": 2,
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Common",
+      "rulesText": "For each player, choose a target creature card in that player's graveyard if able. Return those cards to the battlefield under their owners' control with a finality counter on each of them. (If a creature with a finality counter on it would die, exile it instead.)",
+      "flavorText": "“They were both done. But neither would let the other win. One final push, one last challenge.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/256375857222717ce62a1d3d.webp",
+      "token": false,
+      "nativeUid": "27180964122437476910038513537687"
+    },
+    {
+      "id": "cb-061",
+      "name": "Overdose Revival",
+      "manaCost": "1B",
+      "manaValue": 2,
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Return target creature card from your graveyard to the battlefield. Put a finality counter on it. It gains\nUpkeep— Pay 2{B}",
+      "flavorText": "“You’re back up again... but you’ve gotta hold this level.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Upkeep",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/4b895c08de850ecd1ba5568e.webp",
+      "token": false,
+      "nativeUid": "59892052838336334662784256787175"
+    },
+    {
+      "id": "cb-062",
+      "name": "Numbing Mass Resurrection",
+      "manaCost": "4WB",
+      "manaValue": 6,
+      "colors": [
+        "W",
+        "B"
+      ],
+      "typeLine": "Enchantment",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Rare",
+      "rulesText": "When Numbing Mass Resurrection enters the battlefield, each player returns all creature cards from their graveyard to the battlefield with a finality counter on each of them. (If a creature with a finality counter on it would die, exile it instead.)\nCreatures with finality counters on them lose all abilities.",
+      "flavorText": "“They rise, dazed and confused, just trying to make it to the next round.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/1bcadc048d9df213fe3368c6.webp",
+      "token": false,
+      "nativeUid": "63048326224995789930425238109595"
+    },
+    {
+      "id": "cb-063",
+      "name": "Hangry",
+      "manaCost": "1R",
+      "manaValue": 2,
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Instant",
+      "cardTypes": [
+        "Instant"
+      ],
+      "rarity": "Common",
+      "rulesText": "Target creature gets +3/+0 and gains haste until end of turn.\nIf you control a Food, it also gains first strike until end of turn.",
+      "flavorText": "“You think I’m bad now? Imagine if I was tired too.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Food"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/5e481875cee2714f01ba975f.webp",
+      "token": false,
+      "nativeUid": "22350098973633672113300426609780"
+    },
+    {
+      "id": "cb-064",
+      "name": "Sweet Harmless Siren",
+      "manaCost": "1U",
+      "manaValue": 2,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Creature — Siren",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "When Sweet Harmless Siren enters the battlefield, obsess up to one target creature.",
+      "flavorText": "",
+      "power": "0",
+      "toughness": "4",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Siren"
+      ],
+      "image": "/card-art/7577b27714fc3876089129f5.webp",
+      "token": false,
+      "nativeUid": "00841430711624116858625086845903"
+    },
+    {
+      "id": "cb-065",
+      "name": "Baiting Siren",
+      "manaCost": "2UU",
+      "manaValue": 4,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Legendary Creature — Siren",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Rare",
+      "rulesText": "{2U}: Obsess target creature. Whenever a obsessed creature attacks, draw a card.",
+      "flavorText": "“Her melody ensnares the mind, and her call drives them to fight for her.”",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Siren"
+      ],
+      "image": "/card-art/15daa0983236057922a1d1db.webp",
+      "token": false,
+      "nativeUid": "31644556528297344005926039862458"
+    },
+    {
+      "id": "cb-066",
+      "name": "The Hangry Games",
+      "manaCost": "1UR",
+      "manaValue": 3,
+      "colors": [
+        "U",
+        "R"
+      ],
+      "typeLine": "Instant",
+      "cardTypes": [
+        "Instant"
+      ],
+      "rarity": "Rare",
+      "rulesText": "Until end of turn, each creature becomes a 1/1 red and blue Siren creature with haste and loses all abilities, other creature types and colors.\nCreate three 1/1 red and blue “Hangry Siren” creature tokens with haste.",
+      "flavorText": "“Love them, feed them, or fear them.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/e874efdea364997b440f1302.webp",
+      "token": false,
+      "nativeUid": "76138096709775822674292347138707"
+    },
+    {
+      "id": "cb-067",
+      "name": "Spar’s Bazaar",
+      "manaCost": "3",
+      "manaValue": 3,
+      "colors": [],
+      "typeLine": "Enchantment — Location",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "{T}: Add one mana of any color.\nActivated abilities of Beer and Food tokens cost {1} less to activate.",
+      "flavorText": "“Spar has everything.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Beer",
+        "Food",
+        "Location"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/61d1f3844e069dd013a59783.webp",
+      "token": false,
+      "nativeUid": "13599557372219014113416955790613"
+    },
+    {
+      "id": "cb-068",
+      "name": "Owizahrer",
+      "manaCost": "3U",
+      "manaValue": 4,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Creature — Human Wizard",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "upkeep — Tap another untapped creature you control and put a stun counter on it. If you do, draw a card. Otherwise, sacrifice Owizahrer.\nOwizahrer can’t attack.",
+      "flavorText": "“Ugh, even this flavor text is too much effort.”",
+      "power": "1",
+      "toughness": "4",
+      "loyalty": "",
+      "mechanics": [
+        "Upkeep",
+        "Stun",
+        "Counter"
+      ],
+      "factions": [
+        "Human"
+      ],
+      "image": "/card-art/f3b13f6397b442b96953b35e.webp",
+      "token": false,
+      "nativeUid": "33776583884575431723577050595261"
+    },
+    {
+      "id": "cb-069",
+      "name": "Hungry Disgust",
+      "manaCost": "BG",
+      "manaValue": 2,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "typeLine": "Creature — Human",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "When Hungry Disgust enters the battlefield, create a Food token.\nUpkeep— Sacrifice a Food. (At the beginning of your upkeep, you must Sacrifice a Food. If you don’t, sacrifice this permanent.)\nWhenever you sacrifice a Food, put a +1/+1 counter on Hungry Disgust.",
+      "flavorText": "",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": "",
+      "mechanics": [
+        "Food",
+        "Upkeep",
+        "Counter"
+      ],
+      "factions": [
+        "Human"
+      ],
+      "image": "/card-art/e840f782b20f86030d4b9b19.webp",
+      "token": false,
+      "nativeUid": "98609688448614553744478229389113"
+    },
+    {
+      "id": "cb-070",
+      "name": "Academic Quarter",
+      "manaCost": "1U",
+      "manaValue": 2,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Until end of turn, you may plot a creature card from your hand by paying its mana cost. You may do this only once. (Plot only as a sorcery. You may cast that card as a sorcery on a later turn without paying its mana cost.)\nDraw a card.",
+      "flavorText": "“I arrived precisely when I intended to—fifteen minutes after everyone else.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/6350c382773f1f482ef33d20.webp",
+      "token": false,
+      "nativeUid": "40912413679641815667542570006578"
+    },
+    {
+      "id": "cb-071",
+      "name": "Straggler",
+      "manaCost": "R",
+      "manaValue": 1,
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Creature — Human",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "Straggler enters the battlefield tapped.",
+      "flavorText": "My invite said starting at 6 PM.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Human"
+      ],
+      "image": "/card-art/2384dfb77b750b5026dca5ff.webp",
+      "token": false,
+      "nativeUid": "77702000790636074182429149150473"
+    },
+    {
+      "id": "cb-072",
+      "name": "Happy Hour",
+      "manaCost": "2R",
+      "manaValue": 3,
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Common",
+      "rulesText": "Each player creates two Beer tokens.\nThen each creature gains an obsession counter.",
+      "flavorText": "The only hour where bad decisions feel like genius ideas.",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Beer",
+        "Obsession",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/e3d2aa763530606c9c1c46e7.webp",
+      "token": false,
+      "nativeUid": "85269910697485625889036373710602"
+    },
+    {
+      "id": "cb-073",
+      "name": "Echo of Empathy",
+      "manaCost": "1U",
+      "manaValue": 2,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Instant",
+      "cardTypes": [
+        "Instant"
+      ],
+      "rarity": "Common",
+      "rulesText": "Move all counters from target creature onto another target creature.",
+      "flavorText": "“A true friend carry your weight, whether it’s joy or sorrow.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/4201bedbc394f6aa44f94862.webp",
+      "token": false,
+      "nativeUid": "34019456845405477119259335558241"
+    },
+    {
+      "id": "cb-074",
+      "name": "Controlling Relationship",
+      "manaCost": "2UU",
+      "manaValue": 4,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Enchantment — Aura",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Enchant creature.\nWhen this Aura enters, tap enchanted permanent.\nYou control enchanted permanent.\nEnchanted permanent doesn’t untap during its controller’s untap step.",
+      "flavorText": "“Sure, go out… if you really want to… but I’ll be here waiting… all alone…”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/ee82591b4e5469e385a5de7e.webp",
+      "token": false,
+      "nativeUid": "82257588853079126766249080557682"
+    },
+    {
+      "id": "cb-075",
+      "name": "Confusing Signals",
+      "manaCost": "2U",
+      "manaValue": 3,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Common",
+      "rulesText": "Choose a player.\nTap up to two target creatures that player controls. Put a stun counter on each. That player draws a card for each creature tapped this way.",
+      "flavorText": "“Her gestures never said what she meant — and always meant more than she said.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Stun",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/1e8a1e39fef8782b5f3a6136.webp",
+      "token": false,
+      "nativeUid": "72372654629369141082638961157857"
+    },
+    {
+      "id": "cb-076",
+      "name": "Weedfield Herbalist",
+      "manaCost": "1G",
+      "manaValue": 2,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "Creature — Plant Druid",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "{T}: Add {G}.",
+      "flavorText": "“They say his eyes aren’t really red… yet he’s never seen without”",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Plant"
+      ],
+      "image": "/card-art/f3f7c92e65ea81719c24a0bb.webp",
+      "token": false,
+      "nativeUid": "01727539403554869772037112484143"
+    },
+    {
+      "id": "cb-077",
+      "name": "Weedfield Grazer",
+      "manaCost": "3G",
+      "manaValue": 4,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "Creature — Plant Ooze",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "{T}, Sacrifice a Forest: Create a Food token.",
+      "flavorText": "“A failed experiment to maximize yield, now roaming the fields causing the opposite.”",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": "",
+      "mechanics": [
+        "Food"
+      ],
+      "factions": [
+        "Plant"
+      ],
+      "image": "/card-art/bf33c2603eb037af95bbb2bc.webp",
+      "token": false,
+      "nativeUid": "03541134190745493452776832338766"
+    },
+    {
+      "id": "cb-078",
+      "name": "Tavern Time Out",
+      "manaCost": "1W",
+      "manaValue": 2,
+      "colors": [
+        "W"
+      ],
+      "typeLine": "Enchantment",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "When Tavern Time-Out enters the battlefield, exile target drunken creature an opponent controls until Tavern Time-Out leaves the battlefield.",
+      "flavorText": "“Corner. Now. You’ll come back when you’ve learned to behave.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/fd2fe969e6c0089b8ab04a35.webp",
+      "token": false,
+      "nativeUid": "82448938066524991633061157614359"
+    },
+    {
+      "id": "cb-079",
+      "name": "Tavern Hand",
+      "manaCost": "1W",
+      "manaValue": 2,
+      "colors": [
+        "W"
+      ],
+      "typeLine": "Creature — Human",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "When Tavern Hand enters the battlefield, create a Beer token.",
+      "flavorText": "",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [
+        "Beer"
+      ],
+      "factions": [
+        "Human"
+      ],
+      "image": "/card-art/c7c741365936e1f2e5238fd7.webp",
+      "token": false,
+      "nativeUid": "97906026285520214316126237870663"
+    },
+    {
+      "id": "cb-080",
+      "name": "Coffee Shop",
+      "manaCost": "GW",
+      "manaValue": 2,
+      "colors": [
+        "W",
+        "G"
+      ],
+      "typeLine": "Enchantment — Location",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Tokens you control have “{T}: Add {G}.”",
+      "flavorText": "“It feels like you can roll up everything and smoke it.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Location"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/f7aec093e01985c50c14fbbe.webp",
+      "token": false,
+      "nativeUid": "89881438141198430210646391410361"
+    },
+    {
+      "id": "cb-081",
+      "name": "Pumpkin Catapult",
+      "manaCost": "3BR",
+      "manaValue": 5,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "typeLine": "Artifact — Vehicle",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Rare",
+      "rulesText": "When Pumpkin Catapult enters the battlefield, create a 1/1 red Pilot creature token named Pumpkin Gang Driver with “This creature crews Vehicles as though its power were 2 greater.”\nCrew 3\nWhenever you crew Pumpkin Catapult, you may sacrifice any number of drunken creatures that are crewing it. Pumpkin Catapult deals 2 damage to any target for each creature sacrificed this way. You may choose new targets for each instance of damage.",
+      "flavorText": "“Read the signs before the pumpkins make them disappear”",
+      "power": "7",
+      "toughness": "5",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/88ae56b07fa63d38198cb2eb.webp",
+      "token": false,
+      "nativeUid": "11905954857828862721563235653436"
+    },
+    {
+      "id": "cb-082",
+      "name": "Vandalism",
+      "manaCost": "2R",
+      "manaValue": 3,
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Common",
+      "rulesText": "Destroy target artifact or enchantment.\nIf a permanent is destroyed this way, its controller loses 2 life.",
+      "flavorText": "“In our youth, we blew up the tavern’s trashcan—called it a prank. We still don’t regret it.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/23d3e2554f94dacde61056f1.webp",
+      "token": false,
+      "nativeUid": "76403659355338545516990393589071"
+    },
+    {
+      "id": "cb-083",
+      "name": "Ogrontwin Steve",
+      "manaCost": "3G",
+      "manaValue": 4,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "Legendary Creature — Giant Warrior",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Trample\nAs long as you control a creature named “Ogrontwin Pete”, Ogrontwin Steve gets +3/+3.",
+      "flavorText": "“Bro.”",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/1350ce296de650b279bb1e6c.webp",
+      "token": false,
+      "nativeUid": "01174286624056379282576877292495"
+    },
+    {
+      "id": "cb-084",
+      "name": "Ogrontwin Pete",
+      "manaCost": "3R",
+      "manaValue": 4,
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Legendary Creature — Giant Warrior",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Menace\nAs long as you control a creature named “Ogrontwin Steve”, Ogrontwin Pete gets +3/+3.",
+      "flavorText": "“Bro.”",
+      "power": "4",
+      "toughness": "3",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/f1193a99a7302ac6198c1691.webp",
+      "token": false,
+      "nativeUid": "86950092578323099638718995513779"
+    },
+    {
+      "id": "cb-085",
+      "name": "Bromoment",
+      "manaCost": "R/GR/GR/G",
+      "manaValue": 3,
+      "colors": [
+        "R",
+        "G"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Common",
+      "rulesText": "Search your library for a card named Ogrontwin Pete or Ogrontwin Steve, reveal it, and put it into your hand. If you control one with that name, you may put it onto the battlefield instead. Then shuffle.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/e17bfadb3f980c33087c2129.webp",
+      "token": false,
+      "nativeUid": "14080678382246274999743508387510"
+    },
+    {
+      "id": "cb-086",
+      "name": "Blood Moon Rising",
+      "manaCost": "1BR",
+      "manaValue": 3,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "typeLine": "Enchantment — Aura",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Rare",
+      "rulesText": "Enchant creature\nAt the beginning of enchanted creature’s controller’s upkeep, they lose 2 life.\nWhenever another permanent enters the battlefield, put a obsession counter on enchanted creature.\nAs long as enchanted creature has five or more obsession counters on it, it gets +10/+0, has menace and first strike.",
+      "flavorText": "“Make a move… it will be the wrong one.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Obsession",
+        "Upkeep",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/34679b680ca964afa5418d8d.webp",
+      "token": false,
+      "nativeUid": "41655389601692828076262431668783"
+    },
+    {
+      "id": "cb-087",
+      "name": "Zimty",
+      "manaCost": "2B",
+      "manaValue": 3,
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Creature — Food Mutant",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "When Zimty dies, target opponent discards a card.\n{2}, {T}, Sacrifice Zimty: You gain 3 life.",
+      "flavorText": "“They say he was human once… then he rested at a party for a moment.”",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": "",
+      "mechanics": [
+        "Food"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/2b2cd06242e50203d84e9548.webp",
+      "token": false,
+      "nativeUid": "14340943732129004255339610906966"
+    },
+    {
+      "id": "cb-088",
+      "name": "Mystic Herb Vegetative",
+      "manaCost": "2G",
+      "manaValue": 3,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "Creature — Plant",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "When Mystic Herb Vegetative enters the battlefield, mill three cards. You may put a land card from among the cards milled this way into your hand. If you don’t, put a +1/+1 counter on Mystic Herb Vegetative.",
+      "flavorText": "“It continues as a sapling, but with the right care, it grows into something that could knock you out of this world.”",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [
+        "Counter"
+      ],
+      "factions": [
+        "Plant"
+      ],
+      "image": "/card-art/550c1b9c21f1a03f6c4897c2.webp",
+      "token": false,
+      "nativeUid": "70224551026870289304892119553181"
+    },
+    {
+      "id": "cb-089",
+      "name": "Raging Alcoholic",
+      "manaCost": "1RW",
+      "manaValue": 3,
+      "colors": [
+        "W",
+        "R"
+      ],
+      "typeLine": "Creature — Dwarf Warrior",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Haste\nDrunken Tolerance 5\nUpkeep— Sacrifice a Beer token.\nWhenever Raging Alcoholic attacks, create a Beer token.",
+      "flavorText": "",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Upkeep"
+      ],
+      "factions": [
+        "Dwarf"
+      ],
+      "image": "/card-art/9265940ac3f3fdd91000bbe3.webp",
+      "token": false,
+      "nativeUid": "87416760907504197865981889081810"
+    },
+    {
+      "id": "cb-090",
+      "name": "Rotten Cellar",
+      "manaCost": "B",
+      "manaValue": 1,
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Enchantment — Location",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Whenever a Food is sacrificed, each opponent loses 1 life.",
+      "flavorText": "“Left alone long enough, the food stopped spoiling and started moving.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Food",
+        "Location"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/d36a077b40b702d1daa89260.webp",
+      "token": false,
+      "nativeUid": "03182935175637456280265877696656"
+    },
+    {
+      "id": "cb-091",
+      "name": "Rowdy Tavern",
+      "manaCost": "1R",
+      "manaValue": 2,
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Enchantment — Location",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Drunken creatures you control get +1/+0 and have haste.",
+      "flavorText": "“Rule #7: Dwarf Darts is no longer considered an acceptable tavern game.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Location"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/7a9af1e31e0a0eb24dad8d7f.webp",
+      "token": false,
+      "nativeUid": "31150175831040366508272366256178"
+    },
+    {
+      "id": "cb-092",
+      "name": "Laughing fit",
+      "manaCost": "1R",
+      "manaValue": 2,
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Instant",
+      "cardTypes": [
+        "Instant"
+      ],
+      "rarity": "Common",
+      "rulesText": "As an additional cost to cast this spell, discard a card.\nDraw two cards.",
+      "flavorText": "“He drinks non-alcoholic beer... ahahaha...”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Beer"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/eccc3e66b383a8023b203879.webp",
+      "token": false,
+      "nativeUid": "61223573470611271681827691954353"
+    },
+    {
+      "id": "cb-093",
+      "name": "Puzzlemaster's Grimoire",
+      "manaCost": "4",
+      "manaValue": 4,
+      "colors": [],
+      "typeLine": "Artifact",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "When Puzzlemaster’s Grimoire enters the battlefield, create a Treasure Token.\n{T}: Add one mana of any color.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/cfb08a0d5c3e1aa97ebbd0cc.webp",
+      "token": false,
+      "nativeUid": "12226813408992486613931172650704"
+    },
+    {
+      "id": "cb-094",
+      "name": "Brotherhoods Impact",
+      "manaCost": "1W",
+      "manaValue": 2,
+      "colors": [
+        "W"
+      ],
+      "typeLine": "Instant",
+      "cardTypes": [
+        "Instant"
+      ],
+      "rarity": "Common",
+      "rulesText": "Choose one —\n• Up to two target creatures each get +1/+2 until end of turn.\n• Target creature an opponent controls loses all abilities until end of turn.",
+      "flavorText": "“The louder the hit, the stronger the bond.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/b6fddc74e51b6693aaccb81a.webp",
+      "token": false,
+      "nativeUid": "50404969384537788414041902226802"
+    },
+    {
+      "id": "cb-095",
+      "name": "Spar’s Bazaar",
+      "manaCost": "3",
+      "manaValue": 3,
+      "colors": [],
+      "typeLine": "Enchantment — Location",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "{T}: Add one mana of any color.\nActivated abilities of Beer and Food tokens cost {1} less to activate.",
+      "flavorText": "“Spar has everything.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Beer",
+        "Food",
+        "Location"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/62366c4bdf1f926c9a53a56f.webp",
+      "token": false,
+      "nativeUid": "73564592232869562535710619664710"
+    },
+    {
+      "id": "cb-096",
+      "name": "Blue Cow",
+      "manaCost": "2",
+      "manaValue": 2,
+      "colors": [],
+      "typeLine": "Artifact",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Blue Cow enters the battlefield with three charge counters on it.\n{T}, Remove a charge counter from Blue Cow: Target creature gains flying until end of turn.\nWhen the last charge counter is removed from Blue Cow, sacrifice it.",
+      "flavorText": "“Gives you wings.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/7639cab0e60d730208781300.webp",
+      "token": false,
+      "nativeUid": "92039715332323351497870018728208"
+    },
+    {
+      "id": "cb-097",
+      "name": "Library of Shared Memories",
+      "manaCost": "U",
+      "manaValue": 1,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Enchantment — Location",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Common",
+      "rulesText": "{T}: Move a counter from one creature you control to another creature you control. Activate only as a sorcery.",
+      "flavorText": "“Our stories, our mistakes, our glories — preserved here for those who lived them.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Location",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/1afaa5bed84f17bcea608f5a.webp",
+      "token": false,
+      "nativeUid": "47955642464701539583097123144732"
+    },
+    {
+      "id": "cb-098",
+      "name": "Sarma",
+      "manaCost": "3G/W",
+      "manaValue": 4,
+      "colors": [
+        "W",
+        "G"
+      ],
+      "typeLine": "Artifact — Food",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Sarma enters the battlefield with four charge counters on it.\n{T}, Remove a charge counter from Sarma: Target creature gets +2/+2 until end of turn. Activate only as a sorcery.\n{2}, {T}, Sacrifice Sarma: You gain 4 life.",
+      "flavorText": "“Hearty, heavy, and impossible to finish alone — the feast of champions.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Food",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/ded098c6e2dfd27b6e5b6889.webp",
+      "token": false,
+      "nativeUid": "07251603241828916456246291085436"
+    },
+    {
+      "id": "cb-099",
+      "name": "Soul Eater Siren",
+      "manaCost": "WU",
+      "manaValue": 2,
+      "colors": [
+        "W",
+        "U"
+      ],
+      "typeLine": "Creature — Siren",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Soul Eater Siren’s power and toughness are each equal to the number of counters on creatures on the battlefield.",
+      "flavorText": "“Beauty is her lure, emptiness her gift.”",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": "",
+      "mechanics": [
+        "Counter"
+      ],
+      "factions": [
+        "Siren"
+      ],
+      "image": "/card-art/68161e4b042789360b940730.webp",
+      "token": false,
+      "nativeUid": "05916495558617259288018258698103"
+    },
+    {
+      "id": "cb-100",
+      "name": "Baked Ham Noodle Casserole",
+      "manaCost": "2G/W",
+      "manaValue": 3,
+      "colors": [
+        "W",
+        "G"
+      ],
+      "typeLine": "Artifact — Food",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Baked Ham Noodle Casserole enters the battlefield with four charge counters on it.\n{T}, Remove a charge counter from Baked Ham Noodle Casserole: Creatures you control get +1/+1 until end of turn. Activate only as a sorcery.\n{2}, {T}, Sacrifice Baked Ham Noodle Casserole: You gain 4 life.",
+      "flavorText": "“Eating all of it at once leads to a stomachache—who would’ve thought?”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Food",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/441d50f0ed116a57f7a3f0d8.webp",
+      "token": false,
+      "nativeUid": "15483739982142270656921537220286"
+    }
+  ],
+  "supportingTokens": [
+    {
+      "id": "cb-275",
+      "name": "Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken Counter on target creature. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/9869d1af7927486ce6aa786c.webp",
+      "token": true,
+      "nativeUid": "99697868361608104333974878191868"
+    },
+    {
+      "id": "cb-276",
+      "name": "Jade Dragon",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "legendary Creature — Dragon",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "Flying, haste",
+      "flavorText": "“The Jade Dragon takes time to form, but when it emerges, it’s a force of nature… and leaves quite an impression”",
+      "power": "7",
+      "toughness": "7",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/f61d0707de4f68fa1b755d03.webp",
+      "token": true,
+      "nativeUid": "13651776195717043056289625770570"
+    },
+    {
+      "id": "cb-277",
+      "name": "Another Brother",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Creature — Gnome",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "",
+      "flavorText": "Ajde! I don’t cook for a brother from another mother—unless you’re my friend, then I’ll whip up something special!”",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Gnome"
+      ],
+      "image": "/card-art/fb1e7e18ae4896b3da116703.webp",
+      "token": true,
+      "nativeUid": "45348669994707053799973286106801"
+    },
+    {
+      "id": "cb-288",
+      "name": "Expired Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken counter on target creature. That creature gets –2/–2 until end of turn. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/52498fcd973baa0dd67d8888.webp",
+      "token": true,
+      "nativeUid": "08550782024313345983571332065668"
+    },
+    {
+      "id": "cb-289",
+      "name": "Pils Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken counter on target creature. That creature gets first strike until end of turn. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/4c9f148146652993b7161160.webp",
+      "token": true,
+      "nativeUid": "41800081581069686088403844896897"
+    },
+    {
+      "id": "cb-290",
+      "name": "Zwickl Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken counter on target creature. That creature gets haste until end of turn. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/afb2e3b6eb9c36aa0e5221c8.webp",
+      "token": true,
+      "nativeUid": "28727334813682861630156685371356"
+    },
+    {
+      "id": "cb-291",
+      "name": "Wheat Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken counter on target creature. That creature gets vigilance until end of turn. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/62035dce29ba497cad967e38.webp",
+      "token": true,
+      "nativeUid": "99438033573469877722553837322933"
+    },
+    {
+      "id": "cb-292",
+      "name": "Dark Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken counter on target creature. That creature gets menace until end of turn. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/061ba8405d28ef24e8758f0e.webp",
+      "token": true,
+      "nativeUid": "61262098799155684849093802016623"
+    },
+    {
+      "id": "cb-293",
+      "name": "Bock Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken counter on target creature, then double the number of drunken counters on that creature. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/816c0cd0a327fe615cd7a57c.webp",
+      "token": true,
+      "nativeUid": "80566617593283984981652973441929"
+    },
+    {
+      "id": "cb-294",
+      "name": "Hangry Siren",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Creature — Siren",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "Haste",
+      "flavorText": "",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Siren"
+      ],
+      "image": "/card-art/78939627a062a87e02d8b702.webp",
+      "token": true,
+      "nativeUid": "85895542599407197338801036611005"
+    },
+    {
+      "id": "cb-295",
+      "name": "Elemental",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Creature — Elemental",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "",
+      "flavorText": "“I knew the smoke was getting thick when the cloud started asking for my name.”",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/9cf8dd0514156fa1bce4c952.webp",
+      "token": true,
+      "nativeUid": "62394501428535753590611702577679"
+    },
+    {
+      "id": "cb-296",
+      "name": "Stinky Elemental",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Creature — Elemental",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "",
+      "flavorText": "“A whiff of nature’s true power.”",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/5b93d4d924083877be7ab07b.webp",
+      "token": true,
+      "nativeUid": "58569973053786328538229813254111"
+    },
+    {
+      "id": "cb-297",
+      "name": "Vengeful Gnome Pack",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Creature — Gnome",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "",
+      "flavorText": "Ajde! Uncles, cousins, and at least three angry grandmas — all armed and ready!”",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Gnome"
+      ],
+      "image": "/card-art/28453e42d8a5bf68310bd36d.webp",
+      "token": true,
+      "nativeUid": "95903886070373072497215163364981"
+    },
+    {
+      "id": "cb-299",
+      "name": "Ari, the ripper",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "legendary Creature — Dog",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Mythic Rare",
+      "rulesText": "Vigilance",
+      "flavorText": "“She loves ripping couches. Imagine what she does to Peter’s enemies.”",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/4a7e06137496ccb3d213ac50.webp",
+      "token": true,
+      "nativeUid": "43206804257078491561453258329794"
+    },
+    {
+      "id": "cb-300",
+      "name": "Food",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Food",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{2},{T}, Sacrifice this artifact: You gain 3 life.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Food"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/73317ca7e5cc629b7fffbfc4.webp",
+      "token": true,
+      "nativeUid": "39751567967358822980912756692110"
+    },
+    {
+      "id": "cb-301",
+      "name": "Food",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Food",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{2},{T}, Sacrifice this artifact: You gain 3 life.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Food"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/f53a19d20501027fcc25c7a0.webp",
+      "token": true,
+      "nativeUid": "56257305857810659044607144909009"
+    },
+    {
+      "id": "cb-302",
+      "name": "Food",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Food",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{2},{T}, Sacrifice this artifact: You gain 3 life.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Food"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/a3140cef35717bc300dfadc8.webp",
+      "token": true,
+      "nativeUid": "08414963860758062278600763004916"
+    },
+    {
+      "id": "cb-303",
+      "name": "Treasure",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Treasure",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{T}, Sacrifice this artifact: Add one mana of any color.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/4c1ea076e77a16bb51a2545e.webp",
+      "token": true,
+      "nativeUid": "84367773972239735972520551301886"
+    },
+    {
+      "id": "cb-304",
+      "name": "Treasure",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Treasure",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{T}, Sacrifice this artifact: Add one mana of any color.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/0332d15b69f524096e9acd21.webp",
+      "token": true,
+      "nativeUid": "89693456724449181378500028114320"
+    },
+    {
+      "id": "cb-305",
+      "name": "Treasure",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Treasure",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{T}, Sacrifice this artifact: Add one mana of any color.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/d63e4c6561ba347a83468e52.webp",
+      "token": true,
+      "nativeUid": "68425958370012987867630902772225"
+    },
+    {
+      "id": "cb-306",
+      "name": "Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken Counter on target creature. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/9ef38b43d2e3966acbb7d9e7.webp",
+      "token": true,
+      "nativeUid": "83294307911530520069571460645566"
+    },
+    {
+      "id": "cb-307",
+      "name": "Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken Counter on target creature. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/a29fa90acb858ae25cdc2ec2.webp",
+      "token": true,
+      "nativeUid": "90333205029454662106164972683118"
+    }
+  ]
+}

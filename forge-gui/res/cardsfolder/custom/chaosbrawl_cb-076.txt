@@ -1,0 +1,6 @@
+Name:Weedfield Herbalist
+ManaCost:1 G
+Types:Creature Plant Druid
+PT:1/3
+A:AB$ Mana | Cost$ T | Produced$ G | SpellDescription$ Add {G}.
+Oracle:{T}: Add {G}.

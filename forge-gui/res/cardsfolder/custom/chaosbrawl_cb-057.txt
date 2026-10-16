@@ -1,0 +1,9 @@
+Name:Flatfooted
+ManaCost:2 U
+Types:Enchantment Aura
+K:Enchant:Creature
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Tap | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Tap:DB$ Tap | Defined$ Enchanted
+T:Mode$ Taps | TriggerZones$ Battlefield | Execute$ Stun | TriggerDescription$ Whenever enchanted creature becomes tapped, put a stun counter on it. | ValidCard$ Creature.EnchantedBy
+SVar:Stun:DB$ PutCounter | Defined$ Enchanted | CounterType$ STUN | CounterNum$ 1
+Oracle:Enchant creature\nWhenever enchanted creature becomes tapped, put a stun counter on it.\nWhen Flatfooted enters the battlefield, tap enchanted creature.

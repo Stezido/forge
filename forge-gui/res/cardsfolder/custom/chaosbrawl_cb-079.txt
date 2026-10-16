@@ -1,0 +1,7 @@
+Name:Tavern Hand
+ManaCost:1 W
+Types:Creature Human
+PT:2/2
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Beer | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Beer:DB$ Token | TokenScript$ chaosbrawl_beer
+Oracle:When Tavern Hand enters the battlefield, create a Beer token.

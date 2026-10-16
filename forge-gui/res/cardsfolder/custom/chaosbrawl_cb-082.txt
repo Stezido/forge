@@ -1,0 +1,7 @@
+Name:Vandalism
+ManaCost:2 R
+Types:Sorcery
+A:SP$ Destroy | ValidTgts$ Artifact,Enchantment | RememberDestroyed$ True | SubAbility$ Lose | SpellDescription$ Destroy target artifact or enchantment. If a permanent is destroyed this way, its controller loses 2 life.
+SVar:Lose:DB$ LoseLife | Defined$ RememberedController | LifeAmount$ 2 | SubAbility$ Cleanup
+SVar:Cleanup:DB$ Cleanup | ClearRemembered$ True
+Oracle:Destroy target artifact or enchantment.\nIf a permanent is destroyed this way, its controller loses 2 life.

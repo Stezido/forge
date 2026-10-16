@@ -1,0 +1,7 @@
+Name:Sarma
+ManaCost:3 GW
+Types:Artifact Food
+K:etbCounter:CHARGE:4
+A:AB$ Pump | ValidTgts$ Creature | NumAtt$ 2 | NumDef$ 2 | Cost$ T SubCounter<1/CHARGE> | SorcerySpeed$ True | SpellDescription$ Target creature gets +2/+2 until end of turn. Activate only as a sorcery.
+A:AB$ GainLife | Cost$ 2 T Sac<1/CARDNAME> | LifeAmount$ 4 | SpellDescription$ You gain 4 life.
+Oracle:Sarma enters the battlefield with four charge counters on it.\n{T}, Remove a charge counter from Sarma: Target creature gets +2/+2 until end of turn. Activate only as a sorcery.\n{2}, {T}, Sacrifice Sarma: You gain 4 life.

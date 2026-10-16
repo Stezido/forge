@@ -1,0 +1,11 @@
+Name:Endless Expectations
+ManaCost:1 U
+Types:Enchantment
+T:Mode$ Phase | TriggerZones$ Battlefield | Execute$ Check | TriggerDescription$ At the beginning of your end step, if you have enough untapped lands, add a Fulfillment counter and draw a card. Otherwise sacrifice CARDNAME. | Phase$ End of Turn | ValidPlayer$ You
+SVar:Check:DB$ Branch | BranchConditionSVar$ X | BranchConditionSVarCompare$ GEY | TrueSubAbility$ Counter | FalseSubAbility$ Sacrifice
+SVar:Counter:DB$ PutCounter | Defined$ Self | CounterType$ FULFILLMENT | CounterNum$ 1 | SubAbility$ Draw
+SVar:Draw:DB$ Draw | NumCards$ 1
+SVar:Sacrifice:DB$ Sacrifice | Defined$ Self
+SVar:X:Count$Valid Land.YouCtrl+untapped
+SVar:Y:Count$CardCounters.FULFILLMENT
+Oracle:At the beginning of your end step, if you control X or more untapped lands, where X is the number of Fulfillment counters on Endless Expectations, put a Fulfillment counter on it and draw a card. If you do not control X or more untapped lands, sacrifice Endless Expectations.

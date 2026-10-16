@@ -1,0 +1,7 @@
+Name:Jealous Siren
+ManaCost:2 U
+Types:Creature Siren
+PT:2/3
+T:Mode$ BecomesTarget | TriggerZones$ Battlefield | Execute$ Damage | TriggerDescription$ Whenever an opponent targets another creature you control, CARDNAME deals 2 damage to that player. | ValidSource$ SpellAbility.OppCtrl | ValidTarget$ Creature.YouCtrl+Other+inZoneBattlefield
+SVar:Damage:DB$ DealDamage | Defined$ TriggeredSourceSAController | NumDmg$ 2
+Oracle:Whenever an opponent targets another creature you control with a spell or ability, Jealous Siren deals 2 damage to that player.

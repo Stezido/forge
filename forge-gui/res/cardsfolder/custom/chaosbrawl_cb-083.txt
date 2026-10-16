@@ -1,0 +1,7 @@
+Name:Ogrontwin Steve
+ManaCost:3 G
+Types:Legendary Creature Giant Warrior
+PT:3/4
+K:Trample
+S:Mode$ Continuous | AffectedDefined$ Self | AddPower$ 3 | AddToughness$ 3 | IsPresent$ Creature.YouCtrl+namedOgrontwin Pete | Description$ CARDNAME gets +3/+3 as long as you control Ogrontwin Pete.
+Oracle:Trample\nAs long as you control a creature named “Ogrontwin Pete”, Ogrontwin Steve gets +3/+3.

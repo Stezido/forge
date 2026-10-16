@@ -1,0 +1,5 @@
+Name:Library of Shared Memories
+ManaCost:U
+Types:Enchantment Location
+A:AB$ MoveCounter | Cost$ T | ValidTgts$ Creature.YouCtrl | TargetMin$ 2 | TargetMax$ 2 | CounterType$ Any | CounterNum$ 1 | SorcerySpeed$ True | SpellDescription$ Move a counter from one creature you control to another creature you control. Activate only as a sorcery.
+Oracle:{T}: Move a counter from one creature you control to another creature you control. Activate only as a sorcery.

@@ -1,0 +1,9 @@
+Name:Controlling Relationship
+ManaCost:2 U U
+Types:Enchantment Aura
+K:Enchant:Creature
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Tap | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Tap:DB$ Tap | Defined$ Enchanted
+S:Mode$ Continuous | AffectedDefined$ Enchanted | GainControl$ You | Description$ You control enchanted creature.
+R:Event$ Untap | ValidCard$ Creature.EnchantedBy | ValidStepTurnToController$ You | Layer$ CantHappen | Description$ Enchanted creature does not untap during its controller's untap step.
+Oracle:Enchant creature.\nWhen this Aura enters, tap enchanted permanent.\nYou control enchanted permanent.\nEnchanted permanent doesn’t untap during its controller’s untap step.

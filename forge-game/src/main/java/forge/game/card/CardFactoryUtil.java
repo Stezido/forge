@@ -3278,6 +3278,7 @@ public class CardFactoryUtil {
         } else if (keyword.startsWith("Plot")) {
             final String[] k = keyword.split(":");
             final String manacost = k[1];
+            final boolean limited = k.length > 2 && "ChaosBrawlOnce".equals(k[2]);
 
             final SpellAbility plot = new AbilityStatic(card.getCard(), new Cost(manacost, false), null) {
                 @Override
@@ -3294,7 +3295,7 @@ public class CardFactoryUtil {
                         return false;
                     }
 
-                    return true;
+                    return !limited || forge.game.ChaosBrawlRules.grantedPlotAllowance(getHostCard().getController()) != null;
                 }
 
                 @Override
@@ -3305,6 +3306,9 @@ public class CardFactoryUtil {
                 @Override
                 public void resolve() {
                     final Game game = getHostCard().getGame();
+                    if (limited) {
+                        forge.game.ChaosBrawlRules.consumeGrantedPlotAllowance(getHostCard().getController());
+                    }
                     Map<AbilityKey, Object> moveParams = AbilityKey.newMap();
                     CardZoneTable zoneMovements = AbilityKey.addCardZoneTableParams(moveParams, this);
 

@@ -35,6 +35,8 @@ public enum CounterEnumType implements CounterType {
     OBSESSION("Obsession", "OBSESS", 200, 95, 195, CounterAiCategory.Negative),
     HAZE("Haze", "HAZE", 120, 170, 100, CounterAiCategory.Neutral),
 
+    FULFILLMENT("Fulfillment", "FULFILL", 125, 165, 230, CounterAiCategory.Neutral),
+
     LOYALTY("LOYAL", 198, 198, 198, CounterAiCategory.Positive),
 
     ACORN("ACORN", 139, 69, 19, CounterAiCategory.Positive),

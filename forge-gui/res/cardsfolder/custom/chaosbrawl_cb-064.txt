@@ -1,0 +1,7 @@
+Name:Sweet Harmless Siren
+ManaCost:1 U
+Types:Creature Siren
+PT:0/4
+T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Obsess | TriggerDescription$ When CARDNAME enters, ABILITY
+SVar:Obsess:DB$ PutCounter | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 1 | CounterType$ OBSESSION | CounterNum$ 1
+Oracle:When Sweet Harmless Siren enters the battlefield, obsess up to one target creature.

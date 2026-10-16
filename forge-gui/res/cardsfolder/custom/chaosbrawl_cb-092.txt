@@ -1,0 +1,5 @@
+Name:Laughing fit
+ManaCost:1 R
+Types:Instant
+A:SP$ Draw | Cost$ 1 R Discard<1/Card> | NumCards$ 2 | SpellDescription$ Draw two cards.
+Oracle:As an additional cost to cast this spell, discard a card.\nDraw two cards.

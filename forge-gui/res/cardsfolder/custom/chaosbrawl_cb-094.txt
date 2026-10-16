@@ -1,0 +1,7 @@
+Name:Brotherhoods Impact
+ManaCost:1 W
+Types:Instant
+A:SP$ Charm | Choices$ Pump,Blank | SpellDescription$ Choose one — up to two target creatures get +1/+2; or target creature an opponent controls loses all abilities this turn.
+SVar:Pump:DB$ Pump | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 2 | NumAtt$ 1 | NumDef$ 2 | SpellDescription$ Up to two target creatures each get +1/+2 until end of turn.
+SVar:Blank:DB$ Animate | ValidTgts$ Creature.OppCtrl | RemoveAllAbilities$ True | SpellDescription$ Target creature an opponent controls loses all abilities until end of turn.
+Oracle:Choose one —\n• Up to two target creatures each get +1/+2 until end of turn.\n• Target creature an opponent controls loses all abilities until end of turn.
