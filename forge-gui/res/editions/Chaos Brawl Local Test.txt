@@ -158,6 +158,7 @@ Type=Custom_Set
 151 C Shut up
 152 C MAGAZIN!
 153 U Magical Bucket Pump
+154 R Wedding Ring ${"variant": "ChaosBrawlBeta"}
 155 U Unpleasant Surprise
 156 R Dungeon Master ${"variant": "ChaosBrawlBeta"}
 157 U Marlene, the Leader
@@ -166,6 +167,7 @@ Type=Custom_Set
 160 U Max, the Sniper
 161 C Let’s Fucking Go
 162 R Summon the Squad
+163 R Just Do it
 164 C Homemade Paranoia
 165 L Flooded Palace
 166 L Duskmire
@@ -194,12 +196,14 @@ Type=Custom_Set
 189 R Nadine, Sirens’ Origin
 190 U The Mind
 191 C Boosted Excitement
+192 R Annoying Running Gag
 193 C Provoker
 194 U Frozen Taps
 195 U Experimental Invention
 196 C Hosn Owe
 197 C Improvised Escape
 198 C Strange Allergic Reaction
+199 U Friend or Foe
 200 U The Fallen ${"variant": "ChaosBrawlBeta"}
 201 C Grinder
 202 C Zigeuner-Duo
@@ -215,6 +219,7 @@ Type=Custom_Set
 212 C Desperate Hydrator
 213 U Puff Mama
 214 C Domina’s Devotee
+215 U Tavern Slot Machine
 216 C Honest Laborer
 217 U Gonorrhea
 218 C Ale Addict
@@ -224,6 +229,7 @@ Type=Custom_Set
 222 C Take a Sniff
 223 C Midnight Fridge Raider
 224 C Hitman
+225 C Culinary Disaster
 226 C Still Good
 227 R Stingats Gsöchts
 228 U Sofa Pizza
@@ -275,6 +281,8 @@ Type=Custom_Set
 278 U Frühshoppen
 280 M A Week of Excess
 281 U Kiss of Poseidon
+282 R Rollercoaster of Emotions
+283 C Hofi, the Fragrant
 284 C Peter, the Manipulative
 285 C Sasa, the Big Brother
 286 C Stefan, the Eternal Annoyer

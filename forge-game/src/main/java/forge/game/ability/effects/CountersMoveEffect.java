@@ -13,6 +13,7 @@ import forge.game.GameEntityCounterTable;
 import forge.game.ability.AbilityUtils;
 import forge.game.ability.SpellAbilityEffect;
 import forge.game.card.Card;
+import forge.game.card.CardCollection;
 import forge.game.card.CardCollectionView;
 import forge.game.card.CardLists;
 import forge.game.card.CardPredicates;
@@ -80,6 +81,11 @@ public class CountersMoveEffect extends SpellAbilityEffect {
 
     @Override
     public void resolve(SpellAbility sa) {
+        if (sa.hasParam("RedistributeEachCounter")) {
+            redistributeEachCounter(sa);
+            return;
+        }
+
         final Card host = sa.getHostCard();
         final String counterName = sa.getParam("CounterType");
         final String counterNum = sa.getParamOrDefault("CounterNum", "1");
@@ -365,4 +371,57 @@ public class CountersMoveEffect extends SpellAbilityEffect {
             countersToAdd.add(cType, cnum);
         }
     }
+    private record CounterDestination(Card source, Card destination, CounterType type) { }
+
+    private void redistributeEachCounter(SpellAbility sa) {
+        Card host = sa.getHostCard();
+        Game game = host.getGame();
+        Player chooser = sa.getActivatingPlayer();
+        CardCollection creatures = CardLists.getValidCards(game.getCardsIn(ZoneType.Battlefield), "Creature", chooser, host, sa);
+        java.util.List<CounterDestination> destinations = new java.util.ArrayList<>();
+        java.util.Map<Card, com.google.common.collect.Multiset<CounterType>> removals = new java.util.LinkedHashMap<>();
+        for (Card source : creatures) {
+            for (com.google.common.collect.Multiset.Entry<CounterType> entry : com.google.common.collect.HashMultiset.create(source.getCounters()).entrySet()) {
+                CounterType type = entry.getElement();
+                if (!source.canRemoveCounters(type)) {
+                    continue;
+                }
+                CardCollection choices = new CardCollection();
+                for (Card destination : creatures) {
+                    if (destination.getController() != source.getController() && destination.canReceiveCounters(type)) {
+                        choices.add(destination);
+                    }
+                }
+                if (choices.isEmpty()) {
+                    continue;
+                }
+                for (int n = 0; n < entry.getCount(); n++) {
+                    Card destination = chooser.getController().chooseSingleEntityForEffect(choices, sa,
+                            "Move " + type.getName() + " counter " + (n + 1) + "/" + entry.getCount() + " from " + source.getName(), false, null);
+                    if (destination != null) {
+                        destinations.add(new CounterDestination(source, destination, type));
+                        removals.computeIfAbsent(source, key -> com.google.common.collect.HashMultiset.create()).add(type);
+                    }
+                }
+            }
+        }
+        // Remove each original group once so once-per-event removal triggers stay correct.
+        for (java.util.Map.Entry<Card, com.google.common.collect.Multiset<CounterType>> source : removals.entrySet()) {
+            for (com.google.common.collect.Multiset.Entry<CounterType> entry : new java.util.ArrayList<>(source.getValue().entrySet())) {
+                int removed = source.getKey().subtractCounter(entry.getElement(), entry.getCount(), chooser);
+                source.getValue().setCount(entry.getElement(), removed);
+            }
+            game.updateLastStateForCard(source.getKey());
+        }
+        GameEntityCounterTable table = new GameEntityCounterTable();
+        for (CounterDestination move : destinations) {
+            com.google.common.collect.Multiset<CounterType> remaining = removals.get(move.source());
+            if (remaining.count(move.type()) > 0) {
+                remaining.remove(move.type());
+                move.destination().addCounter(move.type(), 1, chooser, table);
+            }
+        }
+        table.replaceCounterEffect(game, sa);
+    }
+
 }

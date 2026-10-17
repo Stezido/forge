@@ -1,0 +1,13 @@
+Name:Just Do it
+ManaCost:1 R R
+Types:Sorcery
+A:SP$ RollDice | Sides$ 20 | ResultSVar$ Roll | SubAbility$ Sac | SpellDescription$ Roll a d20. Sacrifice half that many lands, rounded down. Draw for each, put drawn lands onto the battlefield tapped, and create one reflexive damage trigger per sacrifice.
+SVar:Half:SVar$Roll/HalfDown
+SVar:Sac:DB$ Sacrifice | Defined$ You | SacValid$ Land | Amount$ Half | RememberSacrificed$ True | SubAbility$ DamageTriggers
+SVar:DamageTriggers:DB$ ImmediateTrigger | TriggerAmount$ Remembered$Amount | Execute$ Damage | TriggerDescription$ CARDNAME deals 1 damage to target creature or planeswalker. | SubAbility$ Draw
+SVar:Damage:DB$ DealDamage | ValidTgts$ Creature,Planeswalker | NumDmg$ 1
+SVar:Draw:DB$ Draw | Defined$ You | NumCards$ Remembered$Amount | RememberDrawn$ True | SubAbility$ Lands
+SVar:Lands:DB$ ChangeZone | Hidden$ True | Origin$ Hand | Destination$ Battlefield | ChangeType$ Land.IsRemembered | ChangeNum$ X | Tapped$ True | SubAbility$ Clear
+SVar:X:Count$RememberedSize
+SVar:Clear:DB$ Cleanup | ClearRemembered$ True
+Oracle:Roll a d20. Sacrifice a number of lands equal to half the result, rounded down. Draw a card for each land sacrificed this way. You may put any number of land cards drawn this way onto the battlefield tapped.\nWhen you sacrifice a land this way, Just Do it deals 1 damage to target creature or planeswalker.

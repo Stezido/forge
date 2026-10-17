@@ -1,0 +1,7 @@
+Name:Culinary Disaster
+ManaCost:3 B
+Types:Creature Food Horror
+PT:5/5
+T:Mode$ Phase | TriggerZones$ Battlefield | Phase$ Upkeep | ValidPlayer$ You | ChaosBrawlUpkeep$ True | Execute$ Upkeep | TriggerDescription$ At the beginning of your upkeep, sacrifice CARDNAME unless you pay 2 life.
+SVar:Upkeep:DB$ Sacrifice | Defined$ Self | UnlessCost$ PayLife<2> | UnlessPayer$ You | ChaosBrawlUpkeep$ True
+Oracle:Upkeep—Pay 2 life. (At the beginning of your upkeep, sacrifice this permanent unless you pay 2 life.)

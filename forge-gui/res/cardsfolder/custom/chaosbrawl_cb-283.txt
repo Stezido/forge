@@ -1,0 +1,19 @@
+Name:Hofi, the Fragrant
+ManaCost:2 B G
+Types:Legendary Planeswalker Hofi
+Loyalty:3
+A:AB$ Token | Cost$ AddCounter<2/LOYALTY> | Planeswalker$ True | TokenScript$ c_a_food_sac | SpellDescription$ Create a Food token.
+A:AB$ Repeat | Cost$ SubCounter<2/LOYALTY> | Planeswalker$ True | ValidTgts$ Creature | MaxRepeat$ 1 | RepeatSubAbility$ Sac | StackDescription$ SpellDescription | SpellDescription$ Sacrifice a Food. If you do, target creature gets -3/-3 until end of turn.
+SVar:Sac:DB$ Sacrifice | Defined$ You | SacValid$ Food | Amount$ 1 | RememberSacrificed$ True | SubAbility$ Debuff
+SVar:Debuff:DB$ Pump | Defined$ Targeted | NumAtt$ -3 | NumDef$ -3 | ConditionCheckSVar$ Remembered$Amount | ConditionSVarCompare$ GE1 | SubAbility$ Clear
+SVar:Clear:DB$ Cleanup | ClearRemembered$ True
+A:AB$ Effect | Cost$ SubCounter<6/LOYALTY> | Planeswalker$ True | Ultimate$ True | Triggers$ Death | SubAbility$ SacAll | SpellDescription$ This turn, each creature death makes each opponent lose 1 life. Sacrifice all your Food. Creatures get -3/-3 per Food; opponents lose life for Food tokens sacrificed.
+SVar:Death:Mode$ ChangesZone | TriggerZones$ Command | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature | Execute$ DeathLife | TriggerDescription$ Whenever a creature dies this turn, each opponent loses 1 life.
+SVar:DeathLife:DB$ LoseLife | Defined$ Opponent | LifeAmount$ 1
+SVar:SacAll:DB$ Sacrifice | Defined$ You | SacValid$ Food | Amount$ Foods | RememberSacrificed$ True | SubAbility$ DebuffAll
+SVar:Foods:Count$Valid Food.YouCtrl
+SVar:DebuffAll:DB$ PumpAll | ValidCards$ Creature | NumAtt$ -Penalty | NumDef$ -Penalty | SubAbility$ TokenLife
+SVar:Penalty:Remembered$Amount/Times.3
+SVar:TokenLife:DB$ LoseLife | Defined$ Opponent | LifeAmount$ Tokens | SubAbility$ Clear
+SVar:Tokens:RememberedLKI$Valid Food.token
+Oracle:+2 — Create a Food token.\n-2 — Sacrifice a Food. If you do, target creature gets -3/-3 until end of turn.\n-6 — Until end of turn, whenever a creature dies, each opponent loses 1 life. Sacrifice all Food you control. Each creature gets -3/-3 until end of turn for each Food sacrificed this way. Each opponent loses 1 life for each Food token sacrificed this way.

@@ -1,0 +1,7 @@
+Name:Rollercoaster of Emotions
+ManaCost:2 U B
+Types:Enchantment Saga
+K:Chapter:2:Distribute,Redistribute
+SVar:Distribute:DB$ PutCounter | ValidTgts$ Creature | CounterType$ P1P1 | CounterNum$ 3 | TargetMin$ 1 | TargetMax$ 3 | DividedAsYouChoose$ 3 | SpellDescription$ Distribute three +1/+1 counters among creatures.
+SVar:Redistribute:DB$ MoveCounter | RedistributeEachCounter$ True | SpellDescription$ Choose an individual cross-controller destination for every original counter, then move them simultaneously.
+Oracle:I — Distribute three +1/+1 counters among any number of creatures.\nII — For each counter on each creature, choose a creature controlled by a player other than that creature’s controller, if able. Move each counter onto the creature chosen for it simultaneously.

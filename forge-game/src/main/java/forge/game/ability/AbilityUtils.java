@@ -212,6 +212,17 @@ public class AbilityUtils {
             } else if (crd instanceof Iterable<?>) {
                 cards.addAll(IterableUtil.filter((Iterable<?>) crd, Card.class));
             }
+        } else if (defined.equals("BondPartner") && sa instanceof SpellAbility) {
+            Object target = ((SpellAbility) sa).getRootAbility().getTriggeringObject(AbilityKey.Target);
+            for (Object object : hostCard.getRemembered()) {
+                if (object instanceof Card remembered) {
+                    Card current = game.getCardState(remembered);
+                    if (current != null && current.isInPlay() && current.equalsWithGameTimestamp(remembered)
+                            && !(target instanceof Card && current.equalsWithGameTimestamp((Card) target))) {
+                        cards.add(current);
+                    }
+                }
+            }
         } else if (defined.equals("Remembered") || defined.equals("RememberedCard")) {
             if (!hostCard.hasRemembered()) {
                 final Card newCard = game.getCardState(hostCard);
@@ -2073,6 +2084,9 @@ public class AbilityUtils {
             return doXMath(calculateAmount(c, sq[c.isOptionalCostPaid(OptionalCost.AltCost) ? 1 : 2], ctb), expr, c, ctb);
         }
 
+        if (sq[0].equals("YourCastsOfSourceNameThisGame")) {
+            return doXMath(player.getSpellsCastNamedThisGame(c.getName()), expr, c, ctb);
+        }
         if (sq[0].equals("CardDrunkenTolerance")) {
             return doXMath(forge.game.ChaosBrawlRules.drunkenTolerance(c), expr, c, ctb);
         }

@@ -1,0 +1,25 @@
+Name:Friend or Foe
+ManaCost:1 U B
+Types:Sorcery
+A:SP$ ChoosePlayer | Choices$ Opponent | RememberChosen$ True | SubAbility$ Choice | SpellDescription$ Choose an opponent. That player chooses friend or foe.
+SVar:Choice:DB$ GenericChoice | Defined$ RememberedPlayer | Choices$ Friend,Foe | AILogic$ Random | SubAbility$ Clear
+SVar:Friend:DB$ Draw | Defined$ You | NumCards$ 3 | SubAbility$ FriendDraw | SpellDescription$ Friend — caster draws three, you draw one, both lose two life.
+SVar:FriendDraw:DB$ Draw | Defined$ RememberedPlayer | NumCards$ 1 | SubAbility$ FriendLife
+SVar:FriendLife:DB$ LoseLife | Defined$ You & RememberedPlayer | LifeAmount$ 2
+SVar:Foe:DB$ RollDice | Defined$ You | Sides$ 20 | ResultSVar$ YouRoll | SubAbility$ TheirRoll | SpellDescription$ Foe — each rolls a d20, with the approved three-point advantage and critical-20 rules.
+SVar:TheirRoll:DB$ RollDice | Defined$ RememberedPlayer | Sides$ 20 | ResultSVar$ OppRoll | SubAbility$ YouCritical
+SVar:YouCritical:DB$ Branch | BranchConditionSVar$ YouRoll | BranchConditionSVarCompare$ EQ20 | TrueSubAbility$ YouFour | FalseSubAbility$ OtherCritical
+SVar:YouFour:DB$ Draw | Defined$ You | NumCards$ 4 | SubAbility$ YouSix
+SVar:YouSix:DB$ LoseLife | Defined$ You | LifeAmount$ 6 | SubAbility$ OtherAfterCritical
+SVar:OtherAfterCritical:DB$ Branch | BranchConditionSVar$ OppRoll | BranchConditionSVarCompare$ EQ20 | TrueSubAbility$ OtherFour
+SVar:OtherCritical:DB$ Branch | BranchConditionSVar$ OppRoll | BranchConditionSVarCompare$ EQ20 | TrueSubAbility$ OtherFour | FalseSubAbility$ Compare
+SVar:OtherFour:DB$ Draw | Defined$ RememberedPlayer | NumCards$ 4 | SubAbility$ OtherSix
+SVar:OtherSix:DB$ LoseLife | Defined$ RememberedPlayer | LifeAmount$ 6
+SVar:Compare:DB$ Branch | BranchConditionSVar$ Difference | BranchConditionSVarCompare$ GE3 | TrueSubAbility$ OtherTwo | FalseSubAbility$ YouTwo
+SVar:Difference:SVar$OppRoll/Minus.YouRoll
+SVar:OtherTwo:DB$ Draw | Defined$ RememberedPlayer | NumCards$ 2 | SubAbility$ OtherFourLife
+SVar:OtherFourLife:DB$ LoseLife | Defined$ RememberedPlayer | LifeAmount$ 4
+SVar:YouTwo:DB$ Draw | Defined$ You | NumCards$ 2 | SubAbility$ YouFourLife
+SVar:YouFourLife:DB$ LoseLife | Defined$ You | LifeAmount$ 4
+SVar:Clear:DB$ Cleanup | ClearRemembered$ True
+Oracle:Choose an opponent. That player chooses friend or foe.\nFriend — You draw three cards and that player draws a card. You and that player each lose 2 life.\nFoe — You and that player each roll a d20. If one or more players roll a 20, each player who rolled a 20 draws four cards and loses 6 life. Otherwise, if that player’s result is at least 3 greater than yours, they draw two cards and lose 4 life. Otherwise, you draw two cards and lose 4 life.

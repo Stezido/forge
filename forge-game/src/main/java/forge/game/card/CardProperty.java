@@ -1862,6 +1862,12 @@ public class CardProperty {
             if (!card.isPrepared()) {
                 return false;
             }
+        } else if (property.equals("IsTriggeredTarget")) {
+            if (!(spellAbility instanceof SpellAbility)) {
+                return false;
+            }
+            Object target = ((SpellAbility) spellAbility).getRootAbility().getTriggeringObject(AbilityKey.Target);
+            return target instanceof Card && card.equalsWithGameTimestamp((Card) target);
         } else if (property.equals("IsRemembered")) {
             if (!source.isRemembered(card)) {
                 return false;

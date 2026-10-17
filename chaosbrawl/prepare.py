@@ -48,7 +48,7 @@ def main():
     subprocess.run([sys.executable, str(website/'scripts/import-mse.py'), '--variant', pinned['variant'],
                     '--output', str(current), '--metadata-only'], check=True)
     live = {c['id']:c for c in json.loads(current.read_text())}
-    cards = []
+    cards_by_id = {}
     documents = []
     pending = set()
     token_bindings = {}
@@ -56,9 +56,15 @@ def main():
     for previous in batches:
         document = json.loads(previous.read_text())
         documents.append(document)
-        cards.extend(document['cards'])
+        for card in document['cards']:
+            previous_card = cards_by_id.get(card['id'])
+            if previous_card and previous_card['nativeUid'] != card['nativeUid']:
+                raise ValueError('A later batch reassigned a native identity: '+card['id'])
+            cards_by_id[card['id']] = card
         pending.update(document.get('pendingCardIds', []))
+        pending.difference_update(document.get('resolvedCardIds', []))
         token_bindings.update(document.get('tokenBindings', {}))
+    cards = [cards_by_id[cid] for cid in sorted(cards_by_id)]
     for card in cards:
         expected = {k:v for k,v in card.items() if k != 'nativeUid'}
         if live.get(card['id']) != expected:

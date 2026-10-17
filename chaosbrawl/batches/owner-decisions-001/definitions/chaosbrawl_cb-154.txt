@@ -1,0 +1,9 @@
+Name:Wedding Ring
+ManaCost:2
+Types:Artifact Equipment
+K:Equip:2
+T:Mode$ Attached | TriggerZones$ Battlefield | ValidSource$ Card.Self | ValidTarget$ Creature | Execute$ Bond | TriggerDescription$ Whenever CARDNAME becomes attached, bond it with another target creature while it stays attached.
+SVar:Bond:DB$ Effect | ValidTgts$ Creature.!IsTriggeredTarget | RememberObjects$ TriggeredTarget & Targeted | Duration$ UntilUnattached | RequireAttachmentFromTrigger$ True | Triggers$ CopyTrigger | SpellDescription$ Bond these two creatures while CARDNAME remains attached.
+SVar:CopyTrigger:Mode$ BecomesTarget | TriggerZones$ Command | ValidTarget$ Creature.IsRemembered | IsSingleTarget$ True | NonCopy$ True | Execute$ Copy | OptionalDecider$ You | TriggerDescription$ You may copy this single-target noncopy spell or ability onto the other bonded creature.
+SVar:Copy:DB$ CopySpellAbility | Defined$ TriggeredSourceSA | DefinedTarget$ BondPartner
+Oracle:Whenever Wedding Ring becomes attached to a creature, choose another target creature. Those creatures are bonded for as long as Wedding Ring remains attached to the first creature.\nWhenever a spell or ability that isn’t a copy targets only one of the bonded creatures and no other objects or players, you may copy that spell or ability. The copy targets the other bonded creature.\nEquip {2}

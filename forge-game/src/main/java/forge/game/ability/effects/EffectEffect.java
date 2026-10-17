@@ -53,6 +53,16 @@ public class EffectEffect extends SpellAbilityEffect {
         String noteCounterDefined = null;
         final String duration = sa.getParam("Duration");
 
+        if (sa.hasParam("RequireAttachmentFromTrigger")) {
+            Object target = sa.getRootAbility().getTriggeringObject(AbilityKey.Target);
+            Object timestamp = sa.getRootAbility().getTriggeringObject(AbilityKey.AttachmentTimestamp);
+            if (!(target instanceof Card) || !(timestamp instanceof Long)
+                    || !hostCard.isInPlay() || !hostCard.isAttachedToEntity((Card) target)
+                    || hostCard.getLayerTimestamp() != (Long) timestamp) {
+                return;
+            }
+        }
+
         if (!checkValidDuration(duration, sa)) {
             return;
         }

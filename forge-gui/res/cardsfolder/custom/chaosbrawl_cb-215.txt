@@ -1,0 +1,16 @@
+Name:Tavern Slot Machine
+ManaCost:1
+Types:Artifact
+A:AB$ RollDice | Cost$ 3 T | Sides$ 20 | ResultSubAbilities$ 1:Beer,2:Beer,3:Beer,4:Beer,5:Beer,6:Beer,7:Beer,8:Food,9:Food,10:Food,11:Food,12:Food,13:Food,14:Treasure,15:Treasure,16:Treasure,17:Treasure,18:Treasure,19:Treasure,20:Twenty | SpellDescription$ Roll a d20 and get its result.
+SVar:Beer:DB$ Token | TokenScript$ chaosbrawl_beer
+SVar:Food:DB$ Token | TokenScript$ c_a_food_sac
+SVar:Treasure:DB$ Token | TokenScript$ c_a_treasure_sac
+SVar:Twenty:DB$ Token | TokenScript$ chaosbrawl_beer | SubAbility$ TwentyFood
+SVar:TwentyFood:DB$ Token | TokenScript$ c_a_food_sac | SubAbility$ TwentyTreasure
+SVar:TwentyTreasure:DB$ Token | TokenScript$ c_a_treasure_sac | SubAbility$ Sac
+SVar:Sac:DB$ Sacrifice | Defined$ Self | Optional$ True | RememberSacrificed$ True | SubAbility$ Trigger
+SVar:Trigger:DB$ ImmediateTrigger | TriggerAmount$ Remembered$Amount | Execute$ Damage | TriggerDescription$ CARDNAME deals damage equal to your artifact token count to any target. | SubAbility$ Clear
+SVar:Damage:DB$ DealDamage | ValidTgts$ Any | NumDmg$ X
+SVar:X:Count$Valid Artifact.token+YouCtrl
+SVar:Clear:DB$ Cleanup | ClearRemembered$ True
+Oracle:{3}, {T}: Roll a d20.\n1–7 | Create a Beer token.\n8–13 | Create a Food token.\n14–19 | Create a Treasure token.\n20 | Create a Beer token, a Food token, and a Treasure token. Then you may sacrifice Tavern Slot Machine. When you do, it deals damage equal to the number of artifact tokens you control to any target.

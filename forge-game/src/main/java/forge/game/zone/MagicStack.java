@@ -325,7 +325,7 @@ public class MagicStack /* extends MyObservable */ implements Iterable<SpellAbil
             final Card lki = sp.equals(source.getCastSA()) ? source.getCastSA().getHostCard() : CardCopyService.getLKICopy(source);
             runParams.put(AbilityKey.CardLKI, lki);
             thisTurnCast.add(sp.equals(source.getCastSA()) ? source.getCastSA() : sp.copy(lki, true));
-            sp.getActivatingPlayer().addSpellCastThisTurn();
+            sp.getActivatingPlayer().addSpellCastThisTurn(source);
             // The view's storm count was taken when the spell was pushed, before this cast was counted
             game.updateStackForView();
 

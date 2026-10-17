@@ -104,6 +104,7 @@ public class Player extends GameEntity implements Comparable<Player> {
     private int landsPlayedLastTurn;
     private int numPowerSurgeLands;
     private int spellsCastThisGame;
+    private final Map<String, Integer> spellsCastByNameThisGame = new java.util.HashMap<>();
     private int spellsCastLastTurn;
     private List<Card> spellsCastSinceBeginningOfLastTurn = Lists.newArrayList();
     private int investigatedThisTurn;
@@ -2328,8 +2329,21 @@ public class Player extends GameEntity implements Comparable<Player> {
     public final int getSpellsCastThisGame() {
         return spellsCastThisGame;
     }
+    public final void addSpellCastThisTurn(Card card) {
+        addSpellCastThisTurn();
+        spellsCastByNameThisGame.merge(card.getName(), 1, Integer::sum);
+    }
+    public final int getSpellsCastNamedThisGame(String name) {
+        return spellsCastByNameThisGame.getOrDefault(name, 0);
+    }
+    public final void copyNamedCastHistory(Player original) {
+        spellsCastByNameThisGame.clear();
+        spellsCastByNameThisGame.putAll(original.spellsCastByNameThisGame);
+    }
+
     public final void resetSpellCastThisGame() {
         spellsCastThisGame = 0;
+        spellsCastByNameThisGame.clear();
     }
 
     public final int getLifeGainedByTeamThisTurn() {

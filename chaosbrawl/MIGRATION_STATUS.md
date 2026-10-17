@@ -1,3 +1,11 @@
+# Owner decisions — active implementation
+
+The complete clear-card baseline is preserved in private PR #7 at 843002aa (416 passing checks, build/native images/37 decks/AI game). This new branch uses owner-approved Beta source eb0e173645acc362e54f903368b5d5c2fca2686192b79778c3da6af76ab1e097 from website commit 35fff53.
+
+Eight clarified definitions are drafted: Wedding Ring, Just Do it, Annoying Running Gag, Friend or Foe, Tavern Slot Machine, Culinary Disaster, Rollercoaster of Emotions (each counter independently), Hofi. All 424 current checks pass, including the eight new source comparisons; new behavior/payment/timing checks remain pending. Source metadata overlay preserves historical pins and native UIDs. The Wedding Ring Beta definition is isolated from its official namesake.
+
+Moshpit immediate-only behavior is confirmed; exact priority-window wording awaits approval. Gastronomic Downfall still awaits chapter III. No placeholder card is loaded for either. Build/preparation/smoke for this branch are pending.
+
 # Beta migration — verified baseline through cb-311
 
 Canonical source: website PR #50, registered development Beta MSE, SHA-256 81e36272d3d2fc4308dc4d65c54be779944733010ed44ba167acd34c82da15ef. Alpha remains published. No unapproved wording was edited.

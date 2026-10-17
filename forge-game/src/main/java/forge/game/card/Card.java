@@ -3968,6 +3968,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
         final Map<AbilityKey, Object> runParams = AbilityKey.newMap();
         runParams.put(AbilityKey.AttachSource, this);
         runParams.put(AbilityKey.AttachTarget, entity);
+        runParams.put(AbilityKey.AttachmentTimestamp, getLayerTimestamp());
         getController().getGame().getTriggerHandler().runTrigger(TriggerType.Attached, runParams, false);
 
         if (hasKeyword(Keyword.RECONFIGURE)) {

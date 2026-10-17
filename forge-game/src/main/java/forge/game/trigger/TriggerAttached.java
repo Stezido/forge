@@ -73,6 +73,7 @@ public class TriggerAttached extends Trigger {
     public final void setTriggeringObjects(final SpellAbility sa, Map<AbilityKey, Object> runParams) {
         sa.setTriggeringObject(AbilityKey.Source, runParams.get(AbilityKey.AttachSource));
         sa.setTriggeringObject(AbilityKey.Target, runParams.get(AbilityKey.AttachTarget));
+        sa.setTriggeringObjectsFrom(runParams, AbilityKey.AttachmentTimestamp);
     }
 
     @Override

@@ -55,6 +55,14 @@ public class TriggerBecomesTarget extends Trigger {
      * @param runParams*/
     @Override
     public final boolean performTest(final Map<AbilityKey, Object> runParams) {
+        SpellAbility source = (SpellAbility) runParams.get(AbilityKey.SourceSA);
+        if (hasParam("NonCopy") && source.getRootAbility().isCopied()) {
+            return false;
+        }
+        if (hasParam("IsSingleTarget") && source.getRootAbility().getAllTargetChoices().stream()
+                .mapToInt(forge.game.spellability.TargetChoices::size).sum() != 1) {
+            return false;
+        }
         if (!matchesValidParam("ValidSource", runParams.get(AbilityKey.SourceSA))) {
             return false;
         }

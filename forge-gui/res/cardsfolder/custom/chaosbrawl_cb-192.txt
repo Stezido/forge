@@ -1,0 +1,12 @@
+Name:Annoying Running Gag
+ManaCost:3 R
+Types:Instant
+T:Mode$ Drawn | TriggerZones$ Hand | ValidCard$ Card.Self | ValidPlayer$ You | IsPresent$ Land.YouCtrl | PresentCompare$ GE4 | ForReveal$ True | Execute$ Reveal | TriggerDescription$ When you draw CARDNAME with four lands, reveal and cast it without paying its mana cost if able.
+SVar:Reveal:DB$ Reveal | Defined$ You | RevealDefined$ Self | SubAbility$ Cast
+SVar:Cast:DB$ Play | Defined$ Self | ValidSA$ Spell | WithoutManaCost$ True
+A:SP$ Draw | NumCards$ 3 | SubAbility$ Discard | SpellDescription$ Draw three cards, discard for each spell named CARDNAME you have cast this game, then shuffle this into its owner's library.
+SVar:Discard:DB$ Discard | Defined$ You | Mode$ TgtChoose | NumCards$ X | SubAbility$ Library
+SVar:X:Count$YourCastsOfSourceNameThisGame
+SVar:Library:DB$ ChangeZone | Defined$ Self | Origin$ Stack | Destination$ Library | LibraryPosition$ 0 | SubAbility$ Shuffle
+SVar:Shuffle:DB$ Shuffle | Defined$ You
+Oracle:When you draw Annoying Running Gag, if you control four or more lands, reveal it and cast it without paying its mana cost if able.\nDraw three cards, then discard X cards, where X is the number of spells named Annoying Running Gag you’ve cast this game.\nShuffle Annoying Running Gag into its owner’s library.

@@ -193,6 +193,7 @@ public class GameSnapshot {
         for (int j = 0; j < origPlayer.getSpellsCastThisTurn(); j++) {
             newPlayer.addSpellCastThisTurn();
         }
+        newPlayer.copyNamedCastHistory(origPlayer);
         newPlayer.setMaxHandSize(origPlayer.getMaxHandSize());
         newPlayer.setUnlimitedHandSize(origPlayer.isUnlimitedHandSize());
         newPlayer.setCrankCounter(origPlayer.getCrankCounter());
