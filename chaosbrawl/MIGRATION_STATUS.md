@@ -1,3 +1,5 @@
+Windows release preparation saved at owner-requested pause. Full 314-record migration is complete and pushed on PR #8. New packaging branch has a detailed WINDOWS_RELEASE_HANDOFF.md and checksum-verified Windows JRE pin; no distributable, native Windows test or deployment exists yet. Website issue #43 closed; #34 updated.
+
 # Chaos Brawl Beta — all 314 source records implemented
 
 Private review branch: `chaosbrawl/beta-owner-decisions-001`, [PR #8](https://github.com/Stezido/Chaosbrawl-Forge/pull/8), based on the preserved seven-batch PR stack. Canonical source: website [PR #50](https://github.com/Stezido/Chaosbrawl-Website/pull/50). Exact source commit/hash and executable hashes are pinned in `batches/owner-decisions-001/{source,scripts}.json`.
