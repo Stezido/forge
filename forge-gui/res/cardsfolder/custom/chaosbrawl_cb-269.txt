@@ -1,0 +1,8 @@
+Name:Moshpit
+ManaCost:1 R R
+Types:Sorcery
+A:SP$ Effect | Triggers$ Death | SubAbility$ Sweep | SpellDescription$ Until end of turn, every creature death makes CARDNAME deal 1 damage to its controller. CARDNAME deals 2 damage to each creature.
+SVar:Death:Mode$ ChangesZone | TriggerZones$ Command | Origin$ Battlefield | Destination$ Graveyard | ValidCard$ Creature | Execute$ DeathDamage | TriggerDescription$ Whenever a creature dies this turn, CARDNAME deals 1 damage to that creature's controller.
+SVar:DeathDamage:DB$ DealDamage | Defined$ TriggeredCardController | DamageSource$ EffectSource | NumDmg$ 1
+SVar:Sweep:DB$ DamageAll | ValidCards$ Creature | NumDmg$ 2
+Oracle:Until end of turn, whenever a creature dies, Moshpit deals 1 damage to that creature’s controller. Moshpit deals 2 damage to each creature.

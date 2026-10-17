@@ -458,6 +458,8 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Shut up", 3, "", "", "Enchant creature\nEnchanted creature loses all abilities and can\u2019t attack.", "Enchantment \u2014 Aura", "W"},
             {"MAGAZIN!", 3, "", "", "Exile the top two cards of your library. Until the end of your next turn, you may play those cards.", "Sorcery", "R"},
             {"Magical Bucket Pump", 1, "", "", "Equipped creature has \u201c{T}: Tap target creature.\u201d\nEquip {2}", "Artifact \u2014 Equipemnt", ""},
+            {"Gastronomic Downfall", 5, "", "", "I, II \u2014 Distribute two -1/-1 counters among one or two target creatures.\nIII \u2014 Remove all counters from all creatures. Gastronomic Downfall deals damage equal to the total number of counters removed this way to any target.", "Enchantment \u2014 Saga", "B"},
+            {"Moshpit", 3, "", "", "Until end of turn, whenever a creature dies, Moshpit deals 1 damage to that creature\u2019s controller. Moshpit deals 2 damage to each creature.", "Sorcery", "R"},
             {"Wedding Ring", 2, "", "", "Whenever Wedding Ring becomes attached to a creature, choose another target creature. Those creatures are bonded for as long as Wedding Ring remains attached to the first creature.\nWhenever a spell or ability that isn\u2019t a copy targets only one of the bonded creatures and no other objects or players, you may copy that spell or ability. The copy targets the other bonded creature.\nEquip {2}", "Artifact \u2014 Equipment", ""},
             {"Unpleasant Surprise", 3, "", "", "Return target creature to its owner\u2019s hand. Its controller loses 3 life unless they sacrifice a nonland permanent or discard a card.", "Instant", "UB"},
             {"Dungeon Master", 4, "3", "5", "At the beginning of your upkeep, roll a d20.\n1\u20135 | Create a Treasure token.\n6\u201315 | Create a Beer token.\n16\u201319 | Draw a card.\n20 | You may cast a spell from your hand without paying its mana cost.", "Creature \u2014 Human, Wizard", "WU"},
@@ -581,7 +583,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Fr\u00fchshoppen", 2, "", "", "I \u2014 Create a Food token.\nII \u2014 Create a Beer Token\nIII \u2014 For each Food or Beer you control, put a +1/+1 counter on target creature.", "Enchantment \u2014 Saga", "G"},
             {"A Week of Excess", 7, "", "", "I \u2014 Mill 7 cards. Put any number of creatures that were milled this way onto the battlefield under your control. Those creatures gain haste until end of turn.\nII \u2014 Put two Drunken counters on each creature you control.\nIII \u2014 Double all Drunken counters on creatures you control.", "Enchantment \u2014 Saga", "WUBRG"},
             {"Kiss of Poseidon", 3, "", "", "I \u2014 Mill four cards.\nII \u2014 Choose an instant or sorcery card from your graveyard and put it into your hand.\nIII \u2014 You may return a creature to its owner\u2019s hand. If it\u2019s one of your creatures, draw a card.", "Enchantment \u2014 Saga", "U"},
-            {"Rollercoaster of Emotions", 4, "", "", "I \u2014 Distribute three +1/+1 counters among any number of creatures.\nII \u2014 For each counter on each creature, choose a creature controlled by a player other than that creature\u2019s controller, if able. Move each counter onto the creature chosen for it simultaneously.", "Enchantment \u2014 Saga", "UB"},
+            {"Rollercoaster of Emotions", 4, "", "", "I, III \u2014 Distribute three +1/+1 counters among any number of creatures.\nII, IV \u2014 For each counter on each creature, choose a creature controlled by a player other than that creature\u2019s controller, if able. Move each counter onto the creature chosen for it simultaneously.", "Enchantment \u2014 Saga", "UB"},
             {"Hofi, the Fragrant", 4, "", "", "+2 \u2014 Create a Food token.\n-2 \u2014 Sacrifice a Food. If you do, target creature gets -3/-3 until end of turn.\n-6 \u2014 Until end of turn, whenever a creature dies, each opponent loses 1 life. Sacrifice all Food you control. Each creature gets -3/-3 until end of turn for each Food sacrificed this way. Each opponent loses 1 life for each Food token sacrificed this way.", "Legendary Planeswalker \u2014 Hofi", "BG"},
             {"Peter, the Manipulative", 3, "", "", " \u2014 Whenever a player attacks with one or more obsessed creatures, draw a card.\n+1 \u2014 Obsess target creature.\n-8 \u2014 You get an emblem with \u201cWhenever you obsess a creature, take control of it.\u201d", "Legendary Planeswalker \u2014 Peter", "UR"},
             {"Sasa, the Big Brother", 4, "", "", " \u2014 Whenever a Gnome you control dies, put a\n\u201cLost Family\u201d counter on Sasa, the Big Brother.\n+2 \u2014 Target opponent loses 1 life and you gain 1 life. Put a \u201cLost Family\u201d counter on Sasa.\n-2 \u2014 Create a 2/2 black Gnome creature token named \u201cAnother Brother.\u201d\n-6 \u2014 Remove all \u201cLost Family\u201d counters from Sasa. Create that many 4/4 black Gnome creature tokens with haste named the \u201cVengeful Gnome Pack\u201d.", "Legendary Planeswalker \u2014 Sasa", "WB"},
@@ -2457,7 +2459,8 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     private Card bond(Game game, Player p, Card a, Card b) {
-        Card ring = enter("Wedding Ring", p); ring.attachToEntity(a, null);
+        Card ring = enter("Wedding Ring", p); game.getTriggerHandler().suppressMode(TriggerType.Attached);
+        ring.attachToEntity(a, null); game.getTriggerHandler().clearSuppression(TriggerType.Attached);
         SpellAbility bond = db(ring, "Bond"); bond.setTriggeringObject(AbilityKey.Target, a);
         bond.setTriggeringObject(AbilityKey.AttachmentTimestamp, ring.getLayerTimestamp()); bond.getTargets().add(b);
         AbilityUtils.resolve(bond); return ring;
@@ -2495,6 +2498,90 @@ public class ChaosBrawlTest extends SimulationTest {
         assertEquals(p.getCardsIn(ZoneType.Hand).size(), 3); assertEquals(p.getSpellsCastNamedThisGame("Annoying Running Gag"), 2);
         Card otherSpell = createCard("Annoying Running Gag", p); SpellAbility copy = otherSpell.getFirstSpellAbility(); copy.setActivatingPlayer(p); copy.setCopied(true); game.getStack().add(copy);
         assertEquals(p.getSpellsCastNamedThisGame("Annoying Running Gag"), 2);
+    }
+
+    @Test
+    public void weddingRingCopiesAnActualSpellToTheOtherBondedCreatureExactlyOnce() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card a = addCard("Couchpotato", p), b = addCard("Couchpotato", p); bond(game, p, a, b);
+        PlayerController choices = spy(p.getController()); doReturn(true).when(choices).confirmAction(any(), any(), anyString(), any()); doReturn(true).when(choices).confirmTrigger(any()); p.dangerouslySetController(choices);
+        Card hand = addCardToZone("Giant Growth", p, ZoneType.Hand); SpellAbility cast = hand.getFirstSpellAbility(); cast.setActivatingPlayer(p); cast.getTargets().add(a);
+        cast.setHostCard(game.getAction().moveToStack(hand, cast)); game.getTriggerHandler().resetActiveTriggers(); game.getStack().add(cast); resolveTriggers(game);
+        assertEquals(a.getNetPower(), 3); assertEquals(b.getNetPower(), 3);
+        assertEquals(a.getNetToughness(), 7); assertEquals(b.getNetToughness(), 7);
+    }
+
+    @Test
+    public void weddingRingCopiesAnActivatedAbilityAndExcludesCopiesAndMultipleObjects() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card a = addCard("Couchpotato", p), b = addCard("Couchpotato", p); bond(game, p, a, b);
+        Card effect = game.getCardsIn(ZoneType.Command).stream().filter(Card::hasRemembered).findFirst().orElseThrow();
+        SpellAbility ability = AbilityFactory.getAbility("AB$ PutCounter | Cost$ 0 | ValidTgts$ Creature | CounterType$ STUN | CounterNum$ 1", addCard("Forest", p));
+        ability.setActivatingPlayer(p); ability.getTargets().add(a);
+        java.util.Map<AbilityKey, Object> event = AbilityKey.newMap(); event.put(AbilityKey.SourceSA, ability); event.put(AbilityKey.Target, a);
+        assertTrue(effect.getTriggers().get(0).performTest(event));
+        ability.setCopied(true); assertFalse(effect.getTriggers().get(0).performTest(event)); ability.setCopied(false);
+        ability.getTargets().add(b); assertFalse(effect.getTriggers().get(0).performTest(event)); ability.getTargets().remove(b);
+        PlayerController choices = spy(p.getController()); doReturn(true).when(choices).confirmAction(any(), any(), anyString(), any()); doReturn(true).when(choices).confirmTrigger(any()); p.dangerouslySetController(choices);
+        game.getTriggerHandler().resetActiveTriggers(); game.getStack().add(ability); resolveTriggers(game);
+        assertEquals(a.getCounters(CounterEnumType.STUN), 1); assertEquals(b.getCounters(CounterEnumType.STUN), 1);
+    }
+
+    @Test
+    public void officialWeddingRingRemainsItsFourManaNonEquipmentPrinting() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        forge.item.PaperCard printing = forge.StaticData.instance().getCommonCards().getAllCards("Wedding Ring").stream()
+                .filter(c -> !c.getEdition().equals("CBT")).findFirst().orElseThrow();
+        Card official = Card.fromPaperCard(printing, p), beta = createCard("Wedding Ring", p);
+        assertEquals(official.getManaCost().getCMC(), 4); assertFalse(official.getType().hasSubtype("Equipment"));
+        assertEquals(beta.getManaCost().getCMC(), 2); assertTrue(beta.getType().hasSubtype("Equipment"));
+    }
+
+    @Test
+    public void rollercoasterHasFourChaptersAndRepeatsBothApprovedEffects() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card creature = addCard("Couchpotato", p); PlayerController choices = spy(p.getController());
+        doAnswer(i -> { SpellAbility a = i.getArgument(0); a.getTargets().add(creature); a.addDividedAllocation(creature, 3); return true; }).when(choices).chooseTargetsFor(any()); p.dangerouslySetController(choices);
+        Card saga = enter("Rollercoaster of Emotions", p); resolveTriggers(game); assertEquals(creature.getCounters(CounterEnumType.P1P1), 3);
+        counters(saga, CounterEnumType.LORE, 1); resolveTriggers(game); assertTrue(saga.isInPlay());
+        counters(saga, CounterEnumType.LORE, 1); resolveTriggers(game); assertEquals(creature.getCounters(CounterEnumType.P1P1), 6); assertTrue(saga.isInPlay());
+        counters(saga, CounterEnumType.LORE, 1); resolveTriggers(game); game.getAction().checkStateEffects(true); assertTrue(saga.isInZone(ZoneType.Graveyard));
+    }
+
+    @Test
+    public void slotMachineUsesThreeManaAndTapForEachNormalPrizeBand() {
+        for (int roll : new int[] {1,7,8,13,14,19}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0);
+            Card machine = enter("Tavern Slot Machine", p); for (int n = 0; n < 3; n++) addCard("Forest", p);
+            SpellAbility activation = machine.getSpellAbilities().stream().filter(a -> a.getApi() == ApiType.RollDice).findFirst().orElseThrow(); activation.setActivatingPlayer(p);
+            withDice(new int[] {roll}, () -> assertTrue(ComputerUtil.playNoStack(p, activation, game, false)));
+            assertTrue(machine.isTapped()); assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.isLand() && c.isTapped()).count(), 3L);
+            Card prize = p.getCardsIn(ZoneType.Battlefield).stream().filter(Card::isToken).findFirst().orElseThrow();
+            assertTrue(prize.getType().hasSubtype(roll < 8 ? "Beer" : roll < 14 ? "Food" : "Treasure"));
+            assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(Card::isToken).count(), 1L);
+        }
+    }
+
+    @Test
+    public void justDoItRollOneSacrificesNothingAndRollFiveSacrificesExactlyTwo() {
+        for (int roll : new int[] {1,5}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0); for (int n = 0; n < 5; n++) addCard("Mountain", p);
+            for (int n = 0; n < 8; n++) addCardToZone("Swamp", p, ZoneType.Library);
+            withDice(new int[] {roll}, () -> AbilityUtils.resolve(spell("Just Do it", p)));
+            assertEquals(p.getCardsIn(ZoneType.Graveyard).size(), roll / 2); assertEquals(p.getCardsIn(ZoneType.Library).size(), 8 - roll / 2);
+        }
+    }
+
+    @Test
+    public void annoyingRunningGagOnlyAutocastsWhenDrawnWithAtLeastFourLands() {
+        for (int lands : new int[] {3,4}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0); for (int n = 0; n < lands; n++) addCard("Mountain", p);
+            Card gag = addCardToZone("Annoying Running Gag", p, ZoneType.Library);
+            for (int n = 0; n < 8; n++) addCardToZone("Island", p, ZoneType.Library);
+            assertEquals(p.getCardsIn(ZoneType.Library).getFirst(), gag);
+            game.getTriggerHandler().resetActiveTriggers(); p.drawCard(); resolveTriggers(game);
+            assertEquals(p.getSpellsCastNamedThisGame("Annoying Running Gag"), lands == 4 ? 1 : 0);
+        }
     }
 
 }

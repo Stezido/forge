@@ -941,7 +941,7 @@ public class AbilityUtils {
         sa = adjustTriggerContext(incR, sa);
         String defined = incR[0];
 
-        if (defined.equals("Self") || defined.equals("TargetedCard") || defined.equals("ThisTargetedCard")
+        if (defined.equals("Self") || defined.equals("BondPartner") || defined.equals("TargetedCard") || defined.equals("ThisTargetedCard")
                 || defined.equals("Convoked")
                 || defined.startsWith("Valid") || getPaidCards(sa, incR[0]) != null || defined.equals("TargetedSource")
                 || defined.startsWith("CardUID_")) {

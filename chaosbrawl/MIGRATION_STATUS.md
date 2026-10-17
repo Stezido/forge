@@ -1,3 +1,5 @@
+Checkpoint: all 311 records now have draft definitions/bindings, including confirmed native Gastronomic I/II and III, and approved all-creature Moshpit deaths until end of turn. Previous 449-check run had two Wedding Ring copy failures; tests exposed the new card-only BondPartner selector also being treated as a player. Added it to the existing cards-only selector exclusion; rerun and two final-card behavior checks pending. Saga native I/III and II/IV mapping is now preserved.
+
 Checkpoint: 442 checks exercised; 441 pass. Final failure is the new Hofi end-of-turn test fixture (active-trigger refresh after manually expiring effects); fix drafted, rerun pending. Native render review uncovered Saga chapter-to-textbox mapping: Rollercoaster has I/III and II/IV, and Gastronomic already has a valid III. Earlier missing-chapter question was an importer error; owner informed and native-fidelity confirmation requested.
 
 # Owner decisions — active implementation

@@ -273,12 +273,14 @@ Type=Custom_Set
 266 U Pushy Pourer
 267 U Professional Drunk
 268 U Brawl Enthusiast
+269 U Moshpit
 270 C Brawl Encourager
 271 C Server Veteran
 272 C Questionable First Responder
 273 R Keeper’s Lucky Mascot
 274 R Wandering Culinarian
 278 U Frühshoppen
+279 U Gastronomic Downfall
 280 M A Week of Excess
 281 U Kiss of Poseidon
 282 R Rollercoaster of Emotions
