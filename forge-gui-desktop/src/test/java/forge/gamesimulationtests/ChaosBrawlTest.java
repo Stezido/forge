@@ -2258,4 +2258,46 @@ public class ChaosBrawlTest extends SimulationTest {
         assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.isToken() && c.getType().hasSubtype("Food")).count(), 2L);
     }
 
+    @Test
+    public void summonTheSquadFindsAllFourCommaNamedCards() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        for (String name : new String[] {"Marlene, the Leader", "Robin, the Pusher", "Max, the Sniper", "Tobias, the Grenadier"}) addCardToZone(name, p, ZoneType.Library);
+        AbilityUtils.resolve(spell("Summon the Squad", p)); game.getAction().checkStaticAbilities();
+        assertEquals(p.getCreaturesInPlay().size(), 4); assertEquals(p.getCardsIn(ZoneType.Library).size(), 0);
+        Card leader = p.getCreaturesInPlay().stream().filter(c -> c.getName().equals("Marlene, the Leader")).findFirst().orElseThrow();
+        assertEquals(leader.getNetPower(), 5); assertEquals(leader.getNetToughness(), 2);
+    }
+
+    @Test
+    public void designatedDriverWithOnePowerActuallyPaysCrewThreeAlone() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card driver = addCard("Designated Driver", p), vehicle = addCard("Pumpkin Catapult", p); driver.setSickness(false);
+        resolveEffect("DB$ Token | TokenScript$ chaosbrawl_beer | TokenAmount$ 5", driver); game.getAction().checkStaticAbilities();
+        assertEquals(driver.getNetPower(), 1);
+        SpellAbility crew = vehicle.getSpellAbilities().stream().filter(SpellAbility::isCrew).findFirst().orElseThrow(); crew.setActivatingPlayer(p);
+        assertTrue(ComputerUtil.playNoStack(p, crew, game, false)); assertTrue(driver.isTapped()); assertTrue(vehicle.isCreature());
+    }
+
+    @Test
+    public void inventionPrivatelyLooksAtBothLibrariesWithoutMovingOrSwappingCards() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card top = addCardToZone("Forest", p, ZoneType.Library), theirs = addCardToZone("Swamp", other, ZoneType.Library);
+        Card invention = addCard("Experimental Invention", p);
+        PlayerController ownChoices = spy(p.getController()), otherChoices = spy(other.getController());
+        p.dangerouslySetController(ownChoices); other.dangerouslySetController(otherChoices);
+        SpellAbility peek = db(invention, "OwnTop"); peek.setTriggeringObject(AbilityKey.Target, other); AbilityUtils.resolve(peek);
+        assertEquals(p.getCardsIn(ZoneType.Library).getFirst(), top); assertEquals(other.getCardsIn(ZoneType.Library).getFirst(), theirs);
+        verify(ownChoices).reveal(any(forge.game.card.CardCollectionView.class), eq(ZoneType.Library), eq(p), any(), eq(true));
+        verify(ownChoices).reveal(any(forge.game.card.CardCollectionView.class), eq(ZoneType.Library), eq(other), any(), eq(true));
+        verify(otherChoices, never()).reveal(any(forge.game.card.CardCollectionView.class), any(), any(), any(), anyBoolean());
+    }
+
+    @Test
+    public void unpleasantSurprisePenalizesTheFormerControllerOfAStolenCreature() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card creature = addCard("Couchpotato", p); creature.setController(other, game.getNextTimestamp()); game.getAction().checkStaticAbilities();
+        SpellAbility bounce = spell("Unpleasant Surprise", p); bounce.getTargets().add(creature); AbilityUtils.resolve(bounce);
+        assertEquals(p.getCardsIn(ZoneType.Hand).size(), 1); assertEquals(p.getLife(), 20); assertEquals(other.getLife(), 17);
+    }
+
 }

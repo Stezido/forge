@@ -1,0 +1,9 @@
+# Batch 07 — cb-301–cb-311
+
+Four final card definitions and seven authored token printing bindings complete the inspection of all 311 source records. The verified baseline contains **279 non-token entries plus 22 token mappings = 301 records**; ten previously deferred cards are excluded from definitions, edition and decks.
+
+All **416 checks pass**: 279 source comparisons, 22 token type/stat checks and 115 behavior checks. Final coverage verifies Ball Scratching, one draw per obsessed Ragebait attacker despite removal of its last counter, native scheduling and delayed untapping for The Awaitening's extra combat, and exactly two Food/two Beer creation. Additional cross-batch regressions verify all four comma-named Squad searches/buffs, real Crew 3 payment with a one-power Designated Driver, both private Invention peeks without moving cards or revealing them to the opponent, and Unpleasant Surprise affecting a stolen creature's former controller. That last test found/fixed a GenericChoice fallback error; no-payment life loss now uses the native FallbackAbility path.
+
+Desktop build passed. Preparation verifies executable/source pins and provides **301 full native PNGs and 37 decks for all seven batches**, excluding authored tokens, generated-only AJDE! and unresolved cards from starting decks. Every deck contains at least 60 cards. The latest main deck has 64 cards; its focused group has 61. Seed 20261016: **turn 18, Ai(2) won, 1885 ms**, no custom exception or undefined SVar. Evidence: .chaosbrawl-local/{verified-301-tests,prepare-301,build-301,smoke-301}.log. No manual human playtest is claimed.
+
+All native identities, frozen Alpha and unapproved source text remain unchanged. The owner is now providing the collected decisions; approved wording and further implementations follow on a new review branch rather than silently changing this validated baseline.

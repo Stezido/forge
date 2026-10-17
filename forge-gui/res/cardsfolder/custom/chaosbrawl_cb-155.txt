@@ -2,7 +2,7 @@ Name:Unpleasant Surprise
 ManaCost:1 U B
 Types:Instant
 A:SP$ ChangeZone | ValidTgts$ Creature | Origin$ Battlefield | Destination$ Hand | RememberLKI$ True | SubAbility$ Choice | SpellDescription$ Return target creature to its owner's hand. Its controller loses 3 life unless they sacrifice a nonland permanent or discard a card.
-SVar:Choice:DB$ GenericChoice | Defined$ RememberedLKIController | Choices$ Sac,Discard,Lose | AILogic$ PayUnlessCost | SubAbility$ Clear
+SVar:Choice:DB$ GenericChoice | Defined$ RememberedLKIController | Choices$ Sac,Discard | FallbackAbility$ Lose | AILogic$ PayUnlessCost | SubAbility$ Clear
 SVar:Sac:DB$ LoseLife | Defined$ RememberedLKIController | LifeAmount$ 3 | UnlessCost$ Sac<1/Permanent.nonLand> | UnlessPayer$ RememberedLKIController | SpellDescription$ Sacrifice a nonland permanent or lose 3 life.
 SVar:Discard:DB$ LoseLife | Defined$ RememberedLKIController | LifeAmount$ 3 | UnlessCost$ Discard<1/Card> | UnlessPayer$ RememberedLKIController | SpellDescription$ Discard a card or lose 3 life.
 SVar:Lose:DB$ LoseLife | Defined$ RememberedLKIController | LifeAmount$ 3 | SpellDescription$ Lose 3 life.
