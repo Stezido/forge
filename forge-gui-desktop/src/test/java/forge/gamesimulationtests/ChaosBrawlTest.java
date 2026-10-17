@@ -2308,4 +2308,193 @@ public class ChaosBrawlTest extends SimulationTest {
         assertEquals(p.getCardsIn(ZoneType.Hand).size(), 1); assertEquals(p.getLife(), 20); assertEquals(other.getLife(), 17);
     }
 
+    private void withDice(int[] results, Runnable action) {
+        java.util.Random previous = forge.util.MyRandom.getRandom();
+        java.util.Random dice = new java.util.Random(20261017L) {
+            int index;
+            @Override public int nextInt(int bound) {
+                if (bound == 20 && index < results.length) return results[index++] - 1;
+                return super.nextInt(bound);
+            }
+        };
+        try (org.mockito.MockedStatic<forge.util.MyRandom> random = mockStatic(forge.util.MyRandom.class, CALLS_REAL_METHODS)) {
+            random.when(forge.util.MyRandom::getRandom).thenReturn(dice); action.run();
+        }
+    }
+
+    @Test
+    public void rollercoasterSplitsIndividualCountersAndDoesNotMoveReceivedCountersAgain() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card own = addCard("Couchpotato", p), a = addCard("Couchpotato", other), b = addCard("Wixbirne", other);
+        counters(own, CounterEnumType.P1P1, 3); counters(a, CounterEnumType.STUN, 2);
+        PlayerController choices = spy(p.getController());
+        doReturn(a, b, a, own, own).when(choices).chooseSingleEntityForEffect(any(), any(), anyString(), eq(false), any());
+        p.dangerouslySetController(choices);
+        AbilityUtils.resolve(db(createCard("Rollercoaster of Emotions", p), "Redistribute"));
+        assertEquals(own.getCounters(CounterEnumType.P1P1), 0); assertEquals(own.getCounters(CounterEnumType.STUN), 2);
+        assertEquals(a.getCounters(CounterEnumType.P1P1), 2); assertEquals(b.getCounters(CounterEnumType.P1P1), 1);
+        assertEquals(a.getCounters(CounterEnumType.STUN), 0);
+        verify(choices, times(5)).chooseSingleEntityForEffect(any(), any(), anyString(), eq(false), any());
+    }
+
+    @Test
+    public void rollercoasterLeavesCountersWhenThereIsNoOtherController() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card own = addCard("Couchpotato", p); counters(own, CounterEnumType.OBSESSION, 2);
+        AbilityUtils.resolve(db(createCard("Rollercoaster of Emotions", p), "Redistribute"));
+        assertEquals(own.getCounters(CounterEnumType.OBSESSION), 2);
+    }
+
+    @Test
+    public void friendOrFoeFriendDrawsTheDifferentAmountsAndChargesBothPlayers() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        for (int n = 0; n < 6; n++) { addCardToZone("Island", p, ZoneType.Library); addCardToZone("Swamp", other, ZoneType.Library); }
+        Card card = createCard("Friend or Foe", p); card.addRemembered(other); AbilityUtils.resolve(db(card, "Friend"));
+        assertEquals(p.getCardsIn(ZoneType.Hand).size(), 3); assertEquals(other.getCardsIn(ZoneType.Hand).size(), 1);
+        assertEquals(p.getLife(), 18); assertEquals(other.getLife(), 18);
+    }
+
+    @DataProvider(name = "foeDice")
+    public Object[][] foeDice() { return new Object[][] {
+        {10, 12, 2, 0, 16, 20}, {10, 13, 0, 2, 20, 16}, {19, 1, 2, 0, 16, 20},
+        {20, 19, 4, 0, 14, 20}, {19, 20, 0, 4, 20, 14}, {20, 20, 4, 4, 14, 14}
+    }; }
+
+    @Test(dataProvider = "foeDice")
+    public void friendOrFoeUsesBothActualDiceAndReplacesNormalOutcomeOnTwenty(int own, int theirs, int ownDraw, int theirDraw, int ownLife, int theirLife) {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        for (int n = 0; n < 8; n++) { addCardToZone("Island", p, ZoneType.Library); addCardToZone("Swamp", other, ZoneType.Library); }
+        Card card = createCard("Friend or Foe", p); card.addRemembered(other);
+        withDice(new int[] {own, theirs}, () -> AbilityUtils.resolve(db(card, "Foe")));
+        assertEquals(p.getCardsIn(ZoneType.Hand).size(), ownDraw); assertEquals(other.getCardsIn(ZoneType.Hand).size(), theirDraw);
+        assertEquals(p.getLife(), ownLife); assertEquals(other.getLife(), theirLife);
+    }
+
+    @Test
+    public void culinaryDisasterPaysTwoLifeOnlyIfItCanActuallyBePaid() {
+        for (int life : new int[] {1, 3}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0); p.setLife(life, null);
+            Card disaster = enter("Culinary Disaster", p); PlayerController choices = spy(p.getController());
+            doAnswer(i -> new forge.game.cost.CostPayment(i.getArgument(0), i.getArgument(1))
+                    .payComputerCosts(new forge.ai.AiCostDecision(p, i.getArgument(1), true)))
+                    .when(choices).payCostToPreventEffect(any(), any(), anyBoolean(), any()); p.dangerouslySetController(choices);
+            phaseEvent(game, p, PhaseType.UPKEEP);
+            assertTrue(disaster.isInZone(life == 1 ? ZoneType.Graveyard : ZoneType.Battlefield));
+            assertEquals(p.getLife(), 1);
+        }
+    }
+
+    @Test
+    public void hofiMinusTwoRequiresARealFoodSacrificeAndExpiresAtEndOfTurn() {
+        for (boolean food : new boolean[] {false, true}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+            Card hofi = enter("Hofi, the Fragrant", p), target = addCard("Couchpotato", other);
+            if (food) resolveEffect("DB$ Token | TokenScript$ c_a_food_sac", hofi);
+            SpellAbility minus = hofi.getSpellAbilities().stream().filter(a -> a.getApi() == ApiType.Repeat).findFirst().orElseThrow();
+            minus.setActivatingPlayer(p); minus.getTargets().add(target);
+            assertTrue(ComputerUtil.playNoStack(p, minus, game, false));
+            assertEquals(hofi.getCounters(CounterEnumType.LOYALTY), 1);
+            assertEquals(target.getNetToughness(), food ? 1 : 4);
+            assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.getType().hasSubtype("Food")).count(), 0L);
+            game.getEndOfTurn().executeUntil(); assertEquals(target.getNetToughness(), 4);
+        }
+    }
+
+    @Test
+    public void hofiUltimateCountsFoodTokensSeparatelyAndAllCreatureDeathsUntilEndOfTurn() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card hofi = enter("Hofi, the Fragrant", p); counters(hofi, CounterEnumType.LOYALTY, 4);
+        Card foodCreature = enter("Couchpotato", p), victim = enter("Wixbirne", other);
+        resolveEffect("DB$ Token | TokenScript$ c_a_food_sac", hofi);
+        SpellAbility ultimate = hofi.getSpellAbilities().stream().filter(a -> a.getApi() == ApiType.Effect).findFirst().orElseThrow();
+        ultimate.setActivatingPlayer(p); assertTrue(ComputerUtil.playNoStack(p, ultimate, game, false));
+        game.getAction().checkStateEffects(true); resolveTriggers(game);
+        assertTrue(foodCreature.isInZone(ZoneType.Graveyard)); assertTrue(victim.isInZone(ZoneType.Graveyard));
+        assertEquals(other.getLife(), 17); // one Food token, plus two creature deaths
+        Card later = enter("Couchpotato", other); game.getAction().moveToGraveyard(later, null); resolveTriggers(game);
+        assertEquals(other.getLife(), 16);
+        game.getEndOfTurn().executeUntil(); game.getTriggerHandler().resetActiveTriggers(); Card after = enter("Couchpotato", other);
+        game.getAction().moveToGraveyard(after, null); resolveTriggers(game); assertEquals(other.getLife(), 16);
+    }
+
+    @Test
+    public void justDoItRoundsDownAndCreatesOneResponseWindowPerActualLandSacrifice() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        for (int n = 0; n < 2; n++) addCard("Mountain", p);
+        addCardToZone("Forest", p, ZoneType.Hand); // pre-existing land must stay in hand
+        for (int n = 0; n < 4; n++) addCardToZone("Island", p, ZoneType.Library);
+        Card target = enter("Couchpotato", other); SpellAbility spell = spell("Just Do it", p);
+        withDice(new int[] {7}, () -> AbilityUtils.resolve(spell));
+        assertEquals(p.getCardsIn(ZoneType.Graveyard).size(), 2); // only two lands available, not floor(7/2)=3
+        assertEquals(p.getCardsIn(ZoneType.Library).size(), 2);
+        assertEquals(p.getCardsIn(ZoneType.Hand).size(), 1);
+        assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(Card::isLand).count(), 2L);
+        assertTrue(p.getCardsIn(ZoneType.Battlefield).stream().filter(Card::isLand).allMatch(Card::isTapped));
+        game.getAction().checkStateEffects(true); game.getTriggerHandler().runWaitingTriggers(); game.getStack().addAllTriggeredAbilitiesToStack();
+        assertEquals(game.getStack().size(), 2); assertEquals(target.getDamage(), 0);
+    }
+
+    @Test
+    public void slotMachineTwentyCanDeclineTheSacrificeAndStillCreatesAllThreeTokens() {
+        Game game = customGame(); Player p = game.getPlayers().get(0); Card machine = enter("Tavern Slot Machine", p);
+        PlayerController choices = spy(p.getController()); doReturn(false).when(choices).confirmAction(any(), any(), anyString(), any()); p.dangerouslySetController(choices);
+        AbilityUtils.resolve(db(machine, "Twenty"));
+        assertTrue(machine.isInPlay()); assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.isToken() && c.isArtifact()).count(), 3L);
+        game.getAction().checkStateEffects(true); game.getTriggerHandler().runWaitingTriggers(); game.getStack().addAllTriggeredAbilitiesToStack(); assertTrue(game.getStack().isEmpty());
+    }
+
+    @Test
+    public void slotMachineSacrificeCreatesASeparateDamageTriggerAndCountsTokensAtResolution() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card machine = enter("Tavern Slot Machine", p); PlayerController choices = spy(p.getController());
+        doReturn(true).when(choices).confirmAction(any(), any(), anyString(), any());
+        doAnswer(i -> { SpellAbility a = i.getArgument(0); a.getTargets().add(other); return true; }).when(choices).chooseTargetsFor(any()); p.dangerouslySetController(choices);
+        AbilityUtils.resolve(db(machine, "Twenty")); game.getAction().checkStateEffects(true);
+        game.getTriggerHandler().runWaitingTriggers(); game.getStack().addAllTriggeredAbilitiesToStack();
+        assertTrue(machine.isInZone(ZoneType.Graveyard)); assertEquals(game.getStack().size(), 1); assertEquals(other.getLife(), 20);
+        Card token = p.getCardsIn(ZoneType.Battlefield).stream().filter(Card::isToken).findFirst().orElseThrow();
+        game.getAction().moveToGraveyard(token, null); game.getStack().resolveStack(); assertEquals(other.getLife(), 18);
+    }
+
+    private Card bond(Game game, Player p, Card a, Card b) {
+        Card ring = enter("Wedding Ring", p); ring.attachToEntity(a, null);
+        SpellAbility bond = db(ring, "Bond"); bond.setTriggeringObject(AbilityKey.Target, a);
+        bond.setTriggeringObject(AbilityKey.AttachmentTimestamp, ring.getLayerTimestamp()); bond.getTargets().add(b);
+        AbilityUtils.resolve(bond); return ring;
+    }
+
+    @Test
+    public void weddingRingBondRemembersBothCreaturesAndExpiresWhenUnattached() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card a = addCard("Couchpotato", p), b = addCard("Wixbirne", p); Card ring = bond(game, p, a, b);
+        Card effect = game.getCardsIn(ZoneType.Command).stream().filter(c -> c.hasRemembered()).findFirst().orElseThrow();
+        assertTrue(effect.isRemembered(a)); assertTrue(effect.isRemembered(b));
+        ring.unattachFromEntity(a); assertFalse(game.getCardsIn(ZoneType.Command).contains(effect));
+    }
+
+    @Test
+    public void weddingRingRejectsAStaleBondAfterDetachAndReattachToTheSameCreature() {
+        Game game = customGame(); Player p = game.getPlayers().get(0); Card a = addCard("Couchpotato", p), b = addCard("Wixbirne", p);
+        Card ring = enter("Wedding Ring", p); ring.attachToEntity(a, null); long old = ring.getLayerTimestamp();
+        ring.unattachFromEntity(a); ring.attachToEntity(a, null);
+        SpellAbility bond = db(ring, "Bond"); bond.setTriggeringObject(AbilityKey.Target, a); bond.setTriggeringObject(AbilityKey.AttachmentTimestamp, old); bond.getTargets().add(b);
+        AbilityUtils.resolve(bond); assertFalse(game.getCardsIn(ZoneType.Command).stream().anyMatch(Card::hasRemembered));
+    }
+
+    @Test
+    public void annoyingRunningGagCountsDifferentPhysicalCastsButNotCopiesAndShufflesOnlyAfterResolution() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        for (int n = 0; n < 8; n++) addCardToZone("Island", p, ZoneType.Library);
+        Card first = addCardToZone("Annoying Running Gag", p, ZoneType.Hand); SpellAbility cast1 = first.getFirstSpellAbility(); cast1.setActivatingPlayer(p);
+        cast1.setHostCard(game.getAction().moveToStack(first, cast1)); game.getStack().add(cast1);
+        assertEquals(p.getSpellsCastNamedThisGame("Annoying Running Gag"), 1);
+        game.getStack().resolveStack(); assertEquals(p.getCardsIn(ZoneType.Hand).size(), 2); assertEquals(p.getCardsIn(ZoneType.Library).size(), 6);
+        Card second = addCardToZone("Annoying Running Gag", p, ZoneType.Hand); SpellAbility cast2 = second.getFirstSpellAbility(); cast2.setActivatingPlayer(p);
+        cast2.setHostCard(game.getAction().moveToStack(second, cast2)); game.getStack().add(cast2);
+        assertEquals(p.getSpellsCastNamedThisGame("Annoying Running Gag"), 2); game.getStack().resolveStack();
+        assertEquals(p.getCardsIn(ZoneType.Hand).size(), 3); assertEquals(p.getSpellsCastNamedThisGame("Annoying Running Gag"), 2);
+        Card otherSpell = createCard("Annoying Running Gag", p); SpellAbility copy = otherSpell.getFirstSpellAbility(); copy.setActivatingPlayer(p); copy.setCopied(true); game.getStack().add(copy);
+        assertEquals(p.getSpellsCastNamedThisGame("Annoying Running Gag"), 2);
+    }
+
 }

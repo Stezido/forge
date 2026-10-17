@@ -60,7 +60,7 @@ public class TriggerBecomesTarget extends Trigger {
             return false;
         }
         if (hasParam("IsSingleTarget") && source.getRootAbility().getAllTargetChoices().stream()
-                .mapToInt(forge.game.spellability.TargetChoices::size).sum() != 1) {
+                .flatMap(choices -> choices.stream()).distinct().count() != 1) {
             return false;
         }
         if (!matchesValidParam("ValidSource", runParams.get(AbilityKey.SourceSA))) {

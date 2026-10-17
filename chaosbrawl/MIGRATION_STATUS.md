@@ -1,3 +1,5 @@
+Checkpoint: 442 checks exercised; 441 pass. Final failure is the new Hofi end-of-turn test fixture (active-trigger refresh after manually expiring effects); fix drafted, rerun pending. Native render review uncovered Saga chapter-to-textbox mapping: Rollercoaster has I/III and II/IV, and Gastronomic already has a valid III. Earlier missing-chapter question was an importer error; owner informed and native-fidelity confirmation requested.
+
 # Owner decisions — active implementation
 
 The complete clear-card baseline is preserved in private PR #7 at 843002aa (416 passing checks, build/native images/37 decks/AI game). This new branch uses owner-approved Beta source eb0e173645acc362e54f903368b5d5c2fca2686192b79778c3da6af76ab1e097 from website commit 35fff53.

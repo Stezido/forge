@@ -29,6 +29,9 @@ public class CountersMoveEffect extends SpellAbilityEffect {
 
     @Override
     protected String getStackDescription(SpellAbility sa) {
+        if (sa.hasParam("RedistributeEachCounter")) {
+            return "Move each original counter to its individually chosen creature controlled by another player.";
+        }
         final StringBuilder sb = new StringBuilder();
 
         final List<Card> tgtCards = getDefinedCardsOrTargeted(sa);
