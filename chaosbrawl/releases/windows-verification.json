@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "version": "0.1.0-beta.1",
+  "platform": "Windows 11 amd64",
+  "runtime": "Temurin 21.0.12.1+1 bundled JRE",
+  "engineCommit": "fe9a753e45722ffa3545ff68b301e98618c8ed0b",
+  "mseSha256": "73cdf99abf3bdb9e619cbb6af5ab3cb7d9305cfe86defe61692b85ff93392703",
+  "artifacts": {
+    "windows": {
+      "filename": "ChaosBrawl-Forge-0.1.0-beta.1-Windows-x64.zip",
+      "bytes": 436883664,
+      "sha256": "b4adba00c6144ee8c4e9b32cd2d4c0b5817aa672295e378d14af6b4e795b6dd4"
+    },
+    "source": {
+      "filename": "ChaosBrawl-Forge-0.1.0-beta.1-Source.zip",
+      "bytes": 276875494,
+      "sha256": "e4bfbe98427e4eef85f8e5e083378d73a223a3f6b06bfb0bce0f0f68945aa52d"
+    }
+  },
+  "checks": {
+    "zipCaseInsensitivePaths": "pass",
+    "nativeImages": 314,
+    "testDecks": 41,
+    "seededAiGame": {
+      "seed": 20261016,
+      "deck": "Chaos Brawl Beta Batch 08",
+      "turn": 10,
+      "winner": "Ai(1)",
+      "durationMs": 2097
+    },
+    "desktopWindow": "Forge: 2.0.16-SNAPSHOT-10.17",
+    "profile": "portable relative paths; upstream auto-update disabled"
+  },
+  "notYetVerified": [
+    "human playtest",
+    "remote lobby game",
+    "Adventure client/events",
+    "AI draft rankings",
+    "mobile client"
+  ]
+}

@@ -1,4 +1,4 @@
-# Windows desktop playtest release — paused at owner request
+# Windows desktop playtest release — Windows checks passed
 
 ## Completed and pushed
 
@@ -23,7 +23,7 @@ Eclipse Temurin JRE 21.0.12.1+1, x64 Windows, 48,999,141 bytes, SHA-256 verified
 
 The Adoptium API returned 403; `gh release download` eventually timed out. Direct `curl -L` to the official GitHub release URL succeeded. Do not repeat failed access paths. Windows also has `C:\Program Files\Java\jdk-25`, observed read-only; prefer the pinned bundled JRE for the release.
 
-## Packaging plan (not implemented)
+## Packaging design
 
 1. Add a reproducible allowlist-based Windows ZIP builder, e.g. `chaosbrawl/package_windows.py`, version `0.1.0-beta.1`. Use the verified parent build (`--build-root` points to Owner-Decisions), validate its clean tracked source and executable manifest; record engine commit, jar SHA, MSE SHA, runtime pin, package/source hashes and test evidence. Matching source can be `git archive` of the exact engine commit, with preserved GPL/notices and build instructions.
 2. Include the 31 MB desktop jar, full upstream `forge-gui/res` (476 MB uncompressed), fresh native card/token pictures (156 MB), all 41 exercise decks, bundled Windows JRE and notices. Avoid all existing user profiles, secrets, sessions and arbitrary `.chaosbrawl-local` contents. Do not copy the whole old picture cache blindly: a previous Ari spelling can leave a case-only filename collision on Windows. Derive exactly the current 314 image names from reviewed IDs/native renders.
@@ -36,6 +36,12 @@ The Adoptium API returned 403; `gh release download` eventually timed out. Direc
 
 See `docs/forge-desktop-handoff.md` in the website download branch. Proposed zero-added-cost path: private GitHub release assets as build inputs, split into <=20 MiB static asset parts for existing Cloudflare Workers Free, authenticated API per part, browser reassembles/saves one ZIP. No R2/new paid service. Critical: existing hosting wrapper serves ordinary static assets before app auth; private parts must be explicitly blocked at that boundary and available only through the authenticated route/ASSETS binding. Sites exports must never include them.
 
-## Pause and resumption
+## Current implementation and priority
 
-The owner explicitly requested pausing and saving/pushing. No background work should continue after this handoff. Resume with package builder/native Windows test, then website download and staging verification. Complete a reviewable result before any dependent deployment/merge; verify current zero-cost capacity and preserve production access first. No subagents unless explicitly authorized. Never print or commit credentials.
+`package_windows.py` creates an allowlisted portable package from a clean reviewed build. Version 0.1.0-beta.1: Windows ZIP 436,883,664 bytes; matching engine source ZIP 276,875,494 bytes. Exact hashes and native Windows verification are committed in `releases/windows-verification.json`; binaries remain ignored. ZIP has 314 current native faces, 41 decks, bundled verified JRE, GPL and runtime notices; case-insensitive paths and user-data exclusion checked.
+
+Extracted only into the newly created C:\MTG\ChaosBrawlForge-Playtest-0.1.0-beta.1 test folder. Bundled JRE 21.0.12.1+1 starts natively; seeded Batch 08 game wins on turn 10 in 2097 ms. Desktop GUI opens with the expected Forge title and was stopped by its own test process ID. Upstream card-set warnings remain; no custom-card exception or undefined SVar was observed. Native Windows success is not a human or remote playtest.
+
+Website integration is implemented on its separate branch: pinned metadata/private asset preparation, authenticated route, browser integrity/progress/cancel, private static-path denial and Sites export isolation. 80 Node tests, TypeScript, Sites-export regression and production build pass. Browser/staging verification and private release upload remain pending. No infrastructure mutation/deployment yet.
+
+Owner order is Windows classic desktop, then Adventure draft/sealed with provisional AI rankings, then mobile. No rankings are assigned yet. Keep all existing branches/PRs and production access. Re-run zero-cost checks before any deployment. No subagents are authorized.
