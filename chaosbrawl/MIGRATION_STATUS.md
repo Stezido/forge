@@ -1,39 +1,15 @@
-Checkpoint: all previous 311 records passed 455 checks. Three newly owner-authored cards (Maternal Instinct, Higher Protection, Haze-Fueled Frenzy) and all approved source corrections now load; 458 checks passed including their source comparisons. New behavior tests for these cards, optional Shotcrusher, Cini Minis payment and named-cast snapshots are drafted; final rerun/build/images/decks/smoke pending. Native render/preparation for the preceding 311-card source succeeded (311 images, 39 decks); it is historical and must be refreshed for the final 314-card source.
+# Chaos Brawl Beta — all 314 source records implemented
 
-Checkpoint: all 311 records now have draft definitions/bindings, including confirmed native Gastronomic I/II and III, and approved all-creature Moshpit deaths until end of turn. Previous 449-check run had two Wedding Ring copy failures; tests exposed the new card-only BondPartner selector also being treated as a player. Added it to the existing cards-only selector exclusion; rerun and two final-card behavior checks pending. Saga native I/III and II/IV mapping is now preserved.
+Private review branch: `chaosbrawl/beta-owner-decisions-001`, [PR #8](https://github.com/Stezido/Chaosbrawl-Forge/pull/8), based on the preserved seven-batch PR stack. Canonical source: website [PR #50](https://github.com/Stezido/Chaosbrawl-Website/pull/50). Exact source commit/hash and executable hashes are pinned in `batches/owner-decisions-001/{source,scripts}.json`.
 
-Checkpoint: 442 checks exercised; 441 pass. Final failure is the new Hofi end-of-turn test fixture (active-trigger refresh after manually expiring effects); fix drafted, rerun pending. Native render review uncovered Saga chapter-to-textbox mapping: Rollercoaster has I/III and II/IV, and Gastronomic already has a valid III. Earlier missing-chapter question was an importer error; owner informed and native-fidelity confirmation requested.
+**292 non-token source entries implemented + 22 authored token records mapped = 314 records. No unresolved card is excluded.** Source entries include repeated printings. The three newly authored cards are cb-312 Maternal Instinct, cb-313 Higher Protection and cb-314 Haze-Fueled Frenzy. Full native UID/definition mapping: [CARD_MIGRATION.csv](CARD_MIGRATION.csv).
 
-# Owner decisions — active implementation
+**465 checks pass:** 292 source comparisons, 22 token type/stat comparisons and 151 behavior/payment/timing checks. Desktop build passed. Preparation verified all identities/metadata, native full renders and **41 decks across eight batches**. Initial 314-record AI smoke completed on turn 9, Ai(1) won, 1879 ms; Final source-symbol native rendering/preparation also passed (314 faces, no warnings); exact-final smoke confirmation follows in the batch report. No manual human or remote multiplayer playtest is claimed.
 
-The complete clear-card baseline is preserved in private PR #7 at 843002aa (416 passing checks, build/native images/37 decks/AI game). This new branch uses owner-approved Beta source eb0e173645acc362e54f903368b5d5c2fca2686192b79778c3da6af76ab1e097 from website commit 35fff53.
+The final tests cover the new instants, arbitrary optional own-creature counter movement on Maternal Instinct, temporary protection/trample, Cini Minis' optional Milk sacrifice on resolution, stopping the Shotcrusher feedback loop, and preserving named cast history in a game snapshot. Owner decisions additionally cover simultaneous individual Rollercoaster counters, actual Wedding Ring spell/activated-ability copies without copy loops, reattachment timestamps and the official printing; all six Friend/Foe dice outcomes; Just Do it's actual sacrifices and separate triggers; Slot Machine bands/costs/reflexive damage; Culinary life payment; Hofi and Moshpit's complete turn-long death windows; native repeated Saga chapters. Gastronomic chapter progression uses deterministic player target choices independently of AI evaluation.
 
-Eight clarified definitions are drafted: Wedding Ring, Just Do it, Annoying Running Gag, Friend or Foe, Tavern Slot Machine, Culinary Disaster, Rollercoaster of Emotions (each counter independently), Hofi. All 424 current checks pass, including the eight new source comparisons; new behavior/payment/timing checks remain pending. Source metadata overlay preserves historical pins and native UIDs. The Wedding Ring Beta definition is isolated from its official namesake.
+All collected owner questions are resolved. Eight initially deferred cards plus Moshpit and Gastronomic are loaded. Approved MSE changes include Confusing Signals, Cini Minis, Shady Herb Dealer, optional Shotcrusher, spelling/type/name fixes and Sofa Pizza. MSE is authoritative; native UIDs, frozen Alpha, original public fork/main and all review branches/PRs are preserved. The owner-edited Feedback source was read to import the three new cards and was not overwritten. Chat-only instructions do not change Tavern statuses.
 
-Moshpit immediate-only behavior is confirmed; exact priority-window wording awaits approval. Gastronomic Downfall still awaits chapter III. No placeholder card is loaded for either. Build/preparation/smoke for this branch are pending.
+Manual next step: follow [README.md](README.md) and select a Batch 01–08 deck in Constructed. Network play uses Forge's existing host/join lobby; all players should use this same build/resources and Chaos Brawl launcher. A remote session remains untested. Earlier batch-06 native Reefgarden AI activator warnings are documented in its historical report; AI strategy and exhaustive multiplayer/replacement combinations remain outside the current automated coverage.
 
-# Beta migration — verified baseline through cb-311
-
-Canonical source: website PR #50, registered development Beta MSE, SHA-256 81e36272d3d2fc4308dc4d65c54be779944733010ed44ba167acd34c82da15ef. Alpha remains published. No unapproved wording was edited.
-
-All **311 source records** have been inspected: **279 non-token entries implemented**, **22 authored token records mapped**, **10 entries not yet loaded**. Printing duplicates are counted as source records, not new card names. Full identity/status/definition mapping: [CARD_MIGRATION.csv](CARD_MIGRATION.csv).
-
-| Batch | Implemented non-token records | Token records mapped | Validation |
-| --- | ---: | ---: | --- |
-| 001–050 | 50 | 0 | 86 checks, build/images/decks/AI game |
-| 051–100 | 50 | 0 | 157 cumulative checks, build/images/decks/AI game |
-| 101–150 | 50 | 0 | 217 cumulative checks, build/images/decks/AI game |
-| 151–200 | 46 | 0 | 277 cumulative checks, build/images/decks/AI game |
-| 201–250 | 48 | 0 | 337 cumulative checks, build/images/decks/AI game |
-| 251–300 | 31 | 15 | 397 cumulative checks, build/images/decks/AI game |
-| 301–311 | 4 | 7 | 416 cumulative checks, build/images/decks/AI game |
-
-Current baseline: **416 checks pass** (279 source comparisons, 22 token type/stat checks, 115 behavior checks). Desktop build passed. Preparation verified source/executable hashes, 301 full native PNGs and **37 test decks across all seven batches**. Final-batch seed 20261016 finished on turn 18, Ai(2) won, 1885 ms. Earlier batch 06 had native Reefgarden AI activator warnings; no custom exception/undefined SVar. No manual human playtest is claimed.
-
-The final regression run additionally found/fixed Unpleasant Surprise's no-payment fallback selection and verifies the former controller of a stolen creature, actual minimum-power Crew payment, four comma-named Squad searches and private Experimental Invention peeking without card movement. Earlier source-batch reports remain historical; current engine fixes are cumulative.
-
-## Owner decisions now being implemented
-
-On 2026-10-17 the owner approved exact new wording for Wedding Ring, Just Do it, Annoying Running Gag, Friend or Foe, Tavern Slot Machine, Culinary Disaster, Rollercoaster of Emotions and Hofi. Moshpit is confirmed to count only immediate deaths. Gastronomic Downfall keeps three chapters and awaits the owner's chapter III effect. These ten cards are still excluded from this baseline; the next branch applies the approved source changes and implements the clarified mechanics. See OWNER_DECISIONS_2026-10-17.md and QUESTIONS_FOR_OWNER.md.
-
-Review branches/PRs are preserved and pushed to the private repository, with Actions disabled. No deployment, production access change or hosted capacity was created. The unrelated website lore checkout is untouched. Prior checkpoints are archived in STATUS_HISTORY.md; they do not describe current verified counts.
+Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former questions are superseded.

@@ -1,0 +1,9 @@
+# Final owner decisions and three new cards
+
+All 314 source records are available: 292 non-token entries and 22 authored token mappings. This overlay contains the ten previously deferred cards, approved source corrections and cb-312–cb-314; historical batches retain their original pins. Current Beta SHA-256: `73cdf99abf3bdb9e619cbb6af5ab3cb7d9305cfe86defe61692b85ff93392703`, website source commit `43087af3a300f2ddce42dc357c9ccd8f5187218b`.
+
+Validation: 465 passing checks (292 source comparisons, 22 token type/stat comparisons, 151 behavior checks). Desktop build passed. Native MSE exported all 314 faces without warnings; preparation verified the complete source and 41 decks across eight batches. A seeded AI game completed on turn 9 (Ai(1), 1879 ms) before the final Sofa Pizza display-only symbol adjustment; exact-final smoke confirmation follows in status. The three new instants and Sofa Pizza were visually checked; prior complex faces were checked when approved.
+
+New behavior tests cover Wedding Ring actual spells/activated abilities, noncopy/multiple-target exclusion and stale attachment triggers; all six Friend/Foe dice cases; sacrifice/payment timing and reflexive damage; per-counter simultaneous cross-controller movement; full-turn Hofi/Moshpit death windows; repeated Saga chapters; new protection/pump/counter spells; optional Shotcrusher loop termination; Cini Minis' Milk sacrifice; named cast history snapshots. Gastronomic chapter progression uses deterministic player target choices; this verifies rules independent of AI evaluation.
+
+Runtime evidence: ignored `.chaosbrawl-local/verified-314-{tests,build,prepare}.log` and `.chaosbrawl-local/smoke-final-314.log`. All collected owner questions are resolved. A manual human match and remote multiplayer remain untested; the existing host/join lobby is available to identical Chaos Brawl builds.

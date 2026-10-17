@@ -537,7 +537,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Culinary Disaster", 4, "5", "5", "Upkeep\u2014Pay 2 life. (At the beginning of your upkeep, sacrifice this permanent unless you pay 2 life.)", "Creature \u2014 Food Horror", "B"},
             {"Still Good", 3, "", "", "Return target Food card from your graveyard to your hand. Draw a card and lose 2 life.", "Sorcery", "B"},
             {"Stingats Gs\u00f6chts", 6, "4", "4", "Creatures your opponents control get -1/-1.\nWhenever another creature dies, put a +1/+1 counter on Stingats Gs\u00f6chts.", "Creature \u2014 Food Horror", "B"},
-            {"Sofa Pizza", 3, "2", "2", "When Sofa Pizza is put into your graveyard from anywhere, until the end of your next turn, you may pay {1B}. If you do, return Sofa Pizza from your graveyard to your hand.", "Creature \u2014 Food Mutant", "B"},
+            {"Sofa Pizza", 3, "2", "2", "When Sofa Pizza is put into your graveyard from anywhere, it gains \u2018{1}{B}: Return this card from your graveyard to your hand\u2019 until the end of your next turn.", "Creature \u2014 Food Mutant", "B"},
             {"Nagging Little Sister", 2, "2", "1", "As long as there is an obsessed creature on the battlefield, Nagging Little Sister has flying.", "Creature \u2014 Siren", "U"},
             {"Manipulative Temptress", 3, "2", "3", "When Manipulative Temptress enters, you may move a counter from one creature to another creature.", "Creature \u2014 Siren", "U"},
             {"Cold Water Coward", 3, "4", "3", "At the beginning of your upkeep, if Cold Water Coward isn\u2019t Drunken, return it to its owner\u2019s hand.", "Creature \u2014 Human", "U"},

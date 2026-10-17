@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "websiteRepository": "Stezido/Chaosbrawl-Website",
-  "websiteCommit": "a6f28e1bd346b6ef9c5fb3a2e3c25eaeb2353628",
+  "websiteCommit": "43087af3a300f2ddce42dc357c9ccd8f5187218b",
   "variant": "the-foul-realms-beta",
   "sourcePath": "sets/the-foul-realms/beta/Chaos Brawl - The Foul Realms - Beta.mse-set",
-  "sourceSha256": "852afa029e84abc200447f1232cd29847ac820698539ea9cbafdc412af9dcdf8",
+  "sourceSha256": "73cdf99abf3bdb9e619cbb6af5ab3cb7d9305cfe86defe61692b85ff93392703",
   "upstreamCommit": "34a8662b7966a6ee757411feae2ae8ff38cce436",
   "range": [
     "cb-075",
@@ -21,6 +21,7 @@
     "cb-199",
     "cb-215",
     "cb-225",
+    "cb-228",
     "cb-254",
     "cb-263",
     "cb-269",
@@ -410,6 +411,34 @@
       "image": "/card-art/c963b41b6d17d5a2d83a2174.webp",
       "token": false,
       "nativeUid": "30739070464769848700981782813164"
+    },
+    {
+      "id": "cb-228",
+      "name": "Sofa Pizza",
+      "manaCost": "2B",
+      "manaValue": 3,
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Creature — Food Mutant",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "When Sofa Pizza is put into your graveyard from anywhere, it gains ‘{1}{B}: Return this card from your graveyard to your hand’ until the end of your next turn.",
+      "flavorText": "“I knew I didn’t eat the whole\npizza.”",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [
+        "Food"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/03f243ec78ed63c2040f61b2.webp",
+      "token": false,
+      "nativeUid": "18894330377665825226346312832941"
     },
     {
       "id": "cb-254",

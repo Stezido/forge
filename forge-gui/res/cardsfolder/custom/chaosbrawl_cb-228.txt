@@ -6,4 +6,4 @@ T:Mode$ ChangesZone | Origin$ Any | Destination$ Graveyard | ValidCard$ Card.Sel
 SVar:Permission:DB$ Effect | StaticAbilities$ Grant | RememberObjects$ Self | Duration$ UntilTheEndOfYourNextTurn | ForgetOnMoved$ Graveyard
 SVar:Grant:Mode$ Continuous | Affected$ Card.IsRemembered+YouOwn | AffectedZone$ Graveyard | AddAbility$ Return | Description$ You may pay {1}{B} to return this card to your hand until the end of your next turn.
 SVar:Return:AB$ ChangeZone | Cost$ 1 B | ActivationZone$ Graveyard | Origin$ Graveyard | Destination$ Hand | Defined$ Self | SpellDescription$ Return CARDNAME to its owner's hand.
-Oracle:When Sofa Pizza is put into your graveyard from anywhere, until the end of your next turn, you may pay {1B}. If you do, return Sofa Pizza from your graveyard to your hand.
+Oracle:When Sofa Pizza is put into your graveyard from anywhere, it gains ‘{1}{B}: Return this card from your graveyard to your hand’ until the end of your next turn.

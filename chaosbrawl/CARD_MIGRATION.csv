@@ -152,7 +152,7 @@ cb-150,Sleepless Night,card,implemented,forge-gui/res/cardsfolder/custom/chaosbr
 cb-151,Shut up,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-151.txt,,07771761787457121710722532279109
 cb-152,MAGAZIN!,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-152.txt,,58920131355127529084158314650655
 cb-153,Magical Bucket Pump,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-153.txt,,81973944618777677917445485748655
-cb-154,Wedding Ring,card,approved wording: implementation queued,,,08892157090237719561451327010929
+cb-154,Wedding Ring,card,implemented,forge-gui/res/cardsfolder/w/wedding_ring.txt,ChaosBrawlBeta,08892157090237719561451327010929
 cb-155,Unpleasant Surprise,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-155.txt,,09669795244069481436336328902105
 cb-156,Dungeon Master,card,implemented,forge-gui/res/cardsfolder/d/dungeon_master.txt,ChaosBrawlBeta,33032592275825613163618534957305
 cb-157,"Marlene, the Leader",card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-157.txt,,20989304780030773071792255845565
@@ -161,7 +161,7 @@ cb-159,"Tobias, the Grenadier",card,implemented,forge-gui/res/cardsfolder/custom
 cb-160,"Max, the Sniper",card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-160.txt,,14692053885861679170101103649867
 cb-161,Let’s Fucking Go,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-161.txt,,03191925175171623961914500262178
 cb-162,Summon the Squad,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-162.txt,,58680877781648962952472646136522
-cb-163,Just Do it,card,approved wording: implementation queued,,,49970926052388294334947406360805
+cb-163,Just Do it,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-163.txt,,49970926052388294334947406360805
 cb-164,Homemade Paranoia,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-164.txt,,57927067412055135425681903938674
 cb-165,Flooded Palace,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-165.txt,,93513761258491573136751702716710
 cb-166,Duskmire,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-166.txt,,79821438882119849087752137797440
@@ -190,14 +190,14 @@ cb-188,Hoard Beast,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_
 cb-189,"Nadine, Sirens’ Origin",card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-189.txt,,29267174754615652474037399174986
 cb-190,The Mind,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-190.txt,,41626888756951851818248742938539
 cb-191,Boosted Excitement,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-191.txt,,34146387818964309981610569958871
-cb-192,Annoying Running Gag,card,approved wording: implementation queued,,,74453400551492042731665382533203
+cb-192,Annoying Running Gag,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-192.txt,,74453400551492042731665382533203
 cb-193,Provoker,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-193.txt,,51358124299440314580347891266914
 cb-194,Frozen Taps,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-194.txt,,16177715100234736956282677907249
 cb-195,Experimental Invention,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-195.txt,,83728533598619035689727938433422
 cb-196,Hosn Owe,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-196.txt,,88126622319945288126178516814379
 cb-197,Improvised Escape,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-197.txt,,26207076675561500704557454533026
 cb-198,Strange Allergic Reaction,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-198.txt,,93794407831162721482565206224297
-cb-199,Friend or Foe,card,approved wording: implementation queued,,,58517593890630685251672600737324
+cb-199,Friend or Foe,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-199.txt,,58517593890630685251672600737324
 cb-200,The Fallen,card,implemented,forge-gui/res/cardsfolder/t/the_fallen.txt,ChaosBrawlBeta,65599175059944042961090878182005
 cb-201,Grinder,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-201.txt,,20580109366264228865333572129064
 cb-202,Zigeuner-Duo,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-202.txt,,33269523842447096815056413056868
@@ -213,7 +213,7 @@ cb-211,Jolly Brewbelly,card,implemented,forge-gui/res/cardsfolder/custom/chaosbr
 cb-212,Desperate Hydrator,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-212.txt,,54971664609911021237071282007484
 cb-213,Puff Mama,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-213.txt,,14169405985543168356971744969259
 cb-214,Domina’s Devotee,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-214.txt,,47430827617090329571557775365015
-cb-215,Tavern Slot Machine,card,approved wording: implementation queued,,,56291372041028841727931608645605
+cb-215,Tavern Slot Machine,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-215.txt,,56291372041028841727931608645605
 cb-216,Honest Laborer,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-216.txt,,42511616782379490164171373537206
 cb-217,Gonorrhea,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-217.txt,,19976115809487411962775371761235
 cb-218,Ale Addict,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-218.txt,,36588082951757152479359204905852
@@ -223,7 +223,7 @@ cb-221,Attention Seeker,card,implemented,forge-gui/res/cardsfolder/custom/chaosb
 cb-222,Take a Sniff,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-222.txt,,04065278010640027874694310886560
 cb-223,Midnight Fridge Raider,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-223.txt,,40267878955285843293779240350666
 cb-224,Hitman,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-224.txt,,85850289447883809293854391442028
-cb-225,Culinary Disaster,card,approved wording: implementation queued,,,30739070464769848700981782813164
+cb-225,Culinary Disaster,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-225.txt,,30739070464769848700981782813164
 cb-226,Still Good,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-226.txt,,75389506599813918193151658985581
 cb-227,Stingats Gsöchts,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-227.txt,,67418039238894177402380276067228
 cb-228,Sofa Pizza,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-228.txt,,18894330377665825226346312832941
@@ -267,7 +267,7 @@ cb-265,Tavern Ban,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_c
 cb-266,Pushy Pourer,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-266.txt,,67183843523505294985329687517820
 cb-267,Professional Drunk,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-267.txt,,94903304348993700790206886178129
 cb-268,Brawl Enthusiast,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-268.txt,,19408221467028213006299358696456
-cb-269,Moshpit,card,immediate deaths confirmed: implementation queued,,,11666765424144435752520763748304
+cb-269,Moshpit,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-269.txt,,11666765424144435752520763748304
 cb-270,Brawl Encourager,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-270.txt,,89266109817172186801455629210036
 cb-271,Server Veteran,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-271.txt,,76741483379825672214429719574036
 cb-272,Questionable First Responder,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-272.txt,,95741160245497525334753170598579
@@ -277,11 +277,11 @@ cb-275,Beer,token,token mapped,forge-gui/res/tokenscripts/chaosbrawl_beer.txt,,9
 cb-276,Jade Dragon,token,token mapped,forge-gui/res/tokenscripts/chaosbrawl_jade_dragon.txt,,13651776195717043056289625770570
 cb-277,Another Brother,token,token mapped,forge-gui/res/tokenscripts/chaosbrawl_another_brother.txt,,45348669994707053799973286106801
 cb-278,Frühshoppen,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-278.txt,,38894577599206244104703806604763
-cb-279,Gastronomic Downfall,card,chapter III effect pending from owner,,,34389086212196731353641035768475
+cb-279,Gastronomic Downfall,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-279.txt,,34389086212196731353641035768475
 cb-280,A Week of Excess,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-280.txt,,12072785115833770083375100869850
 cb-281,Kiss of Poseidon,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-281.txt,,60314359646799612205033133287688
-cb-282,Rollercoaster of Emotions,card,approved wording: implementation queued,,,18071457911650076237814489678252
-cb-283,"Hofi, the Fragrant",card,approved wording: implementation queued,,,97455491638082763377638553412325
+cb-282,Rollercoaster of Emotions,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-282.txt,,18071457911650076237814489678252
+cb-283,"Hofi, the Fragrant",card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-283.txt,,97455491638082763377638553412325
 cb-284,"Peter, the Manipulative",card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-284.txt,,28125387424274213111972077510894
 cb-285,"Sasa, the Big Brother",card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-285.txt,,58361091814497862932150488977029
 cb-286,"Stefan, the Eternal Annoyer",card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-286.txt,,90889525648900875383458530308990
@@ -297,7 +297,7 @@ cb-295,Elemental,token,token mapped,forge-gui/res/tokenscripts/g_2_2_elemental.t
 cb-296,Stinky Elemental,token,token mapped,forge-gui/res/tokenscripts/chaosbrawl_stinky_elemental.txt,,58569973053786328538229813254111
 cb-297,Vengeful Gnome Pack,token,token mapped,forge-gui/res/tokenscripts/chaosbrawl_vengeful_gnome_pack.txt,,95903886070373072497215163364981
 cb-298,"Peter, the Stoned Hunter",card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-298.txt,,95020460382661034867692489129296
-cb-299,"Ari, the ripper",token,token mapped,forge-gui/res/tokenscripts/chaosbrawl_ari_the_ripper.txt,,43206804257078491561453258329794
+cb-299,"Ari, the Ripper",token,token mapped,forge-gui/res/tokenscripts/chaosbrawl_ari_the_ripper.txt,,43206804257078491561453258329794
 cb-300,Food,token,token mapped,forge-gui/res/tokenscripts/c_a_food_sac.txt,,39751567967358822980912756692110
 cb-301,Food,token,token mapped,forge-gui/res/tokenscripts/c_a_food_sac.txt,,56257305857810659044607144909009
 cb-302,Food,token,token mapped,forge-gui/res/tokenscripts/c_a_food_sac.txt,,08414963860758062278600763004916
@@ -310,3 +310,6 @@ cb-308,The Awaitening,card,implemented,forge-gui/res/cardsfolder/custom/chaosbra
 cb-309,Wagon Enthusiast,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-309.txt,,92127769993728691166754244767689
 cb-310,Ball Scratching,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-310.txt,,51119101278012259742252241612724
 cb-311,Ragebait,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-311.txt,,35761508012049739640281573613571
+cb-312,Maternal Instinct,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-312.txt,,49583162768884652581783757052218
+cb-313,Higher Protection,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-313.txt,,89640306767223202400203107853839
+cb-314,Haze-Fueled Frenzy,card,implemented,forge-gui/res/cardsfolder/custom/chaosbrawl_cb-314.txt,,40658660148181319217044643082795

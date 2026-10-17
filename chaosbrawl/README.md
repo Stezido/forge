@@ -1,28 +1,31 @@
-# Chaos Brawl — local Forge Beta migration
+# Chaos Brawl — local Forge Beta
 
-Private development repository: Stezido/Chaosbrawl-Forge. The full upstream source and GPL-3.0 notices are preserved. GitHub Actions is disabled; checks run locally.
+All **314 Beta records** are available: **292 non-token entries and 22 authored token mappings**, including Maternal Instinct, Higher Protection and Haze-Fueled Frenzy. No collected rules question remains open. [Private PR #8](https://github.com/Stezido/Chaosbrawl-Forge/pull/8) contains the cumulative implementation; [website PR #50](https://github.com/Stezido/Chaosbrawl-Website/pull/50) holds the authoritative Beta MSE. Alpha remains published.
 
-The authoritative authoring source is the registered Beta MSE in website PR #50. Alpha remains published. The verified baseline through cb-311 contains **279 non-token entries and 22 token mappings**; ten cards await the collected owner decisions/implementation. See [migration status](MIGRATION_STATUS.md), the [complete card list](CARD_MIGRATION.csv) and [final batch report](batches/301-311/README.md).
-
-## Run locally
+## Play locally
 
 ```sh
-cd /home/stefan/github/Chaosbrawl-Forge-Private-301-311
-bash chaosbrawl/forge.sh test
-bash chaosbrawl/forge.sh build
-python3 chaosbrawl/prepare.py --website /home/stefan/github/Chaosbrawl-Beta-Forge-Wording --render
-bash chaosbrawl/forge.sh smoke
+cd /home/stefan/github/Chaosbrawl-Forge-Private-Owner-Decisions
 bash chaosbrawl/forge.sh launch
 ```
 
-The wrapper uses the isolated Java/Maven tools under ~/.local/share/chaosbrawl/forge-tools and disables Sentry. Runtime profiles, decks and images stay under ignored .chaosbrawl-local. Omit --render to reuse verified UID-named native renders. Preparation checks the source hash, all source identities/metadata and reviewed executable hashes before creating all **37 batch/group decks**.
+In Constructed, select **Chaos Brawl Beta Batch 01–08**, or a focused **Chaos Brawl Beta NN - Group N** deck. **41 decks** are prepared. Batch 08 contains the clarified cards and the three new instants. Filter the card pool to **Chaos Brawl Beta Local Test (CBT)**. Exercise decks are not balanced competitive decks; authored tokens and generated-only AJDE! are excluded from starting decks.
 
-In Constructed, choose any **Chaos Brawl Beta Batch 01–07** or a smaller **Chaos Brawl Beta NN - Group N** for yourself and the AI. Filter cards to **Chaos Brawl Beta Local Test (CBT)**. These are mechanics exercise decks, not balanced competitive decks. Authored tokens, generated-only AJDE! and unresolved cards are excluded. Restart Forge after changing a package. Source code is on the migration branch; private main preserves the original baseline.
+## Reproduce validation and preparation
 
-## Validation
+```sh
+bash chaosbrawl/forge.sh test
+bash chaosbrawl/forge.sh build
+python3 chaosbrawl/prepare.py --website /home/stefan/github/Chaosbrawl-Beta-Forge-Wording --batch owner-decisions-001 --render
+bash chaosbrawl/forge.sh smoke
+```
 
-**416 passing checks** cover 279 source comparisons, 22 token type/stat comparisons and 115 behavior/payment/timing checks. Desktop build, 301 full native PNGs, all decks and a completed seeded AI game passed (final batch: turn 18; 1885 ms). A full manual playtest and exhaustive multiplayer/replacement combinations remain separate checks; AI strategy is not tuned. Native Reefgarden activator warnings in the earlier batch-06 smoke are recorded in its report.
+The wrapper uses isolated Java/Maven tools, enables Chaos Brawl and disables Sentry. Profiles, decks and images stay under ignored `.chaosbrawl-local`. Omit `--render` to reuse verified UID-named native images. Preparation verifies the exact source hash, all source records and reviewed executable hashes. Earlier batches keep their historical pins; use the latest owner-decisions batch for the current source. See [status](MIGRATION_STATUS.md), [card mapping](CARD_MIGRATION.csv) and [batch report](batches/owner-decisions-001/README.md).
 
-Custom turn-order/counter rules are enabled per match by -Dforge.chaosbrawl=true; ordinary games have a regression with the flag disabled. Fixed tolerances and external modifiers are real abilities, including correct blanking. Celestial Waters moves counters before tolerance conversion/untapping. Creature Food does not imply Artifact. Independent Beta variants preserve official Recycle, The Fallen and Dungeon Master printings.
+**465 checks pass**, covering source/type/stat comparisons and actual rules, choices, payments and timing. Desktop build, native images/decks and a seeded AI game passed. Manual human and remote playtests remain separate validation. AI strategy is not tuned; earlier native Reefgarden warnings are documented in batch 06. Original official name collisions and ordinary non-Chaos-Brawl games have regressions.
 
-The owner is now answering [collected questions](QUESTIONS_FOR_OWNER.md). Exact approved wording is applied to MSE separately with receipts; no proposal is approval. Review branches/PRs, frozen variants, native UIDs and production access remain preserved.
+## Play remotely
+
+Forge supports manually arranged host/join lobbies, with no built-in matchmaking. Use the same Chaos Brawl build, card resources and launcher on every device. Desktop: **Online Multiplayer → Lobby → Host a Game / Join a Game**. Share the host address and port (default TCP 36743); remote access needs appropriate forwarding or a shared private network. No firewall/network configuration has been changed by this migration, and no remote Chaos Brawl session is claimed tested. [Official network-play documentation](https://github.com/Card-Forge/forge/wiki/Network-Play).
+
+The private repository preserves upstream source/GPL notices, existing PRs and the original baseline on main. GitHub Actions remains disabled; all checks run locally.
