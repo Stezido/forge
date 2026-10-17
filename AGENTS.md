@@ -1,6 +1,6 @@
 # Chaos Brawl Forge downloadable releases
 
-Batch approved card, image, metadata and packaging changes on a working branch and publish downloadable builds at planned playtest milestones. Do not create, upload or publish a new downloadable release for every individual change. Website-only deployments reuse the existing pinned binary/source assets. An already authorized release milestone can proceed without asking again; this policy adds no recurring approval step. Follow explicit owner requests for immediate releases.
+Commit, push and merge approved card, image, metadata, packaging and engine changes normally after appropriate checks. Create, upload or publish a new downloadable release only when the owner explicitly requests a new downloadable release. A milestone, merge, individual fix, set-code change or website deployment is not implicit release authorization. Accumulate changes in the repository and reuse existing binary/source assets until explicitly told to make a new download release. Do not add recurring approval questions; simply omit the unrequested release step. This supersedes earlier milestone-based wording.
 
 The current owner-authorized publication is Windows 0.1.0-beta.2 with set code CBT. For the next planned downloadable release, use CBFRbeta for Beta and reserve CBFR for the full released set. Do not publish a separate package solely to rename the code. Migrate edition metadata, cache filenames, decks and verification consistently when that batch is prepared.
 
