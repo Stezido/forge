@@ -23,3 +23,11 @@ Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former
 - Shared filename preparation now reads the edition's functional-variant metadata for both local preparation and Windows packaging. Added an executable Java audit using the built Forge JAR's PaperCard/ImageKeys lookup, exact file existence and PNG decoding. Corrected beta.2 package/audit are in progress; no new release upload yet.
 - A four-image patch ZIP is at C:\MTG\ChaosBrawl-Forge-0.1.0-beta.1-Image-Fix.zip; corrected aliases were also added to the known C:\MTG test installation. Restart Forge to clear its missing-image cache. No user decks/settings or card rules changed.
 - Website staging 503 fix was deployed and owner confirmed downloads work. Production is held until the corrected image package is pinned and verified.
+
+
+2026-10-17: Corrected Windows beta.2 package verified locally.
+
+- Complete runtime image audit passes all 292 CBT non-token printings on both Linux and native Windows 11 using the bundled JRE; exact cache paths exist, PNGs decode and ImageKeys resolves them. Original package failed exactly four.
+- Versioned beta.2 Windows ZIP: 436,883,784 bytes, SHA-256 009852777086f979a0a7135fc533b509126aac50f5f31f4eb0aea79f3600f4f8. Matching source remains byte-identical to beta.1 because the engine/JAR/MSE are unchanged. 314 native source faces, 41 decks and case-insensitive path uniqueness verified. Native GUI/game proof remains tied to the unchanged executable/runtime.
+- Copied/rehashed complete beta.2 ZIP to C:\MTG and extracted only into a fresh versioned test folder for native image verification. Earlier beta.1 folder received only the four missing image aliases; no user data/settings changed. Small patch ZIP is also ready.
+- Private GitHub beta.2 upload is in progress with bounded retries after intermittent GitHub connection timeouts. Do not claim the new website version is live until its exact new pins and deployment have been verified.

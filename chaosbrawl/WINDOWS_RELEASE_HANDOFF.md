@@ -45,3 +45,12 @@ Extracted only into the newly created C:\MTG\ChaosBrawlForge-Playtest-0.1.0-beta
 Website integration is implemented on its separate branch: pinned metadata/private asset preparation, authenticated route, browser integrity/progress/cancel, private static-path denial and Sites export isolation. 80 Node tests, TypeScript, Sites-export regression and production build pass. Browser/staging verification and private release upload remain pending. No infrastructure mutation/deployment yet.
 
 Owner order is Windows classic desktop, then Adventure draft/sealed with provisional AI rankings, then mobile. No rankings are assigned yet. Keep all existing branches/PRs and production access. Re-run zero-cost checks before any deployment. No subagents are authorized.
+
+
+## Image correction: 0.1.0-beta.2
+
+The owner reported missing deck-builder images. Original full-runtime audit found exactly four absent functional-variant paths: Wedding Ring, Dungeon Master, Recycle, The Fallen. Shared `card_images.py` now derives those suffixes from edition metadata for both local preparation and packaging. `VerifyPackageImages.java` checks the built engine's exact PaperCard/ImageKeys paths and decodes every PNG.
+
+Beta.2 passes all 292 runtime printings on Linux and native Windows 11 with bundled Java. The ZIP still includes 314 source renders and 41 decks, and is copied/rehashed to C:\MTG. A four-image beta.1 patch ZIP is also available there. Engine/JAR/runtime/MSE are unchanged; source ZIP is therefore byte-identical with a versioned filename. Current hashes and native evidence: `releases/windows-verification.json`. Website staging download 503 is fixed and owner-confirmed. New GitHub asset upload/pins/staging and production publication are still pending.
+
+Audit command, using a JDK and package path: `java -Xmx4g -Djava.awt.headless=true -cp PACKAGE/forge.jar chaosbrawl/VerifyPackageImages.java PACKAGE`. Native Windows verification compiles that class separately with JDK 21 and runs it using the package's bundled JRE.
