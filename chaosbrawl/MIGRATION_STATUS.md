@@ -31,3 +31,10 @@ Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former
 - Versioned beta.2 Windows ZIP: 436,883,784 bytes, SHA-256 009852777086f979a0a7135fc533b509126aac50f5f31f4eb0aea79f3600f4f8. Matching source remains byte-identical to beta.1 because the engine/JAR/MSE are unchanged. 314 native source faces, 41 decks and case-insensitive path uniqueness verified. Native GUI/game proof remains tied to the unchanged executable/runtime.
 - Copied/rehashed complete beta.2 ZIP to C:\MTG and extracted only into a fresh versioned test folder for native image verification. Earlier beta.1 folder received only the four missing image aliases; no user data/settings changed. Small patch ZIP is also ready.
 - Private GitHub beta.2 upload is in progress with bounded retries after intermittent GitHub connection timeouts. Do not claim the new website version is live until its exact new pins and deployment have been verified.
+
+
+2026-10-17: Beta.2 private release uploaded and verified.
+
+- Website private prerelease forge-desktop-v0.1.0-beta.2 is published with uploaded Windows/source assets. Provider-reported names/sizes/digests match the local manifest. Beta.1 remains preserved. Website pins now reference Windows asset 651614919 and source 651614917.
+- Website branch passes 84 checks, TypeScript and production build. Compiled workerd verifies both new handoffs with the dedicated read-only token and anonymous CDN bytes. Staging-only run 39070401046 is deploying the new pins; production continuation is explicitly requested. Source PR #50 is merged with skip-ci, download PR #52 targets main.
+- Packager defaults to beta.2 and requires the engine image audit before ZIP creation. Forge PR #9 contains the corrected preparation/packager and native proof; engine rule changes remain preserved on PR #8. Adventure/mobile still follow Windows publication.
