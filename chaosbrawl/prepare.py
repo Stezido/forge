@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Prepare an isolated cumulative Beta package from reviewed source batches."""
 import argparse
-from collections import Counter, defaultdict
 import hashlib
 import json
 import math
@@ -9,8 +8,8 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
-import unicodedata
 import zipfile
+from card_images import card_image_filenames
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNTIME = ROOT / '.chaosbrawl-local'
@@ -86,18 +85,13 @@ def main():
     token_dir = RUNTIME/'cache/pics/tokens'
     for folder in [cards_dir, token_dir, RUNTIME/'decks/constructed', RUNTIME/'run', RUNTIME/'cache/skins']:
         folder.mkdir(parents=True, exist_ok=True)
-    names = Counter(c['name'] for c in cards)
-    index = defaultdict(int)
+    names = {c['name'] for c in cards}
+    filenames = card_image_filenames(cards, ROOT/'forge-gui/res/editions/Chaos Brawl Local Test.txt')
     for card in cards:
         original = images/(card['nativeUid']+'.png')
         if not original.is_file():
             raise ValueError('Missing native full render; use --render: '+card['name'])
-        name = unicodedata.normalize('NFD', card['name'])
-        name = ''.join(c for c in name if not unicodedata.combining(c) and c not in '\"/:?')
-        index[card['name']] += 1
-        if names[card['name']] > 1:
-            name += str(index[card['name']])
-        shutil.copyfile(original, cards_dir/(name+'.full.png'))
+        shutil.copyfile(original, cards_dir/filenames[card['id']])
     # Illustrations for source-defined tokens are copied byte-for-byte from the MSE.
     identity = {c['name']:c for c in pinned['supportingTokens']}
     scripts = [('Beer','chaosbrawl_beer'),('Hangry Siren','chaosbrawl_hangry_siren'),

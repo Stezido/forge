@@ -15,3 +15,11 @@ All collected owner questions are resolved. Eight initially deferred cards plus 
 Manual next step: follow [README.md](README.md) and select a Batch 01–08 deck in Constructed. Network play uses Forge's existing host/join lobby; all players should use this same build/resources and Chaos Brawl launcher. A remote session remains untested. Earlier batch-06 native Reefgarden AI activator warnings are documented in its historical report; AI strategy and exhaustive multiplayer/replacement combinations remain outside the current automated coverage.
 
 Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former questions are superseded.
+
+
+2026-10-17: Owner-reported deck-builder image issue reproduced.
+
+- Runtime image-path audit against the original beta.1 package finds 292 CBT printings and exactly four missing paths: Wedding Ring, Dungeon Master, Recycle and The Fallen. Their independent ChaosBrawlBeta functional variant suffix was missing from packaged cache filenames. Rules and native renders themselves are present.
+- Shared filename preparation now reads the edition's functional-variant metadata for both local preparation and Windows packaging. Added an executable Java audit using the built Forge JAR's PaperCard/ImageKeys lookup, exact file existence and PNG decoding. Corrected beta.2 package/audit are in progress; no new release upload yet.
+- A four-image patch ZIP is at C:\MTG\ChaosBrawl-Forge-0.1.0-beta.1-Image-Fix.zip; corrected aliases were also added to the known C:\MTG test installation. Restart Forge to clear its missing-image cache. No user decks/settings or card rules changed.
+- Website staging 503 fix was deployed and owner confirmed downloads work. Production is held until the corrected image package is pinned and verified.

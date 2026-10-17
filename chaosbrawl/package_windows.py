@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """Package a reviewed Forge build for portable Windows playtests; no network or user data."""
 import argparse
-from collections import Counter, defaultdict
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import re
 import shutil
 import subprocess
-import unicodedata
 import zipfile
+from card_images import card_image_filenames
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -75,23 +74,13 @@ def main():
                 dest.write_bytes(z.read(info))
     if not (target/'runtime/bin/javaw.exe').is_file():
         raise ValueError('Windows runtime is incomplete')
-    names = Counter(c['name'] for c in cards.values())
-    indices = defaultdict(int)
     pictures = target/'Cache/pics/cards/CBT'
     pictures.mkdir(parents=True)
     native = build/'.chaosbrawl-local/rendered'/source['sourceSha256']
-    used = set()
-    for cid, card in sorted(cards.items()):
-        name_part = unicodedata.normalize('NFD', card['name'])
-        name_part = ''.join(c for c in name_part if not unicodedata.combining(c) and c not in '\"/:?')
-        indices[card['name']] += 1
-        if names[card['name']] > 1:
-            name_part += str(indices[card['name']])
-        filename = name_part+'.full.png'
-        if filename.casefold() in used:
-            raise ValueError('Windows card picture collision: '+filename)
-        used.add(filename.casefold())
-        shutil.copyfile(native/(card['nativeUid']+'.png'), pictures/filename)
+    ordered = [card for cid, card in sorted(cards.items())]
+    filenames = card_image_filenames(ordered, build/'forge-gui/res/editions/Chaos Brawl Local Test.txt')
+    for card in ordered:
+        shutil.copyfile(native/(card['nativeUid']+'.png'), pictures/filenames[card['id']])
     token_source = build/'.chaosbrawl-local/cache/pics/tokens'
     token_target = target/'Cache/pics/tokens'
     token_target.mkdir(parents=True)
