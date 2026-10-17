@@ -1,0 +1,6 @@
+Name:Higher Protection
+ManaCost:G
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature.YouCtrl | KW$ Hexproof | SubAbility$ Life | SpellDescription$ Target creature you control gains hexproof until end of turn. You gain 2 life.
+SVar:Life:DB$ GainLife | Defined$ You | LifeAmount$ 2
+Oracle:Target creature you control gains hexproof until end of turn. You gain 2 life.

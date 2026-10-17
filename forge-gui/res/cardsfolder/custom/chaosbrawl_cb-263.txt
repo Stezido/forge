@@ -7,4 +7,4 @@ K:TypeCycling:Plains:2
 T:Mode$ Attacks | TriggerZones$ Battlefield | Execute$ Pump | TriggerDescription$ Whenever CARDNAME attacks, your other creatures get +1/+0 for each Beer you control. | ValidCard$ Card.Self
 SVar:Pump:DB$ PumpAll | ValidCards$ Creature.Other+YouCtrl | NumAtt$ X
 SVar:X:Count$Valid Beer.YouCtrl
-Oracle:Vigilance\nWhenever Fighting Pit Champion attacks, other creatures you control get +1/+0 until end of turn for each Beer you control.\nPlaincycling {2} ({2}, Discard this card: Search your library for a Plain card, reveal it, put it into your hand, then shuffle.)
+Oracle:Vigilance\nWhenever Fighting Pit Champion attacks, other creatures you control get +1/+0 until end of turn for each Beer you control.\nPlainscycling {2} ({2}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)

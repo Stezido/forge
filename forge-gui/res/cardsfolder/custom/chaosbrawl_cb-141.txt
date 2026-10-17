@@ -3,4 +3,4 @@ ManaCost:1 G
 Types:Creature Human
 PT:1/2
 S:Mode$ Continuous | Affected$ Player.You | ChaosBrawlUpkeepReduction$ 1 | Description$ Upkeep costs you pay are reduced by one mana of any color.
-Oracle:Upkeep costs you pay are reduced by one mana of any color.
+Oracle:Upkeep costs you pay cost {1} less or one mana of a color of your choice less to pay.

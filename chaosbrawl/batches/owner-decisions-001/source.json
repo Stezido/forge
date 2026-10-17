@@ -1,24 +1,205 @@
 {
   "schemaVersion": 1,
   "websiteRepository": "Stezido/Chaosbrawl-Website",
-  "websiteCommit": "35fff538e555cb6a6b1f707e3948bc7a83093f16",
+  "websiteCommit": "a6f28e1bd346b6ef9c5fb3a2e3c25eaeb2353628",
   "variant": "the-foul-realms-beta",
   "sourcePath": "sets/the-foul-realms/beta/Chaos Brawl - The Foul Realms - Beta.mse-set",
-  "sourceSha256": "257d1389deeadca7c77597169c4a750ce889dc2d371d872348b61e2db3a0362b",
+  "sourceSha256": "852afa029e84abc200447f1232cd29847ac820698539ea9cbafdc412af9dcdf8",
   "upstreamCommit": "34a8662b7966a6ee757411feae2ae8ff38cce436",
   "range": [
+    "cb-075",
+    "cb-113",
+    "cb-126",
+    "cb-141",
+    "cb-147",
+    "cb-153",
     "cb-154",
     "cb-163",
+    "cb-184",
+    "cb-186",
     "cb-192",
     "cb-199",
     "cb-215",
     "cb-225",
+    "cb-254",
+    "cb-263",
     "cb-269",
     "cb-279",
     "cb-282",
-    "cb-283"
+    "cb-283",
+    "cb-299",
+    "cb-308",
+    "cb-312",
+    "cb-313",
+    "cb-314"
   ],
   "cards": [
+    {
+      "id": "cb-075",
+      "name": "Confusing Signals",
+      "manaCost": "2U",
+      "manaValue": 3,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Common",
+      "rulesText": "As you cast this spell, choose a player. Tap up to two target creatures that player controls. Put a stun counter on each of them. The chosen player draws a card for each creature tapped this way.",
+      "flavorText": "“Her gestures never said what she meant — and always meant more than she said.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Stun",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/1e8a1e39fef8782b5f3a6136.webp",
+      "token": false,
+      "nativeUid": "72372654629369141082638961157857"
+    },
+    {
+      "id": "cb-113",
+      "name": "Distant Cousin Shotcrusher",
+      "manaCost": "B/R",
+      "manaValue": 1,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "typeLine": "Creature — Gnome",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Drunken Tolerance 3\nWhenever another creature you control gets a Drunken counter, you may put a Drunken counter on Distant Cousin Shotcrusher.",
+      "flavorText": "“AJDE! Pijemo!”",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Counter"
+      ],
+      "factions": [
+        "Gnome"
+      ],
+      "image": "/card-art/099829ea6c851a93b3eae951.webp",
+      "token": false,
+      "nativeUid": "20342790514258993159512194528693"
+    },
+    {
+      "id": "cb-126",
+      "name": "Cini Minis",
+      "manaCost": "G/W",
+      "manaValue": 1,
+      "colors": [
+        "W",
+        "G"
+      ],
+      "typeLine": "Artifact — Food",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{2}, {T}, Sacrifice Cini Minis: You gain 3 life. You may sacrifice a Food named Milk. If you do, draw three cards.",
+      "flavorText": "“With milk, it’s a great breakfast… yet it never fills anyone.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Food"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/5386a5722b423d38c09e0ec6.webp",
+      "token": false,
+      "nativeUid": "78031071968035514071482853660673"
+    },
+    {
+      "id": "cb-141",
+      "name": "Shady Herb Dealer",
+      "manaCost": "1G",
+      "manaValue": 2,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "Creature — Human",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "Upkeep costs you pay cost {1} less or one mana of a color of your choice less to pay.",
+      "flavorText": "“If you want, I can do two for the price of three for you.”",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [
+        "Upkeep"
+      ],
+      "factions": [
+        "Human"
+      ],
+      "image": "/card-art/22f66d5f947e0501eaace9c8.webp",
+      "token": false,
+      "nativeUid": "95747723254883109664133829150242"
+    },
+    {
+      "id": "cb-147",
+      "name": "The Rake",
+      "manaCost": "1",
+      "manaValue": 1,
+      "colors": [],
+      "typeLine": "Artifact — Equipment",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "Equipped creature gets +1/+0.\nWhenever equipped creature attacks, you may remove a counter from target creature.\nEquip {2}",
+      "flavorText": "“When I bought it, it was white.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/f75cf38b0b4f02376f3708dc.webp",
+      "token": false,
+      "nativeUid": "56007734128968950291899832751479"
+    },
+    {
+      "id": "cb-153",
+      "name": "Magical Bucket Pump",
+      "manaCost": "1",
+      "manaValue": 1,
+      "colors": [],
+      "typeLine": "Artifact — Equipment",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Equipped creature has “{T}: Tap target creature.”\nEquip {2}",
+      "flavorText": "“Ha! — Gaaayyyy!”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/2ee039c51050d00bc9593172.webp",
+      "token": false,
+      "nativeUid": "81973944618777677917445485748655"
+    },
     {
       "id": "cb-154",
       "name": "Wedding Ring",
@@ -68,6 +249,58 @@
       "image": "/card-art/d692bfc52de031da4b4b6920.webp",
       "token": false,
       "nativeUid": "49970926052388294334947406360805"
+    },
+    {
+      "id": "cb-184",
+      "name": "Recycle",
+      "manaCost": "XG",
+      "manaValue": 1,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Common",
+      "rulesText": "Exile X cards from your graveyard. Create a Treasure token for each card exiled this way.\nIf X is 4 or greater, draw a card.",
+      "flavorText": "“Nothing is wasted. It merely becomes something else.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/744a4f36e48a39c9713c3295.webp",
+      "token": false,
+      "nativeUid": "33464188261206918274459638717936"
+    },
+    {
+      "id": "cb-186",
+      "name": "Always With Us",
+      "manaCost": "1WW",
+      "manaValue": 3,
+      "colors": [
+        "W"
+      ],
+      "typeLine": "Legendary Enchantment",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Rare",
+      "rulesText": "Whenever a creature you control becomes the target of a spell or ability, it gets +1/+1 until end of turn.",
+      "flavorText": "“We’ll always have a place for them at the fire.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/05667a1f80ac35cbdea42a6d.webp",
+      "token": false,
+      "nativeUid": "70567843255054379378300879847063"
     },
     {
       "id": "cb-192",
@@ -177,6 +410,62 @@
       "image": "/card-art/c963b41b6d17d5a2d83a2174.webp",
       "token": false,
       "nativeUid": "30739070464769848700981782813164"
+    },
+    {
+      "id": "cb-254",
+      "name": "Wild Fermentation",
+      "manaCost": "3G",
+      "manaValue": 4,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "Legendary Enchantment",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "When Wild Fermentation enters, create a Beer token for each Plant you control.\nIf you would create one or more Beer tokens, roll a d20 for each of those tokens instead.\n1–10 | Create a Beer token.\n11–20| Create a Bock Beer token.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Beer"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/f319048efe98f10527098dfd.webp",
+      "token": false,
+      "nativeUid": "56615107814348146554016867017968"
+    },
+    {
+      "id": "cb-263",
+      "name": "Fighting Pit Champion",
+      "manaCost": "5W",
+      "manaValue": 6,
+      "colors": [
+        "W"
+      ],
+      "typeLine": "Creature — Human",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "Vigilance\nWhenever Fighting Pit Champion attacks, other creatures you control get +1/+0 until end of turn for each Beer you control.\nPlainscycling {2} ({2}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)",
+      "flavorText": "",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": "",
+      "mechanics": [
+        "Beer"
+      ],
+      "factions": [
+        "Human"
+      ],
+      "image": "/card-art/f1ad306f0217172b829cd1d9.webp",
+      "token": false,
+      "nativeUid": "81905137373495155494718986736334"
     },
     {
       "id": "cb-269",
@@ -291,6 +580,140 @@
       "image": "/card-art/d4f78e2d9d83fe60b44d9e82.webp",
       "token": false,
       "nativeUid": "97455491638082763377638553412325"
+    },
+    {
+      "id": "cb-299",
+      "name": "Ari, the Ripper",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "legendary Creature — Dog",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Mythic Rare",
+      "rulesText": "Vigilance",
+      "flavorText": "“She loves ripping couches. Imagine what she does to Peter’s enemies.”",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/4a7e06137496ccb3d213ac50.webp",
+      "token": true,
+      "nativeUid": "43206804257078491561453258329794"
+    },
+    {
+      "id": "cb-308",
+      "name": "The Awaitening",
+      "manaCost": "2RG",
+      "manaValue": 4,
+      "colors": [
+        "R",
+        "G"
+      ],
+      "typeLine": "Enchantment — Saga",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Rare",
+      "rulesText": "I — Search your library for up to two basic land cards, reveal them, put them into your hand, then shuffle.\nII — Creatures you control get +2/+2 until end of turn.\nIII — Create two Food tokens and two Beer tokens.\nIV — After your next combat phase this turn, there is an additional combat phase. At the beginning of that combat, untap all creatures you control.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Beer",
+        "Food"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/a576307b4c2f9e18c1b487ad.webp",
+      "token": false,
+      "nativeUid": "65500405928727932744264801569234"
+    },
+    {
+      "id": "cb-312",
+      "name": "Maternal Instinct",
+      "manaCost": "U",
+      "manaValue": 1,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Instant",
+      "cardTypes": [
+        "Instant"
+      ],
+      "rarity": "Common",
+      "rulesText": "Target creature you control gains hexproof until end of turn. You may move a counter from a creature you control onto another creature you control.",
+      "flavorText": "“A mother’s love knows no bounds. Neither does her vengeance.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/e4d79acaccc58a7e0586001c.webp",
+      "token": false,
+      "nativeUid": "49583162768884652581783757052218"
+    },
+    {
+      "id": "cb-313",
+      "name": "Higher Protection",
+      "manaCost": "G",
+      "manaValue": 1,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "Instant",
+      "cardTypes": [
+        "Instant"
+      ],
+      "rarity": "Common",
+      "rulesText": "Target creature you control gains hexproof until end of turn. You gain 2 life.",
+      "flavorText": "“No one can touch you when you’re in another dimension.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/7b07dd8d6ebccca59cf92aa6.webp",
+      "token": false,
+      "nativeUid": "89640306767223202400203107853839"
+    },
+    {
+      "id": "cb-314",
+      "name": "Haze-Fueled Frenzy",
+      "manaCost": "G",
+      "manaValue": 1,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "Instant",
+      "cardTypes": [
+        "Instant"
+      ],
+      "rarity": "Common",
+      "rulesText": "Target creature gets +3/+3 and gains trample until end of turn.",
+      "flavorText": "“Nobody knows what was in that joint. Not even the druid.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/511faf0941168437f60ee549.webp",
+      "token": false,
+      "nativeUid": "40658660148181319217044643082795"
     }
   ],
   "supportingTokens": [
@@ -636,7 +1059,7 @@
     },
     {
       "id": "cb-299",
-      "name": "Ari, the ripper",
+      "name": "Ari, the Ripper",
       "manaCost": "",
       "manaValue": 0,
       "colors": [],

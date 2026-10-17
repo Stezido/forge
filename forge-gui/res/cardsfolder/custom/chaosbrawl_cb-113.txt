@@ -3,6 +3,6 @@ ManaCost:BR
 Types:Creature Gnome
 PT:2/1
 S:Mode$ ChaosBrawlTolerance | ValidCard$ Card.Self | Base$ 3 | Description$ Drunken Tolerance 3
-T:Mode$ CounterAdded | TriggerZones$ Battlefield | Execute$ Drunken | TriggerDescription$ Whenever another creature you control gets a Drunken counter, put a Drunken counter on CARDNAME. | ValidCard$ Creature.YouCtrl+Other | CounterType$ DRUNKEN
+T:Mode$ CounterAdded | TriggerZones$ Battlefield | Execute$ Drunken | TriggerDescription$ Whenever another creature you control gets a Drunken counter, you may put a Drunken counter on CARDNAME. | OptionalDecider$ You | ValidCard$ Creature.YouCtrl+Other | CounterType$ DRUNKEN
 SVar:Drunken:DB$ PutCounter | Defined$ Self | CounterType$ DRUNKEN | CounterNum$ 1
-Oracle:Drunken Tolerance 3\nWhenever another creature you control gets a Drunken counter, Distant Cousin Shotcrusher also gets a Drunken counter.
+Oracle:Drunken Tolerance 3\nWhenever another creature you control gets a Drunken counter, you may put a Drunken counter on Distant Cousin Shotcrusher.

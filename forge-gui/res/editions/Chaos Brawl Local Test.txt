@@ -294,3 +294,7 @@ Type=Custom_Set
 309 C Wagon Enthusiast
 310 C Ball Scratching
 311 U Ragebait
+
+312 C Maternal Instinct
+313 C Higher Protection
+314 C Haze-Fueled Frenzy

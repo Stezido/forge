@@ -1,0 +1,9 @@
+Name:Maternal Instinct
+ManaCost:U
+Types:Instant
+A:SP$ Pump | ValidTgts$ Creature.YouCtrl | KW$ Hexproof | SubAbility$ Donor | SpellDescription$ Target creature you control gains hexproof until end of turn. You may move a counter between two creatures you control.
+SVar:Donor:DB$ ChooseCard | Defined$ You | Choices$ Creature.YouCtrl+HasCounters | Amount$ 1 | MinAmount$ 0 | RememberChosen$ True | ChoiceTitle$ Choose a creature to move a counter from, or cancel | SubAbility$ Recipient
+SVar:Recipient:DB$ ChooseCard | Defined$ You | Choices$ Creature.YouCtrl+!IsRemembered | Amount$ 1 | ConditionCheckSVar$ Remembered$Amount | ConditionSVarCompare$ GE1 | ChoiceTitle$ Choose another creature to receive the counter | SubAbility$ Move
+SVar:Move:DB$ MoveCounter | Source$ Remembered | Defined$ ChosenCard | CounterType$ Any | CounterNum$ 1 | StackDescription$ None | SubAbility$ Clear
+SVar:Clear:DB$ Cleanup | ClearRemembered$ True
+Oracle:Target creature you control gains hexproof until end of turn. You may move a counter from a creature you control onto another creature you control.

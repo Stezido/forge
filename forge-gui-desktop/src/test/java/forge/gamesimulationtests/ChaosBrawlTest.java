@@ -379,7 +379,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Happy Hour", 3, "", "", "Each player creates two Beer tokens.\nThen each creature gains an obsession counter.", "Sorcery", "R"},
             {"Echo of Empathy", 2, "", "", "Move all counters from target creature onto another target creature.", "Instant", "U"},
             {"Controlling Relationship", 4, "", "", "Enchant creature.\nWhen this Aura enters, tap enchanted permanent.\nYou control enchanted permanent.\nEnchanted permanent doesn\u2019t untap during its controller\u2019s untap step.", "Enchantment \u2014 Aura", "U"},
-            {"Confusing Signals", 3, "", "", "Choose a player.\nTap up to two target creatures that player controls. Put a stun counter on each. That player draws a card for each creature tapped this way.", "Sorcery", "U"},
+            {"Confusing Signals", 3, "", "", "As you cast this spell, choose a player. Tap up to two target creatures that player controls. Put a stun counter on each of them. The chosen player draws a card for each creature tapped this way.", "Sorcery", "U"},
             {"Weedfield Herbalist", 2, "1", "3", "{T}: Add {G}.", "Creature \u2014 Plant Druid", "G"},
             {"Weedfield Grazer", 4, "3", "4", "{T}, Sacrifice a Forest: Create a Food token.", "Creature \u2014 Plant Ooze", "G"},
             {"Tavern Time Out", 2, "", "", "When Tavern Time-Out enters the battlefield, exile target drunken creature an opponent controls until Tavern Time-Out leaves the battlefield.", "Enchantment", "W"},
@@ -417,7 +417,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Distant Cousin Windtongue", 2, "2", "2", "When Distant Cousin Windtongue enters the battlefield, create three blue and black Sorcery cards named AJDE! with mana cost {0} and \u201cDraw a card.\u201d Shuffle them into your library.", "Creature \u2014 Gnome", "UB"},
             {"AJDE!", 0, "", "", "This card can\u2019t be in your starting deck.\nDraw a card.", "Sorcery", ""},
             {"Distant Cousin Stinkpot", 3, "2", "3", "When Distant Cousin Stinkpot enters the battlefield, return up to one target Food card from your graveyard to your hand.", "Creature \u2014 Gnome", "BG"},
-            {"Distant Cousin Shotcrusher", 1, "2", "1", "Drunken Tolerance 3\nWhenever another creature you control gets a Drunken counter, Distant Cousin Shotcrusher also gets a Drunken counter.", "Creature \u2014 Gnome", "BR"},
+            {"Distant Cousin Shotcrusher", 1, "2", "1", "Drunken Tolerance 3\nWhenever another creature you control gets a Drunken counter, you may put a Drunken counter on Distant Cousin Shotcrusher.", "Creature \u2014 Gnome", "BR"},
             {"Distant Uncle Goldbeard", 4, "3", "4", "When Distant Uncle Goldbeard enters the battlefield, create a Beer token for each other creature you control.", "Creature \u2014 Gnome", "WB"},
             {"Grandma Dragana Blackbrew", 3, "1", "3", "Other Gnomes you control get +1/+1.\nWhenever another Gnome enters the battlefield under your control, you gain 2 life.\nWhenever another Gnome you control dies, target opponent loses 2 life.", "Legendary Creature \u2014 Gnome", "B"},
             {"Distant Aunt Alestorm", 2, "3", "1", "Whenever a Gnome you control attacks, each opponent loses 1 life.", "Creature \u2014 Gnome", "BR"},
@@ -430,7 +430,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Cannabis Field Defender", 5, "4", "5", "Ward {2}", "Creature \u2014 Plant", "G"},
             {"Du gibst dem Baby a M\u00fcch", 2, "", "", "Enchant creature\nEnchanted creature can\u2019t attack or block, and its activated abilities can\u2019t be activated.", "Enchantment \u2014 Aura", "W"},
             {"Milk", 1, "", "", "{2}, {T}, Sacrifice Milk: You gain 3 life.", "Artifact \u2014 Food", "WG"},
-            {"Cini Minis", 1, "", "", "{2}, {T}, Sacrifice Cini Minis:\nYou gain 3 life. You may sacrifice a Food named Milk as part of this ability. If you do, draw three cards.", "Artifact \u2014 Food", "WG"},
+            {"Cini Minis", 1, "", "", "{2}, {T}, Sacrifice Cini Minis: You gain 3 life. You may sacrifice a Food named Milk. If you do, draw three cards.", "Artifact \u2014 Food", "WG"},
             {"Rowdy Riot", 3, "3", "2", "Whenever a Beer token is sacrificed, Rowdy Riot gets +1/+0 until end of turn.", "Creature \u2014 Human, Berserker", "R"},
             {"Hangover", 3, "", "", "Tap target creature. Remove all counters from it. Then put three stun counters on it.", "Instant", "U"},
             {"Cold Splash", 1, "", "", "Remove up to two Stun counters and/or Obsession counters from target creature.\nDraw a card.", "Instant", "U"},
@@ -445,21 +445,24 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Lena, the Silent One", 3, "3", "3", "As long as there are three or more Obsession counters on creatures on the battlefield, The Silent One gets +3/+3.", "Legendary Creature \u2014 Siren", "U"},
             {"Hanna, Nature\u2019s Siren", 2, "2", "2", "Whenever another Plant or Siren creature dies, put a +1/+1 counter and an Obsession counter on Hanna.", "Legendary Creature \u2014 Siren", "UG"},
             {"Natalie, Mother Siren", 4, "3", "3", "When Natalie, Mother Siren enters the battlefield, create three 1/1 Hangry Siren tokens with haste.\nOther Sirens you control have Upkeep {1}.", "Legendary Creature \u2014 Siren", "UR"},
-            {"Shady Herb Dealer", 2, "1", "2", "Upkeep costs you pay are reduced by one mana of any color.", "Creature \u2014 Human", "G"},
+            {"Shady Herb Dealer", 2, "1", "2", "Upkeep costs you pay cost {1} less or one mana of a color of your choice less to pay.", "Creature \u2014 Human", "G"},
             {"Mutating Sapling", 2, "2", "2", "Exhaust \u2014 {W}: Mutating Sapling gains vigilance. (Activate each exhaust ability only once.)\nExhaust \u2014 {B}: Mutating Sapling gains deathtouch. (Activate each exhaust ability only once.)\nExhaust \u2014 {GU}: Put two +1/+1 counters on Mutating Sapling. (Activate each exhaust ability only once.)", "Creature \u2014 Plant", "G"},
             {"S\u00fc\u00fc\u00fc, the Fourth Child", 3, "3", "2", "S\u00fc\u00fc\u00fcnergy \u2014 As long as you control Natalie, Mother Siren, S\u00fc\u00fc\u00fc is a Siren and Sirens you control can\u2019t have upkeep costs.", "Legendary Creature \u2014 Human", "U"},
             {"The Loan Syndicate", 0, "", "", "{T}: Add {1}.\n{T}: Add two mana of any one color. Spend this mana only to pay upkeep costs.", "Land", ""},
             {"Gnome Loan", 3, "", "", "As an additional cost to cast this spell, sacrifice a permanent and pay 2 life.\nDraw three cards.", "Sorcery", "B"},
             {"Debt Collector", 5, "4", "4", "When Debt Collector enters the battlefield, create a Treasure token for each creature target opponent controls.", "Creature \u2014 Gnome", "B"},
-            {"The Rake", 1, "", "", "Equipped creature gets +1/+0.\nWhenever equipped creature attacks, you may remove a counter from target creature.\nEquip {2}", "Artifact \u2014 Euipment", ""},
+            {"The Rake", 1, "", "", "Equipped creature gets +1/+0.\nWhenever equipped creature attacks, you may remove a counter from target creature.\nEquip {2}", "Artifact \u2014 Equipment", ""},
             {"The Good Stuff", 3, "", "", "Choose one \u2014\n\u2022 Destroy target artifact.\n\u2022 Destroy target enchantment.\n\u2022 Destroy target creature with flying.", "Instant", "G"},
             {"Mimimi", 4, "", "", "Target creature\u2019s owner puts it on the top or bottom of their library.", "Instant", "U"},
             {"Sleepless Night", 2, "", "", "Tap up to two target creatures. Then target creature you control with mana value 2 or less gets +2/+0 and gains haste until end of turn.", "Instant", "UR"},
             {"Shut up", 3, "", "", "Enchant creature\nEnchanted creature loses all abilities and can\u2019t attack.", "Enchantment \u2014 Aura", "W"},
             {"MAGAZIN!", 3, "", "", "Exile the top two cards of your library. Until the end of your next turn, you may play those cards.", "Sorcery", "R"},
-            {"Magical Bucket Pump", 1, "", "", "Equipped creature has \u201c{T}: Tap target creature.\u201d\nEquip {2}", "Artifact \u2014 Equipemnt", ""},
+            {"Magical Bucket Pump", 1, "", "", "Equipped creature has \u201c{T}: Tap target creature.\u201d\nEquip {2}", "Artifact \u2014 Equipment", ""},
             {"Gastronomic Downfall", 5, "", "", "I, II \u2014 Distribute two -1/-1 counters among one or two target creatures.\nIII \u2014 Remove all counters from all creatures. Gastronomic Downfall deals damage equal to the total number of counters removed this way to any target.", "Enchantment \u2014 Saga", "B"},
             {"Moshpit", 3, "", "", "Until end of turn, whenever a creature dies, Moshpit deals 1 damage to that creature\u2019s controller. Moshpit deals 2 damage to each creature.", "Sorcery", "R"},
+            {"Maternal Instinct", 1, "", "", "Target creature you control gains hexproof until end of turn. You may move a counter from a creature you control onto another creature you control.", "Instant", "U"},
+            {"Higher Protection", 1, "", "", "Target creature you control gains hexproof until end of turn. You gain 2 life.", "Instant", "G"},
+            {"Haze-Fueled Frenzy", 1, "", "", "Target creature gets +3/+3 and gains trample until end of turn.", "Instant", "G"},
             {"Wedding Ring", 2, "", "", "Whenever Wedding Ring becomes attached to a creature, choose another target creature. Those creatures are bonded for as long as Wedding Ring remains attached to the first creature.\nWhenever a spell or ability that isn\u2019t a copy targets only one of the bonded creatures and no other objects or players, you may copy that spell or ability. The copy targets the other bonded creature.\nEquip {2}", "Artifact \u2014 Equipment", ""},
             {"Unpleasant Surprise", 3, "", "", "Return target creature to its owner\u2019s hand. Its controller loses 3 life unless they sacrifice a nonland permanent or discard a card.", "Instant", "UB"},
             {"Dungeon Master", 4, "3", "5", "At the beginning of your upkeep, roll a d20.\n1\u20135 | Create a Treasure token.\n6\u201315 | Create a Beer token.\n16\u201319 | Draw a card.\n20 | You may cast a spell from your hand without paying its mana cost.", "Creature \u2014 Human, Wizard", "WU"},
@@ -490,9 +493,9 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Tavern Medic", 2, "2", "2", "{T}: Remove any number of Drunken counters from target creature. If it\u2019s a creature you control, you gain 1 life for each counter removed this way. Otherwise, you lose 1 life for each counter removed this way.", "Creature \u2014 Dwarf", "W"},
             {"Edi, the Beerpig", 4, "3", "3", "Kicker\u2014Sacrifice one or more Beer (You may sacrifice one or more Beer in addition to any other costs as you cast this spell.)\nIf Edi was kicked, it enters with two +1/+1 counters on it for each Beer sacrificed to cast it.\nIf one or more Drunken counters would be put on Edi, instead put that many +1/+1 counters on it.", "Legendary Creature \u2014 Pig", "W"},
             {"Goner", 1, "0", "2", "Goner enters tapped.\nIf Goner would be exiled from anywhere, put it into its owner\u2019s graveyard instead.", "Creature \u2014 Human", "B"},
-            {"Recycle", 1, "", "", "Exile X cards from your graveyard. Create a Treasure token for each card exiled this way.\nIf X is 4 or greater, draw a card.", "Sorcery \u2014 Common", "G"},
+            {"Recycle", 1, "", "", "Exile X cards from your graveyard. Create a Treasure token for each card exiled this way.\nIf X is 4 or greater, draw a card.", "Sorcery", "G"},
             {"Closing Hour", 3, "", "", "Return all tokens to their owners\u2019 hands.", "Instant", "U"},
-            {"Always With Us", 3, "", "", "Whenever a creature you control becomes the target of a spell or ability, it gets +1/+1 until end of turn.", "Legendary Enchantment \u2014 Rare", "W"},
+            {"Always With Us", 3, "", "", "Whenever a creature you control becomes the target of a spell or ability, it gets +1/+1 until end of turn.", "Legendary Enchantment", "W"},
             {"Innkeepers Daugther", 2, "1", "3", "{T}: Create a Treasure token for each drunken creature on the battlefield.", "Creature \u2014 Human", "W"},
             {"Hoard Beast", 5, "*", "4", "When Hoard Beast enters the battlefield, create a Food token, a Beer token, and a Treasure token.\nThe Hoard Beast\u2019s power is equal to the number of artifact tokens on the battlefield.", "Creature \u2014 Horror", "G"},
             {"Nadine, Sirens\u2019 Origin", 3, "3", "3", "Flying\nOther Sirens you control get +1/+1 and have ward {1}.", "Legendary Creature \u2014 Siren", "U"},
@@ -560,7 +563,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Reefgarden", 0, "", "", "({T}: Add {G} or {U} to your mana pool.)\nAs Reefgarden enters the battlefield, you may pay 2 life. If you don\u2019t, Reefgarden enters the battlefield tapped.", "Land \u2014 Forest Island", ""},
             {"Distillery of Silent Death", 0, "", "", "({T}: Add {W} or {B} to your mana pool.)\nAs Distillery of Silent Death enters the battlefield, you may pay 2 life. If you don\u2019t, Distillery of Silent Death enters the battlefield tapped.", "Land \u2014 Plains Swamp", ""},
             {"Brewbelly Jumbo", 6, "5", "5", "When Brewbelly Jumbo enters, create a Food token.\nWhenever you create a Food token, create a Beer token.", "Creature \u2014 Plant Troll", "G"},
-            {"Wild Fermentation", 4, "", "", "When Wild Fermentation enters, create a Beer token for each Plant you control.\nIf you would create one or more Beer tokens, roll a d20 for each of those tokens instead.\n1\u201310 | Create a Beer token.\n11\u201320| Create a Bock Beer token.", "Legendary Entchantment", "G"},
+            {"Wild Fermentation", 4, "", "", "When Wild Fermentation enters, create a Beer token for each Plant you control.\nIf you would create one or more Beer tokens, roll a d20 for each of those tokens instead.\n1\u201310 | Create a Beer token.\n11\u201320| Create a Bock Beer token.", "Legendary Enchantment", "G"},
             {"Desperate Foraging", 3, "", "", "Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.", "Sorcery", "G"},
             {"Trained Drinker", 4, "4", "3", "Drunken Tolerance 4 (At the beginning of its controller\u2019s turn, if a creature has more drunken counters than its Drunken Tolerance, remove the excess counters and put that many stun counters on it.)", "Creature \u2014 Troll", "G"},
             {"Tavern Scrapgulper", 5, "4", "5", "Upkeep\u2014 Mill two cards (At the beginning of your upkeep, you must Mill two cards . If you don\u2019t, sacrifice this permanent.)\nWhenever you mill a Food card, put a +1/+1 counter on Tavern Scrapgulper.", "Creature \u2014 Ooze", "G"},
@@ -569,7 +572,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Siren Raiders", 6, "5", "5", "As long as you control two or more other Sirens, Siren creatures you control can\u2019t be blocked by creatures with power 2 or less.\nIslandcycling {2} ({2}, Discard this card: Search your library for an Island card, reveal it, put it into your hand, then shuffle.)", "Creature \u2014 Siren", "U"},
             {"The Executioner", 6, "6", "5", "Menace\nSwampcycling {2} ({2}, Discard this card: Search your library for a Swamp card, reveal it, put it into your hand, then shuffle.)", "Creature \u2014 Gnome", "B"},
             {"Escalating Adventurer", 6, "3", "2", "Haste\nDrunken Tolerance 4\nWhen Escalating Adventurer enters the battlefield, put two Drunken counters on it.\nMountaincycling {2} ({2}, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)", "Creature \u2014 Dwarf", "R"},
-            {"Fighting Pit Champion", 6, "5", "5", "Vigilance\nWhenever Fighting Pit Champion attacks, other creatures you control get +1/+0 until end of turn for each Beer you control.\nPlaincycling {2} ({2}, Discard this card: Search your library for a Plain card, reveal it, put it into your hand, then shuffle.)", "Creature \u2014 Human", "W"},
+            {"Fighting Pit Champion", 6, "5", "5", "Vigilance\nWhenever Fighting Pit Champion attacks, other creatures you control get +1/+0 until end of turn for each Beer you control.\nPlainscycling {2} ({2}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)", "Creature \u2014 Human", "W"},
             {"Deepwood Abomination", 6, "5", "5", "As long as you control five or more Forests, Deepwood Abomination gets +2/+2 and has trample.\nForestcycling {2} ({2}, Discard this card: Search your library for a Forest card, reveal it, put it into your hand, then shuffle.)", "Creature \u2014 Plant Horror", "G"},
             {"Tavern Ban", 4, "", "", "Exile target creature with power 4 or greater.", "Instant", "W"},
             {"Pushy Pourer", 2, "2", "1", "Whenever one or more Drunken counters are put on a creature, Pushy Pourer deals 1 damage to target opponent.", "Creature \u2014 Goblin", "R"},
@@ -590,7 +593,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Stefan, the Eternal Annoyer", 4, "", "", " \u2014 Whenever a noncreature spell is cast, you gain 2 life.\n+1 \u2014 Until your next upkeep, each opponent may only cast spells any time they could cast a sorcery.\n-2 \u2014 Search your library for a noncreature, nonplaneswalker card, reveal it, and put it into your hand. Then shuffle.\n-6 \u2014 Until end of turn, you may cast noncreature, nonplaneswalker spells from your graveyard without paying their mana costs. If a spell cast this way would be put into a graveyard, exile it instead.", "Legendary Planeswalker \u2014 Stefan", "WU"},
             {"Alex, the Cozy", 4, "", "", "+1 \u2014 Search your library for a Forest card and put it onto the battlefield. It becomes a 2/2 green Elemental creature with haste. It\u2019s still a land.\n-2 \u2014 Deal damage equal to the number of Forests you control to target creature.\n-6 \u2014 You get an emblem with \u201cForests you control are 3/3 green Elemental creatures with haste and trample. They\u2019re still lands.", "Legendary Planeswalker \u2014 Alex", "RG"},
             {"Peter, the Stoned Hunter", 3, "", "", "+1 \u2014 Search your library for a basic land card, reveal it, put it into your hand, then shuffle.\n-2 \u2014 If you control a creature named Ari, the Ripper, put three +1/+1 counters on it. Otherwise, create Ari, the Ripper, a legendary 3/3 green and white Dog creature token with vigilance.\n-6 \u2014 Creatures you control get +1/+1 for each land you control and gain trample and vigilance until end of turn.", "Legendary Planeswalker \u2014 Peter", "WG"},
-            {"The Awaitening", 4, "", "", "I \u2014 Search your library for up to two basic land cards, reveal them, put them into your hand, then shuffle.\nII \u2014 Creatures you control get +2/+2 until end of turn.\nIII \u2014 Create two Food tokens and two Beer tokens.\nIV \u2014 After your next combat phase this turn, there is an additional combat phase. At the beginning of that combat, untap all creatures you control.", "Entchantment \u2014 Saga", "RG"},
+            {"The Awaitening", 4, "", "", "I \u2014 Search your library for up to two basic land cards, reveal them, put them into your hand, then shuffle.\nII \u2014 Creatures you control get +2/+2 until end of turn.\nIII \u2014 Create two Food tokens and two Beer tokens.\nIV \u2014 After your next combat phase this turn, there is an additional combat phase. At the beginning of that combat, untap all creatures you control.", "Enchantment \u2014 Saga", "RG"},
             {"Wagon Enthusiast", 3, "2", "3", "Whenever Wagon Enthusiast attacks, put an Obsession counter on target creature.", "Creature \u2014 Human", "U"},
             {"Ball Scratching", 2, "", "", "Obsess target creature. (To obsess a creature, put an Obsession counter on it. A creature with an Obsession counter on it must attack each combat if able. Whenever that creature attacks, remove an Obsession counter from it.)", "Sorcery", "U"},
             {"Ragebait", 4, "", "", "Obsess target creature. Until your next turn, whenever a creature with an Obsession counter on it attacks, draw a card.", "Sorcery", "U"}
@@ -2582,6 +2585,130 @@ public class ChaosBrawlTest extends SimulationTest {
             game.getTriggerHandler().resetActiveTriggers(); p.drawCard(); resolveTriggers(game);
             assertEquals(p.getSpellsCastNamedThisGame("Annoying Running Gag"), lands == 4 ? 1 : 0);
         }
+    }
+
+    @Test
+    public void moshpitCreatesItsDeathEffectBeforeDamageAndIncludesLaterAndNewCreatures() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card immediate = addCard("Wixbirne", p), survivor = addCard("Couchpotato", other);
+        AbilityUtils.resolve(spell("Moshpit", p)); game.getAction().checkStateEffects(true); resolveTriggers(game);
+        assertTrue(immediate.isInZone(ZoneType.Graveyard)); assertEquals(p.getLife(), 19); assertEquals(other.getLife(), 20); assertEquals(survivor.getDamage(), 2);
+        game.getAction().moveToGraveyard(survivor, null); resolveTriggers(game); assertEquals(other.getLife(), 19);
+        Card later = enter("Couchpotato", other); assertEquals(later.getDamage(), 0);
+        game.getAction().moveToGraveyard(later, null); resolveTriggers(game); assertEquals(other.getLife(), 18);
+        game.getEndOfTurn().executeUntil(); game.getTriggerHandler().resetActiveTriggers();
+        Card after = enter("Couchpotato", other); game.getAction().moveToGraveyard(after, null); resolveTriggers(game); assertEquals(other.getLife(), 18);
+    }
+
+    @Test
+    public void moshpitDamagesTheDyingCreaturesFormerControllerAndIgnoresExile() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card stolen = addCard("Couchpotato", p); stolen.setController(other, game.getNextTimestamp()); game.getAction().checkStaticAbilities();
+        AbilityUtils.resolve(spell("Moshpit", p)); game.getAction().moveToGraveyard(stolen, null); resolveTriggers(game);
+        assertEquals(other.getLife(), 19); assertEquals(p.getLife(), 20);
+        Card exile = enter("Couchpotato", other); game.getAction().moveTo(ZoneType.Exile, exile, null, null); resolveTriggers(game); assertEquals(other.getLife(), 19);
+    }
+
+    @Test
+    public void gastronomicThirdChapterRemovesAllCreatureCounterKindsAndDamagesWithinTheSameResolution() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card a = addCard("Couchpotato", p), b = addCard("Couchpotato", other), machine = addCard("Tavern Slot Machine", p);
+        counters(a, CounterEnumType.P1P1, 3); counters(a, CounterEnumType.DRUNKEN, 2); counters(b, CounterEnumType.STUN, 2); counters(machine, CounterEnumType.CHARGE, 9);
+        Card saga = createCard("Gastronomic Downfall", p); SpellAbility chapter = db(saga, "Remove"); chapter.getTargets().add(other); AbilityUtils.resolve(chapter);
+        assertEquals(a.getNumAllCounters(), 0); assertEquals(b.getNumAllCounters(), 0); assertEquals(machine.getCounters(CounterEnumType.CHARGE), 9);
+        assertEquals(other.getLife(), 13); assertFalse(saga.hasRemembered()); assertTrue(game.getStack().isEmpty());
+    }
+
+    @Test
+    public void gastronomicRepeatsDistributionInChaptersOneAndTwoThenUsesChapterThree() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card creature = enter("Untamable Grove Colossus", other); PlayerController choices = spy(p.getController());
+        doAnswer(i -> { SpellAbility a = i.getArgument(0); if (a.getTargetRestrictions().getValidTgts()[0].equals("Creature")) {
+            a.getTargets().add(creature); a.addDividedAllocation(creature, 2);
+        } else { a.getTargets().add(other); } return true; }).when(choices).chooseTargetsFor(any()); p.dangerouslySetController(choices);
+        // Use deterministic player target choices, independently of AI card evaluation.
+        doAnswer(i -> {
+            for (SpellAbility a : (java.util.List<SpellAbility>) i.getArgument(0)) {
+                if (a.usesTargeting()) { a.clearTargets(); choices.chooseTargetsFor(a); }
+                game.getStack().add(a);
+            }
+            return null; }).when(choices).orderAndPlaySimultaneousSa(any());
+        Card saga = enter("Gastronomic Downfall", p); resolveTriggers(game); assertEquals(creature.getCounters(CounterEnumType.M1M1), 2);
+        counters(saga, CounterEnumType.LORE, 1); resolveTriggers(game); assertEquals(creature.getCounters(CounterEnumType.M1M1), 4); assertTrue(saga.isInPlay());
+        counters(saga, CounterEnumType.LORE, 1); resolveTriggers(game); game.getAction().checkStateEffects(true);
+        assertEquals(creature.getNumAllCounters(), 0); assertEquals(other.getLife(), 13); assertTrue(saga.isInZone(ZoneType.Graveyard));
+    }
+
+    @Test
+    public void maternalInstinctMovesOneCounterBetweenAnyTwoOwnCreaturesWithoutTargetingThem() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card protectedCard = addCard("Couchpotato", p), donor = addCard("Couchpotato", p), recipient = addCard("Couchpotato", p), enemy = addCard("Couchpotato", other);
+        counters(donor, CounterEnumType.STUN, 2); counters(enemy, CounterEnumType.STUN, 3);
+        PlayerController choices = spy(p.getController());
+        doReturn(new forge.game.card.CardCollection(donor), new forge.game.card.CardCollection(recipient))
+                .when(choices).chooseCardsForEffect(any(), any(), anyString(), anyInt(), anyInt(), anyBoolean(), any()); p.dangerouslySetController(choices);
+        SpellAbility maternal = spell("Maternal Instinct", p); maternal.getTargets().add(protectedCard); AbilityUtils.resolve(maternal);
+        assertTrue(protectedCard.hasKeyword("Hexproof")); assertEquals(donor.getCounters(CounterEnumType.STUN), 1); assertEquals(recipient.getCounters(CounterEnumType.STUN), 1);
+        assertEquals(enemy.getCounters(CounterEnumType.STUN), 3); assertEquals(maternal.getTargets().size(), 1);
+        assertFalse(maternal.getHostCard().hasRemembered()); game.getEndOfTurn().executeUntil(); assertFalse(protectedCard.hasKeyword("Hexproof"));
+    }
+
+    @Test
+    public void maternalInstinctWorksWithOnlyOneCreatureAndAllowsDecliningTheMove() {
+        Game game = customGame(); Player p = game.getPlayers().get(0); Card creature = addCard("Couchpotato", p); counters(creature, CounterEnumType.STUN, 2);
+        PlayerController choices = spy(p.getController()); doReturn(forge.game.card.CardCollection.EMPTY)
+                .when(choices).chooseCardsForEffect(any(), any(), anyString(), anyInt(), anyInt(), anyBoolean(), any()); p.dangerouslySetController(choices);
+        SpellAbility maternal = spell("Maternal Instinct", p); maternal.getTargets().add(creature);
+        assertEquals(maternal.getMinTargets(), 1); assertEquals(maternal.getMaxTargets(), 1); AbilityUtils.resolve(maternal);
+        assertTrue(creature.hasKeyword("Hexproof")); assertEquals(creature.getCounters(CounterEnumType.STUN), 2);
+    }
+
+    @Test
+    public void higherProtectionProtectsOnlyOwnCreaturesAndGainsExactlyTwoLife() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card own = addCard("Couchpotato", p), enemy = addCard("Couchpotato", other); SpellAbility protect = spell("Higher Protection", p);
+        assertTrue(protect.canTarget(own)); assertFalse(protect.canTarget(enemy)); protect.getTargets().add(own); AbilityUtils.resolve(protect);
+        assertTrue(own.hasKeyword("Hexproof")); assertEquals(p.getLife(), 22); assertEquals(other.getLife(), 20);
+        game.getEndOfTurn().executeUntil(); assertFalse(own.hasKeyword("Hexproof"));
+    }
+
+    @Test
+    public void hazeFueledFrenzyPumpsAnyTargetCreatureAndGrantsTemporaryTrample() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card creature = addCard("Couchpotato", other); SpellAbility frenzy = spell("Haze-Fueled Frenzy", p); assertTrue(frenzy.canTarget(creature));
+        frenzy.getTargets().add(creature); AbilityUtils.resolve(frenzy); assertEquals(creature.getNetPower(), 3); assertEquals(creature.getNetToughness(), 7); assertTrue(creature.hasKeyword("Trample"));
+        game.getEndOfTurn().executeUntil(); assertEquals(creature.getNetPower(), 0); assertEquals(creature.getNetToughness(), 4); assertFalse(creature.hasKeyword("Trample"));
+    }
+
+    @Test
+    public void ciniMinisSacrificesMilkOnResolutionWithoutAnotherManaOrTapCost() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card cini = enter("Cini Minis", p), milk = enter("Milk", p); for (int n = 0; n < 2; n++) addCard("Forest", p);
+        for (int n = 0; n < 4; n++) addCardToZone("Island", p, ZoneType.Library);
+        PlayerController choices = spy(p.getController()); doAnswer(i -> new forge.game.cost.CostPayment(i.getArgument(0), i.getArgument(1))
+                .payComputerCosts(new forge.ai.AiCostDecision(p, i.getArgument(1), true)))
+                .when(choices).payCostToPreventEffect(any(), any(), anyBoolean(), any()); p.dangerouslySetController(choices);
+        SpellAbility activation = cini.getSpellAbilities().stream().filter(a -> a.getApi() == ApiType.GainLife).findFirst().orElseThrow(); activation.setActivatingPlayer(p);
+        assertFalse(activation.getPayCosts().toString().contains("Milk")); assertTrue(ComputerUtil.playNoStack(p, activation, game, false));
+        assertTrue(cini.isInZone(ZoneType.Graveyard)); assertTrue(milk.isInZone(ZoneType.Graveyard)); assertEquals(p.getLife(), 23); assertEquals(p.getCardsIn(ZoneType.Hand).size(), 3);
+    }
+
+    @Test
+    public void shotcrusherCounterFeedbackCanBeStoppedAfterOneOptionalCopy() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card a = enter("Distant Cousin Shotcrusher", p), b = enter("Distant Cousin Shotcrusher", p);
+        PlayerController choices = spy(p.getController()); doReturn(true, false).when(choices).confirmTrigger(any()); p.dangerouslySetController(choices);
+        counters(a, CounterEnumType.DRUNKEN, 1); resolveTriggers(game);
+        assertEquals(a.getCounters(CounterEnumType.DRUNKEN), 1); assertEquals(b.getCounters(CounterEnumType.DRUNKEN), 1); assertTrue(game.getStack().isEmpty());
+        verify(choices, times(2)).confirmTrigger(any());
+    }
+
+    @Test
+    public void namedCastHistorySurvivesGameSnapshotAndTurnReset() {
+        Game game = customGame(); Player p = game.getPlayers().get(0); p.addSpellCastThisTurn(createCard("Annoying Running Gag", p));
+        game.getStack().onNextTurn(); p.addSpellCastThisTurn(createCard("Annoying Running Gag", p));
+        Game copy = new forge.game.GameSnapshot(game).makeCopy();
+        assertEquals(copy.getPlayers().get(0).getSpellsCastNamedThisGame("Annoying Running Gag"), 2);
     }
 
 }
