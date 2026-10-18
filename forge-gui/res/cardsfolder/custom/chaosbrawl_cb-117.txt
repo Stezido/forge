@@ -2,5 +2,6 @@ Name:Bottle Bash
 ManaCost:1 R
 Types:Instant
 A:SP$ DealDamage | ValidTgts$ Creature,Planeswalker | NumDmg$ X | SpellDescription$ CARDNAME deals 3 damage to target creature or planeswalker, or 5 if you control a drunken creature.
-SVar:X:Count$Valid Creature.YouCtrl+counters_GE1_DRUNKEN/LimitMax.1/Times.2/Plus.3
+SVar:X:Count$Compare DrunkenCount GE1.5.3
+SVar:DrunkenCount:Count$Valid Creature.YouCtrl+counters_GE1_DRUNKEN
 Oracle:Bottle Bash deals 3 damage to target creature or planeswalker.\nIf you control a Drunken creature, Bottle Bash deals 5 damage instead.

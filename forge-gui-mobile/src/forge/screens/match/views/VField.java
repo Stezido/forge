@@ -26,6 +26,8 @@ public class VField extends FContainer {
     private final List<CardView> creatures = new ArrayList<>();
     private final List<CardView> lands = new ArrayList<>();
     private final List<CardView> otherPermanents = new ArrayList<>();
+    // Rebuilt with the stacks; append identical tokens without walking their entire chain.
+    private final Map<CardAreaPanel, CardAreaPanel> stackTails = new HashMap<>();
 
     public VField(PlayerView player0) {
         player = player0;
@@ -68,6 +70,7 @@ public class VField extends FContainer {
             creatures.clear();
             lands.clear();
             otherPermanents.clear();
+            stackTails.clear();
 
             FCollectionView<CardView> battlefield = player.getBattlefield();
             if (battlefield.isEmpty()) {
@@ -155,6 +158,7 @@ public class VField extends FContainer {
                         card.hasSameCounters(c) &&
                         cardState.getKeywords().equals(cState.getKeywords()) &&
                         cardState.getColors() == cState.getColors() &&
+                        card.isTapped() == c.isTapped() &&
                         card.isSick() == c.isSick() && //don't stack sick tokens on non sick
                         card.isToken() == c.isToken()) { //don't stack tokens on top of non-tokens
                     stackOnto(card, c);
@@ -165,14 +169,13 @@ public class VField extends FContainer {
         return false;
     }
 
-    private static void stackOnto(CardView card, CardView topOfStack) {
-        CardAreaPanel cPanel = CardAreaPanel.get(topOfStack);
-        while (cPanel.getNextPanelInStack() != null) {
-            cPanel = cPanel.getNextPanelInStack();
-        }
+    private void stackOnto(CardView card, CardView topOfStack) {
+        CardAreaPanel head = CardAreaPanel.get(topOfStack);
+        CardAreaPanel cPanel = stackTails.getOrDefault(head, head);
         CardAreaPanel cardPanel = CardAreaPanel.get(card);
         cPanel.setNextPanelInStack(cardPanel);
         cardPanel.setPrevPanelInStack(cPanel);
+        stackTails.put(head, cardPanel);
     }
 
     private List<CardView> arrangeContraptions(List<CardView> contraptions) {

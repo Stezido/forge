@@ -68,6 +68,35 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     @Test
+    public void bottleBashDealsThreeOrFiveRegardlessOfNumberOfDrunkenCreatures() {
+        for (int count = 0; count <= 3; count++) {
+            Game game = customGame(); Player p = game.getPlayers().get(0);
+            Card target = addCard("Couchpotato", game.getPlayers().get(1));
+            // An opposing drunken creature must not enable the bonus.
+            counters(target, CounterEnumType.DRUNKEN, 1);
+            for (int n = 0; n < count; n++) counters(addCard("Couchpotato", p), CounterEnumType.DRUNKEN, 1);
+            SpellAbility bash = spell("Bottle Bash", p); bash.getTargets().add(target);
+            AbilityUtils.resolve(bash);
+            assertEquals(target.getDamage(), count == 0 ? 3 : 5);
+        }
+    }
+
+    @Test
+    public void temptressCanResolveWithBothSelectedTargetsIncludingHerself() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card donor = addCard("Couchpotato", p); counters(donor, CounterEnumType.DRUNKEN, 2);
+        Card temptress = enter("Manipulative Temptress", p);
+        SpellAbility move = db(temptress, "Move");
+        assertTrue(move.canTarget(donor)); move.getTargets().add(donor);
+        assertTrue(move.canTarget(temptress)); move.getTargets().add(temptress);
+        // Resolution rechecks targets after they have already been selected.
+        assertTrue(move.canTarget(donor)); assertTrue(move.canTarget(temptress));
+        AbilityUtils.resolve(move);
+        assertEquals(donor.getCounters(CounterEnumType.DRUNKEN), 1);
+        assertEquals(temptress.getCounters(CounterEnumType.DRUNKEN), 1);
+    }
+
+    @Test
     public void drunkenIsSeparateAndDisabledForOrdinaryMatches() {
         Game game = initAndCreateGame();
         game.getRules().setChaosBrawl(false);

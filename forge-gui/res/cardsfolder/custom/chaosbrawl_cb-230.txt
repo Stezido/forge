@@ -3,5 +3,5 @@ ManaCost:2 U
 Types:Creature Siren
 PT:2/3
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Move | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, ABILITY
-SVar:Move:DB$ MoveCounter | ValidTgts$ Creature | TargetMin$ 2 | TargetMax$ 2 | CounterType$ Any | CounterNum$ 1 | TargetUnique$ True | SpellDescription$ Move a counter from the first target creature to the second.
+SVar:Move:DB$ MoveCounter | ValidTgts$ Creature | TgtPrompt$ Select the creature giving a counter first, then the creature receiving it | TargetMin$ 2 | TargetMax$ 2 | CounterType$ Any | CounterNum$ 1 | SpellDescription$ Move a counter from the first target creature to the second.
 Oracle:When Manipulative Temptress enters, you may move a counter from one creature to another creature.
