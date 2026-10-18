@@ -68,6 +68,51 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     @Test
+    public void bottleBashDealsThreeOrFiveRegardlessOfNumberOfDrunkenCreatures() {
+        for (int count = 0; count <= 3; count++) {
+            Game game = customGame(); Player p = game.getPlayers().get(0);
+            Card target = addCard("Couchpotato", game.getPlayers().get(1));
+            // An opposing drunken creature must not enable the bonus.
+            counters(target, CounterEnumType.DRUNKEN, 1);
+            for (int n = 0; n < count; n++) counters(addCard("Couchpotato", p), CounterEnumType.DRUNKEN, 1);
+            SpellAbility bash = spell("Bottle Bash", p); bash.getTargets().add(target);
+            AbilityUtils.resolve(bash);
+            assertEquals(target.getDamage(), count == 0 ? 3 : 5);
+        }
+    }
+
+    @Test
+    public void temptressChoosesCreaturesOnResolutionAndCanReceiveAnOpponentsCounter() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card donor = addCard("Couchpotato", game.getPlayers().get(1)); counters(donor, CounterEnumType.DRUNKEN, 2);
+        Card temptress = enter("Manipulative Temptress", p);
+        // Neither creature is targeted by the printed ability.
+        donor.addIntrinsicKeyword("Shroud"); temptress.addIntrinsicKeyword("Shroud");
+        PlayerController choices = spy(p.getController());
+        doReturn(new forge.game.card.CardCollection(donor), new forge.game.card.CardCollection(temptress))
+            .when(choices).chooseCardsForEffect(any(), any(), anyString(), anyInt(), anyInt(), anyBoolean(), any());
+        p.dangerouslySetController(choices);
+        SpellAbility move = db(temptress, "Move"); assertFalse(move.usesTargeting());
+        AbilityUtils.resolve(move);
+        assertEquals(donor.getCounters(CounterEnumType.DRUNKEN), 1);
+        assertEquals(temptress.getCounters(CounterEnumType.DRUNKEN), 1);
+        assertFalse(temptress.hasRemembered());
+    }
+
+    @Test
+    public void temptressAllowsDecliningTheMove() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card donor = addCard("Couchpotato", p); counters(donor, CounterEnumType.STUN, 2);
+        Card temptress = enter("Manipulative Temptress", p);
+        PlayerController choices = spy(p.getController());
+        doReturn(forge.game.card.CardCollection.EMPTY).when(choices)
+            .chooseCardsForEffect(any(), any(), anyString(), anyInt(), anyInt(), anyBoolean(), any());
+        p.dangerouslySetController(choices); AbilityUtils.resolve(db(temptress, "Move"));
+        assertEquals(donor.getCounters(CounterEnumType.STUN), 2);
+        assertFalse(temptress.hasRemembered());
+    }
+
+    @Test
     public void drunkenIsSeparateAndDisabledForOrdinaryMatches() {
         Game game = initAndCreateGame();
         game.getRules().setChaosBrawl(false);

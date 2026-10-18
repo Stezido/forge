@@ -92,7 +92,7 @@ def main():
         if not original.is_file():
             raise ValueError('Missing native full render; use --render: '+card['name'])
         shutil.copyfile(original, cards_dir/filenames[card['id']])
-    # Illustrations for source-defined tokens are copied byte-for-byte from the MSE.
+    # Forge token image slots require full card renders, including frame and rules text.
     identity = {c['name']:c for c in pinned['supportingTokens']}
     scripts = [('Beer','chaosbrawl_beer'),('Hangry Siren','chaosbrawl_hangry_siren'),
                ('Another Brother','chaosbrawl_another_brother'),('Vengeful Gnome Pack','chaosbrawl_vengeful_gnome_pack'),
@@ -101,15 +101,13 @@ def main():
     scripts += [(n+' Beer','chaosbrawl_'+n.lower()+'_beer') for n in ['Expired','Zwickl','Wheat','Dark','Pils','Bock']]
     by_id = {c['id']:c for c in cards}
     scripts += [(by_id[cid]['name'], script) for cid, script in token_bindings.items() if cid in by_id]
-    with zipfile.ZipFile(source) as archive:
-        sys.path.insert(0, str(website/'scripts/mse'))
-        from archive import card_sections, read_archive
-        native = card_sections(read_archive(source)[0])
-        for name, script in scripts:
-            if not (ROOT/'forge-gui/res/tokenscripts'/(script+'.txt')).exists():
-                continue
-            member = native[identity[name]['nativeUid']][2]['image']
-            (token_dir/(script+'.png')).write_bytes(archive.read(member))
+    for name, script in scripts:
+        if not (ROOT/'forge-gui/res/tokenscripts'/(script+'.txt')).exists():
+            continue
+        full_render = images/(identity[name]['nativeUid']+'.png')
+        if not full_render.is_file():
+            raise ValueError('Missing native full token render: '+name)
+        shutil.copyfile(full_render, token_dir/(script+'.png'))
     generated = {cid for document in documents for cid in document.get('generatedOnlyIds', [])}
     decks = []
     active_deck = None
