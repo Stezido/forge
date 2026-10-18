@@ -71,6 +71,14 @@
       "sha256": "fc821bd46dd48dfde7574b27e0ac5a4bb15f83b2558442dd8c8ee173dbca4dee"
     },
     {
+      "path": "forge-ai/src/main/java/forge/ai/ChaosBrawlObsessionAi.java",
+      "sha256": "9afcc20df6ade154d43bf10389dbd494859a54fa30786efacfed660b481e14ec"
+    },
+    {
+      "path": "forge-ai/src/main/java/forge/ai/ability/CountersPutAi.java",
+      "sha256": "21d06bc705c9c286200b1a742f309654a3e6c7b13d042a18e6aa151de1d5dfa8"
+    },
+    {
       "path": "forge-ai/src/main/java/forge/ai/ability/PermanentAi.java",
       "sha256": "946038f90d09de408639e8464125e241be7b07bb285e2bc27aff69045a3d4525"
     },
@@ -212,7 +220,7 @@
     },
     {
       "path": "forge-gui-desktop/src/test/java/forge/gamesimulationtests/ChaosBrawlTest.java",
-      "sha256": "f3baadca4d2717ff01c06c9cd132f9a21629999cac73fb70b93b43bca3ea4c48"
+      "sha256": "e110db937545112c5d8f23f52f4795d8f1105f1b1cf5ab20f017aa08da74cea1"
     },
     {
       "path": "forge-gui-mobile/src/forge/adventure/data/ConfigData.java",

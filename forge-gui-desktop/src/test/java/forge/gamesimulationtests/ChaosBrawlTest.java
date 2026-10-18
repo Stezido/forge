@@ -112,6 +112,115 @@ public class ChaosBrawlTest extends SimulationTest {
         assertFalse(temptress.hasRemembered());
     }
 
+    @DataProvider(name = "obsessionAiSources")
+    public Object[][] obsessionAiSources() {
+        return new Object[][] {{"Sweet Harmless Siren", true}, {"Wagon Enthusiast", true},
+                {"Baiting Siren", false}, {"Peter, the Manipulative", false}, {"Ball Scratching", false}};
+    }
+
+    private SpellAbility obsessionForAi(Player p, String name, boolean trigger) {
+        Card host = name.equals("Ball Scratching") ? addCardToZone(name, p, ZoneType.Hand) : addCard(name, p);
+        SpellAbility ability = trigger ? db(host, "Obsess") : host.getSpellAbilities().stream()
+                .filter(a -> a.getApi() == ApiType.PutCounter).findFirst().orElseThrow();
+        ability.setActivatingPlayer(p);
+        return ability;
+    }
+
+    private boolean chooseObsession(Player p, SpellAbility ability, boolean trigger, boolean mandatory) {
+        var logic = new forge.ai.ability.CountersPutAi();
+        return (trigger ? logic.doTriggerNoCostWithSubs(p, ability, mandatory)
+                : logic.canPlayWithSubs(p, ability)).willingToPlay();
+    }
+
+    @Test(dataProvider = "obsessionAiSources")
+    public void obsessionAiPrefersOpponentsAcrossSpellsActivationsAndTriggers(String name, boolean trigger) {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card own = addCard("Couchpotato", p), enemy = addCard("Couchpotato", game.getPlayers().get(1));
+        for (int n = 0; n < 4; n++) addCard("Island", p);
+        SpellAbility ability = obsessionForAi(p, name, trigger);
+        assertTrue(chooseObsession(p, ability, trigger, true), name);
+        assertEquals(ability.getTargetCard(), enemy, name);
+        assertEquals(own.getCounters(CounterEnumType.OBSESSION), 0, "Considering targets must not change the game");
+    }
+
+    @Test
+    public void obsessionAiDeclinesOptionalSelfHarmButFulfillsMandatoryTargeting() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card weak = addCard("Couchpotato", p);
+        SpellAbility optional = obsessionForAi(p, "Sweet Harmless Siren", true);
+        assertTrue(chooseObsession(p, optional, true, true));
+        assertTrue(optional.getTargets().isEmpty(), "Up to one allows zero targets even on a mandatory trigger");
+        SpellAbility paid = obsessionForAi(p, "Baiting Siren", false);
+        for (int n = 0; n < 4; n++) addCard("Island", p);
+        assertFalse(chooseObsession(p, paid, false, false));
+        assertTrue(paid.getTargets().isEmpty());
+        SpellAbility required = obsessionForAi(p, "Wagon Enthusiast", true);
+        assertTrue(chooseObsession(p, required, true, true));
+        assertEquals(required.getTargetCard(), weak, "A required trigger still chooses the least valuable legal own creature");
+    }
+
+    @Test
+    public void obsessionAiRecognizesDevoteeBuffAndAvoidsBuffingEnemyDevotee() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card ordinary = addCard("Couchpotato", p), devotee = addCard("Domina’s Devotee", p);
+        Card enemy = addCard("Couchpotato", other), enemyDevotee = addCard("Domina’s Devotee", other);
+        SpellAbility ability = obsessionForAi(p, "Sweet Harmless Siren", true);
+        assertTrue(chooseObsession(p, ability, true, true)); assertEquals(ability.getTargetCard(), devotee);
+        game.getAction().moveToGraveyard(devotee, null);
+        assertTrue(chooseObsession(p, ability, true, true)); assertEquals(ability.getTargetCard(), enemy);
+        assertEquals(ordinary.getCounters(CounterEnumType.OBSESSION), 0);
+        assertEquals(enemyDevotee.getCounters(CounterEnumType.OBSESSION), 0);
+    }
+
+    @Test
+    public void obsessionAiOnlyTreatsTheAuraAsABuffWhenTheNextCounterReachesItsThreshold() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card own = addCard("Couchpotato", p), enemy = addCard("Couchpotato", other);
+        Card aura = addCard("Blood Moon Rising", p); aura.attachToEntity(own, null);
+        counters(own, CounterEnumType.OBSESSION, 3); game.getAction().checkStaticAbilities();
+        SpellAbility ability = obsessionForAi(p, "Sweet Harmless Siren", true);
+        assertTrue(chooseObsession(p, ability, true, true)); assertEquals(ability.getTargetCard(), enemy);
+        counters(own, CounterEnumType.OBSESSION, 1);
+        assertTrue(chooseObsession(p, ability, true, true)); assertEquals(ability.getTargetCard(), own);
+        assertEquals(own.getCounters(CounterEnumType.OBSESSION), 4);
+        assertEquals(own.getNetPower(), 0, "Threshold evaluation must not grant the real buff");
+    }
+
+    @Test
+    public void obsessionAiAvoidsCompletingAnEnemyAuraBuffAndRespectsHexproof() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        addCard("Couchpotato", p);
+        Card payoff = addCard("Couchpotato", other), safe = addCard("Couchpotato", other);
+        Card aura = addCard("Blood Moon Rising", other); aura.attachToEntity(payoff, null);
+        counters(payoff, CounterEnumType.OBSESSION, 4); game.getAction().checkStaticAbilities();
+        SpellAbility ability = obsessionForAi(p, "Sweet Harmless Siren", true);
+        assertTrue(chooseObsession(p, ability, true, true)); assertEquals(ability.getTargetCard(), safe);
+        safe.addIntrinsicKeyword("Hexproof");
+        assertTrue(chooseObsession(p, ability, true, true)); assertTrue(ability.getTargets().isEmpty());
+    }
+
+    @Test
+    public void obsessionAiDoesNotChooseAFriendlyTemporaryBuffAfterCombat() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        addCard("Domina’s Devotee", p);
+        SpellAbility ability = obsessionForAi(p, "Sweet Harmless Siren", true);
+        game.getPhaseHandler().devModeSet(PhaseType.MAIN2, p);
+        assertTrue(chooseObsession(p, ability, true, true)); assertTrue(ability.getTargets().isEmpty());
+    }
+
+    @Test
+    public void ordinaryPositiveCounterTargetingRemainsFriendly() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card own = addCard("Couchpotato", p); addCard("Couchpotato", other);
+        SpellAbility ability = AbilityFactory.getAbility("AB$ PutCounter | Cost$ 0 | ValidTgts$ Creature | CounterType$ P1P1 | CounterNum$ 1", own);
+        ability.setActivatingPlayer(p);
+        assertFalse(forge.ai.ChaosBrawlObsessionAi.applies(ability));
+        assertTrue(new forge.ai.ability.CountersPutAi().doTriggerNoCostWithSubs(p, ability, true).willingToPlay());
+        assertEquals(ability.getTargetCard(), own);
+        game.getRules().setChaosBrawl(false);
+        assertFalse(forge.ai.ChaosBrawlObsessionAi.applies(obsessionForAi(p, "Sweet Harmless Siren", true)));
+    }
+
     @Test
     public void drunkenIsSeparateAndDisabledForOrdinaryMatches() {
         Game game = initAndCreateGame();

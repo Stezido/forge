@@ -124,6 +124,9 @@ public class CountersPutAi extends CountersAi {
 
     @Override
     protected AiAbilityDecision checkApiLogic(Player ai, final SpellAbility sa) {
+        if (ChaosBrawlObsessionAi.applies(sa)) {
+            return ChaosBrawlObsessionAi.chooseTargets(ai, sa, false);
+        }
         // AI needs to be expanded, since this function can be pretty complex
         // based on what the expected targets could be
         final Cost abCost = sa.getPayCosts();
@@ -735,6 +738,9 @@ public class CountersPutAi extends CountersAi {
 
     @Override
     protected AiAbilityDecision doTriggerNoCost(Player ai, SpellAbility sa, boolean mandatory) {
+        if (ChaosBrawlObsessionAi.applies(sa)) {
+            return ChaosBrawlObsessionAi.chooseTargets(ai, sa, mandatory);
+        }
         final SpellAbility root = sa.getRootAbility();
         final Card source = sa.getHostCard();
         final String aiLogic = sa.getParam("AILogic");
