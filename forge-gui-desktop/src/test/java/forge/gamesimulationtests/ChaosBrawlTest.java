@@ -1818,6 +1818,44 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     @Test
+    public void draftTapAddsCounterWhenEveryBeerActivationUsesTheNormalStack() {
+        for (String kind : new String[] {"beer", "expired_beer", "bock_beer", "dark_beer", "pils_beer", "wheat_beer", "zwickl_beer"}) {
+            for (int taps = 1; taps <= 2; taps++) {
+                Game game = customGame(); Player p = game.getPlayers().get(0);
+                if (taps == 2) addCard("Mirror Gallery", p);
+                Card tap = null;
+                for (int n = 0; n < taps; n++) {
+                    // Two copies are useful to check that each trigger keeps its own snapshot.
+                    tap = addCard("Draft Tap", p);
+                }
+                resolveEffect("DB$ Token | TokenScript$ chaosbrawl_" + kind + " | TokenAmount$ 1", tap);
+                Card beer = p.getCardsIn(ZoneType.Battlefield).stream().filter(Card::isToken).findFirst().orElseThrow();
+                Card target = addCard("Couchpotato", p);
+                addCard("Swamp", p); game.getAction().checkStaticAbilities();
+                SpellAbility drink = beer.getSpellAbilities().stream().filter(a -> a.getApi() == ApiType.PutCounter).findFirst().orElseThrow();
+                drink.setActivatingPlayer(p); drink.getTargets().add(target);
+                assertTrue(ComputerUtil.playStack(drink, p, game));
+                assertTrue(drink.getTargets().isEmpty(), "Normal stack insertion clears the original activation's targets");
+                resolveTriggers(game);
+                assertEquals(target.getCounters(CounterEnumType.DRUNKEN), (1 + taps) * (kind.equals("bock_beer") ? 2 : 1), kind);
+            }
+        }
+    }
+
+    @Test
+    public void opposingDraftTapDoesNotBoostYourBeerActivation() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card tap = addCard("Draft Tap", game.getPlayers().get(1));
+        Card host = addCard("Couchpotato", p);
+        resolveEffect("DB$ Token | TokenScript$ chaosbrawl_beer | TokenAmount$ 1", host);
+        Card beer = findCardWithName(game, "Beer"); addCard("Swamp", p);
+        SpellAbility drink = beer.getSpellAbilities().stream().filter(a -> a.getApi() == ApiType.PutCounter).findFirst().orElseThrow();
+        drink.setActivatingPlayer(p); drink.getTargets().add(host);
+        assertTrue(ComputerUtil.playStack(drink, p, game)); resolveTriggers(game);
+        assertEquals(host.getCounters(CounterEnumType.DRUNKEN), 1);
+    }
+
+    @Test
     public void fillEmUpUsesTheTargetsOwnTolerance() {
         for (String name : new String[] {"Couchpotato", "Brüder Hopfenblüte"}) {
             Game game = customGame(); Player p = game.getPlayers().get(0);

@@ -2288,6 +2288,11 @@ public class Player extends GameEntity implements Comparable<Player> {
         // use a copy that preserves last known information about the card (e.g. for Savra, Queen of the Golgari + Painter's Servant)
         runParams.put(AbilityKey.Card, cpy);
         runParams.put(AbilityKey.Cause, source);
+        if (game.getRules().isChaosBrawl() && source != null) {
+            // Activated abilities are copied onto the stack and their original targets cleared.
+            // Sacrifice triggers must retain the targets chosen when the cost was paid.
+            runParams.put(AbilityKey.CauseTargets, new CardCollection(source.findTargetedCards()));
+        }
         runParams.put(AbilityKey.CostStack, game.costPaymentStack);
         runParams.put(AbilityKey.IndividualCostPaymentInstance, game.costPaymentStack.peek());
         game.getTriggerHandler().runTrigger(TriggerType.Sacrificed, runParams, false);
