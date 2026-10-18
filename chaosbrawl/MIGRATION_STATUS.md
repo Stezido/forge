@@ -188,3 +188,6 @@ Owner explicitly requested deployment of a new beta.4 release. Preparing Windows
 
 
 Beta.4 source validation: 482 engine tests and 7 limited tests pass. Android manifest version and signing/source archive metadata now match beta.4/versionCode10004. Existing key material remains outside the repository. Windows/Adventure reactor build is running locally; emulators API26/API35 started for upgrade checks. Nothing uploaded yet.
+
+
+Beta.4 packaging completed from exact clean source78f9be13e8041236bb1f4a75e827ece428fd05cd: Windows ZIP497231720 bytes and source279209921 bytes. Native Windows checks pass292 card/17 token images,9 Adventure checks with4 completed games, a decisive Classic game, and Classic/Adventure window startup. Artifacts copied/checksummed to new C:\MTG beta.4 folders without overwriting earlier releases. Android APK363920962 bytes signed with the unchanged03d5c326 certificate, versionCode10004; exact Android source622133026 bytes, both from the same source commit. API26/API35 in-place installations over beta.1 succeed; resource update/seed preservation is being checked. GitHub draft uploads started; one API request timed out and is being retried, so no publication or website pin change is claimed yet.
