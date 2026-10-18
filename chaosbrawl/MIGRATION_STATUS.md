@@ -119,3 +119,10 @@ Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former
 - Final native Windows restart reports the correct isolated ChaosBrawl profile, Drakoe, 40 collection cards and exactly one Draft reward booster; the finalized event is removed as expected. Both full event/reward/save/restart flows are verified. Eight actual client games were played with temporary AI control of the test seat; ordinary AI-only bracket pairings use upstream Adventure's random resolution. No human/remote proof is claimed.
 - Final local Adventure JAR: 59,036,882 bytes, SHA-256 ca9a5d120f1d5e94e18294f54bef622c11135e4cbd542bfffa1807e22c385bdf. Receipt: limited/verification.json. All 466 card checks, seven classic limited checks, nine native Windows Adventure/model/image/game checks and local preparation for 314 faces/41 decks pass. Latest reviewed executable pins and generated data match.
 - Ready to merge private PR #10 into the existing Windows integration branch while preserving all earlier PRs. Issue #56 stays open for the future coordinated CBFRbeta/CBFR packaging/release batch. No new ZIP/release/upload/deployment; current production beta.2 remains unchanged. Android/mobile remains #57.
+
+
+2026-10-18: Saved and merged handoff.
+
+- Private Forge PR #10 merged at ec90594d51271e20deee54630d18d580e78f2a82 into chaosbrawl/windows-playtest-001. Earlier PRs/branches and the public fork/main are preserved. Local Windows integration worktree was fast-forwarded to that merge after verifying it was clean. PR #9 now describes the combined Windows/Adventure source scope.
+- Website #56 checklist records implementation and all verified event flows; it stays open only for the coordinated future CBFRbeta/CBFR packaging/release batch. #34 has the current milestone update. #55/#54 and Android #57 remain separate follow-ups.
+- Both owned GUI test processes were closed after saving. The native local test launcher/README and ignored logs/captures remain available; the full source verification receipt is committed. Published beta.2, production website access, MSE and user-owned dirty worktrees were not modified. No new ZIP, release or deployment.
