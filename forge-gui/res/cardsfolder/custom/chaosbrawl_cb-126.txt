@@ -4,3 +4,4 @@ Types:Artifact Food
 A:AB$ GainLife | Cost$ 2 T Sac<1/CARDNAME> | LifeAmount$ 3 | SubAbility$ Milk | SpellDescription$ You gain 3 life. You may sacrifice a Food named Milk. If you do, draw three cards.
 SVar:Milk:DB$ Draw | NumCards$ 3 | UnlessCost$ Sac<1/Food.namedMilk> | UnlessPayer$ You | UnlessSwitched$ True
 Oracle:{2}, {T}, Sacrifice Cini Minis: You gain 3 life. You may sacrifice a Food named Milk. If you do, draw three cards.
+DeckHints:Name$Milk

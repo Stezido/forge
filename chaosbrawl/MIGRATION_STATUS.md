@@ -38,3 +38,84 @@ Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former
 - Website private prerelease forge-desktop-v0.1.0-beta.2 is published with uploaded Windows/source assets. Provider-reported names/sizes/digests match the local manifest. Beta.1 remains preserved. Website pins now reference Windows asset 651614919 and source 651614917.
 - Website branch passes 84 checks, TypeScript and production build. Compiled workerd verifies both new handoffs with the dedicated read-only token and anonymous CDN bytes. Staging-only run 39070401046 is deploying the new pins; production continuation is explicitly requested. Source PR #50 is merged with skip-ci, download PR #52 targets main.
 - Packager defaults to beta.2 and requires the engine image audit before ZIP creation. Forge PR #9 contains the corrected preparation/packager and native proof; engine rule changes remain preserved on PR #8. Adventure/mobile still follow Windows publication.
+
+
+2026-10-18: Resume Adventure/limited issue #56.
+
+- Resumed after the owner-requested overnight pause. Windows beta.2 is already published; no new downloadable release is authorized. Merged the packaging/release-policy branch into the existing Adventure branch, preserving its earlier compile audit and the published artifacts.
+- Read current issue #56 and inherited AGENTS.md. Website boosters use 12 cards (7 common, 3 uncommon, 1 rare/mythic at 1-in-8 replacement, 1 wildcard), excluding tokens, generated-only cards and all planeswalkers. Website sealed opens eight packs. This is the starting collation for Forge limited mode.
+- Inspected actual BoosterGenerator, draft ranking loader, Adventure block/edition filters and plane-scoped overrides. Missing pieces include explicit eligible print sheets, booster/block metadata, ranking data, isolated Adventure configuration and real pool/draft/event checks. Native named slots currently allow a wildcard to repeat an earlier card, so exact website collation needs an opt-in slot exclusion or equivalent tested handling.
+- No MSE/rules text, set code, production settings or downloadable assets changed. Next: implement/test booster/rank data and AI limited decks, then the isolated Adventure client/events.
+
+
+2026-10-18: Classic limited generation passes six real-engine checks.
+
+- Added a generated eligible print sheet (285 source printings / 275 names), website-equivalent 12-card booster slots and a 3-pack draft / 8-pack sealed block. Mythic replacement is explicitly 1 in 8. An opt-in ExcludeAlreadySelected slot flag prevents the wildcard repeating an earlier source printing without mutating shared sheets or changing ordinary editions.
+- Added reproducible provisional ranking data with documented reviewed exceptions, separate from MSE/card rules. Six engine tests pass: exact eligible/variant printings, 1,000 packs, all eligible ratings, eight seeded 96-card sealed pools/legal AI decks, full 8-seat draft (36 picks each) with seven legal AI decks, and ordinary M11 booster/default-slot compatibility. Generator --check passes.
+- Initial tests exposed unpadded collector lookups dropping one printing, an AI-draft test reading Main instead of Sideboard, and custom-card conformance requiring the explicit isolated-profile preference. Corrected collector IDs/test flow and enabled custom conformance in the future Windows profile builder; no published ZIP changed.
+- Adventure GUI/events are still pending; current changes are local source work only. Next: isolated Adventure configuration/event verification, full existing rules regression and client build.
+
+
+2026-10-18: Actual Adventure model/event checks pass; local GUI started.
+
+- Added an isolated ChaosBrawl plane/profile preparation command that reuses Shandalar resources without modifying upstream planes/saves. Its allowed events are CBT Draft/Sealed. An optional plane-specific eventFormats list preserves all legacy event rolls when absent and prevents unsupported Jumpstart events on the custom plane.
+- Seven-module Adventure desktop build passes (18.480 s). Checked-in VerifyAdventureEvents runs the real built Adventure model from the isolated workspace: six checks pass for configuration/custom match rules, block eligibility, legacy/opt-in format rolls, actual 96-card Sealed entry/seven legal AI decks, saved-event round trip, and actual three-pack/eight-seat Adventure Draft/seven legal AI decks. No OpenGL mock is used for event/card generation; only GUI callbacks are replaced in that headless check.
+- Existing ChaosBrawlTest regression: all 465 checks pass. The separate actual LibGDX application has started locally under WSLg; window/event visual verification and full games are still pending. No new downloadable archive/release or production deployment.
+
+
+2026-10-18: Adventure world GUI proof and remaining verification.
+
+- The actual LibGDX client opened under WSLg, created a new character/world in the isolated ChaosBrawl profile, entered the tutorial and a town. Captures are local ignored test artifacts. No normal player save was read or changed.
+- That GUI process later exited with signal 15 (exit 143), without a Java exception in its log; the cause is not established. This is not recorded as a successful full match or event-screen test. Restarting with targeted event/UI verification next.
+- All six limited checks, six real Adventure model checks and 465 card regression checks remain green. No downloadable release or website deployment.
+
+
+2026-10-18: Provisional synergy checks and review branch saved.
+
+- Private Forge draft PR #10 stacks on Windows playtest PR #9. Seven limited engine checks now pass, including actual Food-token-generator and Milk/Cini Minis ranking bonuses. Eight targeted DeckHints are generated from an auditable AI-only mapping; MSE/rules text are unchanged.
+- Local classic preparation now preserves unrelated preferences while enabling custom variant conformance inside its owned profile. Existing published packages remain unchanged. Complete real-engine Adventure-format AI games from generated Sealed/Draft decks are being checked separately from GUI navigation.
+
+
+2026-10-18: Upkeep AI regression fixed and strict complete games pass.
+
+- First complete limited games exposed a caught null-payer exception in PermanentAi's pre-cast upkeep-cost evaluation. It inspected an untriggered stored ability without an activating player. Evaluate a copy for the current AI instead, preserving the original trigger and avoiding cached payment choices. A focused real-AI regression passes; full card suite now 466 checks.
+- Rebuilt the seven-module Adventure desktop client (18.168 s). Strict match verification now fails even on caught AI exceptions: two Sealed and two Draft games completed decisively without exceptions, on turns 45/24/9/18. Together with the six configuration/pool/draft/save checks, eight Adventure checks pass. These are explicitly headless AI-vs-AI games, not human playtests.
+- Real LibGDX tavern GUI shows the custom Sealed event. New world progress saves successfully into the isolated ChaosBrawl auto_save.sav. A local GUI run was invalidated by rebuilding its live JAR; restarted from a stable copied JAR. No runtime patch/backdoor was added to production source.
+- Refreshed only the latest reviewed script-hash manifest after validation, preserving source MSE hash/IDs and historical batches. Full local classic preparation succeeds for all 314 faces and 41 decks with custom conformance enabled. No published artifacts changed.
+
+
+2026-10-18: Native Windows Adventure checks pass.
+
+- Separate local Windows folder C:\MTG\ChaosBrawlForge-Adventure-Local-20261018 uses the verified LibGDX JAR, dedicated profile/cache/save data and read-only shared base resource/runtime directory junctions. It is a development test folder, not a new portable release or archive. Published beta.2 files remain unchanged.
+- Bundled Windows JRE passes all nine checks: six actual model/event checks, exact PNG decode/runtime lookup for all 292 CBT printings and four decisive headless Adventure-format games. The JRE does not include the source compiler; verifier is compiled with the development JDK first. Upstream FRA resource warnings during model loading are separate from CBT; custom matches emit no caught exceptions.
+- Actual native Windows GUI opens at 1280x720 with the expected Forge title. Linux real Sealed flow reaches the 96-card pool editor with native images after paying its standard entry fee. Both event completion/rewards and Windows Adventure-menu navigation continue next.
+
+
+2026-10-18: Real client game proof and protected custom desktop updates.
+
+- Actual Linux Adventure Sealed match opened from the paid event using a legal 40-card deck from its 96-card pool. An ignored external render-thread test harness temporarily hands the human seat to Forge AI; first real GUI game ended on turn 13, Drakoe won. Continuing the standard best-of-three match/event. This is automated client/AI coverage, not a human playtest; the harness is not included in source/package resources.
+- Native Windows 1280x720 Adventure main menu is visibly verified in addition to its nine model/image/game checks. Native captures target only the owned Forge window.
+- LibGDX's updater ignored the classic auto-update setting and queried upstream on startup. Custom desktop launches with forge.chaosbrawl=true now skip that upstream update path, preserving the reviewed fork/resources; ordinary Forge/Android behavior stays unchanged. Seven-module build passes (21.887 s). No source MSE or published downloads changed.
+- Website issue #56 updated with exact completed/remaining checks; private PR #10 remains the review location. Full GUI reward/save/reload/Draft flow is still in progress.
+
+
+2026-10-18: Full Sealed client event and saved Windows Draft pool verified.
+
+- Actual Linux LibGDX Sealed event completed: 96-card pool, legal 40-card test deck, six played GUI games across two best-of-three rounds (2-1 then 1-2), correct match return/standings, remaining AI-only final, event Completed/Awarded and two booster rewards. Saved afterward to the isolated world. Human test seat was temporarily AI-controlled through an external ignored harness; no human or remote playtest is claimed.
+- Actual native Windows Draft UI displays native images/pick ranks. All 36 picks completed with seven AI decks; saved the completed draft, exited/restarted the native client, loaded the world and restored that event/pool. Rebuilt a legal 40-card test deck from the restored picks and started its first normal match.
+- Custom booster rewards currently use the ordinary card-back fallback because no CBT pack image is authored. Manipulative Temptress sometimes logs an AI target-selection rejection; games continue without exceptions. These are presentation/AI-polish limitations, not missing custom card scripts.
+- No source MSE edits, artifact publication or production website changes. Future release/code migration remains deferred per owner policy.
+
+
+2026-10-18: Native Draft event completed; Sealed rewards survive restart.
+
+- Native Windows Draft played a full best-of-three match (0-2, turns 10 and 13), returned to standings, advanced the existing AI-only bracket rounds, reached Completed/Awarded, collected its booster reward and saved. Draft picks had already survived an earlier native restart.
+- Restarted the final protected-updater Linux client and loaded the post-Sealed world. Actual runtime reports the owned profile/ChaosBrawl plane, Drakoe, 40 collection cards and exactly two owned booster rewards; the finalized Sealed event is removed as expected. A fresh eligible Draft is offered at an inn.
+- Repeated all nine native Windows model/image/game checks against the final custom-update-protected JAR; they pass. No caught match exceptions. Local Windows test launcher is C:\MTG\ChaosBrawlForge-Adventure-Local-20261018\Play Adventure (local test).cmd. This development folder depends on read-only junctions to the preserved beta.2 test installation and is not a portable release.
+
+
+2026-10-18: Adventure/limited implementation verification complete.
+
+- Final native Windows restart reports the correct isolated ChaosBrawl profile, Drakoe, 40 collection cards and exactly one Draft reward booster; the finalized event is removed as expected. Both full event/reward/save/restart flows are verified. Eight actual client games were played with temporary AI control of the test seat; ordinary AI-only bracket pairings use upstream Adventure's random resolution. No human/remote proof is claimed.
+- Final local Adventure JAR: 59,036,882 bytes, SHA-256 ca9a5d120f1d5e94e18294f54bef622c11135e4cbd542bfffa1807e22c385bdf. Receipt: limited/verification.json. All 466 card checks, seven classic limited checks, nine native Windows Adventure/model/image/game checks and local preparation for 314 faces/41 decks pass. Latest reviewed executable pins and generated data match.
+- Ready to merge private PR #10 into the existing Windows integration branch while preserving all earlier PRs. Issue #56 stays open for the future coordinated CBFRbeta/CBFR packaging/release batch. No new ZIP/release/upload/deployment; current production beta.2 remains unchanged. Android/mobile remains #57.

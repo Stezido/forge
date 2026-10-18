@@ -1,0 +1,277 @@
+// Provisional Chaos Brawl limited ratings; generated, not printed card data.
+//Rank|Name|Rarity|Set
+#1|Wasted|C|CBT
+#2|Brie-lliant Trapper|U|CBT
+#3|Food Coma|U|CBT
+#4|Double Burn|C|CBT
+#5|Last Man Standing|U|CBT
+#6|Keeper’s Lucky Mascot|R|CBT
+#7|Drunken Warrior|C|CBT
+#8|Dungeon Master|R|CBT
+#9|Improvised Escape|C|CBT
+#10|Rotborn Colossus|R|CBT
+#11|Tavern Ban|C|CBT
+#12|The Good Stuff|C|CBT
+#13|Untamable Grove Colossus|R|CBT
+#14|Anschnly, the Vengeful Siren|M|CBT
+#15|Mom's advice|U|CBT
+#16|Nadine, Sirens’ Origin|R|CBT
+#17|Tavern Regular|C|CBT
+#18|Wandering Culinarian|R|CBT
+#19|Baiting Siren|R|CBT
+#20|Decaying Orchard|L|CBT
+#21|Designated Driver|U|CBT
+#22|Distillery of Silent Death|L|CBT
+#23|Duskmire|L|CBT
+#24|Flooded Palace|L|CBT
+#25|Hopsfield Vale|L|CBT
+#26|Mistcliff Springs|L|CBT
+#27|Mistcliff Waterfall|L|CBT
+#28|Professional Drunk|U|CBT
+#29|Reefgarden|L|CBT
+#30|Sacred Brewery|L|CBT
+#31|The Stoned Peaks|L|CBT
+#32|Underground District|L|CBT
+#33|Blightborne Colossus|R|CBT
+#34|Brewmaster Grunthar|U|CBT
+#35|Drunkard|C|CBT
+#36|Hungry Disgust|U|CBT
+#37|Jolly Brewbelly|C|CBT
+#38|Numbing Mass Resurrection|R|CBT
+#39|Tavern Hand|C|CBT
+#40|Brüder Hopfenblüte|M|CBT
+#41|Desperate Hydrator|C|CBT
+#42|Ice Cold Siren|U|CBT
+#43|Information Broker|C|CBT
+#44|Mattn, the Tasty Prince|M|CBT
+#45|Mocking Parrot|U|CBT
+#46|Nutten und Koks|M|CBT
+#47|Innkeepers Daugther|R|CBT
+#48|Mutating Sapling|U|CBT
+#49|Nagging Siren Twin|C|CBT
+#50|Tobias, the Grenadier|U|CBT
+#51|Way Expired Wiener|C|CBT
+#52|Ale Addict|C|CBT
+#53|Ambush on the Throne|U|CBT
+#54|Bad Drunk|C|CBT
+#55|Caring Siren|U|CBT
+#56|Cold Water Coward|C|CBT
+#57|Distant Cousin Windtongue|C|CBT
+#58|Honest Laborer|C|CBT
+#59|Nagging Little Sister|C|CBT
+#60|Party Foul|C|CBT
+#61|Puff Mama|U|CBT
+#62|Raging Alcoholic|U|CBT
+#63|Recycle|C|CBT
+#64|Straggler|C|CBT
+#65|Devious Duo|C|CBT
+#66|Distant Cousin Shotcrusher|U|CBT
+#67|Gluttonous Scavenger|R|CBT
+#68|Have a Beer, or Three|U|CBT
+#69|Loyal Watchdog|C|CBT
+#70|Midnight Fridge Raider|C|CBT
+#71|Annoying Running Gag|R|CBT
+#72|Confusing Signals|C|CBT
+#73|Draft Tap|R|CBT
+#74|Gnome Loan|C|CBT
+#75|Laughing fit|C|CBT
+#76|Ragebait|U|CBT
+#77|Rowdy Riot|C|CBT
+#78|Tavern Hearthkeeper|C|CBT
+#79|The Blessed Hideaway|R|CBT
+#80|The Fallen|U|CBT
+#81|Weedfield Grazer|C|CBT
+#82|Big Ball Bluebird|C|CBT
+#83|Cini Minis|C|CBT
+#84|Distant Uncle Goldbeard|C|CBT
+#85|Kegbearer|C|CBT
+#86|Max, the Sniper|U|CBT
+#87|Mystic Herb Buddy|U|CBT
+#88|Pumpkin Barrage Crew|U|CBT
+#89|Robin, the Pusher|U|CBT
+#90|Wake and Bake|U|CBT
+#91|Barmaid|C|CBT
+#92|Brawl Encourager|C|CBT
+#93|Brawl Enthusiast|U|CBT
+#94|Brewbelly Jumbo|U|CBT
+#95|Coastal Watchman|C|CBT
+#96|Distant Aunt Alestorm|C|CBT
+#97|Hanna, Nature’s Siren|U|CBT
+#98|Jealous Siren|U|CBT
+#99|Mystic Hotbox Hut|U|CBT
+#100|Pushy Pourer|U|CBT
+#101|Tschuschnpfeiferl|U|CBT
+#102|Wagon Enthusiast|C|CBT
+#103|Zigeuner-Duo|C|CBT
+#104|Culinary Disaster|C|CBT
+#105|Friend or Foe|U|CBT
+#106|Hitman|C|CBT
+#107|Natalie, Mother Siren|U|CBT
+#108|Ravenous Trollkin|C|CBT
+#109|Couchpotato|C|CBT
+#110|Goner|U|CBT
+#111|Lena, the Silent One|U|CBT
+#112|Marlene, the Leader|U|CBT
+#113|Ogrontwin Steve|U|CBT
+#114|Overstimulated Flora|U|CBT
+#115|Rotting Flesh|C|CBT
+#116|Sweet Harmless Siren|C|CBT
+#117|Tavern Bouncer|C|CBT
+#118|Tavern Medic|U|CBT
+#119|Weedfield Herbalist|C|CBT
+#120|Wobbly Gnome|C|CBT
+#121|A Wife's Argument|C|CBT
+#122|Academic Quarter|U|CBT
+#123|Bottomless Keg|U|CBT
+#124|Buy a Round|C|CBT
+#125|Cold Splash|C|CBT
+#126|Copycat|U|CBT
+#127|Endless Expectations|U|CBT
+#128|Frühshoppen|U|CBT
+#129|Grandma Dragana Blackbrew|R|CBT
+#130|Happy Hour|C|CBT
+#131|Hunting Siren|C|CBT
+#132|Just Do it|R|CBT
+#133|Kiss of Poseidon|U|CBT
+#134|Lecherous Patron|C|CBT
+#135|Let’s Fucking Go|C|CBT
+#136|Not Invited|C|CBT
+#137|Provoker|C|CBT
+#138|Questionable First Responder|C|CBT
+#139|Roadside Distraction|C|CBT
+#140|Sauna Elemental|R|CBT
+#141|Server Veteran|C|CBT
+#142|Still Good|C|CBT
+#143|Tavern Slot Machine|U|CBT
+#144|The Loan Syndicate|U|CBT
+#145|The Mind|U|CBT
+#146|Wild Fermentation|U|CBT
+#147|Debt Collector|C|CBT
+#148|Cannabis Field Defender|C|CBT
+#149|Charming Siren|U|CBT
+#150|Devoted Homebody|C|CBT
+#151|Exasperated Patriarch|C|CBT
+#152|Manipulative Temptress|C|CBT
+#153|Ogrontwin Pete|U|CBT
+#154|Puddinghead|C|CBT
+#155|Puzzlemaster's Grimoire|C|CBT
+#156|Soul Eater Siren|U|CBT
+#157|Süüü, the Fourth Child|U|CBT
+#158|Trained Drinker|C|CBT
+#159|Undercity Back Room|U|CBT
+#160|Zimty|C|CBT
+#161|Domina’s Devotee|C|CBT
+#162|Edi, the Beerpig|U|CBT
+#163|Pumpkin Catapult|R|CBT
+#164|The Awaitening|R|CBT
+#165|Always With Us|R|CBT
+#166|Ball Scratching|C|CBT
+#167|Blightpear Ancient|C|CBT
+#168|Experimental Invention|U|CBT
+#169|Fighting Pit Champion|C|CBT
+#170|Flatfooted|C|CBT
+#171|Moshpit|U|CBT
+#172|Owizahrer|C|CBT
+#173|Rotten Cellar|U|CBT
+#174|The Rake|C|CBT
+#175|Chaotic Kitchen|R|CBT
+#176|Distant Cousin Stinkpot|C|CBT
+#177|Hoard Beast|U|CBT
+#178|Indica Hedge|C|CBT
+#179|Inspiring Bard|C|CBT
+#180|Mystic Herb Seedling|C|CBT
+#181|Mystic Herb Vegetative|C|CBT
+#182|Sofa Pizza|U|CBT
+#183|Stink Normale Birnen|C|CBT
+#184|Tavern Scrapgulper|C|CBT
+#185|The Hangry Games|R|CBT
+#186|The Unflushed|C|CBT
+#187|Wrathroot Colossus|C|CBT
+#188|Blood Moon Rising|R|CBT
+#189|Golden Stethoscope|R|CBT
+#190|Shady Herb Dealer|C|CBT
+#191|Spar’s Bazaar|U|CBT
+#192|Chaotic Council|U|CBT
+#193|Deepwood Abomination|C|CBT
+#194|Enraged Reef Leviathan|U|CBT
+#195|The Executioner|C|CBT
+#196|A Place to Stay|U|CBT
+#197|Austrian Slap|C|CBT
+#198|Blue Cow|U|CBT
+#199|Blunt Force Trauma|C|CBT
+#200|Boosted Excitement|C|CBT
+#201|Bottle Bash|C|CBT
+#202|Brotherhoods Impact|C|CBT
+#203|Celestial Waters|R|CBT
+#204|Circular Conversation|C|CBT
+#205|Closing Hour|U|CBT
+#206|Controlling Relationship|U|CBT
+#207|Critical (S)hit|U|CBT
+#208|Desperate Foraging|C|CBT
+#209|Du gibst dem Baby a Müch|U|CBT
+#210|Echo of Empathy|C|CBT
+#211|Fill Em Up|U|CBT
+#212|Frozen Taps|U|CBT
+#213|Gonorrhea|U|CBT
+#214|Grinder|C|CBT
+#215|Hairy Surprise|C|CBT
+#216|Hangover|C|CBT
+#217|Hangry|C|CBT
+#218|Haze-Fueled Frenzy|C|CBT
+#219|Hexenschuss|C|CBT
+#220|Higher Protection|C|CBT
+#221|Homemade Paranoia|C|CBT
+#222|Hosn Owe|C|CBT
+#223|Igy's Astronomical Return|C|CBT
+#224|Last Duel|C|CBT
+#225|Library of Shared Memories|C|CBT
+#226|MAGAZIN!|C|CBT
+#227|Magical Bucket Pump|U|CBT
+#228|Maternal Instinct|C|CBT
+#229|Mimimi|C|CBT
+#230|Mysterious Remedy|R|CBT
+#231|Noxious Cloud|R|CBT
+#232|Nutshot overload|C|CBT
+#233|Overdose Revival|U|CBT
+#234|Overgrown Fermentation Beds|U|CBT
+#235|Paladin’s Nose Protection|C|CBT
+#236|Parsley Root|C|CBT
+#237|Rowdy Tavern|U|CBT
+#238|Shut up|C|CBT
+#239|Stoned Speech|C|CBT
+#240|Strange Allergic Reaction|C|CBT
+#241|Take a Sniff|C|CBT
+#242|Tavern Time Out|U|CBT
+#243|The Tipsy Ram|U|CBT
+#244|Toast of Comfort|C|CBT
+#245|Too Drunk to Dodge|C|CBT
+#246|Vandalism|C|CBT
+#247|Attention Seeker|C|CBT
+#248|Canonball Carl|C|CBT
+#249|Fat Felicia|C|CBT
+#250|Siren Raiders|C|CBT
+#251|Wixbirne|C|CBT
+#252|Baked Ham Noodle Casserole|U|CBT
+#253|Bochana Jugobeidl|C|CBT
+#254|Bromoment|C|CBT
+#255|Coffee Shop|U|CBT
+#256|Gastronomic Downfall|U|CBT
+#257|Milk|C|CBT
+#258|Mixed Grill Platter|U|CBT
+#259|Overdose|R|CBT
+#260|Rollercoaster of Emotions|R|CBT
+#261|Sarma|U|CBT
+#262|Sleepless Night|U|CBT
+#263|Stingats Gsöchts|R|CBT
+#264|Summon the Squad|R|CBT
+#265|Tactical Purge|U|CBT
+#266|Unpleasant Surprise|U|CBT
+#267|White Sausage Leberkäse|C|CBT
+#268|Youthful Inner Heat|U|CBT
+#269|Escalating Adventurer|C|CBT
+#270|Goblin Party Mob|C|CBT
+#271|Wedding Ring|R|CBT
+#272|A Week of Excess|M|CBT
+#273|Feuerball, Junge!|M|CBT
+#274|Gimme the herbs|C|CBT
+#275|Hallucinating Trip|U|CBT

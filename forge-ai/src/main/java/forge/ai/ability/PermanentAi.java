@@ -198,7 +198,10 @@ public class PermanentAi extends SpellAbilityAi {
                     continue;
                 }
                 hasUpkeepCost = true;
-                upkeepCost.add(AbilityUtils.calculateUnlessCost(ab, ab.getParam("UnlessCost"), true));
+                // The trigger has not fired yet, so its stored ability may have no payer.
+                // Evaluate a copy for this AI without caching payment choices on the trigger.
+                SpellAbility upkeepProbe = ab.copy(ai);
+                upkeepCost.add(AbilityUtils.calculateUnlessCost(upkeepProbe, upkeepProbe.getParam("UnlessCost"), true));
             } else if (ApiType.LoseLife.equals(ab.getApi()) && !ab.usesTargeting()) {
                 ab.setActivatingPlayer(ai);
                 if (AbilityUtils.getDefinedPlayers(source, ab.getParam("Defined"), ab).contains(ai)) {

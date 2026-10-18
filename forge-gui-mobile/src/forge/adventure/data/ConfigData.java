@@ -31,6 +31,8 @@ public class ConfigData {
     public boolean vintageOnlyEditions = false;
     public String[] restrictedEvents;
     public String[] allowedEvents;
+    /** Optional plane-specific formats: Draft, Sealed and/or Jumpstart. */
+    public String[] eventFormats;
     public String[] allowedJumpstart;
     public String defaultBasicLandSet = "JMP";
     public boolean enableGeneticAI = true;

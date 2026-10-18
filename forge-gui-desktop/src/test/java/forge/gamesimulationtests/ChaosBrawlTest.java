@@ -1615,6 +1615,21 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     @Test
+    public void aiCanEvaluateAnUntriggeredUpkeepCostWithoutMutatingTheTrigger() {
+        Game game = customGame();
+        Player p = game.getPlayers().get(0);
+        for (int i=0;i<4;i++) addCard("Forest",p);
+        Card troll = addCardToZone("Ravenous Trollkin",p,ZoneType.Hand);
+        SpellAbility cast=troll.getFirstSpellAbility();cast.setActivatingPlayer(p);
+        var trigger=troll.getTriggers().stream().filter(t->t.hasParam("ChaosBrawlUpkeep")).findFirst().orElseThrow();
+        SpellAbility original=trigger.ensureAbility();
+        assertNull(original.getActivatingPlayer());
+        ((forge.ai.PlayerControllerAi)p.getController()).getAi().canPlaySa(cast);
+        assertNull(original.getActivatingPlayer(),"AI cost probing must not change the stored trigger's payer.");
+        assertFalse(original.hasSVar("ChaosBrawlReducedMana"));
+    }
+
+    @Test
     public void loanSyndicateManaIsRestrictedAndActuallyPaysResurrectionUpkeep() {
         Game game = customGame();
         Player p = game.getPlayers().get(0);

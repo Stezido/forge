@@ -15,7 +15,7 @@ case "${1:-launch}" in
     cd "$root"
     exec mvn -B -pl forge-gui-desktop -am -DskipTests package
     ;;
-  test)
+  test|test-limited)
     cd "$root"
     profile="$root/forge-gui/forge.profile.properties"
     if [[ -f "$profile" ]] && ! grep -q '^# Chaos Brawl isolated test profile$' "$profile"; then
@@ -23,7 +23,9 @@ case "${1:-launch}" in
       exit 1
     fi
     printf '# Chaos Brawl isolated test profile\nuserDir=%s/test-user\ncacheDir=%s/test-cache\n' "$runtime" "$runtime" > "$profile"
-    exec mvn -B -pl forge-gui-desktop -am -Dtest=ChaosBrawlTest -Dsurefire.failIfNoSpecifiedTests=false -Djava.awt.headless=true test
+    suite=ChaosBrawlTest
+    if [[ "$1" == test-limited ]]; then suite=ChaosBrawlLimitedTest; fi
+    exec mvn -B -pl forge-gui-desktop -am -Dtest="$suite" -Dsurefire.failIfNoSpecifiedTests=false -Djava.awt.headless=true test
     ;;
   launch|smoke)
     if [[ ! -f "$runtime/run/forge.profile.properties" ]]; then
@@ -41,5 +43,5 @@ case "${1:-launch}" in
     fi
     exec java -Dsentry.enabled=false -Xmx4g -Dforge.chaosbrawl=true -Dio.netty.tryReflectionSetAccessible=true -Dfile.encoding=UTF-8 -jar "${jars[0]}"
     ;;
-  *) echo 'Usage: bash chaosbrawl/forge.sh [build|test|smoke|launch]' >&2; exit 1 ;;
+  *) echo 'Usage: bash chaosbrawl/forge.sh [build|test|test-limited|smoke|launch]' >&2; exit 1 ;;
 esac

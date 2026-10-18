@@ -38,6 +38,12 @@ public class AssetsDownloader {
     public static void checkForUpdates(boolean exited, Runnable runnable) {
         if (exited)
             return;
+        // Desktop custom builds ship reviewed resources. An upstream updater would
+        // replace their engine/scripts and is unrelated to the website's releases.
+        if (!GuiBase.isAndroid() && Boolean.getBoolean("forge.chaosbrawl")) {
+            run(runnable);
+            return;
+        }
         final String versionString = Forge.getDeviceAdapter().getVersionString();
         Forge.getSplashScreen().getProgressBar().setDescription("Checking for updates...");
         if (versionString.contains("GIT")) {

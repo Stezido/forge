@@ -7,3 +7,4 @@ SVar:Food:DB$ Token | TokenScript$ c_a_food_sac
 A:AB$ PutCounter | Cost$ G Sac<1/Food> | ValidTgts$ Creature | CounterType$ P1P1 | CounterNum$ 1 | SorcerySpeed$ True | SpellDescription$ Put a +1/+1 counter on target creature. Activate only as a sorcery.
 A:AB$ Pump | Cost$ B Sac<1/Food> | ValidTgts$ Creature | NumAtt$ -1 | NumDef$ -1 | SorcerySpeed$ True | SpellDescription$ Target creature gets -1/-1 until end of turn. Activate only as a sorcery.
 Oracle:Whenever Brie-lliant Trapper enters the battlefield, create a Food token.\n{G}, Sacrifice a Food: Put a +1/+1 counter on target creature. Activate only as a sorcery.\n{B}, Sacrifice a Food: Target creature gets -1/-1 until end of turn. Activate only as a sorcery.
+DeckHints:Type$Food
