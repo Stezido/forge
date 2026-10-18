@@ -15,3 +15,26 @@ All collected owner questions are resolved. Eight initially deferred cards plus 
 Manual next step: follow [README.md](README.md) and select a Batch 01–08 deck in Constructed. Network play uses Forge's existing host/join lobby; all players should use this same build/resources and Chaos Brawl launcher. A remote session remains untested. Earlier batch-06 native Reefgarden AI activator warnings are documented in its historical report; AI strategy and exhaustive multiplayer/replacement combinations remain outside the current automated coverage.
 
 Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former questions are superseded.
+
+
+2026-10-17: Owner-reported deck-builder image issue reproduced.
+
+- Runtime image-path audit against the original beta.1 package finds 292 CBT printings and exactly four missing paths: Wedding Ring, Dungeon Master, Recycle and The Fallen. Their independent ChaosBrawlBeta functional variant suffix was missing from packaged cache filenames. Rules and native renders themselves are present.
+- Shared filename preparation now reads the edition's functional-variant metadata for both local preparation and Windows packaging. Added an executable Java audit using the built Forge JAR's PaperCard/ImageKeys lookup, exact file existence and PNG decoding. Corrected beta.2 package/audit are in progress; no new release upload yet.
+- A four-image patch ZIP is at C:\MTG\ChaosBrawl-Forge-0.1.0-beta.1-Image-Fix.zip; corrected aliases were also added to the known C:\MTG test installation. Restart Forge to clear its missing-image cache. No user decks/settings or card rules changed.
+- Website staging 503 fix was deployed and owner confirmed downloads work. Production is held until the corrected image package is pinned and verified.
+
+
+2026-10-17: Corrected Windows beta.2 package verified locally.
+
+- Complete runtime image audit passes all 292 CBT non-token printings on both Linux and native Windows 11 using the bundled JRE; exact cache paths exist, PNGs decode and ImageKeys resolves them. Original package failed exactly four.
+- Versioned beta.2 Windows ZIP: 436,883,784 bytes, SHA-256 009852777086f979a0a7135fc533b509126aac50f5f31f4eb0aea79f3600f4f8. Matching source remains byte-identical to beta.1 because the engine/JAR/MSE are unchanged. 314 native source faces, 41 decks and case-insensitive path uniqueness verified. Native GUI/game proof remains tied to the unchanged executable/runtime.
+- Copied/rehashed complete beta.2 ZIP to C:\MTG and extracted only into a fresh versioned test folder for native image verification. Earlier beta.1 folder received only the four missing image aliases; no user data/settings changed. Small patch ZIP is also ready.
+- Private GitHub beta.2 upload is in progress with bounded retries after intermittent GitHub connection timeouts. Do not claim the new website version is live until its exact new pins and deployment have been verified.
+
+
+2026-10-17: Beta.2 private release uploaded and verified.
+
+- Website private prerelease forge-desktop-v0.1.0-beta.2 is published with uploaded Windows/source assets. Provider-reported names/sizes/digests match the local manifest. Beta.1 remains preserved. Website pins now reference Windows asset 651614919 and source 651614917.
+- Website branch passes 84 checks, TypeScript and production build. Compiled workerd verifies both new handoffs with the dedicated read-only token and anonymous CDN bytes. Staging-only run 39070401046 is deploying the new pins; production continuation is explicitly requested. Source PR #50 is merged with skip-ci, download PR #52 targets main.
+- Packager defaults to beta.2 and requires the engine image audit before ZIP creation. Forge PR #9 contains the corrected preparation/packager and native proof; engine rule changes remain preserved on PR #8. Adventure/mobile still follow Windows publication.

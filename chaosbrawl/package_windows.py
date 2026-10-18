@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """Package a reviewed Forge build for portable Windows playtests; no network or user data."""
 import argparse
-from collections import Counter, defaultdict
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import re
 import shutil
 import subprocess
-import unicodedata
 import zipfile
+from card_images import card_image_filenames
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -25,7 +24,8 @@ def main():
     parser.add_argument('--build-root', type=Path, required=True)
     parser.add_argument('--runtime', type=Path, required=True)
     parser.add_argument('--output', type=Path, default=ROOT/'.chaosbrawl-local/windows-release')
-    parser.add_argument('--version', default='0.1.0-beta.1')
+    parser.add_argument('--version', default='0.1.0-beta.2')
+    parser.add_argument('--java', default='java', help='JDK 21+ executable for the runtime image-path audit')
     args = parser.parse_args()
     if not re.fullmatch(r'\d+\.\d+\.\d+-[a-z0-9.]+', args.version):
         raise ValueError('Invalid version')
@@ -75,23 +75,13 @@ def main():
                 dest.write_bytes(z.read(info))
     if not (target/'runtime/bin/javaw.exe').is_file():
         raise ValueError('Windows runtime is incomplete')
-    names = Counter(c['name'] for c in cards.values())
-    indices = defaultdict(int)
     pictures = target/'Cache/pics/cards/CBT'
     pictures.mkdir(parents=True)
     native = build/'.chaosbrawl-local/rendered'/source['sourceSha256']
-    used = set()
-    for cid, card in sorted(cards.items()):
-        name_part = unicodedata.normalize('NFD', card['name'])
-        name_part = ''.join(c for c in name_part if not unicodedata.combining(c) and c not in '\"/:?')
-        indices[card['name']] += 1
-        if names[card['name']] > 1:
-            name_part += str(indices[card['name']])
-        filename = name_part+'.full.png'
-        if filename.casefold() in used:
-            raise ValueError('Windows card picture collision: '+filename)
-        used.add(filename.casefold())
-        shutil.copyfile(native/(card['nativeUid']+'.png'), pictures/filename)
+    ordered = [card for cid, card in sorted(cards.items())]
+    filenames = card_image_filenames(ordered, build/'forge-gui/res/editions/Chaos Brawl Local Test.txt')
+    for card in ordered:
+        shutil.copyfile(native/(card['nativeUid']+'.png'), pictures/filenames[card['id']])
     token_source = build/'.chaosbrawl-local/cache/pics/tokens'
     token_target = target/'Cache/pics/tokens'
     token_target.mkdir(parents=True)
@@ -127,6 +117,12 @@ start "" "runtime\\bin\\javaw.exe" -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabl
                 'runtime':runtime, 'sourceRecords':len(cards), 'nonTokenRecords':sum(not c['token'] for c in cards.values()),
                 'tokenRecords':sum(c['token'] for c in cards.values()), 'testDecks':41}
     (target/'release.json').write_text(json.dumps(metadata, indent=2)+'\n')
+    # A render count alone misses functional-variant/art-index naming errors.
+    # Exercise the actual packaged engine's lookup before producing a ZIP.
+    with (output/(name+'-image-audit.log')).open('w') as log:
+        subprocess.run([args.java, '-Xmx4g', '-Djava.awt.headless=true', '-cp',
+                        str(target/'forge.jar'), str(ROOT/'chaosbrawl/VerifyPackageImages.java'),
+                        str(target)], stdout=log, stderr=subprocess.STDOUT, check=True)
     (target/'README.txt').write_text(f'''Chaos Brawl for Forge {args.version} - Windows x64
 
 1. Extract the entire ZIP into a writable folder.
