@@ -98,24 +98,32 @@ public class AdventureEventController implements Serializable {
         Random random = new Random(eventSeed);
 
         AdventureEventData e;
-        // After a certain number of wins, stop offering Jumpstart events
-        if (Current.player().getStatistic().totalWins() < 10 &&
-                random.nextInt(10) <= 2) {
-            e = new AdventureEventData(eventSeed, EventFormat.Jumpstart);
-        } else {
-            if (random.nextInt(4) == 3) {
-                // Experimental: 1 out of 4 chance for it to be a Sealed Deck event
-                e = new AdventureEventData(eventSeed, EventFormat.Sealed);
-            } else {
-                e = new AdventureEventData(eventSeed, EventFormat.Draft);
-            }
-        }
+        EventFormat format = selectEventFormat(random, Current.player().getStatistic().totalWins(),
+                Config.instance().getConfigData().eventFormats);
+        e = new AdventureEventData(eventSeed, format);
 
         if (e.cardBlock == null) {
             //covers cases where (somehow) editions that do not match the event style have been picked up
             return null;
         }
         return e;
+    }
+
+    /** Preserve legacy rolls unless a plane explicitly opts into a format list. */
+    public static EventFormat selectEventFormat(Random random, int wins, String[] configured) {
+        if (configured != null && configured.length > 0) {
+            List<EventFormat> formats = new ArrayList<>();
+            for (String name : configured) {
+                EventFormat format = EventFormat.smartValueOf(name);
+                if (format == null || format == EventFormat.Constructed) {
+                    throw new IllegalArgumentException("Unsupported Adventure event format: " + name);
+                }
+                if (!formats.contains(format)) formats.add(format);
+            }
+            return formats.get(random.nextInt(formats.size()));
+        }
+        if (wins < 10 && random.nextInt(10) <= 2) return EventFormat.Jumpstart;
+        return random.nextInt(4) == 3 ? EventFormat.Sealed : EventFormat.Draft;
     }
 
     public AdventureEventData createEvent(EventFormat format, CardBlock cardBlock, String pointID) {
