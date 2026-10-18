@@ -68,3 +68,9 @@ Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former
 - The actual LibGDX client opened under WSLg, created a new character/world in the isolated ChaosBrawl profile, entered the tutorial and a town. Captures are local ignored test artifacts. No normal player save was read or changed.
 - That GUI process later exited with signal 15 (exit 143), without a Java exception in its log; the cause is not established. This is not recorded as a successful full match or event-screen test. Restarting with targeted event/UI verification next.
 - All six limited checks, six real Adventure model checks and 465 card regression checks remain green. No downloadable release or website deployment.
+
+
+2026-10-18: Provisional synergy checks and review branch saved.
+
+- Private Forge draft PR #10 stacks on Windows playtest PR #9. Seven limited engine checks now pass, including actual Food-token-generator and Milk/Cini Minis ranking bonuses. Eight targeted DeckHints are generated from an auditable AI-only mapping; MSE/rules text are unchanged.
+- Local classic preparation now preserves unrelated preferences while enabling custom variant conformance inside its owned profile. Existing published packages remain unchanged. Complete real-engine Adventure-format AI games from generated Sealed/Draft decks are being checked separately from GUI navigation.

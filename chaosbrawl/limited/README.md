@@ -15,7 +15,9 @@ though their MSE rarity is Basic Land.
 Ratings use first-pass efficiency, removal, card advantage, evasion and narrow
 setup requirements, with explicit exceptions in rating-overrides.json. The
 ratings.json audit includes stable source IDs and scores; Forge loads cbt.rnk.
-These are provisional AI pick preferences, not a balance study or printed card
+Eight targeted DeckHints in ai-hints.json add Food, Beer, artifact-token and
+Milk/Cini Minis synergy using Forge's existing token-script inspection. These
+are provisional AI pick preferences, not a balance study or printed card
 properties. Refine them from real picks/matches and feedback.
 
 `bash chaosbrawl/forge.sh test-limited` exercises the actual engine's boosters,

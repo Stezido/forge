@@ -103,6 +103,23 @@ public class ChaosBrawlLimitedTest extends AITest {
     }
 
     @Test
+    public void foodTokenGeneratorsAndMilkReceiveActualAiSynergyBonuses() {
+        var db=StaticData.instance().getCommonCards();
+        var payoff=db.getCard("Rotten Cellar",CODE);
+        var creator=db.getCard("Chaotic Kitchen",CODE);
+        var removal=db.getCard("Wasted",CODE);
+        var scores=CardRanker.getScores(List.of(payoff,creator,removal));
+        double creatorScore=scores.stream().filter(p->p.getRight().equals(creator)).findFirst().orElseThrow().getLeft();
+        double removalScore=scores.stream().filter(p->p.getRight().equals(removal)).findFirst().orElseThrow().getLeft();
+        assertTrue(creatorScore>CardRanker.getRawScore(creator),"Food token creation must match the Food payoff hint.");
+        assertEquals(removalScore,CardRanker.getRawScore(removal),"Unrelated removal should not get a Food bonus.");
+        var cereal=db.getCard("Cini Minis",CODE);
+        var milk=db.getCard("Milk",CODE);
+        double milkScore=CardRanker.getScores(List.of(cereal,milk)).stream().filter(p->p.getRight().equals(milk)).findFirst().orElseThrow().getLeft();
+        assertTrue(milkScore>CardRanker.getRawScore(milk),"Milk must receive its named Cini Minis synergy bonus.");
+    }
+
+    @Test
     public void eightPackSealedPoolsBuildLegalAiDecks() {
         for(int seed=0;seed<8;seed++) {
             MyRandom.setRandom(new Random(20261018+seed));

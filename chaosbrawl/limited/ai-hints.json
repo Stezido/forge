@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "note": "Provisional AI deck synergy only; source identities and printed rules are unchanged. Token generators match through Forge token-script inspection.",
+  "hints": {
+    "cb-009": "Type$Beer",
+    "cb-042": "Type$Food",
+    "cb-043": "Type$Food",
+    "cb-044": "Type$Food",
+    "cb-047": "Type$Food",
+    "cb-090": "Type$Food",
+    "cb-126": "Name$Milk",
+    "cb-188": "Type$Food|Beer|Treasure"
+  }
+}

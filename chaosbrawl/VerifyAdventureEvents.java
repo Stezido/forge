@@ -36,6 +36,23 @@ public class VerifyAdventureEvents {
   var bytes=new ByteArrayOutputStream();try(var out=new ObjectOutputStream(bytes)){out.writeObject(event);}
   try(var in=new ObjectInputStream(new ByteArrayInputStream(bytes.toByteArray()))){return (AdventureEventData)in.readObject();}
  }
+ static void games(String format, Deck[] decks)throws Exception{
+  for(int i=0;i<2;i++){
+   var rules=new forge.game.GameRules(forge.game.GameType.AdventureEvent);rules.setGamesPerMatch(1);
+   var players=new ArrayList<forge.game.player.RegisteredPlayer>();
+   for(int seat=0;seat<2;seat++)players.add(new forge.game.player.RegisteredPlayer(decks[2*i+seat]).setPlayer(forge.player.GamePlayerUtil.createAiPlayer(format+"-"+i+"-"+seat)));
+   var match=new forge.game.Match(rules,players,"Chaos Brawl Adventure limited smoke");
+   var game=match.createGame();game.setNoGUIUser();
+   var executor=java.util.concurrent.Executors.newSingleThreadExecutor(task->{Thread thread=new Thread(task,"limited-match-check");thread.setDaemon(true);return thread;});
+   long started=System.currentTimeMillis();
+   try{executor.submit(()->match.startGame(game)).get(120,java.util.concurrent.TimeUnit.SECONDS);}finally{executor.shutdownNow();}
+   require(game.isGameOver() && game.getOutcome()!=null && !game.getOutcome().isDraw(),"No completed decisive "+format+" game");
+   Files.createDirectories(Path.of("../match-logs"));
+   Files.writeString(Path.of("../match-logs/"+format+"-"+i+".txt"),game.getGameLog().getLogEntries(null).toString());
+   System.out.println("MATCH_PASS: "+format+" "+i+" turn="+game.getPhaseHandler().getTurn()+" winner="+game.getOutcome().getWinningLobbyPlayer().getName()+" elapsedMs="+(System.currentTimeMillis()-started));
+  }
+  pass("two complete real-engine Adventure "+format+" games from generated AI decks (headless AI vs AI)");
+ }
  public static void main(String[] args)throws Exception{
   require(Files.isRegularFile(Path.of("forge.profile.properties")),"Run only in prepared isolated Adventure directory");
   GuiBase.setInterface((IGuiBase)Proxy.newProxyInstance(IGuiBase.class.getClassLoader(),new Class[]{IGuiBase.class},(object,method,arguments)->{
@@ -89,6 +106,10 @@ public class VerifyAdventureEvents {
   require(picks==36 && process.getOpposingPlayers().length==7,"Wrong Adventure draft dimensions");
   for(Deck d:process.getComputerDecks())deck(d);
   pass("actual Adventure three-pack eight-seat Draft and seven legal AI decks");
+  if(Arrays.asList(args).contains("--games")){
+   games("sealed",Arrays.stream(sealed.participants).limit(7).map(p->p.getDeck()).toArray(Deck[]::new));
+   games("draft",process.getComputerDecks());
+  }
   System.out.println("ADVENTURE_EVENT_CHECKS_PASSED: "+checks);
   System.exit(0);
  }

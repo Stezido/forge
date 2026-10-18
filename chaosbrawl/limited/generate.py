@@ -72,7 +72,13 @@ def outputs():
     block_text='\n'.join(line for line in blocks.read_text().splitlines() if not line.startswith(BLOCK_NAME+','))+'\n'
     # The custom dual lands are not unlimited basic lands despite their MSE rarity.
     block_text+=f'{BLOCK_NAME}, 3/8/M21, {code}\n'
-    return {EDITION:text,blocks:block_text,ROOT/f'forge-gui/res/draft/rankings/{code.lower()}.rnk':rnk,Path(__file__).parent/'ratings.json':json.dumps(ratings,ensure_ascii=False,indent=2)+'\n'}
+    result={EDITION:text,blocks:block_text,ROOT/f'forge-gui/res/draft/rankings/{code.lower()}.rnk':rnk,Path(__file__).parent/'ratings.json':json.dumps(ratings,ensure_ascii=False,indent=2)+'\n'}
+    hints=json.loads((Path(__file__).parent/'ai-hints.json').read_text())['hints']
+    for cid,hint in hints.items():
+        path=ROOT/f'forge-gui/res/cardsfolder/custom/chaosbrawl_{cid}.txt'
+        script=re.sub(r'^DeckHints:.*\n','',path.read_text(),flags=re.M)
+        result[path]=script.rstrip()+'\nDeckHints:'+hint+'\n'
+    return result
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--check',action='store_true');args=parser.parse_args()

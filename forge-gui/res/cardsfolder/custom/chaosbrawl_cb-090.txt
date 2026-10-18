@@ -4,3 +4,4 @@ Types:Enchantment Location
 T:Mode$ Sacrificed | TriggerZones$ Battlefield | Execute$ Lose | TriggerDescription$ Whenever a Food is sacrificed, each opponent loses 1 life. | ValidCard$ Food
 SVar:Lose:DB$ LoseLife | Defined$ Player.Opponent | LifeAmount$ 1
 Oracle:Whenever a Food is sacrificed, each opponent loses 1 life.
+DeckHints:Type$Food

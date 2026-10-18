@@ -135,6 +135,13 @@ def main():
     elif not resources.is_symlink() or resources.resolve() != ROOT/'forge-gui/res':
         raise ValueError('Refusing to replace an unrelated resource directory.')
     (run/'forge.profile.properties').write_text(f'userDir={RUNTIME}/user\ncacheDir={RUNTIME}/cache\ndecksDir={RUNTIME}/decks\ndecksConstructedDir={RUNTIME}/decks/constructed\n')
+    # Independent variants of official names require this in the owned test profile.
+    # Keep any unrelated existing local preferences.
+    prefs=RUNTIME/'user/preferences/forge.preferences'
+    prefs.parent.mkdir(parents=True,exist_ok=True)
+    settings=prefs.read_text().splitlines() if prefs.exists() else []
+    settings=[line for line in settings if not line.startswith('ALLOW_CUSTOM_CARDS_IN_DECKS_CONFORMANCE=')]
+    prefs.write_text('\n'.join(settings+['ALLOW_CUSTOM_CARDS_IN_DECKS_CONFORMANCE=true'])+'\n')
     (RUNTIME/'active-deck.txt').write_text(active_deck+'.dck\n')
     print(f'Prepared {len(cards)} reviewed Beta records ({len(names)} names), native full renders and {len(decks)} batch decks.')
 
