@@ -108,11 +108,11 @@
     },
     {
       "path": "forge-game/src/main/java/forge/game/ability/AbilityKey.java",
-      "sha256": "89b94db93b50a24df2cde01b53c495aba8c63ce0ac9ab49c20e436d2ed29f28c"
+      "sha256": "09910405306a1e3e6f8810077664e2d8c1915de60a1d7e55041802ff34971843"
     },
     {
       "path": "forge-game/src/main/java/forge/game/ability/AbilityUtils.java",
-      "sha256": "8c444e824bb25fe577c3630cf13e76ddb239190ff25639d7a495541f6d8c4a6a"
+      "sha256": "d58d6a5ae41c39d34325f8bba0d6eee252b9910f46cbbe1fe864096e620f31c1"
     },
     {
       "path": "forge-game/src/main/java/forge/game/ability/effects/CountersMoveEffect.java",
@@ -160,7 +160,7 @@
     },
     {
       "path": "forge-game/src/main/java/forge/game/player/Player.java",
-      "sha256": "7b0941800fefa759a67f67043759e91c0dcdb6ba30596668ed5cdff2ba577ab7"
+      "sha256": "3e86a5a2f2e360cef1089c64f781fd9ee8b3e043f484f4904ae5802f52072523"
     },
     {
       "path": "forge-game/src/main/java/forge/game/spellability/AbilityManaPart.java",
@@ -200,7 +200,7 @@
     },
     {
       "path": "forge-game/src/main/java/forge/game/trigger/TriggerSacrificed.java",
-      "sha256": "a4798e0b9ed01e0c7563f541e21813cb0fc948c3a5c877cd6ea6bd8d9e81eeb6"
+      "sha256": "3e52f86d84642fead30735cbc7798869960c293c4ae4da4582dafad1fc7c3bf2"
     },
     {
       "path": "forge-game/src/main/java/forge/game/zone/MagicStack.java",
@@ -212,7 +212,7 @@
     },
     {
       "path": "forge-gui-desktop/src/test/java/forge/gamesimulationtests/ChaosBrawlTest.java",
-      "sha256": "bec89169cee655b66f9a7c67da0ff8facab015503011a156a3aea85d9cdbd455"
+      "sha256": "f3baadca4d2717ff01c06c9cd132f9a21629999cac73fb70b93b43bca3ea4c48"
     },
     {
       "path": "forge-gui-mobile/src/forge/adventure/data/ConfigData.java",

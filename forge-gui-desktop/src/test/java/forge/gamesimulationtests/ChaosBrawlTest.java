@@ -1837,7 +1837,7 @@ public class ChaosBrawlTest extends SimulationTest {
                 assertTrue(ComputerUtil.playStack(drink, p, game));
                 assertTrue(drink.getTargets().isEmpty(), "Normal stack insertion clears the original activation's targets");
                 resolveTriggers(game);
-                assertEquals(target.getCounters(CounterEnumType.DRUNKEN), 1 + taps, kind);
+                assertEquals(target.getCounters(CounterEnumType.DRUNKEN), (1 + taps) * (kind.equals("bock_beer") ? 2 : 1), kind);
             }
         }
     }
