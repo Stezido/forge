@@ -97,3 +97,11 @@ Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former
 - Native Windows 1280x720 Adventure main menu is visibly verified in addition to its nine model/image/game checks. Native captures target only the owned Forge window.
 - LibGDX's updater ignored the classic auto-update setting and queried upstream on startup. Custom desktop launches with forge.chaosbrawl=true now skip that upstream update path, preserving the reviewed fork/resources; ordinary Forge/Android behavior stays unchanged. Seven-module build passes (21.887 s). No source MSE or published downloads changed.
 - Website issue #56 updated with exact completed/remaining checks; private PR #10 remains the review location. Full GUI reward/save/reload/Draft flow is still in progress.
+
+
+2026-10-18: Full Sealed client event and saved Windows Draft pool verified.
+
+- Actual Linux LibGDX Sealed event completed: 96-card pool, legal 40-card test deck, six played GUI games across two best-of-three rounds (2-1 then 1-2), correct match return/standings, remaining AI-only final, event Completed/Awarded and two booster rewards. Saved afterward to the isolated world. Human test seat was temporarily AI-controlled through an external ignored harness; no human or remote playtest is claimed.
+- Actual native Windows Draft UI displays native images/pick ranks. All 36 picks completed with seven AI decks; saved the completed draft, exited/restarted the native client, loaded the world and restored that event/pool. Rebuilt a legal 40-card test deck from the restored picks and started its first normal match.
+- Custom booster rewards currently use the ordinary card-back fallback because no CBT pack image is authored. Manipulative Temptress sometimes logs an AI target-selection rejection; games continue without exceptions. These are presentation/AI-polish limitations, not missing custom card scripts.
+- No source MSE edits, artifact publication or production website changes. Future release/code migration remains deferred per owner policy.
