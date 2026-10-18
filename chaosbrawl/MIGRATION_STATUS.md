@@ -172,3 +172,8 @@ Reproduced the owner report: activating Beer through ComputerUtil.playStack yiel
 
 
 Draft Tap validation: all 471 engine tests pass. The normal-stack regression covers all seven Beer variants and one/two controlled Draft Taps (Mirror Gallery keeps duplicate legendaries legal), checks the original activation targets were actually cleared, and includes Bock Beer doubling after the extra counters. An opponent's Draft Tap does not boost your Beer. Existing tests also cover sacrificing Beer without a targeting activation. Current reviewed executable hashes refreshed; authoring source and printed card text are unchanged. The booster change still rolls only one designated common slot per pack; six other commons remain fixed and dual lands are excluded from the wildcard.
+
+
+## Obsession AI targeting — 2026-10-18
+
+The existing counter enum already calls Obsession negative, but CountersPutAi selected friendly targets for unflagged abilities based on isCurse rather than counter downside. Added opt-in Chaos Brawl targeting shared by spells/activated abilities and triggered abilities. It prefers forcing enemy creatures to attack, permits a friendly creature when actual counter-added pump or a newly reached static power/toughness threshold helps it, avoids feeding an enemy payoff, declines optional self-harm, and still satisfies mandatory target requirements. New real-card tests cover five source cards, Devotee, Blood Moon Rising thresholds and optional/mandatory decisions. Validation is in progress; printed rules and downloadable releases are unchanged.
