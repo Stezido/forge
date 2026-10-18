@@ -61,3 +61,10 @@ Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former
 - Added an isolated ChaosBrawl plane/profile preparation command that reuses Shandalar resources without modifying upstream planes/saves. Its allowed events are CBT Draft/Sealed. An optional plane-specific eventFormats list preserves all legacy event rolls when absent and prevents unsupported Jumpstart events on the custom plane.
 - Seven-module Adventure desktop build passes (18.480 s). Checked-in VerifyAdventureEvents runs the real built Adventure model from the isolated workspace: six checks pass for configuration/custom match rules, block eligibility, legacy/opt-in format rolls, actual 96-card Sealed entry/seven legal AI decks, saved-event round trip, and actual three-pack/eight-seat Adventure Draft/seven legal AI decks. No OpenGL mock is used for event/card generation; only GUI callbacks are replaced in that headless check.
 - Existing ChaosBrawlTest regression: all 465 checks pass. The separate actual LibGDX application has started locally under WSLg; window/event visual verification and full games are still pending. No new downloadable archive/release or production deployment.
+
+
+2026-10-18: Adventure world GUI proof and remaining verification.
+
+- The actual LibGDX client opened under WSLg, created a new character/world in the isolated ChaosBrawl profile, entered the tutorial and a town. Captures are local ignored test artifacts. No normal player save was read or changed.
+- That GUI process later exited with signal 15 (exit 143), without a Java exception in its log; the cause is not established. This is not recorded as a successful full match or event-screen test. Restarting with targeted event/UI verification next.
+- All six limited checks, six real Adventure model checks and 465 card regression checks remain green. No downloadable release or website deployment.
