@@ -89,3 +89,11 @@ Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former
 - Separate local Windows folder C:\MTG\ChaosBrawlForge-Adventure-Local-20261018 uses the verified LibGDX JAR, dedicated profile/cache/save data and read-only shared base resource/runtime directory junctions. It is a development test folder, not a new portable release or archive. Published beta.2 files remain unchanged.
 - Bundled Windows JRE passes all nine checks: six actual model/event checks, exact PNG decode/runtime lookup for all 292 CBT printings and four decisive headless Adventure-format games. The JRE does not include the source compiler; verifier is compiled with the development JDK first. Upstream FRA resource warnings during model loading are separate from CBT; custom matches emit no caught exceptions.
 - Actual native Windows GUI opens at 1280x720 with the expected Forge title. Linux real Sealed flow reaches the 96-card pool editor with native images after paying its standard entry fee. Both event completion/rewards and Windows Adventure-menu navigation continue next.
+
+
+2026-10-18: Real client game proof and protected custom desktop updates.
+
+- Actual Linux Adventure Sealed match opened from the paid event using a legal 40-card deck from its 96-card pool. An ignored external render-thread test harness temporarily hands the human seat to Forge AI; first real GUI game ended on turn 13, Drakoe won. Continuing the standard best-of-three match/event. This is automated client/AI coverage, not a human playtest; the harness is not included in source/package resources.
+- Native Windows 1280x720 Adventure main menu is visibly verified in addition to its nine model/image/game checks. Native captures target only the owned Forge window.
+- LibGDX's updater ignored the classic auto-update setting and queried upstream on startup. Custom desktop launches with forge.chaosbrawl=true now skip that upstream update path, preserving the reviewed fork/resources; ordinary Forge/Android behavior stays unchanged. Seven-module build passes (21.887 s). No source MSE or published downloads changed.
+- Website issue #56 updated with exact completed/remaining checks; private PR #10 remains the review location. Full GUI reward/save/reload/Draft flow is still in progress.

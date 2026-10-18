@@ -211,6 +211,10 @@
       "sha256": "2a7ed606db241708c9c0c4c8e8d428b33462d46018eee14bda9077220f5370d1"
     },
     {
+      "path": "forge-gui-mobile/src/forge/assets/AssetsDownloader.java",
+      "sha256": "9b342ae9ed35cfa3c7b8bcae8c20c24d6e76573a41aad6c77cd48bfe09b93230"
+    },
+    {
       "path": "forge-gui/res/blockdata/blocks.txt",
       "sha256": "14677f2ef3bb664d023c82adb2cbada43e74730e1cb8ed52ac277873c75e9be4"
     },
