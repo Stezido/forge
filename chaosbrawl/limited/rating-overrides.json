@@ -1,0 +1,13 @@
+{
+  "Wasted": {"score": 91, "reason": "Unconditional instant creature removal for three mana."},
+  "Food Coma": {"score": 86, "reason": "Broad creature removal with a Food resource."},
+  "Double Burn": {"score": 82, "reason": "Cheap flexible damage and flashback."},
+  "Brie-lliant Trapper": {"score": 88, "reason": "Efficient body, Food production and repeatable removal."},
+  "Gimme the herbs": {"score": 28, "reason": "Narrow Forest selection; needs enough Forests."},
+  "Hallucinating Trip": {"score": 27, "reason": "Narrow Forest payoff that risks the mana base."},
+  "Overdose": {"score": 40, "reason": "Graveyard setup and self-loss risk; not an unconditional bomb."},
+  "Wedding Ring": {"score": 37, "reason": "Requires multiple creatures and additional single-target spells."},
+  "The Fallen": {"score": 57, "reason": "Requires discard support rather than immediate standalone value."},
+  "Last Man Standing": {"score": 76, "reason": "Powerful but random sweeper; not reliable spot removal."},
+  "Numbing Mass Resurrection": {"score": 62, "reason": "Symmetric graveyard payoff with six-mana/setup requirements."}
+}

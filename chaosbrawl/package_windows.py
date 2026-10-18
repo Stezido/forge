@@ -96,7 +96,7 @@ def main():
     (target/'forge.profile.properties').write_text('userDir=UserData\ncacheDir=Cache\ndecksDir=Decks\ndecksConstructedDir=Decks/constructed\n')
     prefs = target/'UserData/preferences'
     prefs.mkdir(parents=True)
-    (prefs/'forge.preferences').write_text('AUTO_UPDATE=none\nCHECK_SNAPSHOT_AT_STARTUP=false\n')
+    (prefs/'forge.preferences').write_text('AUTO_UPDATE=none\nCHECK_SNAPSHOT_AT_STARTUP=false\nALLOW_CUSTOM_CARDS_IN_DECKS_CONFORMANCE=true\n')
     launcher = '''@echo off
 setlocal
 cd /d "%~dp0"

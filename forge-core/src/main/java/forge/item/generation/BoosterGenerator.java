@@ -457,6 +457,16 @@ public class BoosterGenerator {
                 } catch (Exception e) {
                     ps = getPrintSheet(determineSheet);
                 }
+                if (boosterSlot.excludesAlreadySelected()) {
+                    // Never mutate the cached print sheet or affect another pack.
+                    PrintSheet available = new PrintSheet(ps.getName());
+                    for (PaperCard candidate : ps.toFlatList()) {
+                        if (!result.contains(candidate) && !paperCards.contains(candidate)) {
+                            available.add(candidate);
+                        }
+                    }
+                    ps = available;
+                }
                 if (convertAllToFoil || convertThisToFoil) {
                     for (PaperCard pc : ps.random(numCardsToGenerate, true)) {
                         paperCards.add(pc.getFoiled());

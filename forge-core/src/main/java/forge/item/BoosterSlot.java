@@ -8,6 +8,7 @@ import forge.util.MyRandom;
 public class BoosterSlot {
     private final String slotName;
     private String baseRarity;
+    private boolean excludeAlreadySelected;
     private float startRange = 0.0f;
     private final TreeMap<Float, String> slotPercentages = new TreeMap<>();
 
@@ -19,6 +20,11 @@ public class BoosterSlot {
 
     public final String getSlotName() {
         return slotName;
+    }
+
+    /** Opt-in collation rule; existing editions keep their current behavior. */
+    public boolean excludesAlreadySelected() {
+        return excludeAlreadySelected;
     }
 
     public static BoosterSlot parseSlot(final String slotName, final List<String> contents) {
@@ -36,6 +42,8 @@ public class BoosterSlot {
 
             if (key.equalsIgnoreCase("Base")) {
                 baseRarity = value;
+            } else if (key.equalsIgnoreCase("ExcludeAlreadySelected")) {
+                excludeAlreadySelected = Boolean.parseBoolean(value);
             } else if (key.equalsIgnoreCase("Replace")) {
                 // Are there other things?
                 String[] replaceParts = value.split(" ", 2);
