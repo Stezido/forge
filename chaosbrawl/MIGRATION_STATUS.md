@@ -134,3 +134,10 @@ Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former
 - Seven renamed limited tests passed. Portable packager now includes the Adventure JAR, physical ChaosBrawl plane resources, a fresh default profile and both runtime image and real Adventure checks before ZIP creation. No archive uploaded or website changed yet.
 - Cloudflare read-only checks confirm existing Free plans/capacity: 3 Workers, 2 D1 databases, 290816 storage bytes, 71 requests/16 rows read/0 rows written today. GitHub billing endpoints are unavailable to current authentication; use locally validated, existing Free Worker deployment instead of starting unverified-cost Actions.
 - User asks to close #56 after publication and brainstorm #54 before UI implementation. #54 has been read; its UI is not being edited in this release.
+
+
+2026-10-18: Beta.3 packaged and published on explicitly requested private release.
+
+- Source9374fb5559500758d4681b816e22c459ae43028f includes classic and Adventure, CBFRbeta and CBT compatibility alias. 466 card checks, seven limited checks, nine packaged Adventure checks and all 292 native Windows images pass. Both actual packaged GUI launchers and seeded classic game pass; test GUI processes closed.
+- Windows/source ZIP hashes and exact native checks recorded in releases/windows-beta3-verification.json. Immutable assets uploaded to private website release forge-desktop-v0.1.0-beta.3; provider digests match. Both dedicated-credential provider handoffs and anonymous CDN ZIP signatures verified.
+- Website staging beta.3 deployed at a34124c1-03a3-4eca-b439-90496fb8c8ed; access checks pass after fresh Free-capacity verification. Production promotion is next. #54 UI is awaiting brainstorming, with no visual implementation.
