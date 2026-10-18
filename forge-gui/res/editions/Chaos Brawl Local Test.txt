@@ -4,8 +4,8 @@ Alias=CBT
 Date=2026-10-16
 Name=Chaos Brawl - The Foul Realms Beta
 Type=Custom_Set
-BoosterSlots=Common,Uncommon,RareMythic,Wildcard
-Booster=7 Common, 3 Uncommon, 1 RareMythic, 1 Wildcard
+BoosterSlots=Common,CommonOrLand,Uncommon,RareMythic,Wildcard
+Booster=6 Common, 1 CommonOrLand, 3 Uncommon, 1 RareMythic, 1 Wildcard
 
 [cards]
 001 C Wasted
@@ -307,12 +307,18 @@ Booster=7 Common, 3 Uncommon, 1 RareMythic, 1 Wildcard
 [Common]
 Base=Common:fromSheet("CBFRbeta limited")
 
+[CommonOrLand]
+Base=Common:fromSheet("CBFRbeta limited")
+Replace=0.5 Any:fromSheet("CBFRbeta lands")
+ExcludeAlreadySelected=true
+
 [Uncommon]
 Base=Uncommon:fromSheet("CBFRbeta limited")
 
 [RareMythic]
 Base=Rare:fromSheet("CBFRbeta limited")
-Replace=0.125F Mythic:fromSheet("CBFRbeta limited")
+Replace=0.02 Any:fromSheet("CBFRbeta planeswalkers")
+Replace=0.1225 Mythic:fromSheet("CBFRbeta limited")
 
 [Wildcard]
 Base=Any:fromSheet("CBFRbeta limited")
@@ -340,7 +346,6 @@ ExcludeAlreadySelected=true
 1 Overdose|CBFRbeta|[019]
 1 Drunkard|CBFRbeta|[020]
 1 Drunken Warrior|CBFRbeta|[021]
-1 Hopsfield Vale|CBFRbeta|[022]
 1 Kegbearer|CBFRbeta|[023]
 1 Blunt Force Trauma|CBFRbeta|[024]
 1 Gimme the herbs|CBFRbeta|[025]
@@ -354,10 +359,7 @@ ExcludeAlreadySelected=true
 1 Ice Cold Siren|CBFRbeta|[033]
 1 Wake and Bake|CBFRbeta|[034]
 1 Rotting Flesh|CBFRbeta|[035]
-1 Decaying Orchard|CBFRbeta|[036]
-1 Distillery of Silent Death|CBFRbeta|[037]
 1 Feuerball, Junge!|CBFRbeta|[038]
-1 Sacred Brewery|CBFRbeta|[039]
 1 Parsley Root|CBFRbeta|[040]
 1 Celestial Waters|CBFRbeta|[041]
 1 Gluttonous Scavenger|CBFRbeta|[042]
@@ -368,8 +370,6 @@ ExcludeAlreadySelected=true
 1 Mattn, the Tasty Prince|CBFRbeta|[047]
 1 Anschnly, the Vengeful Siren|CBFRbeta|[048]
 1 Noxious Cloud|CBFRbeta|[049]
-1 Mistcliff Springs|CBFRbeta|[050]
-1 Mistcliff Waterfall|CBFRbeta|[051]
 1 Caring Siren|CBFRbeta|[052]
 1 Jealous Siren|CBFRbeta|[053]
 1 Endless Expectations|CBFRbeta|[054]
@@ -482,10 +482,6 @@ ExcludeAlreadySelected=true
 1 Summon the Squad|CBFRbeta|[162]
 1 Just Do it|CBFRbeta|[163]
 1 Homemade Paranoia|CBFRbeta|[164]
-1 Flooded Palace|CBFRbeta|[165]
-1 Duskmire|CBFRbeta|[166]
-1 Reefgarden|CBFRbeta|[167]
-1 The Stoned Peaks|CBFRbeta|[168]
 1 The Blessed Hideaway|CBFRbeta|[169]
 1 Roadside Distraction|CBFRbeta|[170]
 1 Have a Beer, or Three|CBFRbeta|[171]
@@ -560,16 +556,6 @@ ExcludeAlreadySelected=true
 1 Overstimulated Flora|CBFRbeta|[240]
 1 Ravenous Trollkin|CBFRbeta|[241]
 1 Exasperated Patriarch|CBFRbeta|[242]
-1 The Stoned Peaks|CBFRbeta|[243]
-1 Hopsfield Vale|CBFRbeta|[244]
-1 Sacred Brewery|CBFRbeta|[245]
-1 Decaying Orchard|CBFRbeta|[246]
-1 Flooded Palace|CBFRbeta|[247]
-1 Underground District|CBFRbeta|[248]
-1 Underground District|CBFRbeta|[249]
-1 Duskmire|CBFRbeta|[250]
-1 Reefgarden|CBFRbeta|[251]
-1 Distillery of Silent Death|CBFRbeta|[252]
 1 Brewbelly Jumbo|CBFRbeta|[253]
 1 Wild Fermentation|CBFRbeta|[254]
 1 Desperate Foraging|CBFRbeta|[255]
@@ -604,3 +590,33 @@ ExcludeAlreadySelected=true
 1 Maternal Instinct|CBFRbeta|[312]
 1 Higher Protection|CBFRbeta|[313]
 1 Haze-Fueled Frenzy|CBFRbeta|[314]
+
+[lands]
+1 Hopsfield Vale|CBFRbeta|[022]
+1 Decaying Orchard|CBFRbeta|[036]
+1 Distillery of Silent Death|CBFRbeta|[037]
+1 Sacred Brewery|CBFRbeta|[039]
+1 Mistcliff Springs|CBFRbeta|[050]
+1 Mistcliff Waterfall|CBFRbeta|[051]
+1 Flooded Palace|CBFRbeta|[165]
+1 Duskmire|CBFRbeta|[166]
+1 Reefgarden|CBFRbeta|[167]
+1 The Stoned Peaks|CBFRbeta|[168]
+1 The Stoned Peaks|CBFRbeta|[243]
+1 Hopsfield Vale|CBFRbeta|[244]
+1 Sacred Brewery|CBFRbeta|[245]
+1 Decaying Orchard|CBFRbeta|[246]
+1 Flooded Palace|CBFRbeta|[247]
+1 Underground District|CBFRbeta|[248]
+1 Underground District|CBFRbeta|[249]
+1 Duskmire|CBFRbeta|[250]
+1 Reefgarden|CBFRbeta|[251]
+1 Distillery of Silent Death|CBFRbeta|[252]
+
+[planeswalkers]
+1 Hofi, the Fragrant|CBFRbeta|[283]
+1 Peter, the Manipulative|CBFRbeta|[284]
+1 Sasa, the Big Brother|CBFRbeta|[285]
+1 Stefan, the Eternal Annoyer|CBFRbeta|[286]
+1 Alex, the Cozy|CBFRbeta|[287]
+1 Peter, the Stoned Hunter|CBFRbeta|[298]

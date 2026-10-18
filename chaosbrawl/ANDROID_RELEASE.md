@@ -34,3 +34,10 @@ Exact pins, certificate, counts and test matrix: [android-verification.json](rel
 ## Remaining acceptance (#57)
 
 Physical RedMagic installation/update, touch layouts, save/deck persistence, complete human-versus-AI matches, Adventure/Sealed/Draft play and older-phone performance remain manual tester checks. Keep #57 open until the required real-device evidence exists. Engine/source/build distribution is GPLv3-or-later with retained notices; artwork rights are separate.
+
+
+## Pending playtester fixes (source only)
+
+The next explicitly requested download must first rebuild the reviewed desktop resource package from the accumulated fixes, then feed its checksum-verified manifest/ZIP into package_android_resources.py. Do not reuse beta.3 resources for a new APK: they contain the old Bottle Bash and Temptress scripts, old booster sheets and unframed token illustrations. The bundler accepts subsequent checksum-verified 0.1.0 Beta versions with CBFRbeta. Keep Android minSdk26 and the stable signing identity/version-code progression.
+
+Mobile/Android compilation passes with constant-time identical-token stack appends. This removes repeated full-chain traversal during field rebuilds; performance on the RedMagic 10 Pro and older physical devices still needs measurement. No replacement APK/Windows ZIP is published by this source-only work.

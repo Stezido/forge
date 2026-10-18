@@ -44,8 +44,7 @@ public class ChaosBrawlLimitedTest extends AITest {
     private void eligible(PaperCard card) {
         assertEquals(card.getEdition(),CODE);
         assertNotEquals(card.getName(),"AJDE!");
-        assertFalse(card.getRules().getType().isPlaneswalker());
-        assertNotEquals(card.getRarity(),CardRarity.Special);
+        assertTrue(card.getRarity()!=CardRarity.Special || card.getRules().getType().isPlaneswalker());
     }
     private void deck(Deck deck) {
         assertNotNull(deck);
@@ -58,13 +57,14 @@ public class ChaosBrawlLimitedTest extends AITest {
 
     @Test
     public void eligibleSheetPreservesPrintingsAndFunctionalVariants() {
-        List<PaperCard> cards=StaticData.instance().getPrintSheets().get(CODE+" limited").toFlatList();
-        var expected=StaticData.instance().getCommonCards().getAllCards(c->c.getEdition().equals(CODE) && !c.getRules().getType().isPlaneswalker() && !c.getName().equals("AJDE!"));
+        List<PaperCard> cards=new ArrayList<>();
+        for(String sheet:List.of("limited","lands","planeswalkers")) cards.addAll(StaticData.instance().getPrintSheets().get(CODE+" "+sheet).toFlatList());
+        var expected=StaticData.instance().getCommonCards().getAllCards(c->c.getEdition().equals(CODE) && !c.getName().equals("AJDE!"));
         var missing=new HashSet<>(expected);missing.removeAll(cards);
-        assertEquals(cards.size(),285,"Missing: "+missing.stream().map(c->c.getName()+" ["+c.getCollectorNumber()+"]").toList());
-        assertEquals(new HashSet<>(cards).size(),285);
+        assertEquals(cards.size(),291,"Missing: "+missing.stream().map(c->c.getName()+" ["+c.getCollectorNumber()+"]").toList());
+        assertEquals(new HashSet<>(cards).size(),291);
         cards.forEach(this::eligible);
-        assertEquals(cards.stream().map(PaperCard::getName).distinct().count(),275L);
+        assertEquals(cards.stream().map(PaperCard::getName).distinct().count(),281L);
         for(String name:List.of("Wedding Ring","Dungeon Master","Recycle","The Fallen")) {
             PaperCard card=cards.stream().filter(c->c.getName().equals(name)).findFirst().orElseThrow();
             assertEquals(card.getFunctionalVariant(),"ChaosBrawlBeta");
@@ -79,21 +79,25 @@ public class ChaosBrawlLimitedTest extends AITest {
     }
 
     @Test
-    public void websiteCollationHasTwelveUniquePrintingsAndOneInEightMythics() {
+    public void collationKeepsTwelveUniqueCardsWithHalfDualLandsAndTwoPercentWalkers() {
         MyRandom.setRandom(new Random(20261018));
-        int mythics=0,landWildcards=0;
-        for(int n=0;n<1000;n++) {
+        int mythics=0,lands=0,walkers=0;
+        for(int n=0;n<2000;n++) {
             List<PaperCard> cards=pack();
             assertEquals(cards.size(),12);assertEquals(new HashSet<>(cards).size(),12);
             cards.forEach(this::eligible);
-            for(int i=0;i<7;i++)assertEquals(cards.get(i).getRarity(),CardRarity.Common);
-            for(int i=7;i<10;i++)assertEquals(cards.get(i).getRarity(),CardRarity.Uncommon);
-            assertTrue(Set.of(CardRarity.Rare,CardRarity.MythicRare).contains(cards.get(10).getRarity()));
+            assertEquals(cards.stream().filter(c->c.getRarity()==CardRarity.Uncommon).count() >= 3,true);
+            long landCount=cards.stream().filter(c->c.getRules().getType().isLand() && c.getRarity()==CardRarity.BasicLand).count();
+            long walkerCount=cards.stream().filter(c->c.getRules().getType().isPlaneswalker()).count();
+            assertTrue(landCount<=1); assertTrue(walkerCount<=1);
+            lands+=landCount;walkers+=walkerCount;
             if(cards.get(10).getRarity()==CardRarity.MythicRare)mythics++;
-            if(cards.get(11).getRules().getType().isLand())landWildcards++;
+            if(cards.get(10).getRules().getType().isPlaneswalker()) assertEquals(walkerCount,1L);
+            else assertTrue(Set.of(CardRarity.Rare,CardRarity.MythicRare).contains(cards.get(10).getRarity()));
         }
-        assertTrue(mythics>80 && mythics<170,"Rare slot mythics: "+mythics);
-        assertTrue(landWildcards>0,"Wildcard must allow native nonbasic land printings.");
+        assertTrue(lands>900 && lands<1100,"Dual land packs: "+lands);
+        assertTrue(walkers>20 && walkers<65,"Planeswalker packs: "+walkers);
+        assertTrue(mythics>190 && mythics<300,"Rare slot mythics: "+mythics);
     }
 
     @Test

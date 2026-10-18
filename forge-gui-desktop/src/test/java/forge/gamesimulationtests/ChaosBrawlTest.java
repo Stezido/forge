@@ -82,18 +82,34 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     @Test
-    public void temptressCanResolveWithBothSelectedTargetsIncludingHerself() {
+    public void temptressChoosesCreaturesOnResolutionAndCanReceiveAnOpponentsCounter() {
         Game game = customGame(); Player p = game.getPlayers().get(0);
-        Card donor = addCard("Couchpotato", p); counters(donor, CounterEnumType.DRUNKEN, 2);
+        Card donor = addCard("Couchpotato", game.getPlayers().get(1)); counters(donor, CounterEnumType.DRUNKEN, 2);
         Card temptress = enter("Manipulative Temptress", p);
-        SpellAbility move = db(temptress, "Move");
-        assertTrue(move.canTarget(donor)); move.getTargets().add(donor);
-        assertTrue(move.canTarget(temptress)); move.getTargets().add(temptress);
-        // Resolution rechecks targets after they have already been selected.
-        assertTrue(move.canTarget(donor)); assertTrue(move.canTarget(temptress));
+        // Neither creature is targeted by the printed ability.
+        donor.addIntrinsicKeyword("Shroud"); temptress.addIntrinsicKeyword("Shroud");
+        PlayerController choices = spy(p.getController());
+        doReturn(new forge.game.card.CardCollection(donor), new forge.game.card.CardCollection(temptress))
+            .when(choices).chooseCardsForEffect(any(), any(), anyString(), anyInt(), anyInt(), anyBoolean(), any());
+        p.dangerouslySetController(choices);
+        SpellAbility move = db(temptress, "Move"); assertFalse(move.usesTargeting());
         AbilityUtils.resolve(move);
         assertEquals(donor.getCounters(CounterEnumType.DRUNKEN), 1);
         assertEquals(temptress.getCounters(CounterEnumType.DRUNKEN), 1);
+        assertFalse(temptress.hasRemembered());
+    }
+
+    @Test
+    public void temptressAllowsDecliningTheMove() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card donor = addCard("Couchpotato", p); counters(donor, CounterEnumType.STUN, 2);
+        Card temptress = enter("Manipulative Temptress", p);
+        PlayerController choices = spy(p.getController());
+        doReturn(forge.game.card.CardCollection.EMPTY).when(choices)
+            .chooseCardsForEffect(any(), any(), anyString(), anyInt(), anyInt(), anyBoolean(), any());
+        p.dangerouslySetController(choices); AbilityUtils.resolve(db(temptress, "Move"));
+        assertEquals(donor.getCounters(CounterEnumType.STUN), 2);
+        assertFalse(temptress.hasRemembered());
     }
 
     @Test

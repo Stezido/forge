@@ -19,8 +19,21 @@ public class VerifyPackageImages {
    Path image=root.resolve("Cache/pics/cards").resolve(card.getCardImageKey()+".png");
    if(!Files.isRegularFile(image) || javax.imageio.ImageIO.read(image.toFile())==null || ImageKeys.getImageFile(card.getCardImageKey())==null){System.out.println("MISSING "+card.getCollectorNumber()+" "+card.getName()+" -> "+card.getCardImageKey()+".png");missing++;}
   }
+  int tokens=0;
+  try(var paths=Files.list(root.resolve("Cache/pics/tokens"))){
+   for(Path script:paths.filter(p->p.toString().endsWith(".png")).toList()){
+    String name=script.getFileName().toString().replace(".png", "");
+    Path image=root.resolve("Cache/pics/tokens").resolve(name+".png");
+    var bitmap=Files.isRegularFile(image)?javax.imageio.ImageIO.read(image.toFile()):null;
+    if(bitmap==null || bitmap.getHeight()<=bitmap.getWidth() || ImageKeys.getImageFile(ImageKeys.TOKEN_PREFIX+name)==null){
+     System.out.println("MISSING OR NON-CARD TOKEN IMAGE "+name);missing++;
+    }
+    tokens++;
+   }
+  }
+  System.out.println("AUDIT: "+tokens+" full-card bundled token images");
   System.out.println("AUDIT: "+cards.size()+" CBFRbeta printings; "+missing+" missing exact runtime image paths");
   int expected=args.length>1?Integer.parseInt(args[1]):292;
-  System.exit(missing==0 && cards.size()==expected?0:1);
+  System.exit(missing==0 && cards.size()==expected && tokens==17?0:1);
  }
 }

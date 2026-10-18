@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bundle reviewed Windows beta.3 resources for the shared Android engine.
+"""Bundle reviewed Windows Beta resources for the shared Android engine.
 
 Only shipped resources, custom images and seed decks/settings are used. Never copy
 a live player's profile. Rebuild the desktop staging package with package_windows.py
@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 import zipfile
 import io
+import re
 
 
 def bundle(release_zip: Path, manifest: Path, assets: Path):
@@ -19,8 +20,8 @@ def bundle(release_zip: Path, manifest: Path, assets: Path):
     digest = hashlib.file_digest(release_zip.open('rb'), 'sha256').hexdigest()
     if digest != expected['sha256'] or release_zip.stat().st_size != expected['bytes']:
         raise ValueError('Reviewed desktop release checksum/size mismatch')
-    if release['version'] != '0.1.0-beta.3' or release['setCode'] != 'CBFRbeta':
-        raise ValueError('Expected reviewed CBFRbeta desktop beta.3')
+    if not re.fullmatch(r'0\.1\.0-beta\.[1-9][0-9]*', release['version']) or release['setCode'] != 'CBFRbeta':
+        raise ValueError('Expected a checksum-verified CBFRbeta desktop Beta release')
     assets.mkdir(parents=True, exist_ok=True)
     target = assets/'chaosbrawl-resources.zip'
     counts = {'resources': 0, 'cardScripts': 0, 'cardImages': 0, 'tokens': 0, 'decks': 0}

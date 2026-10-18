@@ -3,5 +3,8 @@ ManaCost:2 U
 Types:Creature Siren
 PT:2/3
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Move | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, ABILITY
-SVar:Move:DB$ MoveCounter | ValidTgts$ Creature | TgtPrompt$ Select the creature giving a counter first, then the creature receiving it | TargetMin$ 2 | TargetMax$ 2 | CounterType$ Any | CounterNum$ 1 | SpellDescription$ Move a counter from the first target creature to the second.
+SVar:Move:DB$ ChooseCard | Defined$ You | Choices$ Creature.HasCounters | Amount$ 1 | MinAmount$ 0 | RememberChosen$ True | ForgetOtherRemembered$ True | ChoiceTitle$ Choose a creature to give a counter, or cancel | SubAbility$ Recipient
+SVar:Recipient:DB$ ChooseCard | Defined$ You | Choices$ Creature.!IsRemembered | Amount$ 1 | ConditionCheckSVar$ Remembered$Amount | ConditionSVarCompare$ GE1 | ChoiceTitle$ Choose another creature to receive the counter | SubAbility$ Transfer
+SVar:Transfer:DB$ MoveCounter | Source$ Remembered | Defined$ ChosenCard | CounterType$ Any | CounterNum$ 1 | StackDescription$ None | SubAbility$ Clear
+SVar:Clear:DB$ Cleanup | ClearRemembered$ True
 Oracle:When Manipulative Temptress enters, you may move a counter from one creature to another creature.
