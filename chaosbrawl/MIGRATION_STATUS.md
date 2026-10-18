@@ -74,3 +74,11 @@ Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former
 
 - Private Forge draft PR #10 stacks on Windows playtest PR #9. Seven limited engine checks now pass, including actual Food-token-generator and Milk/Cini Minis ranking bonuses. Eight targeted DeckHints are generated from an auditable AI-only mapping; MSE/rules text are unchanged.
 - Local classic preparation now preserves unrelated preferences while enabling custom variant conformance inside its owned profile. Existing published packages remain unchanged. Complete real-engine Adventure-format AI games from generated Sealed/Draft decks are being checked separately from GUI navigation.
+
+
+2026-10-18: Upkeep AI regression fixed and strict complete games pass.
+
+- First complete limited games exposed a caught null-payer exception in PermanentAi's pre-cast upkeep-cost evaluation. It inspected an untriggered stored ability without an activating player. Evaluate a copy for the current AI instead, preserving the original trigger and avoiding cached payment choices. A focused real-AI regression passes; full card suite now 466 checks.
+- Rebuilt the seven-module Adventure desktop client (18.168 s). Strict match verification now fails even on caught AI exceptions: two Sealed and two Draft games completed decisively without exceptions, on turns 45/24/9/18. Together with the six configuration/pool/draft/save checks, eight Adventure checks pass. These are explicitly headless AI-vs-AI games, not human playtests.
+- Real LibGDX tavern GUI shows the custom Sealed event. New world progress saves successfully into the isolated ChaosBrawl auto_save.sav. A local GUI run was invalidated by rebuilding its live JAR; restarted from a stable copied JAR. No runtime patch/backdoor was added to production source.
+- Refreshed only the latest reviewed script-hash manifest after validation, preserving source MSE hash/IDs and historical batches. Full local classic preparation succeeds for all 314 faces and 41 decks with custom conformance enabled. No published artifacts changed.

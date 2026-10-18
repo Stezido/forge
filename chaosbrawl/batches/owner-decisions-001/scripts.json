@@ -3,6 +3,10 @@
   "sourceSha256": "73cdf99abf3bdb9e619cbb6af5ab3cb7d9305cfe86defe61692b85ff93392703",
   "files": [
     {
+      "path": "chaosbrawl/VerifyAdventureEvents.java",
+      "sha256": "538f32ee3e67d576c922a926a5072dbe5e5a222335df8d7080453f40347552a0"
+    },
+    {
       "path": "chaosbrawl/batches/151-200/definitions/chaosbrawl_cb-156.txt",
       "sha256": "3ccfd3ce7c74733b83c6d95c87ade0053b75ff4125fa735d120a0f73beb2cc06"
     },
@@ -19,12 +23,48 @@
       "sha256": "5410527f3ead778d60ae99895a71e04df3d84e13671b30c615329ce46f8dea56"
     },
     {
+      "path": "chaosbrawl/card_images.py",
+      "sha256": "c427d6b2705e570b22a62859b4493cfeddea0f6e984af2f38d8a0c1e1b4264f9"
+    },
+    {
       "path": "chaosbrawl/forge.sh",
-      "sha256": "d3756200b969da45964567f7565b97e03885ec07cc9177d168dd655d97125e5c"
+      "sha256": "32f618c32ec7d7d7bb8e2a7ee88fe8579555fd9e00cfbe5f178162e655f2be29"
+    },
+    {
+      "path": "chaosbrawl/limited/README.md",
+      "sha256": "971e353469a15f4f49e5fea13b00c2f4804c30f790115c1f1442f82d7d28e969"
+    },
+    {
+      "path": "chaosbrawl/limited/ai-hints.json",
+      "sha256": "7e06d25a4f23b9dbefa2d724b9554bc9c6782a63831ccaa944e2acf37ca2d342"
+    },
+    {
+      "path": "chaosbrawl/limited/generate.py",
+      "sha256": "7841e9bf0c768058dfad8a5d738883cf62d04bffb5c4b340e79cfba326ec121f"
+    },
+    {
+      "path": "chaosbrawl/limited/rating-overrides.json",
+      "sha256": "9edee70e52973daa6e9b5be0e97357dc8445eaccf5f6533b6021cc61bebb3f56"
+    },
+    {
+      "path": "chaosbrawl/limited/ratings.json",
+      "sha256": "35c052a1afc582ac590c02b1db98a766ab405710de89f841c9405c7da1988cf1"
+    },
+    {
+      "path": "chaosbrawl/package_windows.py",
+      "sha256": "0a0bf1cff63dab4c4a1c728c60a5c9e4a8638864f0b79f69312031bf6b3fa754"
     },
     {
       "path": "chaosbrawl/prepare.py",
-      "sha256": "1a9abea6c6f1ab33166a0b8038f7a0136315b4444edaaf3169a229056221ed0b"
+      "sha256": "182742a6698764acbbb55c7a677b4428b523b83e8896a14669a9256cccae9112"
+    },
+    {
+      "path": "chaosbrawl/prepare_adventure.py",
+      "sha256": "4e45cd33a3680f8aaa764e255f7e46737c604346b98a3dd1b9fde0b743401787"
+    },
+    {
+      "path": "forge-ai/src/main/java/forge/ai/ability/PermanentAi.java",
+      "sha256": "946038f90d09de408639e8464125e241be7b07bb285e2bc27aff69045a3d4525"
     },
     {
       "path": "forge-core/src/main/java/forge/card/CardFace.java",
@@ -39,8 +79,16 @@
       "sha256": "48d4fb4e8e9b3f0923749c363e390c3fd8a3a3efc42dc24da41e48c4a7778dc8"
     },
     {
+      "path": "forge-core/src/main/java/forge/item/BoosterSlot.java",
+      "sha256": "f89bda1cb7ebedcf02400be4ff52a2d7f37583db3b5b0190140684e071097196"
+    },
+    {
       "path": "forge-core/src/main/java/forge/item/PaperCard.java",
       "sha256": "22e79a86e8db173585691edcebe6070f9961a69d1cbbad821b598e3bbad545d0"
+    },
+    {
+      "path": "forge-core/src/main/java/forge/item/generation/BoosterGenerator.java",
+      "sha256": "c34d2985e559642a02f0f8a3eac53ee5ea5b405f84c57f87cfbfea14e87ef312"
     },
     {
       "path": "forge-game/src/main/java/forge/game/ChaosBrawlRules.java",
@@ -152,7 +200,19 @@
     },
     {
       "path": "forge-gui-desktop/src/test/java/forge/gamesimulationtests/ChaosBrawlTest.java",
-      "sha256": "9481bae1e13ab96f07c47b5506b9cfacc197a7249825078bcd3c2cabefdef839"
+      "sha256": "21ee573d936e1dad333f3b25f404cb7d1610a1b49ec879f6e095fbcee0cf8e0a"
+    },
+    {
+      "path": "forge-gui-mobile/src/forge/adventure/data/ConfigData.java",
+      "sha256": "4eb746ec47ff4facf3af4c15ca0f1cf15d63bed591332b607c429f0f01dccccb"
+    },
+    {
+      "path": "forge-gui-mobile/src/forge/adventure/util/AdventureEventController.java",
+      "sha256": "2a7ed606db241708c9c0c4c8e8d428b33462d46018eee14bda9077220f5370d1"
+    },
+    {
+      "path": "forge-gui/res/blockdata/blocks.txt",
+      "sha256": "14677f2ef3bb664d023c82adb2cbada43e74730e1cb8ed52ac277873c75e9be4"
     },
     {
       "path": "forge-gui/res/cardsfolder/custom/chaosbrawl_cb-001.txt",
@@ -188,7 +248,7 @@
     },
     {
       "path": "forge-gui/res/cardsfolder/custom/chaosbrawl_cb-009.txt",
-      "sha256": "afc9bffdf43d557a7d02273c8429a7dee3453e80b7d1a333b30a109b2695e070"
+      "sha256": "55bf192aa01a68f963baebcac786e0e05f762524bc313f5ffbcb6ada135135e5"
     },
     {
       "path": "forge-gui/res/cardsfolder/custom/chaosbrawl_cb-010.txt",
@@ -320,15 +380,15 @@
     },
     {
       "path": "forge-gui/res/cardsfolder/custom/chaosbrawl_cb-042.txt",
-      "sha256": "9f332a2cecf1686d7d7a72ad6f3ae44ab9f43948a3bf263c30caecd8e7324b89"
+      "sha256": "eb30adfb866c005076725f12524ee9c75ee86695601395dbbf31f85d22ec58f4"
     },
     {
       "path": "forge-gui/res/cardsfolder/custom/chaosbrawl_cb-043.txt",
-      "sha256": "e57f73bbb30e899eb5dae392144ffde2f7816ca99a239f2135a00af4c3d897dd"
+      "sha256": "e2c635ca47fdc60b28e43ccfa29691b904331d718b820bec675632a3a02e93bc"
     },
     {
       "path": "forge-gui/res/cardsfolder/custom/chaosbrawl_cb-044.txt",
-      "sha256": "c9e0f42986d8026d921284fd93a060cdd4910b4ac94d4984934f5f8c80a9e9bc"
+      "sha256": "c581dc5aa31a2be3f58b309fea41c1bdc176788d96868d90711291df2604237a"
     },
     {
       "path": "forge-gui/res/cardsfolder/custom/chaosbrawl_cb-045.txt",
@@ -340,7 +400,7 @@
     },
     {
       "path": "forge-gui/res/cardsfolder/custom/chaosbrawl_cb-047.txt",
-      "sha256": "f128c98896b653c70d99c2d24edf1d5bf92f98074174b8dba19d5cb46db6e354"
+      "sha256": "3efa13b0f336cd258a06b3effc12c61c8cdaa91972c975eb5cd22699ecc293b0"
     },
     {
       "path": "forge-gui/res/cardsfolder/custom/chaosbrawl_cb-048.txt",
@@ -512,7 +572,7 @@
     },
     {
       "path": "forge-gui/res/cardsfolder/custom/chaosbrawl_cb-090.txt",
-      "sha256": "28f69ef6d42b0d8c016f2fb9ee387dea72987514bb447c761b67db80dcd4e00d"
+      "sha256": "21f2135c6f3c1cf632c1dceefaefb8afcd5b40c9ed26da139b172bfbe6927db4"
     },
     {
       "path": "forge-gui/res/cardsfolder/custom/chaosbrawl_cb-091.txt",
@@ -656,7 +716,7 @@
     },
     {
       "path": "forge-gui/res/cardsfolder/custom/chaosbrawl_cb-126.txt",
-      "sha256": "ee073baa1d374ca2e940f4e551ee9fee11f5fa67713bcfd958fed15dc5ecd759"
+      "sha256": "ad8becf371f998bf526db2bdb15bfbae2359734eab3b1d7d4635679c59bff580"
     },
     {
       "path": "forge-gui/res/cardsfolder/custom/chaosbrawl_cb-127.txt",
@@ -892,7 +952,7 @@
     },
     {
       "path": "forge-gui/res/cardsfolder/custom/chaosbrawl_cb-188.txt",
-      "sha256": "eb92a1c013c7375a885b5616622628e189e824e71bcb1ec9ad541c1604f063d2"
+      "sha256": "a6a2f99e981cca261f4afef86ee2f4b18598f1bdb56fc80efa9d38b7b2d2d963"
     },
     {
       "path": "forge-gui/res/cardsfolder/custom/chaosbrawl_cb-189.txt",
@@ -1299,8 +1359,12 @@
       "sha256": "7d53bf12f702583d47a2d731c7f8302d37ce0f889196a5b08be1e5fa4d7f42d5"
     },
     {
+      "path": "forge-gui/res/draft/rankings/cbt.rnk",
+      "sha256": "d669dc4e2672ac17fbd81e021360a3b1f21c06dda9bda3b0d9f291c02215c2c6"
+    },
+    {
       "path": "forge-gui/res/editions/Chaos Brawl Local Test.txt",
-      "sha256": "faac6ba61e682be0f3dc4d5fbfcb46a7d04089712dc039ec113ecad755e22466"
+      "sha256": "a1d73c8e39664cec8637a41f13c3fcac0bb9779ec9aa41c3c3cac4c4851a40c4"
     },
     {
       "path": "forge-gui/res/lists/TypeLists.txt",

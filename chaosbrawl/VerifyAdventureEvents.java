@@ -45,7 +45,13 @@ public class VerifyAdventureEvents {
    var game=match.createGame();game.setNoGUIUser();
    var executor=java.util.concurrent.Executors.newSingleThreadExecutor(task->{Thread thread=new Thread(task,"limited-match-check");thread.setDaemon(true);return thread;});
    long started=System.currentTimeMillis();
-   try{executor.submit(()->match.startGame(game)).get(120,java.util.concurrent.TimeUnit.SECONDS);}finally{executor.shutdownNow();}
+   var diagnostics=new ByteArrayOutputStream();var previousError=System.err;
+   try(var capturedError=new PrintStream(diagnostics)){
+    System.setErr(capturedError);
+    try{executor.submit(()->match.startGame(game)).get(120,java.util.concurrent.TimeUnit.SECONDS);}finally{executor.shutdownNow();System.setErr(previousError);}
+   }
+   String errors=diagnostics.toString();if(!errors.isBlank())previousError.print(errors);
+   require(!errors.contains("Exception") && !errors.contains("Error"),"AI emitted a caught exception in "+format+" game "+i);
    require(game.isGameOver() && game.getOutcome()!=null && !game.getOutcome().isDraw(),"No completed decisive "+format+" game");
    Files.createDirectories(Path.of("../match-logs"));
    Files.writeString(Path.of("../match-logs/"+format+"-"+i+".txt"),game.getGameLog().getLogEntries(null).toString());
