@@ -1,0 +1,54 @@
+{
+  "version": "0.1.0-beta.3",
+  "platform": "windows-x64",
+  "engineCommit": "9374fb5559500758d4681b816e22c459ae43028f",
+  "mseSha256": "73cdf99abf3bdb9e619cbb6af5ab3cb7d9305cfe86defe61692b85ff93392703",
+  "jarSha256": "32a9b54a87a3784843d116864b025ca68a8762cd6d1c1007cd6cdee800384962",
+  "adventureJarSha256": "cd258c3d7f47887752d1363c11950deca4644da5389ef40073290cc3a31259f5",
+  "setCode": "CBFRbeta",
+  "reservedReleaseSetCode": "CBFR",
+  "runtime": {
+    "vendor": "Eclipse Adoptium",
+    "javaVersion": "21.0.12.1+1",
+    "architecture": "x64",
+    "os": "windows",
+    "imageType": "jre",
+    "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.12.1%2B1/OpenJDK21U-jre_x64_windows_hotspot_21.0.12.1_1.zip",
+    "sha256": "d35f31e712f0fcf6ac5a093edc90204fbff22f720ba3950bd09d331d5e621636",
+    "bytes": 48999141,
+    "status": "checksum verified; extracted package and both launchers verified on native Windows"
+  },
+  "sourceRecords": 314,
+  "nonTokenRecords": 292,
+  "tokenRecords": 22,
+  "testDecks": 41,
+  "artifacts": {
+    "windows": {
+      "filename": "ChaosBrawl-Forge-0.1.0-beta.3-Windows-x64.zip",
+      "bytes": 491337150,
+      "sha256": "c546d9c6f3c08e97ed41066c34d983f9698e12be017574b8254960c0ff1d869b"
+    },
+    "source": {
+      "filename": "ChaosBrawl-Forge-0.1.0-beta.3-Source.zip",
+      "bytes": 276928649,
+      "sha256": "641ef94f9429acd097a5420e12ad7eca7aa853a577fec62ac839a7ad91790f09"
+    }
+  },
+  "verification": {
+    "cardChecks": 466,
+    "limitedChecks": 7,
+    "packagedAdventureChecksLinux": 9,
+    "packagedAdventureChecksWindows": 9,
+    "windowsExactImages": 292,
+    "windowsClassicGame": {
+      "seed": 20261018,
+      "turn": 14,
+      "winner": "Ai(1)",
+      "elapsedMs": 2839
+    },
+    "nativeWindowsClassicGui": true,
+    "nativeWindowsAdventureGui": true,
+    "realHumanOrRemotePlaytest": false,
+    "mseArchiveChanged": false
+  }
+}

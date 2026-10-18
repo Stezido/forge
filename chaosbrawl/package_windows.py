@@ -24,7 +24,7 @@ def main():
     parser.add_argument('--build-root', type=Path, required=True)
     parser.add_argument('--runtime', type=Path, required=True)
     parser.add_argument('--output', type=Path, default=ROOT/'.chaosbrawl-local/windows-release')
-    parser.add_argument('--version', default='0.1.0-beta.2')
+    parser.add_argument('--version', default='0.1.0-beta.3')
     parser.add_argument('--java', default='java', help='JDK 21+ executable for the runtime image-path audit')
     args = parser.parse_args()
     if not re.fullmatch(r'\d+\.\d+\.\d+-[a-z0-9.]+', args.version):
@@ -44,6 +44,10 @@ def main():
     jars = list((build/'forge-gui-desktop/target').glob('*-jar-with-dependencies.jar'))
     if len(jars) != 1:
         raise ValueError('Build the reviewed desktop jar first')
+    adventure_jars = list((build/'forge-gui-mobile-dev/target').glob('*-jar-with-dependencies.jar'))
+    if len(adventure_jars) != 1:
+        raise ValueError('Build the reviewed Adventure desktop jar first')
+    code = 'CBFRbeta'
     cards = {}
     for path in sorted((build/'chaosbrawl/batches').glob('*/source.json')):
         if path.parent.name <= batch.name:
@@ -58,7 +62,15 @@ def main():
         raise ValueError('Refusing to overwrite an existing package directory: '+str(target))
     target.mkdir()
     shutil.copyfile(jars[0], target/'forge.jar')
+    shutil.copyfile(adventure_jars[0], target/'forge-adventure.jar')
     shutil.copytree(build/'forge-gui/res', target/'res')
+    plane = target/'res/adventure/ChaosBrawl'
+    if plane.exists():
+        raise ValueError('Unexpected pre-existing ChaosBrawl plane')
+    shutil.copytree(target/'res/adventure/Shandalar',plane)
+    config=json.loads((target/'res/adventure/common/config.json').read_text())
+    config.update(allowedEvents=[code],eventFormats=['Draft','Sealed'])
+    (plane/'config.json').write_text(json.dumps(config,ensure_ascii=False,indent=2)+'\n')
     with zipfile.ZipFile(args.runtime) as z:
         for info in z.infolist():
             member = PurePosixPath(info.filename)
@@ -75,7 +87,7 @@ def main():
                 dest.write_bytes(z.read(info))
     if not (target/'runtime/bin/javaw.exe').is_file():
         raise ValueError('Windows runtime is incomplete')
-    pictures = target/'Cache/pics/cards/CBT'
+    pictures = target/'Cache/pics/cards'/code
     pictures.mkdir(parents=True)
     native = build/'.chaosbrawl-local/rendered'/source['sourceSha256']
     ordered = [card for cid, card in sorted(cards.items())]
@@ -96,7 +108,10 @@ def main():
     (target/'forge.profile.properties').write_text('userDir=UserData\ncacheDir=Cache\ndecksDir=Decks\ndecksConstructedDir=Decks/constructed\n')
     prefs = target/'UserData/preferences'
     prefs.mkdir(parents=True)
-    (prefs/'forge.preferences').write_text('AUTO_UPDATE=none\nCHECK_SNAPSHOT_AT_STARTUP=false\nALLOW_CUSTOM_CARDS_IN_DECKS_CONFORMANCE=true\n')
+    (prefs/'forge.preferences').write_text('AUTO_UPDATE=none\nCHECK_SNAPSHOT_AT_STARTUP=false\nALLOW_CUSTOM_CARDS_IN_DECKS_CONFORMANCE=true\nDECKGEN_CARDBASED=false\n')
+    adventure_settings=target/'UserData/adventure'
+    adventure_settings.mkdir(parents=True)
+    (adventure_settings/'settings.json').write_text(json.dumps({'plane':'ChaosBrawl','width':1280,'height':720,'videomode':'720p'})+'\n')
     launcher = '''@echo off
 setlocal
 cd /d "%~dp0"
@@ -109,11 +124,13 @@ if not exist "runtime\\bin\\javaw.exe" (
 start "" "runtime\\bin\\javaw.exe" -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabled=false -Dfile.encoding=UTF-8 -Dio.netty.tryReflectionSetAccessible=true -jar forge.jar
 '''
     (target/'Play Chaos Brawl.cmd').write_bytes(launcher.replace('\n','\r\n').encode('ascii'))
+    (target/'Play Adventure.cmd').write_bytes(launcher.replace('-jar forge.jar','-jar forge-adventure.jar').replace('\n','\r\n').encode('ascii'))
     for notice in ['LICENSE', 'LICENSE.txt', 'LICENSE.md', 'COPYING', 'NOTICE', 'NOTICE.txt']:
         if (build/notice).is_file():
             shutil.copyfile(build/notice, target/notice)
     metadata = {'version':args.version, 'platform':'windows-x64', 'engineCommit':commit,
                 'mseSha256':source['sourceSha256'], 'jarSha256':digest(jars[0]),
+                'adventureJarSha256':digest(adventure_jars[0]), 'setCode':code, 'reservedReleaseSetCode':'CBFR',
                 'runtime':runtime, 'sourceRecords':len(cards), 'nonTokenRecords':sum(not c['token'] for c in cards.values()),
                 'tokenRecords':sum(c['token'] for c in cards.values()), 'testDecks':41}
     (target/'release.json').write_text(json.dumps(metadata, indent=2)+'\n')
@@ -123,6 +140,10 @@ start "" "runtime\\bin\\javaw.exe" -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabl
         subprocess.run([args.java, '-Xmx4g', '-Djava.awt.headless=true', '-cp',
                         str(target/'forge.jar'), str(ROOT/'chaosbrawl/VerifyPackageImages.java'),
                         str(target)], stdout=log, stderr=subprocess.STDOUT, check=True)
+    with (output/(name+'-adventure-audit.log')).open('w') as log:
+        subprocess.run([args.java,'-Xmx4g','-Dforge.chaosbrawl=true','-Dsentry.enabled=false','-Djava.awt.headless=true',
+                        '-cp',str(target/'forge-adventure.jar'),str(ROOT/'chaosbrawl/VerifyAdventureEvents.java'),
+                        '--games','--images'],cwd=target,stdout=log,stderr=subprocess.STDOUT,check=True)
     (target/'README.txt').write_text(f'''Chaos Brawl for Forge {args.version} - Windows x64
 
 1. Extract the entire ZIP into a writable folder.
@@ -130,7 +151,21 @@ start "" "runtime\\bin\\javaw.exe" -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabl
 3. Choose Constructed, then a Chaos Brawl Beta Batch 01-08 deck.
    Batch 08 includes the clarified cards and the three new instants.
    For smaller groups, choose a Chaos Brawl Beta NN - Group N deck.
-4. Filter the card pool to Chaos Brawl Beta Local Test (CBT).
+4. Filter the card pool to Chaos Brawl - The Foul Realms Beta (CBFRbeta).
+
+For Adventure: close the classic client, then double-click "Play Adventure.cmd".
+Choose Adventure Mode. The separate ChaosBrawl plane offers this set at town inns.
+Draft uses 3 packs (36 picks); Sealed uses 8 packs (96 cards).
+Normal virtual entry fees: Draft 3000 gold / 50 shards; Sealed 6000 / 100.
+M21 supplies normal basic lands. Rankings are provisional AI preferences.
+Finish the character tutorial, then visit a town inn and choose Info.
+
+This release changes the set code to CBFRbeta; CBFR is reserved for the full set.
+CBT remains an edition alias for old decks. Your old installation is preserved;
+back up UserData and Decks before transferring them into this version.
+Keep Adventure saves under their existing plane name. A new profile defaults to
+ChaosBrawl; an existing profile can select it in Adventure Settings.
+Do not copy old card-image cache files over the included CBFRbeta cache.
 
 Your settings and decks stay in this portable folder, separate from ordinary Forge.
 Keep UserData and Decks when moving/backing up your installation.

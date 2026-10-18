@@ -34,7 +34,7 @@ public class ChaosBrawlTest extends SimulationTest {
         // Strict printing selection avoids image-based fallbacks to an official
         // printing when a custom set intentionally uses an existing card name.
         for (forge.item.PaperCard paper : forge.StaticData.instance().getCommonCards().getAllCards(name)) {
-            if ("CBT".equals(paper.getEdition())) {
+            if ("CBFRbeta".equals(paper.getEdition())) {
                 return Card.fromPaperCard(paper, player);
             }
         }
@@ -2549,7 +2549,7 @@ public class ChaosBrawlTest extends SimulationTest {
     public void officialWeddingRingRemainsItsFourManaNonEquipmentPrinting() {
         Game game = customGame(); Player p = game.getPlayers().get(0);
         forge.item.PaperCard printing = forge.StaticData.instance().getCommonCards().getAllCards("Wedding Ring").stream()
-                .filter(c -> !c.getEdition().equals("CBT")).findFirst().orElseThrow();
+                .filter(c -> !c.getEdition().equals("CBFRbeta")).findFirst().orElseThrow();
         Card official = Card.fromPaperCard(printing, p), beta = createCard("Wedding Ring", p);
         assertEquals(official.getManaCost().getCMC(), 4); assertFalse(official.getType().hasSubtype("Equipment"));
         assertEquals(beta.getManaCost().getCMC(), 2); assertTrue(beta.getType().hasSubtype("Equipment"));

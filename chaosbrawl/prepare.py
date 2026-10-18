@@ -81,7 +81,7 @@ def main():
                            stdout=log, stderr=subprocess.STDOUT, check=True, timeout=600)
         if (images/'mse-render.log').stat().st_size:
             raise ValueError('MSE reported warnings; inspect the local render log.')
-    cards_dir = RUNTIME/'cache/pics/cards/CBT'
+    cards_dir = RUNTIME/'cache/pics/cards/CBFRbeta'
     token_dir = RUNTIME/'cache/pics/tokens'
     for folder in [cards_dir, token_dir, RUNTIME/'decks/constructed', RUNTIME/'run', RUNTIME/'cache/skins']:
         folder.mkdir(parents=True, exist_ok=True)
@@ -125,7 +125,7 @@ def main():
     for name, entries, copies, lands in decks:
         lands = max(lands, math.ceil((60 - copies * len(entries)) / 5))
         lines = ['[metadata]', 'Name='+name, '[Main]']
-        lines += [f'{copies} {c["name"]}|CBT' for c in entries]
+        lines += [f'{copies} {c["name"]}|CBFRbeta' for c in entries]
         lines += [f'{lands} {land}' for land in ['Plains','Island','Swamp','Mountain','Forest']]
         (RUNTIME/'decks/constructed'/f'{name}.dck').write_text('\n'.join(lines)+'\n')
     run = RUNTIME/'run'
