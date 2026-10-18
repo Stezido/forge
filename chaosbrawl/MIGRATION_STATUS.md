@@ -164,3 +164,8 @@ Feedback validation: 469 engine tests and 7 limited tests pass. The limited suit
 
 
 Owner clarification: the reported Drunken-to-stun failure was a testing misunderstanding (owner confirmed); no engine change is needed for that item. PR13 merged the remaining validated fixes into chaosbrawl/windows-playtest-001. Current public download assets remain unchanged.
+
+
+## Draft Tap normal-stack regression — 2026-10-18
+
+Reproduced the owner report: activating Beer through ComputerUtil.playStack yields one Drunken counter rather than two. The previous test used playNoStack, which hid this failure. Normal stack insertion copies the activated ability and clears the original targets; the sacrifice trigger retained a reference to that original. Added an opt-in Chaos Brawl sacrifice-event target snapshot so the delayed trigger can retain the original chosen cards. Expanded normal-stack coverage to all seven Beer kinds, multiple Draft Tap triggers and opposing control. Validation is in progress. No new downloadable release is requested or published.

@@ -165,9 +165,15 @@ public class AbilityUtils {
                 parent.getTargets().getTargetCards().forEach(cards::add);
             }
         } else if (defined.equals("TriggeredCauseTargets") && sa instanceof SpellAbility) {
-            Object cause = ((SpellAbility) sa).getRootAbility().getTriggeringObject(AbilityKey.Cause);
-            if (cause instanceof SpellAbility) {
-                cards.addAll(((SpellAbility) cause).findTargetedCards());
+            final SpellAbility root = ((SpellAbility) sa).getRootAbility();
+            Object targets = root.getTriggeringObject(AbilityKey.CauseTargets);
+            if (targets instanceof CardCollectionView) {
+                cards.addAll((CardCollectionView) targets);
+            } else {
+                Object cause = root.getTriggeringObject(AbilityKey.Cause);
+                if (cause instanceof SpellAbility) {
+                    cards.addAll(((SpellAbility) cause).findTargetedCards());
+                }
             }
         } else if (defined.startsWith("Triggered") && sa instanceof SpellAbility) {
             final SpellAbility root = ((SpellAbility)sa).getRootAbility();

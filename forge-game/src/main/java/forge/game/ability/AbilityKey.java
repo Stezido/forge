@@ -35,6 +35,7 @@ public enum AbilityKey {
     CardsFiltered("CardsFiltered"),
     CardLKI("CardLKI"),
     Cause("Cause"),
+    CauseTargets("CauseTargets"),
     Causer("Causer"),
     Championed("Championed"),
     ClassLevel("ClassLevel"),
