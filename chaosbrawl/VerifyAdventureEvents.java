@@ -79,6 +79,15 @@ public class VerifyAdventureEvents {
   require(Arrays.equals(config.getConfigData().eventFormats,new String[]{"Draft","Sealed"}),"Wrong event formats");
   require(new forge.game.GameRules(forge.game.GameType.AdventureEvent).isChaosBrawl(),"Custom mechanics not enabled for Adventure matches");
   pass("isolated plane/configuration and custom Adventure match rules");
+  if(Arrays.asList(args).contains("--images")){
+   var cards=StaticData.instance().getCommonCards().getAllCards(c->c.getEdition().equals("CBT"));
+   require(cards.size()==292,"Wrong image-audit card count");
+   for(var card:cards){
+    Path picture=Path.of(forge.localinstance.properties.ForgeConstants.CACHE_CARD_PICS_DIR).resolve(card.getCardImageKey()+".png");
+    require(Files.isRegularFile(picture) && javax.imageio.ImageIO.read(picture.toFile())!=null && forge.ImageKeys.getImageFile(card.getCardImageKey())!=null,"Missing Adventure image: "+card.getName()+" -> "+picture);
+   }
+   pass("all 292 exact Adventure image lookups exist and PNGs decode");
+  }
   var edition=StaticData.instance().getEditions().get("CBT");
   var blocks=AdventureEventData.getValidDraftBlocks(List.of(edition));
   require(blocks.size()==1 && blocks.get(0).getName().equals("Chaos Brawl - The Foul Realms Beta"),"Custom Adventure block not eligible");

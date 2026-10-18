@@ -82,3 +82,10 @@ Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former
 - Rebuilt the seven-module Adventure desktop client (18.168 s). Strict match verification now fails even on caught AI exceptions: two Sealed and two Draft games completed decisively without exceptions, on turns 45/24/9/18. Together with the six configuration/pool/draft/save checks, eight Adventure checks pass. These are explicitly headless AI-vs-AI games, not human playtests.
 - Real LibGDX tavern GUI shows the custom Sealed event. New world progress saves successfully into the isolated ChaosBrawl auto_save.sav. A local GUI run was invalidated by rebuilding its live JAR; restarted from a stable copied JAR. No runtime patch/backdoor was added to production source.
 - Refreshed only the latest reviewed script-hash manifest after validation, preserving source MSE hash/IDs and historical batches. Full local classic preparation succeeds for all 314 faces and 41 decks with custom conformance enabled. No published artifacts changed.
+
+
+2026-10-18: Native Windows Adventure checks pass.
+
+- Separate local Windows folder C:\MTG\ChaosBrawlForge-Adventure-Local-20261018 uses the verified LibGDX JAR, dedicated profile/cache/save data and read-only shared base resource/runtime directory junctions. It is a development test folder, not a new portable release or archive. Published beta.2 files remain unchanged.
+- Bundled Windows JRE passes all nine checks: six actual model/event checks, exact PNG decode/runtime lookup for all 292 CBT printings and four decisive headless Adventure-format games. The JRE does not include the source compiler; verifier is compiled with the development JDK first. Upstream FRA resource warnings during model loading are separate from CBT; custom matches emit no caught exceptions.
+- Actual native Windows GUI opens at 1280x720 with the expected Forge title. Linux real Sealed flow reaches the 96-card pool editor with native images after paying its standard entry fee. Both event completion/rewards and Windows Adventure-menu navigation continue next.
