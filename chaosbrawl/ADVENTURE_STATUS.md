@@ -29,9 +29,17 @@ CBFRbeta / final CBFR code migration belongs to the future release batch.
   a new world, tavern, custom Sealed event, paid entry and 96-card deck editor
   with native custom images. Isolated world autosave succeeds.
 
-Native Windows model/match checks also pass: eight checks, including four
-complete decisive games. Windows GUI/image and full event progress checks are
-being completed; these are not yet claimed as human or remote playtests.
+Native Windows model/match/image checks also pass: nine checks, including all
+292 exact PNG/runtime paths and four complete decisive games. Actual native
+Windows Adventure menu, paid Draft entry, 36-pick completion, saved-world/event
+restoration, legal test deck and live match with native images are verified.
+Linux Sealed completed all event stages, six actual GUI games (rounds 2-1 then
+1-2), the AI-only final, standings, two reward boosters and saving afterward.
+An external ignored test harness hands the human test seat to Forge AI; no
+human-vs-AI or remote playtest is claimed, and no harness/backdoor ships.
+
+Custom desktop launches skip upstream Forge updates to protect the custom engine
+and scripts. Ordinary Forge and Android update behavior remains unchanged.
 
 ## Reproduce locally
 
@@ -62,10 +70,22 @@ entry fees and tournament rules apply (Draft 3000 gold / 50 shards; Sealed 6000
 `set event cbt sealed` or `set event cbt draft` while inside a town with an inn.
 No test backdoor or automated human control is shipped.
 
-## Remaining release-readiness work
+## Remaining work for a future release
 
-Finish native Windows GUI/images and both event flows including match return,
-rewards and save/reload. Record limitations accurately. Keep issue #56 open for
-those checks and the coordinated future set-code/release batch. Android/mobile
-build/signing/publishing remains separate issue #57. Real remote/human-vs-AI
+Native Windows Draft also completed its real best-of-three match (0-2), match
+return, remaining AI-only bracket rounds, rewards and saving. Linux restart
+restores the two Sealed reward boosters and finalized event correctly; Windows
+post-reward restart also restores exactly one Draft reward booster and the
+finalized event correctly. Both complete client event flows are verified. Keep issue #56 open for
+the coordinated future set-code/release batch. The published classic Windows
+beta.2 is unchanged; no Adventure archive or download has been published. Android/mobile
+build/signing/publishing remains separate issue #57. Custom booster rewards use
+the ordinary card-back fallback until pack art exists. Manipulative Temptress can
+log a rejected AI target choice; it does not stop the tested games. Provisional
+AI ratings and these play choices still need refinement from human testing. Real remote/human-vs-AI
 validation remains issue #55. No paid infrastructure or Actions is enabled.
+
+The native Windows development launcher is `C:\MTG\ChaosBrawlForge-Adventure-Local-20261018\Play Adventure (local test).cmd`.
+It uses a separate profile and depends on read-only resource/runtime junctions
+to the preserved beta.2 test folder, so it is not a portable release. Exact
+local JAR hash and verification counts are in limited/verification.json.

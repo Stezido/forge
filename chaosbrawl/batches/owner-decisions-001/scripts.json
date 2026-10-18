@@ -199,6 +199,10 @@
       "sha256": "ff078cd21be510e841573457eb5920565691fcd27b22ecb0fd68cec37d03aafc"
     },
     {
+      "path": "forge-gui-desktop/src/test/java/forge/gamesimulationtests/ChaosBrawlLimitedTest.java",
+      "sha256": "1fa2a84b0cda88f309073ac68ded856a3aced6160a522fa43b1240eba0185d93"
+    },
+    {
       "path": "forge-gui-desktop/src/test/java/forge/gamesimulationtests/ChaosBrawlTest.java",
       "sha256": "21ee573d936e1dad333f3b25f404cb7d1610a1b49ec879f6e095fbcee0cf8e0a"
     },

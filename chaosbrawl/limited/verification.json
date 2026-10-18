@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "checkedAtUtc": "2026-10-18T06:51:37.380195+00:00",
+  "sourceMseSha256": "73cdf99abf3bdb9e619cbb6af5ab3cb7d9305cfe86defe61692b85ff93392703",
+  "engineCodeCommit": "624a8ec2a5e776c42f69f96b1f544fbc5b871448",
+  "edition": "CBT",
+  "adventureJar": {
+    "sha256": "ca9a5d120f1d5e94e18294f54bef622c11135e4cbd542bfffa1807e22c385bdf",
+    "bytes": 59036882,
+    "localTestOnly": true,
+    "published": false
+  },
+  "checks": {
+    "cardMetadataTokenAndBehavior": 466,
+    "classicLimited": 7,
+    "nativeWindowsAdventureModelImagesAndGames": 9,
+    "eligibleLimitedPrintings": 285,
+    "eligibleLimitedNames": 275,
+    "exactWindowsImageLookups": 292
+  },
+  "actualClientFlows": {
+    "linuxSealed": {
+      "packs": 8,
+      "poolCards": 96,
+      "deckCards": 40,
+      "playedMatchScores": [
+        "2-1",
+        "1-2"
+      ],
+      "gameTurns": [
+        13,
+        28,
+        10,
+        18,
+        19,
+        10
+      ],
+      "allBracketStagesCompleted": true,
+      "rewardBoostersAfterRestart": 2
+    },
+    "nativeWindowsDraft": {
+      "packs": 3,
+      "picks": 36,
+      "seats": 8,
+      "deckCards": 40,
+      "draftRestoredAfterRestart": true,
+      "playedMatchScores": [
+        "0-2"
+      ],
+      "gameTurns": [
+        10,
+        13
+      ],
+      "allBracketStagesCompleted": true,
+      "rewardBoostersAfterRestart": 1
+    },
+    "control": "External ignored render-thread harness temporarily gives the test human seat to Forge AI; no test backdoor ships.",
+    "humanPlaytest": false,
+    "remotePlaytest": false
+  },
+  "limitations": [
+    "Provisional AI picks are not a balance study.",
+    "Adventure itself randomly resolves matches between AI-only participants; only matches with the test seat were played by the engine.",
+    "Custom booster reward pictures use the card-back fallback until pack art is authored.",
+    "Manipulative Temptress can log a rejected AI target selection; tested games continue without exceptions.",
+    "Windows development test folder uses resource/runtime junctions and is not a portable release.",
+    "Published beta.2 download and authoritative MSE remain unchanged; CBFRbeta/CBFR migration belongs to a future explicitly requested release batch."
+  ]
+}

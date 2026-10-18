@@ -105,3 +105,17 @@ Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former
 - Actual native Windows Draft UI displays native images/pick ranks. All 36 picks completed with seven AI decks; saved the completed draft, exited/restarted the native client, loaded the world and restored that event/pool. Rebuilt a legal 40-card test deck from the restored picks and started its first normal match.
 - Custom booster rewards currently use the ordinary card-back fallback because no CBT pack image is authored. Manipulative Temptress sometimes logs an AI target-selection rejection; games continue without exceptions. These are presentation/AI-polish limitations, not missing custom card scripts.
 - No source MSE edits, artifact publication or production website changes. Future release/code migration remains deferred per owner policy.
+
+
+2026-10-18: Native Draft event completed; Sealed rewards survive restart.
+
+- Native Windows Draft played a full best-of-three match (0-2, turns 10 and 13), returned to standings, advanced the existing AI-only bracket rounds, reached Completed/Awarded, collected its booster reward and saved. Draft picks had already survived an earlier native restart.
+- Restarted the final protected-updater Linux client and loaded the post-Sealed world. Actual runtime reports the owned profile/ChaosBrawl plane, Drakoe, 40 collection cards and exactly two owned booster rewards; the finalized Sealed event is removed as expected. A fresh eligible Draft is offered at an inn.
+- Repeated all nine native Windows model/image/game checks against the final custom-update-protected JAR; they pass. No caught match exceptions. Local Windows test launcher is C:\MTG\ChaosBrawlForge-Adventure-Local-20261018\Play Adventure (local test).cmd. This development folder depends on read-only junctions to the preserved beta.2 test installation and is not a portable release.
+
+
+2026-10-18: Adventure/limited implementation verification complete.
+
+- Final native Windows restart reports the correct isolated ChaosBrawl profile, Drakoe, 40 collection cards and exactly one Draft reward booster; the finalized event is removed as expected. Both full event/reward/save/restart flows are verified. Eight actual client games were played with temporary AI control of the test seat; ordinary AI-only bracket pairings use upstream Adventure's random resolution. No human/remote proof is claimed.
+- Final local Adventure JAR: 59,036,882 bytes, SHA-256 ca9a5d120f1d5e94e18294f54bef622c11135e4cbd542bfffa1807e22c385bdf. Receipt: limited/verification.json. All 466 card checks, seven classic limited checks, nine native Windows Adventure/model/image/game checks and local preparation for 314 faces/41 decks pass. Latest reviewed executable pins and generated data match.
+- Ready to merge private PR #10 into the existing Windows integration branch while preserving all earlier PRs. Issue #56 stays open for the future coordinated CBFRbeta/CBFR packaging/release batch. No new ZIP/release/upload/deployment; current production beta.2 remains unchanged. Android/mobile remains #57.
