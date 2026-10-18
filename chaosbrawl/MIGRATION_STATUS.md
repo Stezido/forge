@@ -180,3 +180,11 @@ The existing counter enum already calls Obsession negative, but CountersPutAi se
 
 
 Obsession AI validation: all 482 engine tests pass. Eleven added cases exercise the actual CountersPutAi spell/activation/trigger entry points: enemy-first targeting for Sweet Harmless Siren, Wagon Enthusiast, Baiting Siren, Peter the Manipulative and Ball Scratching; optional decline versus mandatory target choice; friendly/opposing Devotee; friendly/enemy aura threshold; Hexproof; postcombat temporary buffs; unchanged positive-counter targeting and opt-in gating. Detached-copy threshold evaluation leaves real counters/stats unchanged. Current reviewed executable hashes include the new AI helper. No downloadable release has been created.
+
+
+## Owner-authorized beta.4 release — 2026-10-18
+
+Owner explicitly requested deployment of a new beta.4 release. Preparing Windows Classic/Adventure and Android 0.1.0-beta.4 from the merged feedback fixes, with matching GPL source archives. Android retains app identity, API26 minimum and release signing key; versionCode increases from10001 to10004 for in-place updates. Corrected the release-only Adventure audit to admit the six planeswalkers now intentionally eligible in boosters. Builds, package checks and publication are in progress. No release has been uploaded yet.
+
+
+Beta.4 source validation: 482 engine tests and 7 limited tests pass. Android manifest version and signing/source archive metadata now match beta.4/versionCode10004. Existing key material remains outside the repository. Windows/Adventure reactor build is running locally; emulators API26/API35 started for upgrade checks. Nothing uploaded yet.

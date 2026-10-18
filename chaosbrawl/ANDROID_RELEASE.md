@@ -41,3 +41,8 @@ Physical RedMagic installation/update, touch layouts, save/deck persistence, com
 The next explicitly requested download must first rebuild the reviewed desktop resource package from the accumulated fixes, then feed its checksum-verified manifest/ZIP into package_android_resources.py. Do not reuse beta.3 resources for a new APK: they contain the old Bottle Bash and Temptress scripts, old booster sheets and unframed token illustrations. The bundler accepts subsequent checksum-verified 0.1.0 Beta versions with CBFRbeta. Keep Android minSdk26 and the stable signing identity/version-code progression.
 
 Mobile/Android compilation passes with constant-time identical-token stack appends. This removes repeated full-chain traversal during field rebuilds; performance on the RedMagic 10 Pro and older physical devices still needs measurement. No replacement APK/Windows ZIP is published by this source-only work.
+
+
+## Owner-requested 0.1.0-beta.4
+
+The owner requested a coordinated new release after the card, token, limited and Obsession AI fixes. Android versionName is0.1.0-beta.4 and versionCode10004, retaining forge.app.chaosbrawl, minSdk26 and the existing release certificate. Rebuild resources from the new reviewed Windows beta.4 package, not beta.3. Matching source and signed APK publication are being prepared; the beta.1 section above remains historical evidence.
