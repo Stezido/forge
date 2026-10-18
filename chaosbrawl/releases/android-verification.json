@@ -1,0 +1,53 @@
+{
+  "filename": "ChaosBrawl-Forge-0.1.0-beta.1-Android.apk",
+  "bytes": 358030858,
+  "sha256": "0a7ef5f923a12160174c09fe29d471f510780d0643bc64b000a5c2c6a8088b6a",
+  "certificateSha256": "03d5c326117fd58853821296116844e5cf7f88dff672d17d0fc66444f2577830",
+  "applicationId": "forge.app.chaosbrawl",
+  "minSdk": 26,
+  "versionCode": 10001,
+  "version": "0.1.0-beta.1",
+  "source": {
+    "engineCommit": "4280a7309e097bee3b0ba2b84e2bf59f04c03e0d",
+    "filename": "ChaosBrawl-Forge-0.1.0-beta.1-Android-Source.zip",
+    "bytes": 613973635,
+    "sha256": "9c16b9b0f6ea60def5cbd298dceafa586e4ee0102816efb3f802a9f9a8dc332f"
+  },
+  "targetSdk": 35,
+  "cardArchiveScripts": 34369,
+  "resourceFiles": 55863,
+  "cardImages": 314,
+  "tokenImages": 17,
+  "seedDecks": 41,
+  "engineTests": 466,
+  "limitedTests": 7,
+  "imageAudit": {
+    "printings": 292,
+    "missing": 0
+  },
+  "emulators": [
+    {
+      "android": "8.0",
+      "api": 26,
+      "architecture": "x86",
+      "installed": true,
+      "resourcesReady": true,
+      "seedDecks": 41,
+      "nativeCardLoading": true
+    },
+    {
+      "android": "15",
+      "api": 35,
+      "architecture": "x86_64",
+      "installed": true,
+      "resourcesReady": true,
+      "seedDecks": 41,
+      "nativeCardLoading": true
+    }
+  ],
+  "physicalDeviceTested": false,
+  "fullAndroidGameTested": false,
+  "release": "forge-android-v0.1.0-beta.1",
+  "apkAssetId": 654005440,
+  "sourceAssetId": 654005441
+}

@@ -106,3 +106,7 @@ forge-gui-ios/robovm.properties
 
 # Isolated Chaos Brawl playtest profile, decks and cache
 /.chaosbrawl-local/
+
+# Generated bundled Android resources; rebuilt from reviewed source/assets.
+/forge-gui-android/assets/chaosbrawl-resources.zip
+/forge-gui-android/assets/chaosbrawl-resources.sha256

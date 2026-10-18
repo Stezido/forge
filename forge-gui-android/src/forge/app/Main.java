@@ -195,6 +195,8 @@ public class Main extends AndroidApplication {
         heapHeartbeatHandler = new Handler(Looper.getMainLooper());
         heapHeartbeatHandler.postDelayed(heapHeartbeat, HEAP_HEARTBEAT_MS);
 
+        System.setProperty("forge.chaosbrawl", "true");
+        System.setProperty("sentry.enabled", "false");
         super.onCreate(savedInstanceState);
         try {
             PackageInfo pInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0);
@@ -506,6 +508,7 @@ public class Main extends AndroidApplication {
     }
 
     private boolean checkPermission() {
+        if (Boolean.getBoolean("forge.chaosbrawl")) return true;
         int pid = android.os.Process.myPid();
         int uid = android.os.Process.myUid();
         try {
@@ -533,13 +536,13 @@ public class Main extends AndroidApplication {
         config.useImmersiveMode = false;
         config.nativeLoader = () -> ReLinker.loadLibrary(getContext(), "gdx");
 
-        if (!Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+        if (!Boolean.getBoolean("forge.chaosbrawl") && !Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
             String message = getDeviceName() + "\n" + "Android " + Build.VERSION.RELEASE + "\n" + "RAM " + totalRAM + "MB" + "\n" + "LibGDX " + Version.VERSION + "\n" + "Can't access external storage";
             Main.this.setRequestedOrientation(Main.this.getResources().getConfiguration().orientation);
             loadGame(hwInfo, "", "", false, adapter, permissiongranted, isTabletDevice, config, true, message);
             return;
         }
-        ASSETS_DIR = Build.VERSION.SDK_INT > Build.VERSION_CODES.Q ? getContext().getObbDir() + "/Forge/" : Environment.getExternalStorageDirectory() + "/Forge/";
+        ASSETS_DIR = new java.io.File(getFilesDir(), "forge.app.chaosbrawl").getAbsolutePath() + "/";
         if (!FileUtil.ensureDirectoryExists(ASSETS_DIR)) {
             String message = getDeviceName() + "\n" + "Android " + Build.VERSION.RELEASE + "\n" + "RAM " + totalRAM + "MB" + "\n" + "LibGDX " + Version.VERSION + "\n" + "Can't access external storage\nPath: " + ASSETS_DIR;
             Main.this.setRequestedOrientation(Main.this.getResources().getConfiguration().orientation);
@@ -795,6 +798,8 @@ public class Main extends AndroidApplication {
 
         @Override
         public boolean openFile(String filename) {
+            // Custom updates are installed by the browser, never the upstream updater.
+            if (Boolean.getBoolean("forge.chaosbrawl")) return false;
             try {
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -807,7 +812,7 @@ public class Main extends AndroidApplication {
                     return true;
                 } else {
                     Intent intent = new Intent(Intent.ACTION_INSTALL_PACKAGE);
-                    intent.setData(PublicFileProvider.getUriForFile(getContext(), "com.mydomain.publicfileprovider", new File(filename)));
+                    intent.setData(PublicFileProvider.getUriForFile(getContext(), "forge.app.chaosbrawl.publicfileprovider", new File(filename)));
                     intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                     startActivity(intent);
                     return true;

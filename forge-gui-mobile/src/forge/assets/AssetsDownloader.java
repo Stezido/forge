@@ -40,7 +40,7 @@ public class AssetsDownloader {
             return;
         // Desktop custom builds ship reviewed resources. An upstream updater would
         // replace their engine/scripts and is unrelated to the website's releases.
-        if (!GuiBase.isAndroid() && Boolean.getBoolean("forge.chaosbrawl")) {
+        if (Boolean.getBoolean("forge.chaosbrawl")) {
             run(runnable);
             return;
         }
