@@ -120,7 +120,8 @@ public class ChaosBrawlTest extends SimulationTest {
 
     private SpellAbility obsessionForAi(Player p, String name, boolean trigger) {
         Card host = name.equals("Ball Scratching") ? addCardToZone(name, p, ZoneType.Hand) : addCard(name, p);
-        SpellAbility ability = trigger ? db(host, "Obsess") : host.getFirstSpellAbility();
+        SpellAbility ability = trigger ? db(host, "Obsess") : host.getSpellAbilities().stream()
+                .filter(a -> a.getApi() == ApiType.PutCounter).findFirst().orElseThrow();
         ability.setActivatingPlayer(p);
         return ability;
     }
@@ -183,6 +184,41 @@ public class ChaosBrawlTest extends SimulationTest {
         assertTrue(chooseObsession(p, ability, true, true)); assertEquals(ability.getTargetCard(), own);
         assertEquals(own.getCounters(CounterEnumType.OBSESSION), 4);
         assertEquals(own.getNetPower(), 0, "Threshold evaluation must not grant the real buff");
+    }
+
+    @Test
+    public void obsessionAiAvoidsCompletingAnEnemyAuraBuffAndRespectsHexproof() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        addCard("Couchpotato", p);
+        Card payoff = addCard("Couchpotato", other), safe = addCard("Couchpotato", other);
+        Card aura = addCard("Blood Moon Rising", other); aura.attachToEntity(payoff, null);
+        counters(payoff, CounterEnumType.OBSESSION, 4); game.getAction().checkStaticAbilities();
+        SpellAbility ability = obsessionForAi(p, "Sweet Harmless Siren", true);
+        assertTrue(chooseObsession(p, ability, true, true)); assertEquals(ability.getTargetCard(), safe);
+        safe.addIntrinsicKeyword("Hexproof");
+        assertTrue(chooseObsession(p, ability, true, true)); assertTrue(ability.getTargets().isEmpty());
+    }
+
+    @Test
+    public void obsessionAiDoesNotChooseAFriendlyTemporaryBuffAfterCombat() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        addCard("Domina’s Devotee", p);
+        SpellAbility ability = obsessionForAi(p, "Sweet Harmless Siren", true);
+        game.getPhaseHandler().devModeSet(PhaseType.MAIN2, p);
+        assertTrue(chooseObsession(p, ability, true, true)); assertTrue(ability.getTargets().isEmpty());
+    }
+
+    @Test
+    public void ordinaryPositiveCounterTargetingRemainsFriendly() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card own = addCard("Couchpotato", p); addCard("Couchpotato", other);
+        SpellAbility ability = AbilityFactory.getAbility("AB$ PutCounter | Cost$ 0 | ValidTgts$ Creature | CounterType$ P1P1 | CounterNum$ 1", own);
+        ability.setActivatingPlayer(p);
+        assertFalse(forge.ai.ChaosBrawlObsessionAi.applies(ability));
+        assertTrue(new forge.ai.ability.CountersPutAi().doTriggerNoCostWithSubs(p, ability, true).willingToPlay());
+        assertEquals(ability.getTargetCard(), own);
+        game.getRules().setChaosBrawl(false);
+        assertFalse(forge.ai.ChaosBrawlObsessionAi.applies(obsessionForAi(p, "Sweet Harmless Siren", true)));
     }
 
     @Test
