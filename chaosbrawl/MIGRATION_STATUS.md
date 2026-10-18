@@ -38,3 +38,11 @@ Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former
 - Website private prerelease forge-desktop-v0.1.0-beta.2 is published with uploaded Windows/source assets. Provider-reported names/sizes/digests match the local manifest. Beta.1 remains preserved. Website pins now reference Windows asset 651614919 and source 651614917.
 - Website branch passes 84 checks, TypeScript and production build. Compiled workerd verifies both new handoffs with the dedicated read-only token and anonymous CDN bytes. Staging-only run 39070401046 is deploying the new pins; production continuation is explicitly requested. Source PR #50 is merged with skip-ci, download PR #52 targets main.
 - Packager defaults to beta.2 and requires the engine image audit before ZIP creation. Forge PR #9 contains the corrected preparation/packager and native proof; engine rule changes remain preserved on PR #8. Adventure/mobile still follow Windows publication.
+
+
+2026-10-18: Resume Adventure/limited issue #56.
+
+- Resumed after the owner-requested overnight pause. Windows beta.2 is already published; no new downloadable release is authorized. Merged the packaging/release-policy branch into the existing Adventure branch, preserving its earlier compile audit and the published artifacts.
+- Read current issue #56 and inherited AGENTS.md. Website boosters use 12 cards (7 common, 3 uncommon, 1 rare/mythic at 1-in-8 replacement, 1 wildcard), excluding tokens, generated-only cards and all planeswalkers. Website sealed opens eight packs. This is the starting collation for Forge limited mode.
+- Inspected actual BoosterGenerator, draft ranking loader, Adventure block/edition filters and plane-scoped overrides. Missing pieces include explicit eligible print sheets, booster/block metadata, ranking data, isolated Adventure configuration and real pool/draft/event checks. Native named slots currently allow a wildcard to repeat an earlier card, so exact website collation needs an opt-in slot exclusion or equivalent tested handling.
+- No MSE/rules text, set code, production settings or downloadable assets changed. Next: implement/test booster/rank data and AI limited decks, then the isolated Adventure client/events.
