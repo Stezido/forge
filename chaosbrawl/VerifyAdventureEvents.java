@@ -24,7 +24,7 @@ public class VerifyAdventureEvents {
  static void deck(Deck deck){
   require(deck!=null && deck.getMain().countAll()==40,"AI event deck must have 40 cards");
   require(DeckFormat.Limited.getDeckConformanceProblem(deck)==null,"Illegal AI event deck");
-  for(PaperCard card:deck.getMain().toFlatList())require(card.getRules().getType().isBasicLand() || (card.getEdition().equals("CBT") && !card.getRules().getType().isPlaneswalker() && !card.getName().equals("AJDE!")),"Ineligible event card: "+card.getName());
+  for(PaperCard card:deck.getMain().toFlatList())require(card.getRules().getType().isBasicLand() || (card.getEdition().equals("CBFRbeta") && !card.getRules().getType().isPlaneswalker() && !card.getName().equals("AJDE!")),"Ineligible event card: "+card.getName());
  }
  static void participants(AdventureEventData event)throws Exception{
   var constructor=AdventureEventData.AdventureEventParticipant.class.getDeclaredConstructor();constructor.setAccessible(true);
@@ -75,12 +75,12 @@ public class VerifyAdventureEvents {
   FModel.initialize(null,prefs->{prefs.setPref(FPref.LOAD_CARD_SCRIPTS_LAZILY,false);prefs.setPref(FPref.UI_LANGUAGE,"en-US");prefs.setPref(FPref.ALLOW_CUSTOM_CARDS_IN_DECKS_CONFORMANCE,true);prefs.setPref(FPref.DECKGEN_CARDBASED,false);return null;});
   Config config=Config.instance();config.loadResources();
   require(config.getPlane().equals("ChaosBrawl"),"Wrong isolated plane");
-  require(Arrays.equals(config.getConfigData().allowedEvents,new String[]{"CBT"}),"Wrong event whitelist");
+  require(Arrays.equals(config.getConfigData().allowedEvents,new String[]{"CBFRbeta"}),"Wrong event whitelist");
   require(Arrays.equals(config.getConfigData().eventFormats,new String[]{"Draft","Sealed"}),"Wrong event formats");
   require(new forge.game.GameRules(forge.game.GameType.AdventureEvent).isChaosBrawl(),"Custom mechanics not enabled for Adventure matches");
   pass("isolated plane/configuration and custom Adventure match rules");
   if(Arrays.asList(args).contains("--images")){
-   var cards=StaticData.instance().getCommonCards().getAllCards(c->c.getEdition().equals("CBT"));
+   var cards=StaticData.instance().getCommonCards().getAllCards(c->c.getEdition().equals("CBFRbeta"));
    require(cards.size()==292,"Wrong image-audit card count");
    for(var card:cards){
     Path picture=Path.of(forge.localinstance.properties.ForgeConstants.CACHE_CARD_PICS_DIR).resolve(card.getCardImageKey()+".png");
@@ -88,7 +88,7 @@ public class VerifyAdventureEvents {
    }
    pass("all 292 exact Adventure image lookups exist and PNGs decode");
   }
-  var edition=StaticData.instance().getEditions().get("CBT");
+  var edition=StaticData.instance().getEditions().get("CBFRbeta");
   var blocks=AdventureEventData.getValidDraftBlocks(List.of(edition));
   require(blocks.size()==1 && blocks.get(0).getName().equals("Chaos Brawl - The Foul Realms Beta"),"Custom Adventure block not eligible");
   pass("real Adventure draft/sealed block eligibility");

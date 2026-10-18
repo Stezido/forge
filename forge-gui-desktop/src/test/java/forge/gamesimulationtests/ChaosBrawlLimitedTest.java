@@ -21,7 +21,7 @@ import static org.testng.Assert.*;
 
 /** Real booster/pool/draft generation; no mocked card ratings or AI deck builder. */
 public class ChaosBrawlLimitedTest extends AITest {
-    private static final String CODE="CBT";
+    private static final String CODE="CBFRbeta";
     private static final String BLOCK="Chaos Brawl - The Foul Realms Beta";
     private static boolean modelInitialized;
 
@@ -68,6 +68,10 @@ public class ChaosBrawlLimitedTest extends AITest {
         for(String name:List.of("Wedding Ring","Dungeon Master","Recycle","The Fallen")) {
             PaperCard card=cards.stream().filter(c->c.getName().equals(name)).findFirst().orElseThrow();
             assertEquals(card.getFunctionalVariant(),"ChaosBrawlBeta");
+            PaperCard legacy=StaticData.instance().getCommonCards().getCard(name,"CBT");
+            assertNotNull(legacy,"Legacy CBT deck reference must resolve: "+name);
+            assertEquals(legacy.getEdition(),CODE);
+            assertEquals(legacy.getFunctionalVariant(),"ChaosBrawlBeta");
         }
         CardBlock block=FModel.getBlocks().get(BLOCK);
         assertNotNull(block);assertEquals(block.getCntBoostersDraft(),3);assertEquals(block.getCntBoostersSealed(),8);

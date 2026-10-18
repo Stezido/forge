@@ -41,7 +41,7 @@ def main():
     for path in (ROOT/'forge-gui/res/adventure/Shandalar').iterdir():
         if path.name!='config.json':link(path,plane/path.name)
     config=json.loads((ROOT/'forge-gui/res/adventure/common/config.json').read_text())
-    config['allowedEvents']=['CBT']
+    config['allowedEvents']=['CBFRbeta']
     config['eventFormats']=['Draft','Sealed']
     (plane/'config.json').write_text(json.dumps(config,ensure_ascii=False,indent=2)+'\n')
     (run/'forge.profile.properties').write_text(f'userDir={base}/user\ncacheDir={base}/cache\ndecksDir={base}/decks\ndecksConstructedDir={base}/decks/constructed\n')
@@ -51,14 +51,14 @@ def main():
     settings=base/'user/adventure';settings.mkdir(parents=True,exist_ok=True)
     settings_file=settings/'settings.json'
     if not settings_file.exists():settings_file.write_text(json.dumps({'plane':'ChaosBrawl','width':1280,'height':720,'videomode':'720p'})+'\n')
-    pictures=base/'cache/pics/cards/CBT';pictures.mkdir(parents=True,exist_ok=True)
+    pictures=base/'cache/pics/cards/CBFRbeta';pictures.mkdir(parents=True,exist_ok=True)
     for card in ordered:shutil.copyfile(native/(card['nativeUid']+'.png'),pictures/filenames[card['id']])
     tokens=base/'cache/pics/tokens';tokens.mkdir(parents=True,exist_ok=True)
     for path in (shared/'cache/pics/tokens').glob('*.png'):shutil.copyfile(path,tokens/path.name)
     decks=base/'decks/constructed';decks.mkdir(parents=True,exist_ok=True)
     for path in (shared/'decks/constructed').glob('Chaos Brawl Beta *.dck'):shutil.copyfile(path,decks/path.name)
     print('Prepared isolated Adventure profile:',run)
-    print('Plane ChaosBrawl uses Shandalar resources and only CBT Draft/Sealed events; other planes and user saves unchanged.')
+    print('Plane ChaosBrawl uses Shandalar resources and only CBFRbeta Draft/Sealed events; other planes and user saves unchanged.')
     print('Launch locally with -Dforge.chaosbrawl=true -Dsentry.enabled=false; this command makes no release archive or upload.')
 
 if __name__=='__main__':main()

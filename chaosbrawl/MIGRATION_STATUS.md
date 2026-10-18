@@ -126,3 +126,11 @@ Historical checkpoints are in STATUS_HISTORY.md; their partial counts and former
 - Private Forge PR #10 merged at ec90594d51271e20deee54630d18d580e78f2a82 into chaosbrawl/windows-playtest-001. Earlier PRs/branches and the public fork/main are preserved. Local Windows integration worktree was fast-forwarded to that merge after verifying it was clean. PR #9 now describes the combined Windows/Adventure source scope.
 - Website #56 checklist records implementation and all verified event flows; it stays open only for the coordinated future CBFRbeta/CBFR packaging/release batch. #34 has the current milestone update. #55/#54 and Android #57 remain separate follow-ups.
 - Both owned GUI test processes were closed after saving. The native local test launcher/README and ignored logs/captures remain available; the full source verification receipt is committed. Published beta.2, production website access, MSE and user-owned dirty worktrees were not modified. No new ZIP, release or deployment.
+
+
+2026-10-18: Owner explicitly requested the next downloadable release.
+
+- Preparing Windows 0.1.0-beta.3 with both classic and Adventure launchers. Migrated current edition, ranking, test/preparation code and upcoming generated cache/decks to CBFRbeta; CBFR reserved for the final set. Historical MSE/source batches and old release receipts stay unchanged. CBT is retained as an edition alias for old deck references; compatibility checks are in progress.
+- Seven renamed limited tests passed. Portable packager now includes the Adventure JAR, physical ChaosBrawl plane resources, a fresh default profile and both runtime image and real Adventure checks before ZIP creation. No archive uploaded or website changed yet.
+- Cloudflare read-only checks confirm existing Free plans/capacity: 3 Workers, 2 D1 databases, 290816 storage bytes, 71 requests/16 rows read/0 rows written today. GitHub billing endpoints are unavailable to current authentication; use locally validated, existing Free Worker deployment instead of starting unverified-cost Actions.
+- User asks to close #56 after publication and brainstorm #54 before UI implementation. #54 has been read; its UI is not being edited in this release.
