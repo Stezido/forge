@@ -32,7 +32,7 @@ def main():
     build = args.build_root.resolve()
     subprocess.run(['git', '-C', str(build), 'diff', '--exit-code', 'HEAD', '--'], check=True, stdout=subprocess.DEVNULL)
     commit = subprocess.check_output(['git', '-C', str(build), 'rev-parse', 'HEAD'], text=True).strip()
-    batch = build/'chaosbrawl/batches/owner-decisions-001'
+    batch = sorted((build/'chaosbrawl/batches').glob('*/source.json'))[-1].parent
     source = json.loads((batch/'source.json').read_text())
     scripts = json.loads((batch/'scripts.json').read_text())
     for item in scripts['files']:

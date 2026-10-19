@@ -4,4 +4,4 @@ Types:Legendary Creature Siren
 PT:3/3
 S:Mode$ Continuous | AffectedDefined$ Self | AddPower$ 3 | AddToughness$ 3 | CheckSVar$ X | SVarCompare$ GE3 | Description$ CARDNAME gets +3/+3 as long as there are three obsession counters on creatures.
 SVar:X:Count$Valid Creature$CardCounters.OBSESSION
-Oracle:As long as there are three or more Obsession counters on creatures on the battlefield, The Silent One gets +3/+3.
+Oracle:As long as there are three or more Obsession counters on creatures on the battlefield, Lena, the Silent One gets +3/+3.

@@ -15,7 +15,7 @@ def main():
     parser.add_argument('--shared-runtime',type=Path,required=True,help='Reviewed native UID renders and token cache from the migrated engine workspace')
     args=parser.parse_args()
     shared=args.shared_runtime.resolve()
-    batch=ROOT/'chaosbrawl/batches/owner-decisions-001'
+    batch=sorted((ROOT/'chaosbrawl/batches').glob('*/source.json'))[-1].parent
     source=json.loads((batch/'source.json').read_text())
     cards={}
     for path in sorted((ROOT/'chaosbrawl/batches').glob('*/source.json')):cards.update({c['id']:c for c in json.loads(path.read_text())['cards']})

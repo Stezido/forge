@@ -124,6 +124,9 @@ public class CountersPutAi extends CountersAi {
 
     @Override
     protected AiAbilityDecision checkApiLogic(Player ai, final SpellAbility sa) {
+        if (ChaosBrawlBeerAi.applies(sa)) {
+            return ChaosBrawlBeerAi.chooseTargets(ai, sa);
+        }
         if (ChaosBrawlObsessionAi.applies(sa)) {
             return ChaosBrawlObsessionAi.chooseTargets(ai, sa, false);
         }

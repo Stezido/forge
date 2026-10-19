@@ -194,3 +194,12 @@ Beta.4 packaging completed from exact clean source78f9be13e8041236bb1f4a75e827ec
 
 
 Both beta.4 private GitHub prereleases are published, with matching source: Windows assets654321536/654321539; Android assets654329439/654329440. API26/API35 resource markers equal the new477e4b3592 bundle digest, the synthetic user deck survived, and Expired/Bock token bytes match native card renders. API35 native card loading was observed; software emulation also displayed system UI/launcher ANR prompts. No full Android game or physical-device performance is claimed. Publication observed on2026-10-18; resumed2026-10-19 to finish website pins/deployment.
+
+
+## Owner card-name/Beer feedback and future-agent guide — 2026-10-19
+
+Owner confirms Beer stays sorcery speed. Added opt-in Beer targeting/planning: safe permanent friendly buffs with Bock/Draft Tap counter accounting, Expired Beer removal, MAIN2 useful-instant mana preservation including real colored-source payment, and MAIN1 Beer priority before another spell when the activation is useful. Seven new engine regressions exercise costs, target/timing failures, useful versus unpayable/no-target instants, tolerance and actual controller selection. All489 engine tests and7 limited tests pass; the limited suite excludes AJDE from2000 real packs and generated decks.
+
+Website PR69 holds registered MSE source95068f7b:172 self-references on114 cards use native dynamic names, with only four imported rules values changing (Feuerball, Lena, Hanna, Süüü). Other-card references and frozen Alpha stay intact. Native MSE renders all314 final faces without warnings and a renamed disposable fixture proves dynamic substitution. New reviewed owner-feedback-002 pins website source commit90ba1b3, unchanged native identities, updated Oracle text and executable hashes. Isolated preparation validates314 records, full faces and43 exercise decks. Packaging/Adventure now select the current reviewed batch.
+
+Added chaosbrawl/CARD_FEEDBACK.md, linked from AGENTS.md, with the companion website workflow: MSE truth, owner-chat scope, Forge behavior/AI/limited checks, reviewed provenance, paired PRs and explicit release boundaries. Existing release assets, user installs/profiles and disabled private Actions remain unchanged. No APK/ZIP publication or website deployment. Desktop rebuild passes after final AI ordering review.
