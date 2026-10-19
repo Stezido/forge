@@ -1,0 +1,62 @@
+{
+  "filename": "ChaosBrawl-Forge-0.1.0-beta.5-Android.apk",
+  "bytes": 363937346,
+  "sha256": "f8884e916491f69b7288e34aa50eecc578b80431fc292bf78d171c8024b3bf33",
+  "certificateSha256": "03d5c326117fd58853821296116844e5cf7f88dff672d17d0fc66444f2577830",
+  "applicationId": "forge.app.chaosbrawl",
+  "minSdk": 26,
+  "versionCode": 10005,
+  "version": "0.1.0-beta.5",
+  "source": {
+    "engineCommit": "2b6ca9f656f4541a72e3d28f398f7d3223d51fbd",
+    "filename": "ChaosBrawl-Forge-0.1.0-beta.5-Android-Source.zip",
+    "bytes": 622215385,
+    "sha256": "13e9dc68e65d68926f5e9edad89747d46f43f7ba143908835e1bd84aee0ffd71"
+  },
+  "engineCommit": "2b6ca9f656f4541a72e3d28f398f7d3223d51fbd",
+  "mseSha256": "a661450cec9bad0acdd1c878e57ebcff67a2d726eca6e5df0b432216c7b08a15",
+  "bundleSha256": "fca5c78ee8ac85f815ba56fd9dc746850b6d3c65ef83a8e2e0b2ced80ce58574",
+  "sourceRecords": 314,
+  "cardImages": 314,
+  "tokenImages": 17,
+  "seedDecks": 43,
+  "engineTests": 489,
+  "limitedTests": 8,
+  "cardImagePaths": 292,
+  "missingImages": 0,
+  "emulators": [
+    {
+      "serial": "emulator-5554",
+      "inPlaceUpdateFrom": "0.1.0-beta.4",
+      "version": "0.1.0-beta.5",
+      "resourcesReady": true,
+      "syntheticUserDeckPreserved": true,
+      "exactLimitedRankings": true,
+      "restart": true
+    },
+    {
+      "serial": "emulator-5556",
+      "inPlaceUpdateFrom": "0.1.0-beta.4",
+      "version": "0.1.0-beta.5",
+      "resourcesReady": true,
+      "syntheticUserDeckPreserved": true,
+      "exactLimitedRankings": true,
+      "restart": true
+    }
+  ],
+  "releaseTag": "forge-android-v0.1.0-beta.5",
+  "assetId": 656938438,
+  "sourceAssetId": 656938443,
+  "publication": "published private prerelease",
+  "limitations": [
+    "Physical-phone performance, touch controls and full human Android games remain unverified.",
+    "API35 software emulator displayed a system UI ANR during secondary-user setup; resource initialization continued."
+  ],
+  "cleanInstall": {
+    "api": 35,
+    "freshSecondaryUser": 10,
+    "freshSandboxInitialized": true,
+    "seedDecks": 43,
+    "exactLimitedRankings": true
+  }
+}

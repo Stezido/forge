@@ -210,3 +210,20 @@ Added chaosbrawl/CARD_FEEDBACK.md, linked from AGENTS.md, with the companion web
 Paired website PR #81 contains exact CSV/native-ID mappings and 292 Beta MSE rating notes. All 291 Limited-eligible printings now use owner-supplied 0–100 scores (281 ranked names); AJDE! retains its authoring score but remains generated-only. The owner explicitly authorized the 12 newly added Pending spreadsheet rows; no sheet status was modified. Only 22 token entries remain unrated.
 
 Desktop and Adventure reactor package builds pass. Native MSE rendered all 314 full faces without warnings and the paired source was prepared successfully. Updated engine tests and beta.5 packaging are in progress. Android identity/signing/minSdk stay unchanged; versionCode increases to10005. Packaging now counts the actual reviewed seed decks, including the prior paired owner-feedback batch, rather than requiring the historical41. No beta.5 asset is published yet.
+
+
+### Beta.5 native verification checkpoint
+
+Windows beta.5 package/source built from clean2b6ca9f656f4541a72e3d28f398f7d3223d51fbd. Native bundled Windows Java resolves292 card image paths and17 token images, passes nine Adventure checks with four AI games, completes Classic game on turn14, and opens Classic/Adventure windows. The exact extracted package is ready at C:\MTG\ChaosBrawlForge-Playtest-0.1.0-beta.5; ZIP is next to it.
+
+Android APK is signed with the unchanged03d5c326 certificate, app IDforge.app.chaosbrawl, API26 minimum, versionCode10005. API26/API35 upgrades from beta.4 installed exact new rankings/resources, retained the synthetic player deck and passed restart. Additional clean-sandbox initialization is running. Both versioned private release drafts exist and matching binary/source uploads are in progress; publication is not yet claimed.
+
+
+### Beta.5 Windows publication
+
+Windows private prereleaseforge-desktop-v0.1.0-beta.5 is published. Binary/source assets656938350/656938349 have GitHub digests matching local hashes. Native Windows playtest folder and separate updated MSE copy were provided to the owner. Website candidate pins and fresh transfer audit are validated:241 compatible published printings,482 real native round trips, eight compatible punctuation clipboard exceptions. All111 local Node tests, TypeScript and production build pass. Android private draft is fully uploaded with matching source; clean sandbox finalization and website deployment remain pending.
+
+
+### Coordinated beta.5 publication complete
+
+Android private prereleaseforge-android-v0.1.0-beta.5 is published with signed APK/source assets656938438/656938443. A fresh API35 secondary-user sandbox completed initialization, exact rankings and43 seed decks; both API26/API35 beta.4 upgrades and restart checks passed. Windows and Android use matching source2b6ca9f6 and current MSE/rankings, with all four GitHub artifact digests verified. Website PR #81 is merged as9a2a9000d2c1f527198c2501703710f637035430; staging-first production run39296962505 is in progress. Physical-phone performance and human Android matches are not claimed.
