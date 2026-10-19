@@ -222,3 +222,8 @@ Android APK is signed with the unchanged03d5c326 certificate, app IDforge.app.ch
 ### Beta.5 Windows publication
 
 Windows private prereleaseforge-desktop-v0.1.0-beta.5 is published. Binary/source assets656938350/656938349 have GitHub digests matching local hashes. Native Windows playtest folder and separate updated MSE copy were provided to the owner. Website candidate pins and fresh transfer audit are validated:241 compatible published printings,482 real native round trips, eight compatible punctuation clipboard exceptions. All111 local Node tests, TypeScript and production build pass. Android private draft is fully uploaded with matching source; clean sandbox finalization and website deployment remain pending.
+
+
+### Coordinated beta.5 publication complete
+
+Android private prereleaseforge-android-v0.1.0-beta.5 is published with signed APK/source assets656938438/656938443. A fresh API35 secondary-user sandbox completed initialization, exact rankings and43 seed decks; both API26/API35 beta.4 upgrades and restart checks passed. Windows and Android use matching source2b6ca9f6 and current MSE/rankings, with all four GitHub artifact digests verified. Website PR #81 is merged as9a2a9000d2c1f527198c2501703710f637035430; staging-first production run39296962505 is in progress. Physical-phone performance and human Android matches are not claimed.

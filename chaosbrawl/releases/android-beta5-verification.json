@@ -47,9 +47,16 @@
   "releaseTag": "forge-android-v0.1.0-beta.5",
   "assetId": 656938438,
   "sourceAssetId": 656938443,
-  "publication": "uploaded private draft; publication pending",
+  "publication": "published private prerelease",
   "limitations": [
     "Physical-phone performance, touch controls and full human Android games remain unverified.",
     "API35 software emulator displayed a system UI ANR during secondary-user setup; resource initialization continued."
-  ]
+  ],
+  "cleanInstall": {
+    "api": 35,
+    "freshSecondaryUser": 10,
+    "freshSandboxInitialized": true,
+    "seedDecks": 43,
+    "exactLimitedRankings": true
+  }
 }
