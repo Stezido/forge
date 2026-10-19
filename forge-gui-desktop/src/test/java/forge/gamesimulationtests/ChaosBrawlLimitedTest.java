@@ -111,6 +111,19 @@ public class ChaosBrawlLimitedTest extends AITest {
     }
 
     @Test
+    public void confirmedOwnerRatingsReplaceProvisionalPickOrder() {
+        var db=StaticData.instance().getCommonCards();
+        assertTrue(CardRanker.getRawScore(db.getCard("Brüder Hopfenblüte",CODE))>
+                CardRanker.getRawScore(db.getCard("Sasa, the Big Brother",CODE)), "Confirmed 100 must outrank 99.");
+        assertTrue(CardRanker.getRawScore(db.getCard("Wasted",CODE))>
+                CardRanker.getRawScore(db.getCard("Food Coma",CODE)), "Confirmed 83 must outrank 80.");
+        assertTrue(CardRanker.getRawScore(db.getCard("Brie-lliant Trapper",CODE))>
+                CardRanker.getRawScore(db.getCard("Food Coma",CODE)), "Newly supplied Trapper 90 must outrank Food Coma 80.");
+        assertTrue(CardRanker.getRawScore(db.getCard("Gimme the herbs",CODE))>
+                CardRanker.getRawScore(db.getCard("Happy Hour",CODE)), "Confirmed zero must remain a valid bottom rating.");
+    }
+
+    @Test
     public void foodTokenGeneratorsAndMilkReceiveActualAiSynergyBonuses() {
         var db=StaticData.instance().getCommonCards();
         var payoff=db.getCard("Rotten Cellar",CODE);

@@ -203,3 +203,10 @@ Owner confirms Beer stays sorcery speed. Added opt-in Beer targeting/planning: s
 Website PR69 holds registered MSE source95068f7b:172 self-references on114 cards use native dynamic names, with only four imported rules values changing (Feuerball, Lena, Hanna, Süüü). Other-card references and frozen Alpha stay intact. Native MSE renders all314 final faces without warnings and a renamed disposable fixture proves dynamic substitution. New reviewed owner-feedback-002 pins website source commit90ba1b3, unchanged native identities, updated Oracle text and executable hashes. Isolated preparation validates314 records, full faces and43 exercise decks. Packaging/Adventure now select the current reviewed batch.
 
 Added chaosbrawl/CARD_FEEDBACK.md, linked from AGENTS.md, with the companion website workflow: MSE truth, owner-chat scope, Forge behavior/AI/limited checks, reviewed provenance, paired PRs and explicit release boundaries. Existing release assets, user installs/profiles and disabled private Actions remain unchanged. No APK/ZIP publication or website deployment. Desktop rebuild passes after final AI ordering review.
+
+
+## Owner-confirmed ratings and authorized beta.5 (2026-10-19)
+
+Paired website PR #81 contains exact CSV/native-ID mappings and 292 Beta MSE rating notes. All 291 Limited-eligible printings now use owner-supplied 0–100 scores (281 ranked names); AJDE! retains its authoring score but remains generated-only. The owner explicitly authorized the 12 newly added Pending spreadsheet rows; no sheet status was modified. Only 22 token entries remain unrated.
+
+Desktop and Adventure reactor package builds pass. Native MSE rendered all 314 full faces without warnings and the paired source was prepared successfully. Updated engine tests and beta.5 packaging are in progress. Android identity/signing/minSdk stay unchanged; versionCode increases to10005. Packaging now counts the actual reviewed seed decks, including the prior paired owner-feedback batch, rather than requiring the historical41. No beta.5 asset is published yet.

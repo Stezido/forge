@@ -24,7 +24,7 @@ def main():
     parser.add_argument('--build-root', type=Path, required=True)
     parser.add_argument('--runtime', type=Path, required=True)
     parser.add_argument('--output', type=Path, default=ROOT/'.chaosbrawl-local/windows-release')
-    parser.add_argument('--version', default='0.1.0-beta.4')
+    parser.add_argument('--version', default='0.1.0-beta.5')
     parser.add_argument('--java', default='java', help='JDK 21+ executable for the runtime image-path audit')
     args = parser.parse_args()
     if not re.fullmatch(r'\d+\.\d+\.\d+-[a-z0-9.]+', args.version):
@@ -101,10 +101,13 @@ def main():
         shutil.copyfile(image, token_target/image.name)
     decks = target/'Decks/constructed'
     decks.mkdir(parents=True)
-    for deck in sorted((build/'.chaosbrawl-local/decks/constructed').glob('Chaos Brawl Beta *.dck')):
+    seed_decks = sorted((build/'.chaosbrawl-local/decks/constructed').glob('Chaos Brawl Beta *.dck'))
+    if not seed_decks:
+        raise ValueError('No reviewed test decks prepared')
+    for deck in seed_decks:
         shutil.copyfile(deck, decks/deck.name)
-    if len(list(decks.glob('*.dck'))) != 41:
-        raise ValueError('Expected 41 reviewed test decks')
+    if len(list(decks.glob('*.dck'))) != len(seed_decks):
+        raise ValueError('Prepared test deck copy incomplete')
     (target/'forge.profile.properties').write_text('userDir=UserData\ncacheDir=Cache\ndecksDir=Decks\ndecksConstructedDir=Decks/constructed\n')
     prefs = target/'UserData/preferences'
     prefs.mkdir(parents=True)
@@ -132,7 +135,7 @@ start "" "runtime\\bin\\javaw.exe" -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabl
                 'mseSha256':source['sourceSha256'], 'jarSha256':digest(jars[0]),
                 'adventureJarSha256':digest(adventure_jars[0]), 'setCode':code, 'reservedReleaseSetCode':'CBFR',
                 'runtime':runtime, 'sourceRecords':len(cards), 'nonTokenRecords':sum(not c['token'] for c in cards.values()),
-                'tokenRecords':sum(c['token'] for c in cards.values()), 'testDecks':41}
+                'tokenRecords':sum(c['token'] for c in cards.values()), 'testDecks':len(seed_decks)}
     (target/'release.json').write_text(json.dumps(metadata, indent=2)+'\n')
     # A render count alone misses functional-variant/art-index naming errors.
     # Exercise the actual packaged engine's lookup before producing a ZIP.
@@ -157,7 +160,7 @@ For Adventure: close the classic client, then double-click "Play Adventure.cmd".
 Choose Adventure Mode. The separate ChaosBrawl plane offers this set at town inns.
 Draft uses 3 packs (36 picks); Sealed uses 8 packs (96 cards).
 Normal virtual entry fees: Draft 3000 gold / 50 shards; Sealed 6000 / 100.
-M21 supplies normal basic lands. Rankings are provisional AI preferences.
+M21 supplies normal basic lands. Draft rankings use owner-confirmed Limited ratings.
 Finish the character tutorial, then visit a town inn and choose Info.
 
 This release keeps the Beta set code CBFRbeta; CBFR is reserved for the full set.

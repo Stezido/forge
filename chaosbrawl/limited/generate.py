@@ -18,8 +18,16 @@ def records():
         generated.update(doc.get('generatedOnlyIds',[]))
     return [cards[cid] for cid in sorted(cards) if not cards[cid]['token'] and cid not in generated]
 
+CONFIRMED = {c['id']: c for c in json.loads((Path(__file__).parent/'confirmed-ratings.json').read_text())['ratings']}
+
+
 def score(card):
     """First-pass limited strength, not a balance claim or printed card property."""
+    if card['id'] in CONFIRMED:
+        confirmed = CONFIRMED[card['id']]
+        if confirmed['name'] != card['name']:
+            raise ValueError('Confirmed rating identity/name differs: ' + card['id'])
+        return confirmed['score']
     text=card['rulesText'].lower(); mv=card['manaValue']; types=card['typeLine']
     value=43.0
     if 'Land' in types:
@@ -69,10 +77,10 @@ def outputs():
     for section,entries in [('limited',ordinary),('lands',lands),('planeswalkers',walkers)]:
         text+=f'\n[{section}]\n'+''.join(f'1 {c["name"]}|{code}|[{c["id"][3:]}]\n' for c in entries)
     ranking=sorted({c['name']:c for c in cards}.values(),key=lambda c:(-score(c),c['name']))
-    ratings={'schemaVersion':1,'edition':code,'provisional':True,'method':'Efficiency, removal, card advantage, evasion and reviewed exceptions; not a balance study.',
-             'eligiblePrintings':len(cards),'eligibleNames':len(ranking),'ratings':[{'name':c['name'],'sourceIds':[p['id'] for p in cards if p['name']==c['name']],'score':score(c),'rank':n} for n,c in enumerate(ranking,1)]}
+    ratings={'schemaVersion':1,'edition':code,'provisional':any(c['id'] not in CONFIRMED for c in cards),'method':'Owner-confirmed 0–100 spreadsheet scores; existing provisional scores retained only for unrated cards.',
+             'eligiblePrintings':len(cards),'eligibleNames':len(ranking),'ratings':[{'name':c['name'],'sourceIds':[p['id'] for p in cards if p['name']==c['name']],'score':score(c),'ratingSource':'confirmed' if c['id'] in CONFIRMED else 'provisional','rank':n} for n,c in enumerate(ranking,1)]}
     rarity={'Common':'C','Uncommon':'U','Rare':'R','Mythic Rare':'M','Basic Land':'L','Masterpiece':'S'}
-    rnk='// Provisional Chaos Brawl limited ratings; generated, not printed card data.\n//Rank|Name|Rarity|Set\n'+''.join(f'#{n}|{c["name"]}|{rarity[c["rarity"]]}|{code}\n' for n,c in enumerate(ranking,1))
+    rnk='// Chaos Brawl limited rankings: confirmed owner scores, provisional fallback for unrated cards.\n//Rank|Name|Rarity|Set\n'+''.join(f'#{n}|{c["name"]}|{rarity[c["rarity"]]}|{code}\n' for n,c in enumerate(ranking,1))
     blocks=ROOT/'forge-gui/res/blockdata/blocks.txt'
     block_text='\n'.join(line for line in blocks.read_text().splitlines() if not line.startswith(BLOCK_NAME+','))+'\n'
     # The custom dual lands are not unlimited basic lands despite their MSE rarity.
