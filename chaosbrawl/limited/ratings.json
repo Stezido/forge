@@ -1,161 +1,180 @@
 {
   "schemaVersion": 1,
   "edition": "CBFRbeta",
-  "provisional": true,
-  "method": "Efficiency, removal, card advantage, evasion and reviewed exceptions; not a balance study.",
+  "provisional": false,
+  "method": "Owner-confirmed 0–100 spreadsheet scores; existing provisional scores retained only for unrated cards.",
   "eligiblePrintings": 291,
   "eligibleNames": 281,
   "ratings": [
     {
-      "name": "Wasted",
+      "name": "Brüder Hopfenblüte",
       "sourceIds": [
-        "cb-001"
+        "cb-032"
       ],
-      "score": 91,
+      "score": 100,
+      "ratingSource": "confirmed",
       "rank": 1
     },
     {
-      "name": "Brie-lliant Trapper",
+      "name": "Sasa, the Big Brother",
       "sourceIds": [
-        "cb-043"
+        "cb-285"
       ],
-      "score": 88,
+      "score": 99,
+      "ratingSource": "confirmed",
       "rank": 2
     },
     {
-      "name": "Food Coma",
+      "name": "Alex, the Cozy",
       "sourceIds": [
-        "cb-007"
+        "cb-287"
       ],
-      "score": 86,
+      "score": 97,
+      "ratingSource": "confirmed",
       "rank": 3
-    },
-    {
-      "name": "Double Burn",
-      "sourceIds": [
-        "cb-045"
-      ],
-      "score": 82,
-      "rank": 4
-    },
-    {
-      "name": "Last Man Standing",
-      "sourceIds": [
-        "cb-008"
-      ],
-      "score": 76,
-      "rank": 5
-    },
-    {
-      "name": "Hofi, the Fragrant",
-      "sourceIds": [
-        "cb-283"
-      ],
-      "score": 70.0,
-      "rank": 6
-    },
-    {
-      "name": "Keeper’s Lucky Mascot",
-      "sourceIds": [
-        "cb-273"
-      ],
-      "score": 69.0,
-      "rank": 7
-    },
-    {
-      "name": "Drunken Warrior",
-      "sourceIds": [
-        "cb-021"
-      ],
-      "score": 68.0,
-      "rank": 8
-    },
-    {
-      "name": "Dungeon Master",
-      "sourceIds": [
-        "cb-156"
-      ],
-      "score": 68.0,
-      "rank": 9
-    },
-    {
-      "name": "Improvised Escape",
-      "sourceIds": [
-        "cb-197"
-      ],
-      "score": 68.0,
-      "rank": 10
-    },
-    {
-      "name": "Rotborn Colossus",
-      "sourceIds": [
-        "cb-204"
-      ],
-      "score": 68.0,
-      "rank": 11
-    },
-    {
-      "name": "Tavern Ban",
-      "sourceIds": [
-        "cb-265"
-      ],
-      "score": 68.0,
-      "rank": 12
-    },
-    {
-      "name": "The Good Stuff",
-      "sourceIds": [
-        "cb-148"
-      ],
-      "score": 68.0,
-      "rank": 13
-    },
-    {
-      "name": "Untamable Grove Colossus",
-      "sourceIds": [
-        "cb-137"
-      ],
-      "score": 68.0,
-      "rank": 14
     },
     {
       "name": "Anschnly, the Vengeful Siren",
       "sourceIds": [
         "cb-048"
       ],
-      "score": 66.0,
+      "score": 95,
+      "ratingSource": "confirmed",
+      "rank": 4
+    },
+    {
+      "name": "Mattn, the Tasty Prince",
+      "sourceIds": [
+        "cb-047"
+      ],
+      "score": 94,
+      "ratingSource": "confirmed",
+      "rank": 5
+    },
+    {
+      "name": "Peter, the Stoned Hunter",
+      "sourceIds": [
+        "cb-298"
+      ],
+      "score": 94,
+      "ratingSource": "confirmed",
+      "rank": 6
+    },
+    {
+      "name": "Stingats Gsöchts",
+      "sourceIds": [
+        "cb-227"
+      ],
+      "score": 94,
+      "ratingSource": "confirmed",
+      "rank": 7
+    },
+    {
+      "name": "Annoying Running Gag",
+      "sourceIds": [
+        "cb-192"
+      ],
+      "score": 91,
+      "ratingSource": "confirmed",
+      "rank": 8
+    },
+    {
+      "name": "Brie-lliant Trapper",
+      "sourceIds": [
+        "cb-043"
+      ],
+      "score": 90,
+      "ratingSource": "confirmed",
+      "rank": 9
+    },
+    {
+      "name": "Mocking Parrot",
+      "sourceIds": [
+        "cb-118"
+      ],
+      "score": 88,
+      "ratingSource": "confirmed",
+      "rank": 10
+    },
+    {
+      "name": "The Awaitening",
+      "sourceIds": [
+        "cb-308"
+      ],
+      "score": 88,
+      "ratingSource": "confirmed",
+      "rank": 11
+    },
+    {
+      "name": "Gluttonous Scavenger",
+      "sourceIds": [
+        "cb-042"
+      ],
+      "score": 86,
+      "ratingSource": "confirmed",
+      "rank": 12
+    },
+    {
+      "name": "Hofi, the Fragrant",
+      "sourceIds": [
+        "cb-283"
+      ],
+      "score": 86,
+      "ratingSource": "confirmed",
+      "rank": 13
+    },
+    {
+      "name": "Controlling Relationship",
+      "sourceIds": [
+        "cb-074"
+      ],
+      "score": 85,
+      "ratingSource": "confirmed",
+      "rank": 14
+    },
+    {
+      "name": "Du gibst dem Baby a Müch",
+      "sourceIds": [
+        "cb-124"
+      ],
+      "score": 84,
+      "ratingSource": "confirmed",
       "rank": 15
     },
     {
-      "name": "Mom's advice",
+      "name": "Feuerball, Junge!",
       "sourceIds": [
-        "cb-015"
+        "cb-038"
       ],
-      "score": 66.0,
+      "score": 84,
+      "ratingSource": "confirmed",
       "rank": 16
     },
     {
-      "name": "Nadine, Sirens’ Origin",
+      "name": "Noxious Cloud",
       "sourceIds": [
-        "cb-189"
+        "cb-049"
       ],
-      "score": 65.0,
+      "score": 84,
+      "ratingSource": "confirmed",
       "rank": 17
     },
     {
-      "name": "Tavern Regular",
+      "name": "Dungeon Master",
       "sourceIds": [
-        "cb-179"
+        "cb-156"
       ],
-      "score": 65.0,
+      "score": 83,
+      "ratingSource": "confirmed",
       "rank": 18
     },
     {
-      "name": "Wandering Culinarian",
+      "name": "Wasted",
       "sourceIds": [
-        "cb-274"
+        "cb-001"
       ],
-      "score": 65.0,
+      "score": 83,
+      "ratingSource": "confirmed",
       "rank": 19
     },
     {
@@ -163,8 +182,270 @@
       "sourceIds": [
         "cb-065"
       ],
-      "score": 64.0,
+      "score": 82,
+      "ratingSource": "confirmed",
       "rank": 20
+    },
+    {
+      "name": "Caring Siren",
+      "sourceIds": [
+        "cb-052"
+      ],
+      "score": 82,
+      "ratingSource": "confirmed",
+      "rank": 21
+    },
+    {
+      "name": "Hexenschuss",
+      "sourceIds": [
+        "cb-178"
+      ],
+      "score": 82,
+      "ratingSource": "confirmed",
+      "rank": 22
+    },
+    {
+      "name": "Innkeepers Daugther",
+      "sourceIds": [
+        "cb-187"
+      ],
+      "score": 82,
+      "ratingSource": "confirmed",
+      "rank": 23
+    },
+    {
+      "name": "Edi, the Beerpig",
+      "sourceIds": [
+        "cb-182"
+      ],
+      "score": 81,
+      "ratingSource": "confirmed",
+      "rank": 24
+    },
+    {
+      "name": "Hoard Beast",
+      "sourceIds": [
+        "cb-188"
+      ],
+      "score": 81,
+      "ratingSource": "confirmed",
+      "rank": 25
+    },
+    {
+      "name": "Canonball Carl",
+      "sourceIds": [
+        "cb-233"
+      ],
+      "score": 80,
+      "ratingSource": "confirmed",
+      "rank": 26
+    },
+    {
+      "name": "Double Burn",
+      "sourceIds": [
+        "cb-045"
+      ],
+      "score": 80,
+      "ratingSource": "confirmed",
+      "rank": 27
+    },
+    {
+      "name": "Food Coma",
+      "sourceIds": [
+        "cb-007"
+      ],
+      "score": 80,
+      "ratingSource": "confirmed",
+      "rank": 28
+    },
+    {
+      "name": "Bottle Bash",
+      "sourceIds": [
+        "cb-117"
+      ],
+      "score": 79,
+      "ratingSource": "confirmed",
+      "rank": 29
+    },
+    {
+      "name": "Grandma Dragana Blackbrew",
+      "sourceIds": [
+        "cb-115"
+      ],
+      "score": 79,
+      "ratingSource": "confirmed",
+      "rank": 30
+    },
+    {
+      "name": "Keeper’s Lucky Mascot",
+      "sourceIds": [
+        "cb-273"
+      ],
+      "score": 79,
+      "ratingSource": "confirmed",
+      "rank": 31
+    },
+    {
+      "name": "Pumpkin Barrage Crew",
+      "sourceIds": [
+        "cb-046"
+      ],
+      "score": 79,
+      "ratingSource": "confirmed",
+      "rank": 32
+    },
+    {
+      "name": "Gastronomic Downfall",
+      "sourceIds": [
+        "cb-279"
+      ],
+      "score": 78,
+      "ratingSource": "confirmed",
+      "rank": 33
+    },
+    {
+      "name": "Tavern Ban",
+      "sourceIds": [
+        "cb-265"
+      ],
+      "score": 77,
+      "ratingSource": "confirmed",
+      "rank": 34
+    },
+    {
+      "name": "Austrian Slap",
+      "sourceIds": [
+        "cb-209"
+      ],
+      "score": 76,
+      "ratingSource": "confirmed",
+      "rank": 35
+    },
+    {
+      "name": "Distant Cousin Shotcrusher",
+      "sourceIds": [
+        "cb-113"
+      ],
+      "score": 76,
+      "ratingSource": "confirmed",
+      "rank": 36
+    },
+    {
+      "name": "Last Man Standing",
+      "sourceIds": [
+        "cb-008"
+      ],
+      "score": 76,
+      "ratingSource": "confirmed",
+      "rank": 37
+    },
+    {
+      "name": "Mysterious Remedy",
+      "sourceIds": [
+        "cb-059"
+      ],
+      "score": 76,
+      "ratingSource": "confirmed",
+      "rank": 38
+    },
+    {
+      "name": "Tavern Regular",
+      "sourceIds": [
+        "cb-179"
+      ],
+      "score": 76,
+      "ratingSource": "confirmed",
+      "rank": 39
+    },
+    {
+      "name": "The Hangry Games",
+      "sourceIds": [
+        "cb-066"
+      ],
+      "score": 76,
+      "ratingSource": "confirmed",
+      "rank": 40
+    },
+    {
+      "name": "Tobias, the Grenadier",
+      "sourceIds": [
+        "cb-159"
+      ],
+      "score": 76,
+      "ratingSource": "confirmed",
+      "rank": 41
+    },
+    {
+      "name": "Ambush on the Throne",
+      "sourceIds": [
+        "cb-018"
+      ],
+      "score": 75,
+      "ratingSource": "confirmed",
+      "rank": 42
+    },
+    {
+      "name": "Blightborne Colossus",
+      "sourceIds": [
+        "cb-136"
+      ],
+      "score": 75,
+      "ratingSource": "confirmed",
+      "rank": 43
+    },
+    {
+      "name": "Pumpkin Catapult",
+      "sourceIds": [
+        "cb-081"
+      ],
+      "score": 75,
+      "ratingSource": "confirmed",
+      "rank": 44
+    },
+    {
+      "name": "Wandering Culinarian",
+      "sourceIds": [
+        "cb-274"
+      ],
+      "score": 75,
+      "ratingSource": "confirmed",
+      "rank": 45
+    },
+    {
+      "name": "Attention Seeker",
+      "sourceIds": [
+        "cb-221"
+      ],
+      "score": 74,
+      "ratingSource": "confirmed",
+      "rank": 46
+    },
+    {
+      "name": "Brewbelly Jumbo",
+      "sourceIds": [
+        "cb-253"
+      ],
+      "score": 74,
+      "ratingSource": "confirmed",
+      "rank": 47
+    },
+    {
+      "name": "Debt Collector",
+      "sourceIds": [
+        "cb-146"
+      ],
+      "score": 74,
+      "ratingSource": "confirmed",
+      "rank": 48
+    },
+    {
+      "name": "Distant Aunt Alestorm",
+      "sourceIds": [
+        "cb-116"
+      ],
+      "score": 74,
+      "ratingSource": "confirmed",
+      "rank": 49
     },
     {
       "name": "Decaying Orchard",
@@ -172,16 +453,18 @@
         "cb-036",
         "cb-246"
       ],
-      "score": 64,
-      "rank": 21
+      "score": 73,
+      "ratingSource": "confirmed",
+      "rank": 50
     },
     {
-      "name": "Designated Driver",
+      "name": "Distant Uncle Goldbeard",
       "sourceIds": [
-        "cb-176"
+        "cb-114"
       ],
-      "score": 64.0,
-      "rank": 22
+      "score": 73,
+      "ratingSource": "confirmed",
+      "rank": 51
     },
     {
       "name": "Distillery of Silent Death",
@@ -189,8 +472,9 @@
         "cb-037",
         "cb-252"
       ],
-      "score": 64,
-      "rank": 23
+      "score": 73,
+      "ratingSource": "confirmed",
+      "rank": 52
     },
     {
       "name": "Duskmire",
@@ -198,8 +482,9 @@
         "cb-166",
         "cb-250"
       ],
-      "score": 64,
-      "rank": 24
+      "score": 73,
+      "ratingSource": "confirmed",
+      "rank": 53
     },
     {
       "name": "Flooded Palace",
@@ -207,8 +492,9 @@
         "cb-165",
         "cb-247"
       ],
-      "score": 64,
-      "rank": 25
+      "score": 73,
+      "ratingSource": "confirmed",
+      "rank": 54
     },
     {
       "name": "Hopsfield Vale",
@@ -216,32 +502,45 @@
         "cb-022",
         "cb-244"
       ],
-      "score": 64,
-      "rank": 26
+      "score": 73,
+      "ratingSource": "confirmed",
+      "rank": 55
+    },
+    {
+      "name": "Jolly Brewbelly",
+      "sourceIds": [
+        "cb-211"
+      ],
+      "score": 73,
+      "ratingSource": "confirmed",
+      "rank": 56
     },
     {
       "name": "Mistcliff Springs",
       "sourceIds": [
         "cb-050"
       ],
-      "score": 64,
-      "rank": 27
+      "score": 73,
+      "ratingSource": "confirmed",
+      "rank": 57
     },
     {
       "name": "Mistcliff Waterfall",
       "sourceIds": [
         "cb-051"
       ],
-      "score": 64,
-      "rank": 28
+      "score": 73,
+      "ratingSource": "confirmed",
+      "rank": 58
     },
     {
-      "name": "Professional Drunk",
+      "name": "Nadine, Sirens’ Origin",
       "sourceIds": [
-        "cb-267"
+        "cb-189"
       ],
-      "score": 64.0,
-      "rank": 29
+      "score": 73,
+      "ratingSource": "confirmed",
+      "rank": 59
     },
     {
       "name": "Reefgarden",
@@ -249,8 +548,9 @@
         "cb-167",
         "cb-251"
       ],
-      "score": 64,
-      "rank": 30
+      "score": 73,
+      "ratingSource": "confirmed",
+      "rank": 60
     },
     {
       "name": "Sacred Brewery",
@@ -258,8 +558,9 @@
         "cb-039",
         "cb-245"
       ],
-      "score": 64,
-      "rank": 31
+      "score": 73,
+      "ratingSource": "confirmed",
+      "rank": 61
     },
     {
       "name": "The Stoned Peaks",
@@ -267,8 +568,9 @@
         "cb-168",
         "cb-243"
       ],
-      "score": 64,
-      "rank": 32
+      "score": 73,
+      "ratingSource": "confirmed",
+      "rank": 62
     },
     {
       "name": "Underground District",
@@ -276,1296 +578,522 @@
         "cb-248",
         "cb-249"
       ],
-      "score": 64,
-      "rank": 33
-    },
-    {
-      "name": "Blightborne Colossus",
-      "sourceIds": [
-        "cb-136"
-      ],
-      "score": 62.0,
-      "rank": 34
-    },
-    {
-      "name": "Brewmaster Grunthar",
-      "sourceIds": [
-        "cb-031"
-      ],
-      "score": 62.0,
-      "rank": 35
-    },
-    {
-      "name": "Drunkard",
-      "sourceIds": [
-        "cb-020"
-      ],
-      "score": 62.0,
-      "rank": 36
-    },
-    {
-      "name": "Hungry Disgust",
-      "sourceIds": [
-        "cb-069"
-      ],
-      "score": 62.0,
-      "rank": 37
-    },
-    {
-      "name": "Jolly Brewbelly",
-      "sourceIds": [
-        "cb-211"
-      ],
-      "score": 62.0,
-      "rank": 38
-    },
-    {
-      "name": "Numbing Mass Resurrection",
-      "sourceIds": [
-        "cb-062"
-      ],
-      "score": 62,
-      "rank": 39
-    },
-    {
-      "name": "Tavern Hand",
-      "sourceIds": [
-        "cb-079"
-      ],
-      "score": 62.0,
-      "rank": 40
-    },
-    {
-      "name": "Brüder Hopfenblüte",
-      "sourceIds": [
-        "cb-032"
-      ],
-      "score": 61.0,
-      "rank": 41
-    },
-    {
-      "name": "Desperate Hydrator",
-      "sourceIds": [
-        "cb-212"
-      ],
-      "score": 61.0,
-      "rank": 42
-    },
-    {
-      "name": "Ice Cold Siren",
-      "sourceIds": [
-        "cb-033"
-      ],
-      "score": 61.0,
-      "rank": 43
-    },
-    {
-      "name": "Information Broker",
-      "sourceIds": [
-        "cb-237"
-      ],
-      "score": 61.0,
-      "rank": 44
-    },
-    {
-      "name": "Mattn, the Tasty Prince",
-      "sourceIds": [
-        "cb-047"
-      ],
-      "score": 61.0,
-      "rank": 45
-    },
-    {
-      "name": "Mocking Parrot",
-      "sourceIds": [
-        "cb-118"
-      ],
-      "score": 61.0,
-      "rank": 46
-    },
-    {
-      "name": "Nutten und Koks",
-      "sourceIds": [
-        "cb-002"
-      ],
-      "score": 61.0,
-      "rank": 47
-    },
-    {
-      "name": "Innkeepers Daugther",
-      "sourceIds": [
-        "cb-187"
-      ],
-      "score": 60.0,
-      "rank": 48
-    },
-    {
-      "name": "Mutating Sapling",
-      "sourceIds": [
-        "cb-142"
-      ],
-      "score": 60.0,
-      "rank": 49
-    },
-    {
-      "name": "Nagging Siren Twin",
-      "sourceIds": [
-        "cb-016"
-      ],
-      "score": 60.0,
-      "rank": 50
-    },
-    {
-      "name": "Tobias, the Grenadier",
-      "sourceIds": [
-        "cb-159"
-      ],
-      "score": 60.0,
-      "rank": 51
-    },
-    {
-      "name": "Way Expired Wiener",
-      "sourceIds": [
-        "cb-133"
-      ],
-      "score": 60.0,
-      "rank": 52
-    },
-    {
-      "name": "Ale Addict",
-      "sourceIds": [
-        "cb-218"
-      ],
-      "score": 59.0,
-      "rank": 53
-    },
-    {
-      "name": "Ambush on the Throne",
-      "sourceIds": [
-        "cb-018"
-      ],
-      "score": 59.0,
-      "rank": 54
-    },
-    {
-      "name": "Bad Drunk",
-      "sourceIds": [
-        "cb-220"
-      ],
-      "score": 59.0,
-      "rank": 55
-    },
-    {
-      "name": "Caring Siren",
-      "sourceIds": [
-        "cb-052"
-      ],
-      "score": 59.0,
-      "rank": 56
-    },
-    {
-      "name": "Cold Water Coward",
-      "sourceIds": [
-        "cb-231"
-      ],
-      "score": 59.0,
-      "rank": 57
-    },
-    {
-      "name": "Distant Cousin Windtongue",
-      "sourceIds": [
-        "cb-110"
-      ],
-      "score": 59.0,
-      "rank": 58
-    },
-    {
-      "name": "Honest Laborer",
-      "sourceIds": [
-        "cb-216"
-      ],
-      "score": 59.0,
-      "rank": 59
-    },
-    {
-      "name": "Nagging Little Sister",
-      "sourceIds": [
-        "cb-229"
-      ],
-      "score": 59.0,
-      "rank": 60
-    },
-    {
-      "name": "Party Foul",
-      "sourceIds": [
-        "cb-107"
-      ],
-      "score": 59.0,
-      "rank": 61
-    },
-    {
-      "name": "Puff Mama",
-      "sourceIds": [
-        "cb-213"
-      ],
-      "score": 59.0,
-      "rank": 62
-    },
-    {
-      "name": "Raging Alcoholic",
-      "sourceIds": [
-        "cb-089"
-      ],
-      "score": 59.0,
+      "score": 73,
+      "ratingSource": "confirmed",
       "rank": 63
-    },
-    {
-      "name": "Recycle",
-      "sourceIds": [
-        "cb-184"
-      ],
-      "score": 59.0,
-      "rank": 64
-    },
-    {
-      "name": "Straggler",
-      "sourceIds": [
-        "cb-071"
-      ],
-      "score": 59.0,
-      "rank": 65
-    },
-    {
-      "name": "Devious Duo",
-      "sourceIds": [
-        "cb-207"
-      ],
-      "score": 58.0,
-      "rank": 66
-    },
-    {
-      "name": "Distant Cousin Shotcrusher",
-      "sourceIds": [
-        "cb-113"
-      ],
-      "score": 58.0,
-      "rank": 67
-    },
-    {
-      "name": "Gluttonous Scavenger",
-      "sourceIds": [
-        "cb-042"
-      ],
-      "score": 58.0,
-      "rank": 68
-    },
-    {
-      "name": "Have a Beer, or Three",
-      "sourceIds": [
-        "cb-171"
-      ],
-      "score": 58.0,
-      "rank": 69
-    },
-    {
-      "name": "Loyal Watchdog",
-      "sourceIds": [
-        "cb-119"
-      ],
-      "score": 58.0,
-      "rank": 70
-    },
-    {
-      "name": "Midnight Fridge Raider",
-      "sourceIds": [
-        "cb-223"
-      ],
-      "score": 58.0,
-      "rank": 71
-    },
-    {
-      "name": "Annoying Running Gag",
-      "sourceIds": [
-        "cb-192"
-      ],
-      "score": 57.0,
-      "rank": 72
-    },
-    {
-      "name": "Confusing Signals",
-      "sourceIds": [
-        "cb-075"
-      ],
-      "score": 57.0,
-      "rank": 73
-    },
-    {
-      "name": "Draft Tap",
-      "sourceIds": [
-        "cb-172"
-      ],
-      "score": 57.0,
-      "rank": 74
-    },
-    {
-      "name": "Gnome Loan",
-      "sourceIds": [
-        "cb-145"
-      ],
-      "score": 57.0,
-      "rank": 75
-    },
-    {
-      "name": "Laughing fit",
-      "sourceIds": [
-        "cb-092"
-      ],
-      "score": 57.0,
-      "rank": 76
-    },
-    {
-      "name": "Ragebait",
-      "sourceIds": [
-        "cb-311"
-      ],
-      "score": 57.0,
-      "rank": 77
-    },
-    {
-      "name": "Rowdy Riot",
-      "sourceIds": [
-        "cb-127"
-      ],
-      "score": 57.0,
-      "rank": 78
-    },
-    {
-      "name": "Tavern Hearthkeeper",
-      "sourceIds": [
-        "cb-258"
-      ],
-      "score": 57.0,
-      "rank": 79
-    },
-    {
-      "name": "The Blessed Hideaway",
-      "sourceIds": [
-        "cb-169"
-      ],
-      "score": 57.0,
-      "rank": 80
-    },
-    {
-      "name": "The Fallen",
-      "sourceIds": [
-        "cb-200"
-      ],
-      "score": 57,
-      "rank": 81
-    },
-    {
-      "name": "Weedfield Grazer",
-      "sourceIds": [
-        "cb-077"
-      ],
-      "score": 57.0,
-      "rank": 82
-    },
-    {
-      "name": "Big Ball Bluebird",
-      "sourceIds": [
-        "cb-208"
-      ],
-      "score": 56.0,
-      "rank": 83
-    },
-    {
-      "name": "Cini Minis",
-      "sourceIds": [
-        "cb-126"
-      ],
-      "score": 56.0,
-      "rank": 84
-    },
-    {
-      "name": "Distant Uncle Goldbeard",
-      "sourceIds": [
-        "cb-114"
-      ],
-      "score": 56.0,
-      "rank": 85
-    },
-    {
-      "name": "Kegbearer",
-      "sourceIds": [
-        "cb-023"
-      ],
-      "score": 56.0,
-      "rank": 86
-    },
-    {
-      "name": "Max, the Sniper",
-      "sourceIds": [
-        "cb-160"
-      ],
-      "score": 56.0,
-      "rank": 87
-    },
-    {
-      "name": "Mystic Herb Buddy",
-      "sourceIds": [
-        "cb-028"
-      ],
-      "score": 56.0,
-      "rank": 88
-    },
-    {
-      "name": "Pumpkin Barrage Crew",
-      "sourceIds": [
-        "cb-046"
-      ],
-      "score": 56.0,
-      "rank": 89
-    },
-    {
-      "name": "Robin, the Pusher",
-      "sourceIds": [
-        "cb-158"
-      ],
-      "score": 56.0,
-      "rank": 90
-    },
-    {
-      "name": "Wake and Bake",
-      "sourceIds": [
-        "cb-034"
-      ],
-      "score": 56.0,
-      "rank": 91
-    },
-    {
-      "name": "Barmaid",
-      "sourceIds": [
-        "cb-234"
-      ],
-      "score": 55.0,
-      "rank": 92
-    },
-    {
-      "name": "Brawl Encourager",
-      "sourceIds": [
-        "cb-270"
-      ],
-      "score": 55.0,
-      "rank": 93
-    },
-    {
-      "name": "Brawl Enthusiast",
-      "sourceIds": [
-        "cb-268"
-      ],
-      "score": 55.0,
-      "rank": 94
-    },
-    {
-      "name": "Brewbelly Jumbo",
-      "sourceIds": [
-        "cb-253"
-      ],
-      "score": 55.0,
-      "rank": 95
-    },
-    {
-      "name": "Coastal Watchman",
-      "sourceIds": [
-        "cb-235"
-      ],
-      "score": 55.0,
-      "rank": 96
-    },
-    {
-      "name": "Distant Aunt Alestorm",
-      "sourceIds": [
-        "cb-116"
-      ],
-      "score": 55.0,
-      "rank": 97
-    },
-    {
-      "name": "Hanna, Nature’s Siren",
-      "sourceIds": [
-        "cb-139"
-      ],
-      "score": 55.0,
-      "rank": 98
-    },
-    {
-      "name": "Jealous Siren",
-      "sourceIds": [
-        "cb-053"
-      ],
-      "score": 55.0,
-      "rank": 99
-    },
-    {
-      "name": "Mystic Hotbox Hut",
-      "sourceIds": [
-        "cb-030"
-      ],
-      "score": 55.0,
-      "rank": 100
-    },
-    {
-      "name": "Pushy Pourer",
-      "sourceIds": [
-        "cb-266"
-      ],
-      "score": 55.0,
-      "rank": 101
-    },
-    {
-      "name": "Tschuschnpfeiferl",
-      "sourceIds": [
-        "cb-109"
-      ],
-      "score": 55.0,
-      "rank": 102
-    },
-    {
-      "name": "Wagon Enthusiast",
-      "sourceIds": [
-        "cb-309"
-      ],
-      "score": 55.0,
-      "rank": 103
-    },
-    {
-      "name": "Zigeuner-Duo",
-      "sourceIds": [
-        "cb-202"
-      ],
-      "score": 55.0,
-      "rank": 104
-    },
-    {
-      "name": "Culinary Disaster",
-      "sourceIds": [
-        "cb-225"
-      ],
-      "score": 54.0,
-      "rank": 105
-    },
-    {
-      "name": "Friend or Foe",
-      "sourceIds": [
-        "cb-199"
-      ],
-      "score": 54.0,
-      "rank": 106
-    },
-    {
-      "name": "Hitman",
-      "sourceIds": [
-        "cb-224"
-      ],
-      "score": 54.0,
-      "rank": 107
-    },
-    {
-      "name": "Natalie, Mother Siren",
-      "sourceIds": [
-        "cb-140"
-      ],
-      "score": 54.0,
-      "rank": 108
-    },
-    {
-      "name": "Peter, the Manipulative",
-      "sourceIds": [
-        "cb-284"
-      ],
-      "score": 54.0,
-      "rank": 109
-    },
-    {
-      "name": "Ravenous Trollkin",
-      "sourceIds": [
-        "cb-241"
-      ],
-      "score": 54.0,
-      "rank": 110
-    },
-    {
-      "name": "Couchpotato",
-      "sourceIds": [
-        "cb-004"
-      ],
-      "score": 53.0,
-      "rank": 111
-    },
-    {
-      "name": "Goner",
-      "sourceIds": [
-        "cb-183"
-      ],
-      "score": 53.0,
-      "rank": 112
-    },
-    {
-      "name": "Lena, the Silent One",
-      "sourceIds": [
-        "cb-138"
-      ],
-      "score": 53.0,
-      "rank": 113
-    },
-    {
-      "name": "Marlene, the Leader",
-      "sourceIds": [
-        "cb-157"
-      ],
-      "score": 53.0,
-      "rank": 114
-    },
-    {
-      "name": "Ogrontwin Steve",
-      "sourceIds": [
-        "cb-083"
-      ],
-      "score": 53.0,
-      "rank": 115
-    },
-    {
-      "name": "Overstimulated Flora",
-      "sourceIds": [
-        "cb-240"
-      ],
-      "score": 53.0,
-      "rank": 116
-    },
-    {
-      "name": "Rotting Flesh",
-      "sourceIds": [
-        "cb-035"
-      ],
-      "score": 53.0,
-      "rank": 117
-    },
-    {
-      "name": "Sweet Harmless Siren",
-      "sourceIds": [
-        "cb-064"
-      ],
-      "score": 53.0,
-      "rank": 118
-    },
-    {
-      "name": "Tavern Bouncer",
-      "sourceIds": [
-        "cb-180"
-      ],
-      "score": 53.0,
-      "rank": 119
-    },
-    {
-      "name": "Tavern Medic",
-      "sourceIds": [
-        "cb-181"
-      ],
-      "score": 53.0,
-      "rank": 120
-    },
-    {
-      "name": "Weedfield Herbalist",
-      "sourceIds": [
-        "cb-076"
-      ],
-      "score": 53.0,
-      "rank": 121
-    },
-    {
-      "name": "Wobbly Gnome",
-      "sourceIds": [
-        "cb-132"
-      ],
-      "score": 53.0,
-      "rank": 122
-    },
-    {
-      "name": "A Wife's Argument",
-      "sourceIds": [
-        "cb-011"
-      ],
-      "score": 52.0,
-      "rank": 123
-    },
-    {
-      "name": "Academic Quarter",
-      "sourceIds": [
-        "cb-070"
-      ],
-      "score": 52.0,
-      "rank": 124
-    },
-    {
-      "name": "Bottomless Keg",
-      "sourceIds": [
-        "cb-131"
-      ],
-      "score": 52.0,
-      "rank": 125
-    },
-    {
-      "name": "Buy a Round",
-      "sourceIds": [
-        "cb-006"
-      ],
-      "score": 52.0,
-      "rank": 126
-    },
-    {
-      "name": "Cold Splash",
-      "sourceIds": [
-        "cb-129"
-      ],
-      "score": 52.0,
-      "rank": 127
     },
     {
       "name": "Copycat",
       "sourceIds": [
         "cb-238"
       ],
-      "score": 52.0,
-      "rank": 128
-    },
-    {
-      "name": "Endless Expectations",
-      "sourceIds": [
-        "cb-054"
-      ],
-      "score": 52.0,
-      "rank": 129
-    },
-    {
-      "name": "Frühshoppen",
-      "sourceIds": [
-        "cb-278"
-      ],
-      "score": 52.0,
-      "rank": 130
-    },
-    {
-      "name": "Grandma Dragana Blackbrew",
-      "sourceIds": [
-        "cb-115"
-      ],
-      "score": 52.0,
-      "rank": 131
-    },
-    {
-      "name": "Happy Hour",
-      "sourceIds": [
-        "cb-072"
-      ],
-      "score": 52.0,
-      "rank": 132
+      "score": 72,
+      "ratingSource": "confirmed",
+      "rank": 64
     },
     {
       "name": "Hunting Siren",
       "sourceIds": [
         "cb-232"
       ],
-      "score": 52.0,
-      "rank": 133
+      "score": 72,
+      "ratingSource": "confirmed",
+      "rank": 65
     },
     {
-      "name": "Just Do it",
+      "name": "Take a Sniff",
       "sourceIds": [
-        "cb-163"
+        "cb-222"
       ],
-      "score": 52.0,
-      "rank": 134
+      "score": 72,
+      "ratingSource": "confirmed",
+      "rank": 66
     },
     {
-      "name": "Kiss of Poseidon",
+      "name": "The Executioner",
       "sourceIds": [
-        "cb-281"
+        "cb-261"
       ],
-      "score": 52.0,
-      "rank": 135
+      "score": 72,
+      "ratingSource": "confirmed",
+      "rank": 67
     },
     {
-      "name": "Lecherous Patron",
+      "name": "Weedfield Herbalist",
       "sourceIds": [
-        "cb-210"
+        "cb-076"
       ],
-      "score": 52.0,
-      "rank": 136
+      "score": 72,
+      "ratingSource": "confirmed",
+      "rank": 68
     },
     {
-      "name": "Let’s Fucking Go",
+      "name": "Draft Tap",
       "sourceIds": [
-        "cb-161"
+        "cb-172"
       ],
-      "score": 52.0,
-      "rank": 137
-    },
-    {
-      "name": "Not Invited",
-      "sourceIds": [
-        "cb-236"
-      ],
-      "score": 52.0,
-      "rank": 138
-    },
-    {
-      "name": "Provoker",
-      "sourceIds": [
-        "cb-193"
-      ],
-      "score": 52.0,
-      "rank": 139
-    },
-    {
-      "name": "Questionable First Responder",
-      "sourceIds": [
-        "cb-272"
-      ],
-      "score": 52.0,
-      "rank": 140
-    },
-    {
-      "name": "Roadside Distraction",
-      "sourceIds": [
-        "cb-170"
-      ],
-      "score": 52.0,
-      "rank": 141
-    },
-    {
-      "name": "Sasa, the Big Brother",
-      "sourceIds": [
-        "cb-285"
-      ],
-      "score": 52.0,
-      "rank": 142
-    },
-    {
-      "name": "Sauna Elemental",
-      "sourceIds": [
-        "cb-203"
-      ],
-      "score": 52.0,
-      "rank": 143
-    },
-    {
-      "name": "Server Veteran",
-      "sourceIds": [
-        "cb-271"
-      ],
-      "score": 52.0,
-      "rank": 144
-    },
-    {
-      "name": "Still Good",
-      "sourceIds": [
-        "cb-226"
-      ],
-      "score": 52.0,
-      "rank": 145
-    },
-    {
-      "name": "Tavern Slot Machine",
-      "sourceIds": [
-        "cb-215"
-      ],
-      "score": 52.0,
-      "rank": 146
-    },
-    {
-      "name": "The Loan Syndicate",
-      "sourceIds": [
-        "cb-144"
-      ],
-      "score": 52,
-      "rank": 147
-    },
-    {
-      "name": "The Mind",
-      "sourceIds": [
-        "cb-190"
-      ],
-      "score": 52.0,
-      "rank": 148
-    },
-    {
-      "name": "Wild Fermentation",
-      "sourceIds": [
-        "cb-254"
-      ],
-      "score": 52.0,
-      "rank": 149
-    },
-    {
-      "name": "Debt Collector",
-      "sourceIds": [
-        "cb-146"
-      ],
-      "score": 51.0,
-      "rank": 150
-    },
-    {
-      "name": "Cannabis Field Defender",
-      "sourceIds": [
-        "cb-123"
-      ],
-      "score": 50.0,
-      "rank": 151
-    },
-    {
-      "name": "Charming Siren",
-      "sourceIds": [
-        "cb-012"
-      ],
-      "score": 50.0,
-      "rank": 152
-    },
-    {
-      "name": "Devoted Homebody",
-      "sourceIds": [
-        "cb-219"
-      ],
-      "score": 50.0,
-      "rank": 153
+      "score": 71,
+      "ratingSource": "confirmed",
+      "rank": 69
     },
     {
       "name": "Exasperated Patriarch",
       "sourceIds": [
         "cb-242"
       ],
-      "score": 50.0,
-      "rank": 154
+      "score": 71,
+      "ratingSource": "confirmed",
+      "rank": 70
     },
     {
-      "name": "Manipulative Temptress",
+      "name": "Way Expired Wiener",
       "sourceIds": [
-        "cb-230"
+        "cb-133"
       ],
-      "score": 50.0,
-      "rank": 155
-    },
-    {
-      "name": "Ogrontwin Pete",
-      "sourceIds": [
-        "cb-084"
-      ],
-      "score": 50.0,
-      "rank": 156
-    },
-    {
-      "name": "Puddinghead",
-      "sourceIds": [
-        "cb-005"
-      ],
-      "score": 50.0,
-      "rank": 157
-    },
-    {
-      "name": "Puzzlemaster's Grimoire",
-      "sourceIds": [
-        "cb-093"
-      ],
-      "score": 50.0,
-      "rank": 158
-    },
-    {
-      "name": "Soul Eater Siren",
-      "sourceIds": [
-        "cb-099"
-      ],
-      "score": 50.0,
-      "rank": 159
-    },
-    {
-      "name": "Süüü, the Fourth Child",
-      "sourceIds": [
-        "cb-143"
-      ],
-      "score": 50.0,
-      "rank": 160
-    },
-    {
-      "name": "Trained Drinker",
-      "sourceIds": [
-        "cb-256"
-      ],
-      "score": 50.0,
-      "rank": 161
-    },
-    {
-      "name": "Undercity Back Room",
-      "sourceIds": [
-        "cb-134"
-      ],
-      "score": 50.0,
-      "rank": 162
-    },
-    {
-      "name": "Zimty",
-      "sourceIds": [
-        "cb-087"
-      ],
-      "score": 50.0,
-      "rank": 163
-    },
-    {
-      "name": "Domina’s Devotee",
-      "sourceIds": [
-        "cb-214"
-      ],
-      "score": 49.0,
-      "rank": 164
-    },
-    {
-      "name": "Edi, the Beerpig",
-      "sourceIds": [
-        "cb-182"
-      ],
-      "score": 49.0,
-      "rank": 165
-    },
-    {
-      "name": "Pumpkin Catapult",
-      "sourceIds": [
-        "cb-081"
-      ],
-      "score": 49.0,
-      "rank": 166
-    },
-    {
-      "name": "The Awaitening",
-      "sourceIds": [
-        "cb-308"
-      ],
-      "score": 49.0,
-      "rank": 167
-    },
-    {
-      "name": "Always With Us",
-      "sourceIds": [
-        "cb-186"
-      ],
-      "score": 48.0,
-      "rank": 168
-    },
-    {
-      "name": "Ball Scratching",
-      "sourceIds": [
-        "cb-310"
-      ],
-      "score": 48.0,
-      "rank": 169
-    },
-    {
-      "name": "Blightpear Ancient",
-      "sourceIds": [
-        "cb-239"
-      ],
-      "score": 48.0,
-      "rank": 170
-    },
-    {
-      "name": "Experimental Invention",
-      "sourceIds": [
-        "cb-195"
-      ],
-      "score": 48.0,
-      "rank": 171
-    },
-    {
-      "name": "Fighting Pit Champion",
-      "sourceIds": [
-        "cb-263"
-      ],
-      "score": 48.0,
-      "rank": 172
-    },
-    {
-      "name": "Flatfooted",
-      "sourceIds": [
-        "cb-057"
-      ],
-      "score": 48.0,
-      "rank": 173
+      "score": 71,
+      "ratingSource": "confirmed",
+      "rank": 71
     },
     {
       "name": "Moshpit",
       "sourceIds": [
         "cb-269"
       ],
-      "score": 48.0,
-      "rank": 174
+      "score": 70,
+      "ratingSource": "confirmed",
+      "rank": 72
     },
     {
-      "name": "Owizahrer",
+      "name": "Sauna Elemental",
       "sourceIds": [
-        "cb-068"
+        "cb-203"
       ],
-      "score": 48.0,
-      "rank": 175
+      "score": 70,
+      "ratingSource": "confirmed",
+      "rank": 73
     },
     {
-      "name": "Rotten Cellar",
+      "name": "Brewmaster Grunthar",
       "sourceIds": [
-        "cb-090"
+        "cb-031"
       ],
-      "score": 48.0,
-      "rank": 176
-    },
-    {
-      "name": "The Rake",
-      "sourceIds": [
-        "cb-147"
-      ],
-      "score": 48.0,
-      "rank": 177
+      "score": 69,
+      "ratingSource": "confirmed",
+      "rank": 74
     },
     {
       "name": "Chaotic Kitchen",
       "sourceIds": [
         "cb-044"
       ],
-      "score": 47.0,
-      "rank": 178
+      "score": 69,
+      "ratingSource": "confirmed",
+      "rank": 75
     },
     {
-      "name": "Distant Cousin Stinkpot",
+      "name": "Desperate Hydrator",
       "sourceIds": [
-        "cb-112"
+        "cb-212"
       ],
-      "score": 47.0,
-      "rank": 179
+      "score": 69,
+      "ratingSource": "confirmed",
+      "rank": 76
     },
     {
-      "name": "Hoard Beast",
+      "name": "Hangover",
       "sourceIds": [
-        "cb-188"
+        "cb-128"
       ],
-      "score": 47.0,
-      "rank": 180
+      "score": 69,
+      "ratingSource": "confirmed",
+      "rank": 77
     },
     {
-      "name": "Indica Hedge",
+      "name": "Party Foul",
       "sourceIds": [
-        "cb-122"
+        "cb-107"
       ],
-      "score": 47.0,
-      "rank": 181
+      "score": 69,
+      "ratingSource": "confirmed",
+      "rank": 78
     },
     {
-      "name": "Inspiring Bard",
+      "name": "Blightpear Ancient",
       "sourceIds": [
-        "cb-027"
+        "cb-239"
       ],
-      "score": 47.0,
-      "rank": 182
+      "score": 68,
+      "ratingSource": "confirmed",
+      "rank": 79
     },
     {
-      "name": "Mystic Herb Seedling",
+      "name": "Brawl Enthusiast",
       "sourceIds": [
-        "cb-029"
+        "cb-268"
       ],
-      "score": 47.0,
-      "rank": 183
+      "score": 68,
+      "ratingSource": "confirmed",
+      "rank": 80
     },
     {
-      "name": "Mystic Herb Vegetative",
+      "name": "Critical (S)hit",
       "sourceIds": [
-        "cb-088"
+        "cb-174"
       ],
-      "score": 47.0,
-      "rank": 184
+      "score": 68,
+      "ratingSource": "confirmed",
+      "rank": 81
     },
     {
-      "name": "Peter, the Stoned Hunter",
+      "name": "Deepwood Abomination",
       "sourceIds": [
-        "cb-298"
+        "cb-264"
       ],
-      "score": 47.0,
-      "rank": 185
+      "score": 68,
+      "ratingSource": "confirmed",
+      "rank": 82
     },
     {
-      "name": "Sofa Pizza",
+      "name": "Natalie, Mother Siren",
       "sourceIds": [
-        "cb-228"
+        "cb-140"
       ],
-      "score": 47.0,
-      "rank": 186
+      "score": 68,
+      "ratingSource": "confirmed",
+      "rank": 83
+    },
+    {
+      "name": "Rotborn Colossus",
+      "sourceIds": [
+        "cb-204"
+      ],
+      "score": 68,
+      "ratingSource": "confirmed",
+      "rank": 84
+    },
+    {
+      "name": "Unpleasant Surprise",
+      "sourceIds": [
+        "cb-155"
+      ],
+      "score": 68,
+      "ratingSource": "confirmed",
+      "rank": 85
+    },
+    {
+      "name": "Big Ball Bluebird",
+      "sourceIds": [
+        "cb-208"
+      ],
+      "score": 67,
+      "ratingSource": "confirmed",
+      "rank": 86
+    },
+    {
+      "name": "Boosted Excitement",
+      "sourceIds": [
+        "cb-191"
+      ],
+      "score": 67,
+      "ratingSource": "confirmed",
+      "rank": 87
+    },
+    {
+      "name": "Culinary Disaster",
+      "sourceIds": [
+        "cb-225"
+      ],
+      "score": 67,
+      "ratingSource": "confirmed",
+      "rank": 88
+    },
+    {
+      "name": "Gnome Loan",
+      "sourceIds": [
+        "cb-145"
+      ],
+      "score": 67,
+      "ratingSource": "confirmed",
+      "rank": 89
+    },
+    {
+      "name": "Honest Laborer",
+      "sourceIds": [
+        "cb-216"
+      ],
+      "score": 67,
+      "ratingSource": "confirmed",
+      "rank": 90
+    },
+    {
+      "name": "The Fallen",
+      "sourceIds": [
+        "cb-200"
+      ],
+      "score": 67,
+      "ratingSource": "confirmed",
+      "rank": 91
+    },
+    {
+      "name": "Bad Drunk",
+      "sourceIds": [
+        "cb-220"
+      ],
+      "score": 66,
+      "ratingSource": "confirmed",
+      "rank": 92
+    },
+    {
+      "name": "Bottomless Keg",
+      "sourceIds": [
+        "cb-131"
+      ],
+      "score": 66,
+      "ratingSource": "confirmed",
+      "rank": 93
+    },
+    {
+      "name": "Cold Splash",
+      "sourceIds": [
+        "cb-129"
+      ],
+      "score": 66,
+      "ratingSource": "confirmed",
+      "rank": 94
+    },
+    {
+      "name": "Mimimi",
+      "sourceIds": [
+        "cb-149"
+      ],
+      "score": 66,
+      "ratingSource": "confirmed",
+      "rank": 95
+    },
+    {
+      "name": "Not Invited",
+      "sourceIds": [
+        "cb-236"
+      ],
+      "score": 66,
+      "ratingSource": "confirmed",
+      "rank": 96
+    },
+    {
+      "name": "Cannabis Field Defender",
+      "sourceIds": [
+        "cb-123"
+      ],
+      "score": 65,
+      "ratingSource": "confirmed",
+      "rank": 97
+    },
+    {
+      "name": "Domina’s Devotee",
+      "sourceIds": [
+        "cb-214"
+      ],
+      "score": 65,
+      "ratingSource": "confirmed",
+      "rank": 98
+    },
+    {
+      "name": "Goblin Party Mob",
+      "sourceIds": [
+        "cb-120"
+      ],
+      "score": 65,
+      "ratingSource": "confirmed",
+      "rank": 99
+    },
+    {
+      "name": "Overstimulated Flora",
+      "sourceIds": [
+        "cb-240"
+      ],
+      "score": 65,
+      "ratingSource": "confirmed",
+      "rank": 100
     },
     {
       "name": "Stink Normale Birnen",
       "sourceIds": [
         "cb-102"
       ],
-      "score": 47.0,
-      "rank": 187
+      "score": 65,
+      "ratingSource": "confirmed",
+      "rank": 101
     },
     {
-      "name": "Tavern Scrapgulper",
+      "name": "Stoned Speech",
       "sourceIds": [
-        "cb-257"
+        "cb-175"
       ],
-      "score": 47.0,
-      "rank": 188
+      "score": 65,
+      "ratingSource": "confirmed",
+      "rank": 102
     },
     {
-      "name": "The Hangry Games",
+      "name": "Strange Allergic Reaction",
       "sourceIds": [
-        "cb-066"
+        "cb-198"
       ],
-      "score": 47.0,
-      "rank": 189
+      "score": 65,
+      "ratingSource": "confirmed",
+      "rank": 103
     },
     {
-      "name": "The Unflushed",
+      "name": "Hairy Surprise",
       "sourceIds": [
-        "cb-121"
+        "cb-105"
       ],
-      "score": 47.0,
-      "rank": 190
+      "score": 64,
+      "ratingSource": "confirmed",
+      "rank": 104
+    },
+    {
+      "name": "Igy's Astronomical Return",
+      "sourceIds": [
+        "cb-205"
+      ],
+      "score": 64,
+      "ratingSource": "confirmed",
+      "rank": 105
+    },
+    {
+      "name": "Just Do it",
+      "sourceIds": [
+        "cb-163"
+      ],
+      "score": 64,
+      "ratingSource": "confirmed",
+      "rank": 106
+    },
+    {
+      "name": "Manipulative Temptress",
+      "sourceIds": [
+        "cb-230"
+      ],
+      "score": 64,
+      "ratingSource": "confirmed",
+      "rank": 107
+    },
+    {
+      "name": "Mystic Herb Buddy",
+      "sourceIds": [
+        "cb-028"
+      ],
+      "score": 64,
+      "ratingSource": "confirmed",
+      "rank": 108
+    },
+    {
+      "name": "Nagging Siren Twin",
+      "sourceIds": [
+        "cb-016"
+      ],
+      "score": 64,
+      "ratingSource": "confirmed",
+      "rank": 109
+    },
+    {
+      "name": "Owizahrer",
+      "sourceIds": [
+        "cb-068"
+      ],
+      "score": 64,
+      "ratingSource": "confirmed",
+      "rank": 110
+    },
+    {
+      "name": "Pushy Pourer",
+      "sourceIds": [
+        "cb-266"
+      ],
+      "score": 64,
+      "ratingSource": "confirmed",
+      "rank": 111
     },
     {
       "name": "Wrathroot Colossus",
       "sourceIds": [
         "cb-259"
       ],
-      "score": 47.0,
-      "rank": 191
+      "score": 64,
+      "ratingSource": "confirmed",
+      "rank": 112
     },
     {
-      "name": "Blood Moon Rising",
+      "name": "Higher Protection",
       "sourceIds": [
-        "cb-086"
+        "cb-313"
       ],
-      "score": 45.0,
-      "rank": 192
+      "score": 63,
+      "ratingSource": "confirmed",
+      "rank": 113
     },
     {
-      "name": "Golden Stethoscope",
+      "name": "Sofa Pizza",
       "sourceIds": [
-        "cb-108"
+        "cb-228"
       ],
-      "score": 45.0,
-      "rank": 193
+      "score": 63,
+      "ratingSource": "confirmed",
+      "rank": 114
     },
     {
-      "name": "Shady Herb Dealer",
+      "name": "Straggler",
       "sourceIds": [
-        "cb-141"
+        "cb-071"
       ],
-      "score": 45.0,
-      "rank": 194
+      "score": 63,
+      "ratingSource": "confirmed",
+      "rank": 115
+    },
+    {
+      "name": "Haze-Fueled Frenzy",
+      "sourceIds": [
+        "cb-314"
+      ],
+      "score": 62,
+      "ratingSource": "confirmed",
+      "rank": 116
+    },
+    {
+      "name": "Improvised Escape",
+      "sourceIds": [
+        "cb-197"
+      ],
+      "score": 62,
+      "ratingSource": "confirmed",
+      "rank": 117
+    },
+    {
+      "name": "Loyal Watchdog",
+      "sourceIds": [
+        "cb-119"
+      ],
+      "score": 62,
+      "ratingSource": "confirmed",
+      "rank": 118
+    },
+    {
+      "name": "Peter, the Manipulative",
+      "sourceIds": [
+        "cb-284"
+      ],
+      "score": 62,
+      "ratingSource": "confirmed",
+      "rank": 119
+    },
+    {
+      "name": "Shut up",
+      "sourceIds": [
+        "cb-151"
+      ],
+      "score": 62,
+      "ratingSource": "confirmed",
+      "rank": 120
     },
     {
       "name": "Spar’s Bazaar",
@@ -1573,695 +1101,1448 @@
         "cb-067",
         "cb-095"
       ],
-      "score": 45.0,
-      "rank": 195
-    },
-    {
-      "name": "Stefan, the Eternal Annoyer",
-      "sourceIds": [
-        "cb-286"
-      ],
-      "score": 45.0,
-      "rank": 196
-    },
-    {
-      "name": "Chaotic Council",
-      "sourceIds": [
-        "cb-055"
-      ],
-      "score": 44.0,
-      "rank": 197
-    },
-    {
-      "name": "Deepwood Abomination",
-      "sourceIds": [
-        "cb-264"
-      ],
-      "score": 44.0,
-      "rank": 198
-    },
-    {
-      "name": "Enraged Reef Leviathan",
-      "sourceIds": [
-        "cb-014"
-      ],
-      "score": 44.0,
-      "rank": 199
-    },
-    {
-      "name": "The Executioner",
-      "sourceIds": [
-        "cb-261"
-      ],
-      "score": 44.0,
-      "rank": 200
-    },
-    {
-      "name": "A Place to Stay",
-      "sourceIds": [
-        "cb-177"
-      ],
-      "score": 43.0,
-      "rank": 201
-    },
-    {
-      "name": "Austrian Slap",
-      "sourceIds": [
-        "cb-209"
-      ],
-      "score": 43.0,
-      "rank": 202
-    },
-    {
-      "name": "Blue Cow",
-      "sourceIds": [
-        "cb-096"
-      ],
-      "score": 43.0,
-      "rank": 203
-    },
-    {
-      "name": "Blunt Force Trauma",
-      "sourceIds": [
-        "cb-024"
-      ],
-      "score": 43.0,
-      "rank": 204
-    },
-    {
-      "name": "Boosted Excitement",
-      "sourceIds": [
-        "cb-191"
-      ],
-      "score": 43.0,
-      "rank": 205
-    },
-    {
-      "name": "Bottle Bash",
-      "sourceIds": [
-        "cb-117"
-      ],
-      "score": 43.0,
-      "rank": 206
-    },
-    {
-      "name": "Brotherhoods Impact",
-      "sourceIds": [
-        "cb-094"
-      ],
-      "score": 43.0,
-      "rank": 207
+      "score": 62,
+      "ratingSource": "confirmed",
+      "rank": 121
     },
     {
       "name": "Celestial Waters",
       "sourceIds": [
         "cb-041"
       ],
-      "score": 43.0,
-      "rank": 208
+      "score": 61,
+      "ratingSource": "confirmed",
+      "rank": 122
     },
     {
-      "name": "Circular Conversation",
+      "name": "Charming Siren",
       "sourceIds": [
-        "cb-013"
+        "cb-012"
       ],
-      "score": 43.0,
-      "rank": 209
+      "score": 61,
+      "ratingSource": "confirmed",
+      "rank": 123
     },
     {
-      "name": "Closing Hour",
+      "name": "Frühshoppen",
       "sourceIds": [
-        "cb-185"
+        "cb-278"
       ],
-      "score": 43.0,
-      "rank": 210
+      "score": 61,
+      "ratingSource": "confirmed",
+      "rank": 124
     },
     {
-      "name": "Controlling Relationship",
+      "name": "Hungry Disgust",
       "sourceIds": [
-        "cb-074"
+        "cb-069"
       ],
-      "score": 43.0,
-      "rank": 211
+      "score": 61,
+      "ratingSource": "confirmed",
+      "rank": 125
     },
     {
-      "name": "Critical (S)hit",
+      "name": "Marlene, the Leader",
       "sourceIds": [
-        "cb-174"
+        "cb-157"
       ],
-      "score": 43.0,
-      "rank": 212
+      "score": 61,
+      "ratingSource": "confirmed",
+      "rank": 126
     },
     {
-      "name": "Desperate Foraging",
+      "name": "Max, the Sniper",
       "sourceIds": [
-        "cb-255"
+        "cb-160"
       ],
-      "score": 43.0,
-      "rank": 213
+      "score": 61,
+      "ratingSource": "confirmed",
+      "rank": 127
     },
     {
-      "name": "Du gibst dem Baby a Müch",
+      "name": "Rotten Cellar",
       "sourceIds": [
-        "cb-124"
+        "cb-090"
       ],
-      "score": 43.0,
-      "rank": 214
-    },
-    {
-      "name": "Echo of Empathy",
-      "sourceIds": [
-        "cb-073"
-      ],
-      "score": 43.0,
-      "rank": 215
-    },
-    {
-      "name": "Fill Em Up",
-      "sourceIds": [
-        "cb-173"
-      ],
-      "score": 43.0,
-      "rank": 216
-    },
-    {
-      "name": "Frozen Taps",
-      "sourceIds": [
-        "cb-194"
-      ],
-      "score": 43.0,
-      "rank": 217
-    },
-    {
-      "name": "Gonorrhea",
-      "sourceIds": [
-        "cb-217"
-      ],
-      "score": 43.0,
-      "rank": 218
-    },
-    {
-      "name": "Grinder",
-      "sourceIds": [
-        "cb-201"
-      ],
-      "score": 43.0,
-      "rank": 219
-    },
-    {
-      "name": "Hairy Surprise",
-      "sourceIds": [
-        "cb-105"
-      ],
-      "score": 43.0,
-      "rank": 220
-    },
-    {
-      "name": "Hangover",
-      "sourceIds": [
-        "cb-128"
-      ],
-      "score": 43.0,
-      "rank": 221
-    },
-    {
-      "name": "Hangry",
-      "sourceIds": [
-        "cb-063"
-      ],
-      "score": 43.0,
-      "rank": 222
-    },
-    {
-      "name": "Haze-Fueled Frenzy",
-      "sourceIds": [
-        "cb-314"
-      ],
-      "score": 43.0,
-      "rank": 223
-    },
-    {
-      "name": "Hexenschuss",
-      "sourceIds": [
-        "cb-178"
-      ],
-      "score": 43.0,
-      "rank": 224
-    },
-    {
-      "name": "Higher Protection",
-      "sourceIds": [
-        "cb-313"
-      ],
-      "score": 43.0,
-      "rank": 225
-    },
-    {
-      "name": "Homemade Paranoia",
-      "sourceIds": [
-        "cb-164"
-      ],
-      "score": 43.0,
-      "rank": 226
-    },
-    {
-      "name": "Hosn Owe",
-      "sourceIds": [
-        "cb-196"
-      ],
-      "score": 43.0,
-      "rank": 227
-    },
-    {
-      "name": "Igy's Astronomical Return",
-      "sourceIds": [
-        "cb-205"
-      ],
-      "score": 43.0,
-      "rank": 228
-    },
-    {
-      "name": "Last Duel",
-      "sourceIds": [
-        "cb-060"
-      ],
-      "score": 43.0,
-      "rank": 229
-    },
-    {
-      "name": "Library of Shared Memories",
-      "sourceIds": [
-        "cb-097"
-      ],
-      "score": 43.0,
-      "rank": 230
-    },
-    {
-      "name": "MAGAZIN!",
-      "sourceIds": [
-        "cb-152"
-      ],
-      "score": 43.0,
-      "rank": 231
-    },
-    {
-      "name": "Magical Bucket Pump",
-      "sourceIds": [
-        "cb-153"
-      ],
-      "score": 43.0,
-      "rank": 232
-    },
-    {
-      "name": "Maternal Instinct",
-      "sourceIds": [
-        "cb-312"
-      ],
-      "score": 43.0,
-      "rank": 233
-    },
-    {
-      "name": "Mimimi",
-      "sourceIds": [
-        "cb-149"
-      ],
-      "score": 43.0,
-      "rank": 234
-    },
-    {
-      "name": "Mysterious Remedy",
-      "sourceIds": [
-        "cb-059"
-      ],
-      "score": 43.0,
-      "rank": 235
-    },
-    {
-      "name": "Noxious Cloud",
-      "sourceIds": [
-        "cb-049"
-      ],
-      "score": 43.0,
-      "rank": 236
-    },
-    {
-      "name": "Nutshot overload",
-      "sourceIds": [
-        "cb-017"
-      ],
-      "score": 43.0,
-      "rank": 237
-    },
-    {
-      "name": "Overdose Revival",
-      "sourceIds": [
-        "cb-061"
-      ],
-      "score": 43.0,
-      "rank": 238
-    },
-    {
-      "name": "Overgrown Fermentation Beds",
-      "sourceIds": [
-        "cb-135"
-      ],
-      "score": 43.0,
-      "rank": 239
-    },
-    {
-      "name": "Paladin’s Nose Protection",
-      "sourceIds": [
-        "cb-106"
-      ],
-      "score": 43.0,
-      "rank": 240
-    },
-    {
-      "name": "Parsley Root",
-      "sourceIds": [
-        "cb-040"
-      ],
-      "score": 43.0,
-      "rank": 241
+      "score": 61,
+      "ratingSource": "confirmed",
+      "rank": 128
     },
     {
       "name": "Rowdy Tavern",
       "sourceIds": [
         "cb-091"
       ],
-      "score": 43.0,
-      "rank": 242
-    },
-    {
-      "name": "Shut up",
-      "sourceIds": [
-        "cb-151"
-      ],
-      "score": 43.0,
-      "rank": 243
-    },
-    {
-      "name": "Stoned Speech",
-      "sourceIds": [
-        "cb-175"
-      ],
-      "score": 43.0,
-      "rank": 244
-    },
-    {
-      "name": "Strange Allergic Reaction",
-      "sourceIds": [
-        "cb-198"
-      ],
-      "score": 43.0,
-      "rank": 245
-    },
-    {
-      "name": "Take a Sniff",
-      "sourceIds": [
-        "cb-222"
-      ],
-      "score": 43.0,
-      "rank": 246
-    },
-    {
-      "name": "Tavern Time Out",
-      "sourceIds": [
-        "cb-078"
-      ],
-      "score": 43.0,
-      "rank": 247
-    },
-    {
-      "name": "The Tipsy Ram",
-      "sourceIds": [
-        "cb-009"
-      ],
-      "score": 43.0,
-      "rank": 248
-    },
-    {
-      "name": "Toast of Comfort",
-      "sourceIds": [
-        "cb-010"
-      ],
-      "score": 43.0,
-      "rank": 249
-    },
-    {
-      "name": "Too Drunk to Dodge",
-      "sourceIds": [
-        "cb-130"
-      ],
-      "score": 43.0,
-      "rank": 250
-    },
-    {
-      "name": "Vandalism",
-      "sourceIds": [
-        "cb-082"
-      ],
-      "score": 43.0,
-      "rank": 251
-    },
-    {
-      "name": "Attention Seeker",
-      "sourceIds": [
-        "cb-221"
-      ],
-      "score": 41.0,
-      "rank": 252
-    },
-    {
-      "name": "Canonball Carl",
-      "sourceIds": [
-        "cb-233"
-      ],
-      "score": 41.0,
-      "rank": 253
-    },
-    {
-      "name": "Fat Felicia",
-      "sourceIds": [
-        "cb-206"
-      ],
-      "score": 41.0,
-      "rank": 254
+      "score": 61,
+      "ratingSource": "confirmed",
+      "rank": 129
     },
     {
       "name": "Siren Raiders",
       "sourceIds": [
         "cb-260"
       ],
-      "score": 41.0,
-      "rank": 255
+      "score": 61,
+      "ratingSource": "confirmed",
+      "rank": 130
     },
     {
-      "name": "Wixbirne",
+      "name": "Wake and Bake",
       "sourceIds": [
-        "cb-003"
+        "cb-034"
       ],
-      "score": 41.0,
-      "rank": 256
+      "score": 61,
+      "ratingSource": "confirmed",
+      "rank": 131
     },
     {
-      "name": "Alex, the Cozy",
+      "name": "Zimty",
       "sourceIds": [
-        "cb-287"
+        "cb-087"
       ],
-      "score": 40.0,
-      "rank": 257
+      "score": 61,
+      "ratingSource": "confirmed",
+      "rank": 132
     },
     {
-      "name": "Baked Ham Noodle Casserole",
+      "name": "Designated Driver",
       "sourceIds": [
-        "cb-100"
+        "cb-176"
       ],
-      "score": 40.0,
-      "rank": 258
+      "score": 60,
+      "ratingSource": "confirmed",
+      "rank": 133
     },
     {
-      "name": "Bochana Jugobeidl",
+      "name": "Kegbearer",
       "sourceIds": [
-        "cb-104"
+        "cb-023"
       ],
-      "score": 40.0,
-      "rank": 259
+      "score": 60,
+      "ratingSource": "confirmed",
+      "rank": 134
     },
     {
-      "name": "Bromoment",
+      "name": "MAGAZIN!",
       "sourceIds": [
-        "cb-085"
+        "cb-152"
       ],
-      "score": 40.0,
-      "rank": 260
+      "score": 60,
+      "ratingSource": "confirmed",
+      "rank": 135
     },
     {
-      "name": "Coffee Shop",
+      "name": "Maternal Instinct",
       "sourceIds": [
-        "cb-080"
+        "cb-312"
       ],
-      "score": 40.0,
-      "rank": 261
-    },
-    {
-      "name": "Gastronomic Downfall",
-      "sourceIds": [
-        "cb-279"
-      ],
-      "score": 40.0,
-      "rank": 262
-    },
-    {
-      "name": "Milk",
-      "sourceIds": [
-        "cb-125"
-      ],
-      "score": 40.0,
-      "rank": 263
+      "score": 60,
+      "ratingSource": "confirmed",
+      "rank": 136
     },
     {
       "name": "Mixed Grill Platter",
       "sourceIds": [
         "cb-103"
       ],
-      "score": 40.0,
-      "rank": 264
+      "score": 60,
+      "ratingSource": "confirmed",
+      "rank": 137
     },
     {
-      "name": "Overdose",
+      "name": "Mom's advice",
       "sourceIds": [
-        "cb-019"
+        "cb-015"
       ],
-      "score": 40,
-      "rank": 265
+      "score": 60,
+      "ratingSource": "confirmed",
+      "rank": 138
     },
     {
-      "name": "Rollercoaster of Emotions",
+      "name": "Ogrontwin Pete",
       "sourceIds": [
-        "cb-282"
+        "cb-084"
       ],
-      "score": 40.0,
-      "rank": 266
+      "score": 60,
+      "ratingSource": "confirmed",
+      "rank": 139
+    },
+    {
+      "name": "Ogrontwin Steve",
+      "sourceIds": [
+        "cb-083"
+      ],
+      "score": 60,
+      "ratingSource": "confirmed",
+      "rank": 140
+    },
+    {
+      "name": "Ravenous Trollkin",
+      "sourceIds": [
+        "cb-241"
+      ],
+      "score": 60,
+      "ratingSource": "confirmed",
+      "rank": 141
+    },
+    {
+      "name": "Soul Eater Siren",
+      "sourceIds": [
+        "cb-099"
+      ],
+      "score": 60,
+      "ratingSource": "confirmed",
+      "rank": 142
+    },
+    {
+      "name": "Tavern Hand",
+      "sourceIds": [
+        "cb-079"
+      ],
+      "score": 60,
+      "ratingSource": "confirmed",
+      "rank": 143
+    },
+    {
+      "name": "Barmaid",
+      "sourceIds": [
+        "cb-234"
+      ],
+      "score": 59,
+      "ratingSource": "confirmed",
+      "rank": 144
+    },
+    {
+      "name": "Fat Felicia",
+      "sourceIds": [
+        "cb-206"
+      ],
+      "score": 59,
+      "ratingSource": "confirmed",
+      "rank": 145
+    },
+    {
+      "name": "Mystic Herb Vegetative",
+      "sourceIds": [
+        "cb-088"
+      ],
+      "score": 59,
+      "ratingSource": "confirmed",
+      "rank": 146
+    },
+    {
+      "name": "Chaotic Council",
+      "sourceIds": [
+        "cb-055"
+      ],
+      "score": 58,
+      "ratingSource": "confirmed",
+      "rank": 147
+    },
+    {
+      "name": "Magical Bucket Pump",
+      "sourceIds": [
+        "cb-153"
+      ],
+      "score": 58,
+      "ratingSource": "confirmed",
+      "rank": 148
+    },
+    {
+      "name": "Nagging Little Sister",
+      "sourceIds": [
+        "cb-229"
+      ],
+      "score": 58,
+      "ratingSource": "confirmed",
+      "rank": 149
+    },
+    {
+      "name": "Professional Drunk",
+      "sourceIds": [
+        "cb-267"
+      ],
+      "score": 58,
+      "ratingSource": "confirmed",
+      "rank": 150
+    },
+    {
+      "name": "Puzzlemaster's Grimoire",
+      "sourceIds": [
+        "cb-093"
+      ],
+      "score": 58,
+      "ratingSource": "confirmed",
+      "rank": 151
+    },
+    {
+      "name": "Closing Hour",
+      "sourceIds": [
+        "cb-185"
+      ],
+      "score": 57,
+      "ratingSource": "confirmed",
+      "rank": 152
+    },
+    {
+      "name": "Golden Stethoscope",
+      "sourceIds": [
+        "cb-108"
+      ],
+      "score": 57,
+      "ratingSource": "confirmed",
+      "rank": 153
+    },
+    {
+      "name": "Mutating Sapling",
+      "sourceIds": [
+        "cb-142"
+      ],
+      "score": 57,
+      "ratingSource": "confirmed",
+      "rank": 154
+    },
+    {
+      "name": "Mystic Herb Seedling",
+      "sourceIds": [
+        "cb-029"
+      ],
+      "score": 57,
+      "ratingSource": "confirmed",
+      "rank": 155
+    },
+    {
+      "name": "Tavern Bouncer",
+      "sourceIds": [
+        "cb-180"
+      ],
+      "score": 57,
+      "ratingSource": "confirmed",
+      "rank": 156
+    },
+    {
+      "name": "The Good Stuff",
+      "sourceIds": [
+        "cb-148"
+      ],
+      "score": 57,
+      "ratingSource": "confirmed",
+      "rank": 157
+    },
+    {
+      "name": "Distant Cousin Stinkpot",
+      "sourceIds": [
+        "cb-112"
+      ],
+      "score": 56,
+      "ratingSource": "confirmed",
+      "rank": 158
+    },
+    {
+      "name": "Have a Beer, or Three",
+      "sourceIds": [
+        "cb-171"
+      ],
+      "score": 56,
+      "ratingSource": "confirmed",
+      "rank": 159
+    },
+    {
+      "name": "Lecherous Patron",
+      "sourceIds": [
+        "cb-210"
+      ],
+      "score": 56,
+      "ratingSource": "confirmed",
+      "rank": 160
+    },
+    {
+      "name": "Provoker",
+      "sourceIds": [
+        "cb-193"
+      ],
+      "score": 56,
+      "ratingSource": "confirmed",
+      "rank": 161
+    },
+    {
+      "name": "Robin, the Pusher",
+      "sourceIds": [
+        "cb-158"
+      ],
+      "score": 56,
+      "ratingSource": "confirmed",
+      "rank": 162
     },
     {
       "name": "Sarma",
       "sourceIds": [
         "cb-098"
       ],
-      "score": 40.0,
-      "rank": 267
+      "score": 56,
+      "ratingSource": "confirmed",
+      "rank": 163
     },
     {
-      "name": "Sleepless Night",
+      "name": "Fill Em Up",
       "sourceIds": [
-        "cb-150"
+        "cb-173"
       ],
-      "score": 40.0,
-      "rank": 268
+      "score": 55,
+      "ratingSource": "confirmed",
+      "rank": 164
     },
     {
-      "name": "Stingats Gsöchts",
+      "name": "Hitman",
       "sourceIds": [
-        "cb-227"
+        "cb-224"
       ],
-      "score": 40.0,
-      "rank": 269
+      "score": 55,
+      "ratingSource": "confirmed",
+      "rank": 165
     },
     {
-      "name": "Summon the Squad",
+      "name": "Midnight Fridge Raider",
       "sourceIds": [
-        "cb-162"
+        "cb-223"
       ],
-      "score": 40.0,
-      "rank": 270
+      "score": 55,
+      "ratingSource": "confirmed",
+      "rank": 166
     },
     {
-      "name": "Tactical Purge",
+      "name": "Nutshot overload",
       "sourceIds": [
-        "cb-058"
+        "cb-017"
       ],
-      "score": 40.0,
-      "rank": 271
+      "score": 55,
+      "ratingSource": "confirmed",
+      "rank": 167
     },
     {
-      "name": "Unpleasant Surprise",
+      "name": "Undercity Back Room",
       "sourceIds": [
-        "cb-155"
+        "cb-134"
       ],
-      "score": 40.0,
-      "rank": 272
+      "score": 55,
+      "ratingSource": "confirmed",
+      "rank": 168
     },
     {
-      "name": "White Sausage Leberkäse",
+      "name": "Zigeuner-Duo",
       "sourceIds": [
-        "cb-101"
+        "cb-202"
       ],
-      "score": 40.0,
-      "rank": 273
+      "score": 55,
+      "ratingSource": "confirmed",
+      "rank": 169
     },
     {
-      "name": "Youthful Inner Heat",
+      "name": "Baked Ham Noodle Casserole",
       "sourceIds": [
-        "cb-056"
+        "cb-100"
       ],
-      "score": 40.0,
-      "rank": 274
+      "score": 54,
+      "ratingSource": "confirmed",
+      "rank": 170
+    },
+    {
+      "name": "Brawl Encourager",
+      "sourceIds": [
+        "cb-270"
+      ],
+      "score": 54,
+      "ratingSource": "confirmed",
+      "rank": 171
+    },
+    {
+      "name": "Endless Expectations",
+      "sourceIds": [
+        "cb-054"
+      ],
+      "score": 54,
+      "ratingSource": "confirmed",
+      "rank": 172
+    },
+    {
+      "name": "Experimental Invention",
+      "sourceIds": [
+        "cb-195"
+      ],
+      "score": 54,
+      "ratingSource": "confirmed",
+      "rank": 173
+    },
+    {
+      "name": "Overgrown Fermentation Beds",
+      "sourceIds": [
+        "cb-135"
+      ],
+      "score": 53,
+      "ratingSource": "confirmed",
+      "rank": 174
+    },
+    {
+      "name": "Ragebait",
+      "sourceIds": [
+        "cb-311"
+      ],
+      "score": 53,
+      "ratingSource": "confirmed",
+      "rank": 175
+    },
+    {
+      "name": "Shady Herb Dealer",
+      "sourceIds": [
+        "cb-141"
+      ],
+      "score": 53,
+      "ratingSource": "confirmed",
+      "rank": 176
+    },
+    {
+      "name": "Tavern Slot Machine",
+      "sourceIds": [
+        "cb-215"
+      ],
+      "score": 53,
+      "ratingSource": "confirmed",
+      "rank": 177
+    },
+    {
+      "name": "Devious Duo",
+      "sourceIds": [
+        "cb-207"
+      ],
+      "score": 52,
+      "ratingSource": "confirmed",
+      "rank": 178
     },
     {
       "name": "Escalating Adventurer",
       "sourceIds": [
         "cb-262"
       ],
-      "score": 38.0,
-      "rank": 275
+      "score": 52,
+      "ratingSource": "confirmed",
+      "rank": 179
     },
     {
-      "name": "Goblin Party Mob",
+      "name": "Jealous Siren",
       "sourceIds": [
-        "cb-120"
+        "cb-053"
       ],
-      "score": 37.0,
-      "rank": 276
+      "score": 52,
+      "ratingSource": "confirmed",
+      "rank": 180
+    },
+    {
+      "name": "The Tipsy Ram",
+      "sourceIds": [
+        "cb-009"
+      ],
+      "score": 52,
+      "ratingSource": "confirmed",
+      "rank": 181
+    },
+    {
+      "name": "Wagon Enthusiast",
+      "sourceIds": [
+        "cb-309"
+      ],
+      "score": 52,
+      "ratingSource": "confirmed",
+      "rank": 182
+    },
+    {
+      "name": "Wobbly Gnome",
+      "sourceIds": [
+        "cb-132"
+      ],
+      "score": 52,
+      "ratingSource": "confirmed",
+      "rank": 183
+    },
+    {
+      "name": "Enraged Reef Leviathan",
+      "sourceIds": [
+        "cb-014"
+      ],
+      "score": 51,
+      "ratingSource": "confirmed",
+      "rank": 184
+    },
+    {
+      "name": "Fighting Pit Champion",
+      "sourceIds": [
+        "cb-263"
+      ],
+      "score": 51,
+      "ratingSource": "confirmed",
+      "rank": 185
+    },
+    {
+      "name": "Still Good",
+      "sourceIds": [
+        "cb-226"
+      ],
+      "score": 51,
+      "ratingSource": "confirmed",
+      "rank": 186
+    },
+    {
+      "name": "Tavern Scrapgulper",
+      "sourceIds": [
+        "cb-257"
+      ],
+      "score": 51,
+      "ratingSource": "confirmed",
+      "rank": 187
+    },
+    {
+      "name": "Nutten und Koks",
+      "sourceIds": [
+        "cb-002"
+      ],
+      "score": 50,
+      "ratingSource": "confirmed",
+      "rank": 188
+    },
+    {
+      "name": "Overdose Revival",
+      "sourceIds": [
+        "cb-061"
+      ],
+      "score": 50,
+      "ratingSource": "confirmed",
+      "rank": 189
+    },
+    {
+      "name": "Distant Cousin Windtongue",
+      "sourceIds": [
+        "cb-110"
+      ],
+      "score": 49,
+      "ratingSource": "confirmed",
+      "rank": 190
+    },
+    {
+      "name": "Hosn Owe",
+      "sourceIds": [
+        "cb-196"
+      ],
+      "score": 49,
+      "ratingSource": "confirmed",
+      "rank": 191
+    },
+    {
+      "name": "Numbing Mass Resurrection",
+      "sourceIds": [
+        "cb-062"
+      ],
+      "score": 49,
+      "ratingSource": "confirmed",
+      "rank": 192
+    },
+    {
+      "name": "Blue Cow",
+      "sourceIds": [
+        "cb-096"
+      ],
+      "score": 48,
+      "ratingSource": "confirmed",
+      "rank": 193
+    },
+    {
+      "name": "Laughing fit",
+      "sourceIds": [
+        "cb-092"
+      ],
+      "score": 48,
+      "ratingSource": "confirmed",
+      "rank": 194
+    },
+    {
+      "name": "Academic Quarter",
+      "sourceIds": [
+        "cb-070"
+      ],
+      "score": 47,
+      "ratingSource": "confirmed",
+      "rank": 195
+    },
+    {
+      "name": "Drunkard",
+      "sourceIds": [
+        "cb-020"
+      ],
+      "score": 47,
+      "ratingSource": "confirmed",
+      "rank": 196
+    },
+    {
+      "name": "Raging Alcoholic",
+      "sourceIds": [
+        "cb-089"
+      ],
+      "score": 47,
+      "ratingSource": "confirmed",
+      "rank": 197
+    },
+    {
+      "name": "Ale Addict",
+      "sourceIds": [
+        "cb-218"
+      ],
+      "score": 46,
+      "ratingSource": "confirmed",
+      "rank": 198
+    },
+    {
+      "name": "Ice Cold Siren",
+      "sourceIds": [
+        "cb-033"
+      ],
+      "score": 46,
+      "ratingSource": "confirmed",
+      "rank": 199
+    },
+    {
+      "name": "Lena, the Silent One",
+      "sourceIds": [
+        "cb-138"
+      ],
+      "score": 46,
+      "ratingSource": "confirmed",
+      "rank": 200
+    },
+    {
+      "name": "Trained Drinker",
+      "sourceIds": [
+        "cb-256"
+      ],
+      "score": 46,
+      "ratingSource": "confirmed",
+      "rank": 201
+    },
+    {
+      "name": "Weedfield Grazer",
+      "sourceIds": [
+        "cb-077"
+      ],
+      "score": 46,
+      "ratingSource": "confirmed",
+      "rank": 202
+    },
+    {
+      "name": "Wild Fermentation",
+      "sourceIds": [
+        "cb-254"
+      ],
+      "score": 46,
+      "ratingSource": "confirmed",
+      "rank": 203
+    },
+    {
+      "name": "Information Broker",
+      "sourceIds": [
+        "cb-237"
+      ],
+      "score": 45,
+      "ratingSource": "confirmed",
+      "rank": 204
+    },
+    {
+      "name": "Puff Mama",
+      "sourceIds": [
+        "cb-213"
+      ],
+      "score": 45,
+      "ratingSource": "confirmed",
+      "rank": 205
+    },
+    {
+      "name": "Always With Us",
+      "sourceIds": [
+        "cb-186"
+      ],
+      "score": 44,
+      "ratingSource": "confirmed",
+      "rank": 206
+    },
+    {
+      "name": "Ball Scratching",
+      "sourceIds": [
+        "cb-310"
+      ],
+      "score": 44,
+      "ratingSource": "confirmed",
+      "rank": 207
+    },
+    {
+      "name": "Brotherhoods Impact",
+      "sourceIds": [
+        "cb-094"
+      ],
+      "score": 44,
+      "ratingSource": "confirmed",
+      "rank": 208
+    },
+    {
+      "name": "Devoted Homebody",
+      "sourceIds": [
+        "cb-219"
+      ],
+      "score": 44,
+      "ratingSource": "confirmed",
+      "rank": 209
+    },
+    {
+      "name": "Tavern Medic",
+      "sourceIds": [
+        "cb-181"
+      ],
+      "score": 44,
+      "ratingSource": "confirmed",
+      "rank": 210
+    },
+    {
+      "name": "Gonorrhea",
+      "sourceIds": [
+        "cb-217"
+      ],
+      "score": 43,
+      "ratingSource": "confirmed",
+      "rank": 211
+    },
+    {
+      "name": "Inspiring Bard",
+      "sourceIds": [
+        "cb-027"
+      ],
+      "score": 43,
+      "ratingSource": "confirmed",
+      "rank": 212
+    },
+    {
+      "name": "Recycle",
+      "sourceIds": [
+        "cb-184"
+      ],
+      "score": 43,
+      "ratingSource": "confirmed",
+      "rank": 213
+    },
+    {
+      "name": "Untamable Grove Colossus",
+      "sourceIds": [
+        "cb-137"
+      ],
+      "score": 43,
+      "ratingSource": "confirmed",
+      "rank": 214
     },
     {
       "name": "Wedding Ring",
       "sourceIds": [
         "cb-154"
       ],
+      "score": 43,
+      "ratingSource": "confirmed",
+      "rank": 215
+    },
+    {
+      "name": "Last Duel",
+      "sourceIds": [
+        "cb-060"
+      ],
+      "score": 42,
+      "ratingSource": "confirmed",
+      "rank": 216
+    },
+    {
+      "name": "Sleepless Night",
+      "sourceIds": [
+        "cb-150"
+      ],
+      "score": 42,
+      "ratingSource": "confirmed",
+      "rank": 217
+    },
+    {
+      "name": "Too Drunk to Dodge",
+      "sourceIds": [
+        "cb-130"
+      ],
+      "score": 42,
+      "ratingSource": "confirmed",
+      "rank": 218
+    },
+    {
+      "name": "Flatfooted",
+      "sourceIds": [
+        "cb-057"
+      ],
+      "score": 41,
+      "ratingSource": "confirmed",
+      "rank": 219
+    },
+    {
+      "name": "Tavern Time Out",
+      "sourceIds": [
+        "cb-078"
+      ],
+      "score": 41,
+      "ratingSource": "confirmed",
+      "rank": 220
+    },
+    {
+      "name": "Bochana Jugobeidl",
+      "sourceIds": [
+        "cb-104"
+      ],
+      "score": 40,
+      "ratingSource": "confirmed",
+      "rank": 221
+    },
+    {
+      "name": "Desperate Foraging",
+      "sourceIds": [
+        "cb-255"
+      ],
+      "score": 40,
+      "ratingSource": "confirmed",
+      "rank": 222
+    },
+    {
+      "name": "Süüü, the Fourth Child",
+      "sourceIds": [
+        "cb-143"
+      ],
+      "score": 40,
+      "ratingSource": "confirmed",
+      "rank": 223
+    },
+    {
+      "name": "Tschuschnpfeiferl",
+      "sourceIds": [
+        "cb-109"
+      ],
+      "score": 40,
+      "ratingSource": "confirmed",
+      "rank": 224
+    },
+    {
+      "name": "Circular Conversation",
+      "sourceIds": [
+        "cb-013"
+      ],
+      "score": 39,
+      "ratingSource": "confirmed",
+      "rank": 225
+    },
+    {
+      "name": "Cold Water Coward",
+      "sourceIds": [
+        "cb-231"
+      ],
+      "score": 39,
+      "ratingSource": "confirmed",
+      "rank": 226
+    },
+    {
+      "name": "Let’s Fucking Go",
+      "sourceIds": [
+        "cb-161"
+      ],
+      "score": 39,
+      "ratingSource": "confirmed",
+      "rank": 227
+    },
+    {
+      "name": "Tavern Hearthkeeper",
+      "sourceIds": [
+        "cb-258"
+      ],
+      "score": 39,
+      "ratingSource": "confirmed",
+      "rank": 228
+    },
+    {
+      "name": "A Wife's Argument",
+      "sourceIds": [
+        "cb-011"
+      ],
+      "score": 38,
+      "ratingSource": "confirmed",
+      "rank": 229
+    },
+    {
+      "name": "Coastal Watchman",
+      "sourceIds": [
+        "cb-235"
+      ],
+      "score": 38,
+      "ratingSource": "confirmed",
+      "rank": 230
+    },
+    {
+      "name": "Roadside Distraction",
+      "sourceIds": [
+        "cb-170"
+      ],
+      "score": 38,
+      "ratingSource": "confirmed",
+      "rank": 231
+    },
+    {
+      "name": "The Rake",
+      "sourceIds": [
+        "cb-147"
+      ],
+      "score": 38,
+      "ratingSource": "confirmed",
+      "rank": 232
+    },
+    {
+      "name": "Vandalism",
+      "sourceIds": [
+        "cb-082"
+      ],
+      "score": 38,
+      "ratingSource": "confirmed",
+      "rank": 233
+    },
+    {
+      "name": "Tactical Purge",
+      "sourceIds": [
+        "cb-058"
+      ],
       "score": 37,
-      "rank": 277
+      "ratingSource": "confirmed",
+      "rank": 234
     },
     {
-      "name": "A Week of Excess",
+      "name": "Wixbirne",
       "sourceIds": [
-        "cb-280"
+        "cb-003"
       ],
-      "score": 36.0,
-      "rank": 278
+      "score": 37,
+      "ratingSource": "confirmed",
+      "rank": 235
     },
     {
-      "name": "Feuerball, Junge!",
+      "name": "Rowdy Riot",
       "sourceIds": [
-        "cb-038"
+        "cb-127"
       ],
-      "score": 30.0,
-      "rank": 279
+      "score": 36,
+      "ratingSource": "confirmed",
+      "rank": 236
     },
     {
-      "name": "Gimme the herbs",
+      "name": "The Blessed Hideaway",
       "sourceIds": [
-        "cb-025"
+        "cb-169"
+      ],
+      "score": 36,
+      "ratingSource": "confirmed",
+      "rank": 237
+    },
+    {
+      "name": "Youthful Inner Heat",
+      "sourceIds": [
+        "cb-056"
+      ],
+      "score": 36,
+      "ratingSource": "confirmed",
+      "rank": 238
+    },
+    {
+      "name": "Server Veteran",
+      "sourceIds": [
+        "cb-271"
+      ],
+      "score": 35,
+      "ratingSource": "confirmed",
+      "rank": 239
+    },
+    {
+      "name": "Stefan, the Eternal Annoyer",
+      "sourceIds": [
+        "cb-286"
+      ],
+      "score": 35,
+      "ratingSource": "confirmed",
+      "rank": 240
+    },
+    {
+      "name": "Indica Hedge",
+      "sourceIds": [
+        "cb-122"
+      ],
+      "score": 34,
+      "ratingSource": "confirmed",
+      "rank": 241
+    },
+    {
+      "name": "Sweet Harmless Siren",
+      "sourceIds": [
+        "cb-064"
+      ],
+      "score": 34,
+      "ratingSource": "confirmed",
+      "rank": 242
+    },
+    {
+      "name": "Buy a Round",
+      "sourceIds": [
+        "cb-006"
+      ],
+      "score": 33,
+      "ratingSource": "confirmed",
+      "rank": 243
+    },
+    {
+      "name": "Questionable First Responder",
+      "sourceIds": [
+        "cb-272"
+      ],
+      "score": 33,
+      "ratingSource": "confirmed",
+      "rank": 244
+    },
+    {
+      "name": "Mystic Hotbox Hut",
+      "sourceIds": [
+        "cb-030"
+      ],
+      "score": 32,
+      "ratingSource": "confirmed",
+      "rank": 245
+    },
+    {
+      "name": "Drunken Warrior",
+      "sourceIds": [
+        "cb-021"
+      ],
+      "score": 31,
+      "ratingSource": "confirmed",
+      "rank": 246
+    },
+    {
+      "name": "Hangry",
+      "sourceIds": [
+        "cb-063"
+      ],
+      "score": 31,
+      "ratingSource": "confirmed",
+      "rank": 247
+    },
+    {
+      "name": "Hanna, Nature’s Siren",
+      "sourceIds": [
+        "cb-139"
+      ],
+      "score": 31,
+      "ratingSource": "confirmed",
+      "rank": 248
+    },
+    {
+      "name": "The Mind",
+      "sourceIds": [
+        "cb-190"
+      ],
+      "score": 30,
+      "ratingSource": "confirmed",
+      "rank": 249
+    },
+    {
+      "name": "White Sausage Leberkäse",
+      "sourceIds": [
+        "cb-101"
+      ],
+      "score": 29,
+      "ratingSource": "confirmed",
+      "rank": 250
+    },
+    {
+      "name": "Paladin’s Nose Protection",
+      "sourceIds": [
+        "cb-106"
       ],
       "score": 28,
-      "rank": 280
+      "ratingSource": "confirmed",
+      "rank": 251
+    },
+    {
+      "name": "The Unflushed",
+      "sourceIds": [
+        "cb-121"
+      ],
+      "score": 27,
+      "ratingSource": "confirmed",
+      "rank": 252
+    },
+    {
+      "name": "Blood Moon Rising",
+      "sourceIds": [
+        "cb-086"
+      ],
+      "score": 25,
+      "ratingSource": "confirmed",
+      "rank": 253
+    },
+    {
+      "name": "Kiss of Poseidon",
+      "sourceIds": [
+        "cb-281"
+      ],
+      "score": 25,
+      "ratingSource": "confirmed",
+      "rank": 254
+    },
+    {
+      "name": "Rollercoaster of Emotions",
+      "sourceIds": [
+        "cb-282"
+      ],
+      "score": 25,
+      "ratingSource": "confirmed",
+      "rank": 255
+    },
+    {
+      "name": "A Place to Stay",
+      "sourceIds": [
+        "cb-177"
+      ],
+      "score": 24,
+      "ratingSource": "confirmed",
+      "rank": 256
+    },
+    {
+      "name": "Library of Shared Memories",
+      "sourceIds": [
+        "cb-097"
+      ],
+      "score": 24,
+      "ratingSource": "confirmed",
+      "rank": 257
+    },
+    {
+      "name": "Blunt Force Trauma",
+      "sourceIds": [
+        "cb-024"
+      ],
+      "score": 23,
+      "ratingSource": "confirmed",
+      "rank": 258
+    },
+    {
+      "name": "Confusing Signals",
+      "sourceIds": [
+        "cb-075"
+      ],
+      "score": 22,
+      "ratingSource": "confirmed",
+      "rank": 259
+    },
+    {
+      "name": "Homemade Paranoia",
+      "sourceIds": [
+        "cb-164"
+      ],
+      "score": 20,
+      "ratingSource": "confirmed",
+      "rank": 260
+    },
+    {
+      "name": "The Loan Syndicate",
+      "sourceIds": [
+        "cb-144"
+      ],
+      "score": 19,
+      "ratingSource": "confirmed",
+      "rank": 261
+    },
+    {
+      "name": "Grinder",
+      "sourceIds": [
+        "cb-201"
+      ],
+      "score": 18,
+      "ratingSource": "confirmed",
+      "rank": 262
+    },
+    {
+      "name": "Cini Minis",
+      "sourceIds": [
+        "cb-126"
+      ],
+      "score": 15,
+      "ratingSource": "confirmed",
+      "rank": 263
+    },
+    {
+      "name": "Milk",
+      "sourceIds": [
+        "cb-125"
+      ],
+      "score": 15,
+      "ratingSource": "confirmed",
+      "rank": 264
+    },
+    {
+      "name": "Puddinghead",
+      "sourceIds": [
+        "cb-005"
+      ],
+      "score": 15,
+      "ratingSource": "confirmed",
+      "rank": 265
+    },
+    {
+      "name": "Rotting Flesh",
+      "sourceIds": [
+        "cb-035"
+      ],
+      "score": 15,
+      "ratingSource": "confirmed",
+      "rank": 266
     },
     {
       "name": "Hallucinating Trip",
       "sourceIds": [
         "cb-026"
       ],
-      "score": 27,
+      "score": 13,
+      "ratingSource": "confirmed",
+      "rank": 267
+    },
+    {
+      "name": "Frozen Taps",
+      "sourceIds": [
+        "cb-194"
+      ],
+      "score": 12,
+      "ratingSource": "confirmed",
+      "rank": 268
+    },
+    {
+      "name": "Coffee Shop",
+      "sourceIds": [
+        "cb-080"
+      ],
+      "score": 11,
+      "ratingSource": "confirmed",
+      "rank": 269
+    },
+    {
+      "name": "Couchpotato",
+      "sourceIds": [
+        "cb-004"
+      ],
+      "score": 11,
+      "ratingSource": "confirmed",
+      "rank": 270
+    },
+    {
+      "name": "Echo of Empathy",
+      "sourceIds": [
+        "cb-073"
+      ],
+      "score": 10,
+      "ratingSource": "confirmed",
+      "rank": 271
+    },
+    {
+      "name": "Parsley Root",
+      "sourceIds": [
+        "cb-040"
+      ],
+      "score": 10,
+      "ratingSource": "confirmed",
+      "rank": 272
+    },
+    {
+      "name": "Bromoment",
+      "sourceIds": [
+        "cb-085"
+      ],
+      "score": 9,
+      "ratingSource": "confirmed",
+      "rank": 273
+    },
+    {
+      "name": "Overdose",
+      "sourceIds": [
+        "cb-019"
+      ],
+      "score": 8,
+      "ratingSource": "confirmed",
+      "rank": 274
+    },
+    {
+      "name": "A Week of Excess",
+      "sourceIds": [
+        "cb-280"
+      ],
+      "score": 6,
+      "ratingSource": "confirmed",
+      "rank": 275
+    },
+    {
+      "name": "Friend or Foe",
+      "sourceIds": [
+        "cb-199"
+      ],
+      "score": 6,
+      "ratingSource": "confirmed",
+      "rank": 276
+    },
+    {
+      "name": "Summon the Squad",
+      "sourceIds": [
+        "cb-162"
+      ],
+      "score": 6,
+      "ratingSource": "confirmed",
+      "rank": 277
+    },
+    {
+      "name": "Gimme the herbs",
+      "sourceIds": [
+        "cb-025"
+      ],
+      "score": 3,
+      "ratingSource": "confirmed",
+      "rank": 278
+    },
+    {
+      "name": "Goner",
+      "sourceIds": [
+        "cb-183"
+      ],
+      "score": 3,
+      "ratingSource": "confirmed",
+      "rank": 279
+    },
+    {
+      "name": "Toast of Comfort",
+      "sourceIds": [
+        "cb-010"
+      ],
+      "score": 2,
+      "ratingSource": "confirmed",
+      "rank": 280
+    },
+    {
+      "name": "Happy Hour",
+      "sourceIds": [
+        "cb-072"
+      ],
+      "score": 0,
+      "ratingSource": "confirmed",
       "rank": 281
     }
   ]

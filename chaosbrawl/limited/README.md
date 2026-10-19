@@ -15,9 +15,22 @@ and generated-only AJDE! remain excluded. Each pack has no repeated printing.
 Draft uses 3 packs, Sealed 8 (96 cards). M21 supplies unlimited ordinary basics;
 the custom dual lands remain finite despite their MSE rarity being Basic Land.
 
-Ratings use first-pass efficiency, removal, card advantage, evasion and narrow
-setup requirements, with explicit exceptions in rating-overrides.json. The
-ratings.json audit includes stable source IDs and scores; Forge loads cbfrbeta.rnk.
+Confirmed owner scores from the Google Sheets snapshot in `confirmed-ratings.json`
+now take precedence by stable source ID, including lands and zero-valued ratings.
+The paired Beta MSE notes contain `Limited-Rating: xx` on all 292 non-token printings.
+The snapshot records its source URL, CSV hash and missing entries; duplicate names
+share the confirmed score. `ratings.json` labels each eligible name as confirmed
+or provisional. Forge consumes the resulting ordinal `cbfrbeta.rnk`, so the
+source 0–100 scores control pick order rather than being absolute in-engine scores.
+
+All playable cards now have owner-supplied scores, including the 12 Pending
+spreadsheet rows explicitly authorized by the owner in chat. Original sheet
+statuses remain in the snapshot. Only 22 tokens remain unrated; they never enter
+rankings or boosters. AJDE!'s score is stored for authoring but it remains
+generated-only and excluded from rankings, boosters and starting decks.
+Confirmed ratings do not change pack collation, AI synergy hints or card rules.
+The existing heuristic/overrides fallback remains for future unrated cards.
+
 Eight targeted DeckHints in ai-hints.json add Food, Beer, artifact-token and
 Milk/Cini Minis synergy using Forge's existing token-script inspection. These
 are provisional AI pick preferences, not a balance study or printed card

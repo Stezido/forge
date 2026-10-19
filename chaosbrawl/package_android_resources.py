@@ -53,7 +53,7 @@ def bundle(release_zip: Path, manifest: Path, assets: Path):
                 mapped = name
             if mapped:
                 out.writestr(mapped, source.read(item))
-        if counts['decks'] != 41 or counts['cardImages'] < 292 or counts['resources'] < 1000:
+        if counts['decks'] != release['testDecks'] or counts['cardImages'] < 292 or counts['resources'] < 1000:
             raise ValueError('Release resources are incomplete')
         cards.close()
         out.writestr('res/cardsfolder/cardsfolder.zip', card_buffer.getvalue(), compress_type=zipfile.ZIP_STORED)

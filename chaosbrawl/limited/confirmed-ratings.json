@@ -1,0 +1,2773 @@
+{
+  "schemaVersion": 1,
+  "sourceUrl": "https://docs.google.com/spreadsheets/d/1p6etsbD6llijg2IBSPL0UB7LX2-XmPdYPemL1uxcj5k/edit",
+  "csvSha256": "8e5993e25a5cdaf1807492b3253f15eda0fc5b24c4f63b19a729daca37b10925",
+  "variant": "the-foul-realms-beta",
+  "baseSha256": "be7a92ef68264147c383ef44eb8e6a450aeae8cb418e16560071c420edf4126a",
+  "scale": "0–100; higher is stronger",
+  "pendingRowsAuthorizedByOwner": true,
+  "ratings": [
+    {
+      "id": "cb-001",
+      "nativeUid": "95967757176101076216220799921517",
+      "name": "Wasted",
+      "sheetName": "Wasted",
+      "score": 83,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-002",
+      "nativeUid": "07740409616160738766740505282031",
+      "name": "Nutten und Koks",
+      "sheetName": "Nutten und Koks",
+      "score": 50,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-003",
+      "nativeUid": "57940415299396127798801588727249",
+      "name": "Wixbirne",
+      "sheetName": "Wixbirne",
+      "score": 37,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-004",
+      "nativeUid": "00035599049364271850202024829049",
+      "name": "Couchpotato",
+      "sheetName": "Couchpotato",
+      "score": 11,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-005",
+      "nativeUid": "21277972418511713427216277944624",
+      "name": "Puddinghead",
+      "sheetName": "Puddinghead",
+      "score": 15,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-006",
+      "nativeUid": "15079955233935729792301770852520",
+      "name": "Buy a Round",
+      "sheetName": "Buy a Round",
+      "score": 33,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-007",
+      "nativeUid": "08637181866096514445725222723987",
+      "name": "Food Coma",
+      "sheetName": "Food Coma",
+      "score": 80,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-008",
+      "nativeUid": "05794573254459188679619051419540",
+      "name": "Last Man Standing",
+      "sheetName": "Last Man Standing",
+      "score": 76,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-009",
+      "nativeUid": "05172101169749171947717078026086",
+      "name": "The Tipsy Ram",
+      "sheetName": "The Tipsy Ram",
+      "score": 52,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-010",
+      "nativeUid": "07869118421715412625951045451273",
+      "name": "Toast of Comfort",
+      "sheetName": "Toast of Comfort",
+      "score": 2,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-011",
+      "nativeUid": "21870902341624841689775716668579",
+      "name": "A Wife's Argument",
+      "sheetName": "A Wife’s Argument",
+      "score": 38,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-012",
+      "nativeUid": "29775030565015134239721790375226",
+      "name": "Charming Siren",
+      "sheetName": "Charming Siren",
+      "score": 61,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-013",
+      "nativeUid": "37191789388365534207417330811949",
+      "name": "Circular Conversation",
+      "sheetName": "Circular Conversation",
+      "score": 39,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-014",
+      "nativeUid": "41863047790614404963949355518723",
+      "name": "Enraged Reef Leviathan",
+      "sheetName": "Enraged Reef Leviathan",
+      "score": 51,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-015",
+      "nativeUid": "24847072701483202562695405933547",
+      "name": "Mom's advice",
+      "sheetName": "Mom's advice",
+      "score": 60,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-016",
+      "nativeUid": "77272291604714082070849274850136",
+      "name": "Nagging Siren Twin",
+      "sheetName": "Nagging Siren Twin",
+      "score": 64,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-017",
+      "nativeUid": "17261269992455040875224297894477",
+      "name": "Nutshot overload",
+      "sheetName": "Nutshot overload",
+      "score": 55,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-018",
+      "nativeUid": "17109493052136502405281001348202",
+      "name": "Ambush on the Throne",
+      "sheetName": "Ambush on the Throne",
+      "score": 75,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-019",
+      "nativeUid": "88205861031833903409485123799047",
+      "name": "Overdose",
+      "sheetName": "Overdose",
+      "score": 8,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-020",
+      "nativeUid": "25767580160693383079229758277937",
+      "name": "Drunkard",
+      "sheetName": "Drunkard",
+      "score": 47,
+      "status": "Pending",
+      "category": "playable"
+    },
+    {
+      "id": "cb-021",
+      "nativeUid": "87732619992911523287908012075383",
+      "name": "Drunken Warrior",
+      "sheetName": "Drunken Warrior",
+      "score": 31,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-022",
+      "nativeUid": "33545476272457320031486090559679",
+      "name": "Hopsfield Vale",
+      "sheetName": "Hopsfield Vale",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-023",
+      "nativeUid": "96248956792663669306259347904811",
+      "name": "Kegbearer",
+      "sheetName": "Kegbearer",
+      "score": 60,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-024",
+      "nativeUid": "95141487962521211442767063041325",
+      "name": "Blunt Force Trauma",
+      "sheetName": "Blunt Force Trauma",
+      "score": 23,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-025",
+      "nativeUid": "40725510566231181880248459391730",
+      "name": "Gimme the herbs",
+      "sheetName": "Gimme the herbs",
+      "score": 3,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-026",
+      "nativeUid": "25845355296526176695930346267209",
+      "name": "Hallucinating Trip",
+      "sheetName": "Hallucinating Trip",
+      "score": 13,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-027",
+      "nativeUid": "06401072116381333557527072621250",
+      "name": "Inspiring Bard",
+      "sheetName": "Inspiring Bard",
+      "score": 43,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-028",
+      "nativeUid": "80875832981945536231074588649949",
+      "name": "Mystic Herb Buddy",
+      "sheetName": "Mystic Herb Buddy",
+      "score": 64,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-029",
+      "nativeUid": "73241518200242056086283319946935",
+      "name": "Mystic Herb Seedling",
+      "sheetName": "Mystic Herb Seedling",
+      "score": 57,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-030",
+      "nativeUid": "69832076133826128701027014525527",
+      "name": "Mystic Hotbox Hut",
+      "sheetName": "Mystic Hotbox Hut",
+      "score": 32,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-031",
+      "nativeUid": "70651910972977383805522504888929",
+      "name": "Brewmaster Grunthar",
+      "sheetName": "Brewmaster Grunthar",
+      "score": 69,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-032",
+      "nativeUid": "42127405425920247049395139122020",
+      "name": "Brüder Hopfenblüte",
+      "sheetName": "Brüder Hopfenblüte",
+      "score": 100,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-033",
+      "nativeUid": "82595416761822284393490037112420",
+      "name": "Ice Cold Siren",
+      "sheetName": "Ice Cold Siren",
+      "score": 46,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-034",
+      "nativeUid": "11797178669615969369082959460871",
+      "name": "Wake and Bake",
+      "sheetName": "Wake and Bake",
+      "score": 61,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-035",
+      "nativeUid": "89328413348077940440050052336296",
+      "name": "Rotting Flesh",
+      "sheetName": "Rotting Flesh",
+      "score": 15,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-036",
+      "nativeUid": "38555608099334928377014530399337",
+      "name": "Decaying Orchard",
+      "sheetName": "Decaying Orchard",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-037",
+      "nativeUid": "03883869203221684516309420162459",
+      "name": "Distillery of Silent Death",
+      "sheetName": "Distillery of Silent Death",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-038",
+      "nativeUid": "39929023485978860121361971470549",
+      "name": "Feuerball, Junge!",
+      "sheetName": "Feuerball, Junge!",
+      "score": 84,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-039",
+      "nativeUid": "37553089991208845567781158998848",
+      "name": "Sacred Brewery",
+      "sheetName": "Sacred Brewery",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-040",
+      "nativeUid": "57504486473910662393477596123185",
+      "name": "Parsley Root",
+      "sheetName": "Parsley Root",
+      "score": 10,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-041",
+      "nativeUid": "72981083078678590523325596863834",
+      "name": "Celestial Waters",
+      "sheetName": "Celestial Waters",
+      "score": 61,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-042",
+      "nativeUid": "20650887340163345467964290375716",
+      "name": "Gluttonous Scavenger",
+      "sheetName": "Gluttonous Scavenger",
+      "score": 86,
+      "status": "Pending",
+      "category": "playable"
+    },
+    {
+      "id": "cb-043",
+      "nativeUid": "98068860062645376168594988695913",
+      "name": "Brie-lliant Trapper",
+      "sheetName": "Brie-lliant Trapper",
+      "score": 90,
+      "status": "Pending",
+      "category": "playable"
+    },
+    {
+      "id": "cb-044",
+      "nativeUid": "23235328113875377414653356155104",
+      "name": "Chaotic Kitchen",
+      "sheetName": "Chaotic Kitchen",
+      "score": 69,
+      "status": "Pending",
+      "category": "playable"
+    },
+    {
+      "id": "cb-045",
+      "nativeUid": "71132485350838862527568452630671",
+      "name": "Double Burn",
+      "sheetName": "Double Burn",
+      "score": 80,
+      "status": "Pending",
+      "category": "playable"
+    },
+    {
+      "id": "cb-046",
+      "nativeUid": "27204531638333627877795417738867",
+      "name": "Pumpkin Barrage Crew",
+      "sheetName": "Pumpkin Barrage Crew",
+      "score": 79,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-047",
+      "nativeUid": "20100250943570374619714304927644",
+      "name": "Mattn, the Tasty Prince",
+      "sheetName": "Mattn, the Tasty Prince",
+      "score": 94,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-048",
+      "nativeUid": "93157723523009372239774022304270",
+      "name": "Anschnly, the Vengeful Siren",
+      "sheetName": "Anschnly, the Vengeful Siren",
+      "score": 95,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-049",
+      "nativeUid": "95641283359860878084834041079729",
+      "name": "Noxious Cloud",
+      "sheetName": "Noxious Cloud",
+      "score": 84,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-050",
+      "nativeUid": "10298158246285649465998404335716",
+      "name": "Mistcliff Springs",
+      "sheetName": "Mistcliff Springs",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-051",
+      "nativeUid": "12046125791639025128253207262841",
+      "name": "Mistcliff Waterfall",
+      "sheetName": "Mistcliff Waterfall",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-052",
+      "nativeUid": "56505876363925822009661335626788",
+      "name": "Caring Siren",
+      "sheetName": "Caring Siren",
+      "score": 82,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-053",
+      "nativeUid": "82182444291981285017958791371584",
+      "name": "Jealous Siren",
+      "sheetName": "Jealous Siren",
+      "score": 52,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-054",
+      "nativeUid": "95595765536760670554837381803544",
+      "name": "Endless Expectations",
+      "sheetName": "Endless Expectations",
+      "score": 54,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-055",
+      "nativeUid": "97375133299389585938392936230749",
+      "name": "Chaotic Council",
+      "sheetName": "Chaotic Council",
+      "score": 58,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-056",
+      "nativeUid": "33278281875643572462362999508455",
+      "name": "Youthful Inner Heat",
+      "sheetName": "Youthful Inner Heat",
+      "score": 36,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-057",
+      "nativeUid": "88992951934004437880241817021652",
+      "name": "Flatfooted",
+      "sheetName": "Flatfooted",
+      "score": 41,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-058",
+      "nativeUid": "74478275589919537619563241750612",
+      "name": "Tactical Purge",
+      "sheetName": "Tactical Purge",
+      "score": 37,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-059",
+      "nativeUid": "59128786512515008559948906113074",
+      "name": "Mysterious Remedy",
+      "sheetName": "Mysterious Remedy",
+      "score": 76,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-060",
+      "nativeUid": "27180964122437476910038513537687",
+      "name": "Last Duel",
+      "sheetName": "Last Duel",
+      "score": 42,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-061",
+      "nativeUid": "59892052838336334662784256787175",
+      "name": "Overdose Revival",
+      "sheetName": "Overdose Revival",
+      "score": 50,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-062",
+      "nativeUid": "63048326224995789930425238109595",
+      "name": "Numbing Mass Resurrection",
+      "sheetName": "Numbing Mass Resurrection",
+      "score": 49,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-063",
+      "nativeUid": "22350098973633672113300426609780",
+      "name": "Hangry",
+      "sheetName": "Hangry",
+      "score": 31,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-064",
+      "nativeUid": "00841430711624116858625086845903",
+      "name": "Sweet Harmless Siren",
+      "sheetName": "Sweet Harmless Siren",
+      "score": 34,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-065",
+      "nativeUid": "31644556528297344005926039862458",
+      "name": "Baiting Siren",
+      "sheetName": "Baiting Siren",
+      "score": 82,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-066",
+      "nativeUid": "76138096709775822674292347138707",
+      "name": "The Hangry Games",
+      "sheetName": "The Hangry Games",
+      "score": 76,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-067",
+      "nativeUid": "13599557372219014113416955790613",
+      "name": "Spar’s Bazaar",
+      "sheetName": "Spar’s Bazaar",
+      "score": 62,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-068",
+      "nativeUid": "33776583884575431723577050595261",
+      "name": "Owizahrer",
+      "sheetName": "Owizahrer",
+      "score": 64,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-069",
+      "nativeUid": "98609688448614553744478229389113",
+      "name": "Hungry Disgust",
+      "sheetName": "Hungry Disgust",
+      "score": 61,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-070",
+      "nativeUid": "40912413679641815667542570006578",
+      "name": "Academic Quarter",
+      "sheetName": "Academic Quarter",
+      "score": 47,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-071",
+      "nativeUid": "77702000790636074182429149150473",
+      "name": "Straggler",
+      "sheetName": "Straggler",
+      "score": 63,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-072",
+      "nativeUid": "85269910697485625889036373710602",
+      "name": "Happy Hour",
+      "sheetName": "Happy Hour",
+      "score": 0,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-073",
+      "nativeUid": "34019456845405477119259335558241",
+      "name": "Echo of Empathy",
+      "sheetName": "Echo of Empathy",
+      "score": 10,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-074",
+      "nativeUid": "82257588853079126766249080557682",
+      "name": "Controlling Relationship",
+      "sheetName": "Controlling Relationship",
+      "score": 85,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-075",
+      "nativeUid": "72372654629369141082638961157857",
+      "name": "Confusing Signals",
+      "sheetName": "Confusing Signals",
+      "score": 22,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-076",
+      "nativeUid": "01727539403554869772037112484143",
+      "name": "Weedfield Herbalist",
+      "sheetName": "Weedfield Herbalist",
+      "score": 72,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-077",
+      "nativeUid": "03541134190745493452776832338766",
+      "name": "Weedfield Grazer",
+      "sheetName": "Weedfield Grazer",
+      "score": 46,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-078",
+      "nativeUid": "82448938066524991633061157614359",
+      "name": "Tavern Time Out",
+      "sheetName": "Tavern Time Out",
+      "score": 41,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-079",
+      "nativeUid": "97906026285520214316126237870663",
+      "name": "Tavern Hand",
+      "sheetName": "Tavern Hand",
+      "score": 60,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-080",
+      "nativeUid": "89881438141198430210646391410361",
+      "name": "Coffee Shop",
+      "sheetName": "Coffee Shop",
+      "score": 11,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-081",
+      "nativeUid": "11905954857828862721563235653436",
+      "name": "Pumpkin Catapult",
+      "sheetName": "Pumpkin Catapult",
+      "score": 75,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-082",
+      "nativeUid": "76403659355338545516990393589071",
+      "name": "Vandalism",
+      "sheetName": "Vandalism",
+      "score": 38,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-083",
+      "nativeUid": "01174286624056379282576877292495",
+      "name": "Ogrontwin Steve",
+      "sheetName": "Ogrontwin Steve",
+      "score": 60,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-084",
+      "nativeUid": "86950092578323099638718995513779",
+      "name": "Ogrontwin Pete",
+      "sheetName": "Ogrontwin Pete",
+      "score": 60,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-085",
+      "nativeUid": "14080678382246274999743508387510",
+      "name": "Bromoment",
+      "sheetName": "Bromoment",
+      "score": 9,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-086",
+      "nativeUid": "41655389601692828076262431668783",
+      "name": "Blood Moon Rising",
+      "sheetName": "Blood Moon Rising",
+      "score": 25,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-087",
+      "nativeUid": "14340943732129004255339610906966",
+      "name": "Zimty",
+      "sheetName": "Zimty",
+      "score": 61,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-088",
+      "nativeUid": "70224551026870289304892119553181",
+      "name": "Mystic Herb Vegetative",
+      "sheetName": "Mystic Herb Vegetative",
+      "score": 59,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-089",
+      "nativeUid": "87416760907504197865981889081810",
+      "name": "Raging Alcoholic",
+      "sheetName": "Raging Alcoholic",
+      "score": 47,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-090",
+      "nativeUid": "03182935175637456280265877696656",
+      "name": "Rotten Cellar",
+      "sheetName": "Rotten Cellar",
+      "score": 61,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-091",
+      "nativeUid": "31150175831040366508272366256178",
+      "name": "Rowdy Tavern",
+      "sheetName": "Rowdy Tavern",
+      "score": 61,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-092",
+      "nativeUid": "61223573470611271681827691954353",
+      "name": "Laughing fit",
+      "sheetName": "Laughing fit",
+      "score": 48,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-093",
+      "nativeUid": "12226813408992486613931172650704",
+      "name": "Puzzlemaster's Grimoire",
+      "sheetName": "Puzzlemaster's Grimoire",
+      "score": 58,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-094",
+      "nativeUid": "50404969384537788414041902226802",
+      "name": "Brotherhoods Impact",
+      "sheetName": "Brotherhoods Impact",
+      "score": 44,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-095",
+      "nativeUid": "73564592232869562535710619664710",
+      "name": "Spar’s Bazaar",
+      "sheetName": "Spar’s Bazaar",
+      "score": 62,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-096",
+      "nativeUid": "92039715332323351497870018728208",
+      "name": "Blue Cow",
+      "sheetName": "Blue Cow",
+      "score": 48,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-097",
+      "nativeUid": "47955642464701539583097123144732",
+      "name": "Library of Shared Memories",
+      "sheetName": "Library of Shared Memories",
+      "score": 24,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-098",
+      "nativeUid": "07251603241828916456246291085436",
+      "name": "Sarma",
+      "sheetName": "Sarma",
+      "score": 56,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-099",
+      "nativeUid": "05916495558617259288018258698103",
+      "name": "Soul Eater Siren",
+      "sheetName": "Soul Eater Siren",
+      "score": 60,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-100",
+      "nativeUid": "15483739982142270656921537220286",
+      "name": "Baked Ham Noodle Casserole",
+      "sheetName": "Baked Ham Noodle Casserole",
+      "score": 54,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-101",
+      "nativeUid": "46397719014177276633875144557778",
+      "name": "White Sausage Leberkäse",
+      "sheetName": "White Sausage Leberkäse",
+      "score": 29,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-102",
+      "nativeUid": "15641491104712093214238746916269",
+      "name": "Stink Normale Birnen",
+      "sheetName": "Stink Normale Birnen",
+      "score": 65,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-103",
+      "nativeUid": "43650227919238967393123536555252",
+      "name": "Mixed Grill Platter",
+      "sheetName": "Mixed Grill Platter",
+      "score": 60,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-104",
+      "nativeUid": "26920687305016622311224183875753",
+      "name": "Bochana Jugobeidl",
+      "sheetName": "Bochana Jugobeidl",
+      "score": 40,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-105",
+      "nativeUid": "70120180786777189663141427058282",
+      "name": "Hairy Surprise",
+      "sheetName": "Hairy Surprise",
+      "score": 64,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-106",
+      "nativeUid": "07919904209645012651552137061978",
+      "name": "Paladin’s Nose Protection",
+      "sheetName": "Paladin’s Nose Protection",
+      "score": 28,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-107",
+      "nativeUid": "71724952246064095756636882282324",
+      "name": "Party Foul",
+      "sheetName": "Party Foul",
+      "score": 69,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-108",
+      "nativeUid": "00758211523768156584507248635737",
+      "name": "Golden Stethoscope",
+      "sheetName": "Golden Stethoscope",
+      "score": 57,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-109",
+      "nativeUid": "06441376325969720906076613311629",
+      "name": "Tschuschnpfeiferl",
+      "sheetName": "Tschuschnpfeiferl",
+      "score": 40,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-110",
+      "nativeUid": "14313388924899885800309411192590",
+      "name": "Distant Cousin Windtongue",
+      "sheetName": "Distant Cousin Windtongue",
+      "score": 49,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-111",
+      "nativeUid": "47963056475515712969427786370816",
+      "name": "AJDE!",
+      "sheetName": "AJDE!",
+      "score": 70,
+      "status": "Confirmed",
+      "category": "generated-only"
+    },
+    {
+      "id": "cb-112",
+      "nativeUid": "28886024343940444204283541857255",
+      "name": "Distant Cousin Stinkpot",
+      "sheetName": "Distant Cousin Stinkpot",
+      "score": 56,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-113",
+      "nativeUid": "20342790514258993159512194528693",
+      "name": "Distant Cousin Shotcrusher",
+      "sheetName": "Distant Cousin Shotcrusher",
+      "score": 76,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-114",
+      "nativeUid": "49144118217686194705016135253832",
+      "name": "Distant Uncle Goldbeard",
+      "sheetName": "Distant Uncle Goldbeard",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-115",
+      "nativeUid": "17575752353167381178408723226940",
+      "name": "Grandma Dragana Blackbrew",
+      "sheetName": "Grandma Dragana Blackbrew",
+      "score": 79,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-116",
+      "nativeUid": "11342168527941977981737612017034",
+      "name": "Distant Aunt Alestorm",
+      "sheetName": "Distant Aunt Alestorm",
+      "score": 74,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-117",
+      "nativeUid": "31336248448815982260531459281878",
+      "name": "Bottle Bash",
+      "sheetName": "Bottle Bash",
+      "score": 79,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-118",
+      "nativeUid": "83011034422708628885872827379321",
+      "name": "Mocking Parrot",
+      "sheetName": "Mocking Parrot",
+      "score": 88,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-119",
+      "nativeUid": "71851748048427580782331209458157",
+      "name": "Loyal Watchdog",
+      "sheetName": "Loyal Watchdog",
+      "score": 62,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-120",
+      "nativeUid": "45119836247092371144883392520607",
+      "name": "Goblin Party Mob",
+      "sheetName": "Goblin Party Mob",
+      "score": 65,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-121",
+      "nativeUid": "06971054346125429585044206233254",
+      "name": "The Unflushed",
+      "sheetName": "The Unflushed",
+      "score": 27,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-122",
+      "nativeUid": "40448981713054410120908362422537",
+      "name": "Indica Hedge",
+      "sheetName": "Indica Hedge",
+      "score": 34,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-123",
+      "nativeUid": "30162827014476836725352955152927",
+      "name": "Cannabis Field Defender",
+      "sheetName": "Cannabis Field Defender",
+      "score": 65,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-124",
+      "nativeUid": "35546768259093814223289800635384",
+      "name": "Du gibst dem Baby a Müch",
+      "sheetName": "Du gibst dem Baby a Müch",
+      "score": 84,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-125",
+      "nativeUid": "18909866569623303738836138696637",
+      "name": "Milk",
+      "sheetName": "Milk",
+      "score": 15,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-126",
+      "nativeUid": "78031071968035514071482853660673",
+      "name": "Cini Minis",
+      "sheetName": "Cini Minis",
+      "score": 15,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-127",
+      "nativeUid": "74048447888584588866982766584808",
+      "name": "Rowdy Riot",
+      "sheetName": "Rowdy Riot",
+      "score": 36,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-128",
+      "nativeUid": "01983480633919801689018950624331",
+      "name": "Hangover",
+      "sheetName": "Hangover",
+      "score": 69,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-129",
+      "nativeUid": "88034001909306786001936785657702",
+      "name": "Cold Splash",
+      "sheetName": "Cold Splash",
+      "score": 66,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-130",
+      "nativeUid": "80728284175769101081606740224192",
+      "name": "Too Drunk to Dodge",
+      "sheetName": "Too Drunk to Dodge",
+      "score": 42,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-131",
+      "nativeUid": "80141858285659115504194072600181",
+      "name": "Bottomless Keg",
+      "sheetName": "Bottomless Keg",
+      "score": 66,
+      "status": "Pending",
+      "category": "playable"
+    },
+    {
+      "id": "cb-132",
+      "nativeUid": "68793277861188840837585125544961",
+      "name": "Wobbly Gnome",
+      "sheetName": "Wobbly Gnome",
+      "score": 52,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-133",
+      "nativeUid": "83825257255807355977517624199459",
+      "name": "Way Expired Wiener",
+      "sheetName": "Way Expired Wiener",
+      "score": 71,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-134",
+      "nativeUid": "72145427770143237441038216273521",
+      "name": "Undercity Back Room",
+      "sheetName": "Undercity Back Room",
+      "score": 55,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-135",
+      "nativeUid": "69488395892916819393265822351277",
+      "name": "Overgrown Fermentation Beds",
+      "sheetName": "Overgrown Fermentation Beds",
+      "score": 53,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-136",
+      "nativeUid": "00625859203298371316007649093387",
+      "name": "Blightborne Colossus",
+      "sheetName": "Blightborne Colossus",
+      "score": 75,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-137",
+      "nativeUid": "34582533659490740420295547614983",
+      "name": "Untamable Grove Colossus",
+      "sheetName": "Untamable Grove Colossus",
+      "score": 43,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-138",
+      "nativeUid": "48427441678055040652472492017801",
+      "name": "Lena, the Silent One",
+      "sheetName": "Lena, the Silent One",
+      "score": 46,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-139",
+      "nativeUid": "07428347163170421554634435914774",
+      "name": "Hanna, Nature’s Siren",
+      "sheetName": "Hanna, Nature’s Siren",
+      "score": 31,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-140",
+      "nativeUid": "82784918828537590786544054034724",
+      "name": "Natalie, Mother Siren",
+      "sheetName": "Natalie, Mother Siren",
+      "score": 68,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-141",
+      "nativeUid": "95747723254883109664133829150242",
+      "name": "Shady Herb Dealer",
+      "sheetName": "Shady Herb Dealer",
+      "score": 53,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-142",
+      "nativeUid": "03188386276035947619830896975109",
+      "name": "Mutating Sapling",
+      "sheetName": "Mutating Sapling",
+      "score": 57,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-143",
+      "nativeUid": "84996901411248592722251438534133",
+      "name": "Süüü, the Fourth Child",
+      "sheetName": "Süüü, the Fourth Child",
+      "score": 40,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-144",
+      "nativeUid": "95905339600518035314999849143540",
+      "name": "The Loan Syndicate",
+      "sheetName": "The Loan Syndicate",
+      "score": 19,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-145",
+      "nativeUid": "31922936867960822017849472444791",
+      "name": "Gnome Loan",
+      "sheetName": "Gnome Loan",
+      "score": 67,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-146",
+      "nativeUid": "19677003063545642001668771848106",
+      "name": "Debt Collector",
+      "sheetName": "Debt Collector",
+      "score": 74,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-147",
+      "nativeUid": "56007734128968950291899832751479",
+      "name": "The Rake",
+      "sheetName": "The Rake",
+      "score": 38,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-148",
+      "nativeUid": "09949861356836428215544279401942",
+      "name": "The Good Stuff",
+      "sheetName": "The Good Stuff",
+      "score": 57,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-149",
+      "nativeUid": "80028781584471866831354310689920",
+      "name": "Mimimi",
+      "sheetName": "Mimimi",
+      "score": 66,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-150",
+      "nativeUid": "62836887662473734261584821210884",
+      "name": "Sleepless Night",
+      "sheetName": "Sleepless Night",
+      "score": 42,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-151",
+      "nativeUid": "07771761787457121710722532279109",
+      "name": "Shut up",
+      "sheetName": "Shut up",
+      "score": 62,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-152",
+      "nativeUid": "58920131355127529084158314650655",
+      "name": "MAGAZIN!",
+      "sheetName": "MAGAZIN!",
+      "score": 60,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-153",
+      "nativeUid": "81973944618777677917445485748655",
+      "name": "Magical Bucket Pump",
+      "sheetName": "Magical Bucket Pump",
+      "score": 58,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-154",
+      "nativeUid": "08892157090237719561451327010929",
+      "name": "Wedding Ring",
+      "sheetName": "Wedding Ring",
+      "score": 43,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-155",
+      "nativeUid": "09669795244069481436336328902105",
+      "name": "Unpleasant Surprise",
+      "sheetName": "Unpleasant Surprise",
+      "score": 68,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-156",
+      "nativeUid": "33032592275825613163618534957305",
+      "name": "Dungeon Master",
+      "sheetName": "Dungeon Master",
+      "score": 83,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-157",
+      "nativeUid": "20989304780030773071792255845565",
+      "name": "Marlene, the Leader",
+      "sheetName": "Marlene, the Leader",
+      "score": 61,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-158",
+      "nativeUid": "71422139198774604840499356322187",
+      "name": "Robin, the Pusher",
+      "sheetName": "Robin, the Pusher",
+      "score": 56,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-159",
+      "nativeUid": "20843655322657920396096642765924",
+      "name": "Tobias, the Grenadier",
+      "sheetName": "Tobias, the Grenadier",
+      "score": 76,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-160",
+      "nativeUid": "14692053885861679170101103649867",
+      "name": "Max, the Sniper",
+      "sheetName": "Max, the Sniper",
+      "score": 61,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-161",
+      "nativeUid": "03191925175171623961914500262178",
+      "name": "Let’s Fucking Go",
+      "sheetName": "Let’s Fucking Go",
+      "score": 39,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-162",
+      "nativeUid": "58680877781648962952472646136522",
+      "name": "Summon the Squad",
+      "sheetName": "Summon the Squad",
+      "score": 6,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-163",
+      "nativeUid": "49970926052388294334947406360805",
+      "name": "Just Do it",
+      "sheetName": "Just Do it",
+      "score": 64,
+      "status": "Pending",
+      "category": "playable"
+    },
+    {
+      "id": "cb-164",
+      "nativeUid": "57927067412055135425681903938674",
+      "name": "Homemade Paranoia",
+      "sheetName": "Homemade Paranoia",
+      "score": 20,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-165",
+      "nativeUid": "93513761258491573136751702716710",
+      "name": "Flooded Palace",
+      "sheetName": "Flooded Palace",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-166",
+      "nativeUid": "79821438882119849087752137797440",
+      "name": "Duskmire",
+      "sheetName": "Duskmire",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-167",
+      "nativeUid": "39196807719170813156108746561250",
+      "name": "Reefgarden",
+      "sheetName": "Reefgarden",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-168",
+      "nativeUid": "85440448978700015356570160787567",
+      "name": "The Stoned Peaks",
+      "sheetName": "The Stoned Peaks",
+      "score": 73,
+      "status": "Auto-confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-169",
+      "nativeUid": "67521545075075364566311700819521",
+      "name": "The Blessed Hideaway",
+      "sheetName": "The Blessed Hideaway",
+      "score": 36,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-170",
+      "nativeUid": "97884503771029544877465060735769",
+      "name": "Roadside Distraction",
+      "sheetName": "Roadside Distraction",
+      "score": 38,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-171",
+      "nativeUid": "87861810444964389557452543484170",
+      "name": "Have a Beer, or Three",
+      "sheetName": "Have a Beer, or Three",
+      "score": 56,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-172",
+      "nativeUid": "03798018384860163870939173716608",
+      "name": "Draft Tap",
+      "sheetName": "Draft Tap",
+      "score": 71,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-173",
+      "nativeUid": "87498178268506684726105541015568",
+      "name": "Fill Em Up",
+      "sheetName": "Fill Em Up",
+      "score": 55,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-174",
+      "nativeUid": "26936624808787624829917243236910",
+      "name": "Critical (S)hit",
+      "sheetName": "Critical (S)hit",
+      "score": 68,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-175",
+      "nativeUid": "86382886739414165509472280346321",
+      "name": "Stoned Speech",
+      "sheetName": "Stoned Speech",
+      "score": 65,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-176",
+      "nativeUid": "96874687961495721213094805819780",
+      "name": "Designated Driver",
+      "sheetName": "Designated Driver",
+      "score": 60,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-177",
+      "nativeUid": "76195962430186628570548004291798",
+      "name": "A Place to Stay",
+      "sheetName": "A Place to Stay",
+      "score": 24,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-178",
+      "nativeUid": "60816747871573688592506920117251",
+      "name": "Hexenschuss",
+      "sheetName": "Hexenschuss",
+      "score": 82,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-179",
+      "nativeUid": "59722565062282075163407116561705",
+      "name": "Tavern Regular",
+      "sheetName": "Tavern Regular",
+      "score": 76,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-180",
+      "nativeUid": "94972391408970205644914356538091",
+      "name": "Tavern Bouncer",
+      "sheetName": "Tavern Bouncer",
+      "score": 57,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-181",
+      "nativeUid": "63165661242270513755305366594113",
+      "name": "Tavern Medic",
+      "sheetName": "Tavern Medic",
+      "score": 44,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-182",
+      "nativeUid": "32303411245436369337285072625285",
+      "name": "Edi, the Beerpig",
+      "sheetName": "Edi, the Beerpig",
+      "score": 81,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-183",
+      "nativeUid": "77834591378515562150475618874692",
+      "name": "Goner",
+      "sheetName": "Goner",
+      "score": 3,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-184",
+      "nativeUid": "33464188261206918274459638717936",
+      "name": "Recycle",
+      "sheetName": "Recycle",
+      "score": 43,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-185",
+      "nativeUid": "02811116991918209085812649053212",
+      "name": "Closing Hour",
+      "sheetName": "Closing Hour",
+      "score": 57,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-186",
+      "nativeUid": "70567843255054379378300879847063",
+      "name": "Always With Us",
+      "sheetName": "Always With Us",
+      "score": 44,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-187",
+      "nativeUid": "56086857242011576488988051446384",
+      "name": "Innkeepers Daugther",
+      "sheetName": "Innkeepers Daugther",
+      "score": 82,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-188",
+      "nativeUid": "16622413674458413966104647894010",
+      "name": "Hoard Beast",
+      "sheetName": "Hoard Beast",
+      "score": 81,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-189",
+      "nativeUid": "29267174754615652474037399174986",
+      "name": "Nadine, Sirens’ Origin",
+      "sheetName": "Nadine, Sirens’ Origin",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-190",
+      "nativeUid": "41626888756951851818248742938539",
+      "name": "The Mind",
+      "sheetName": "The Mind",
+      "score": 30,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-191",
+      "nativeUid": "34146387818964309981610569958871",
+      "name": "Boosted Excitement",
+      "sheetName": "Boosted Excitement",
+      "score": 67,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-192",
+      "nativeUid": "74453400551492042731665382533203",
+      "name": "Annoying Running Gag",
+      "sheetName": "Annoying Running Gag",
+      "score": 91,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-193",
+      "nativeUid": "51358124299440314580347891266914",
+      "name": "Provoker",
+      "sheetName": "Provoker",
+      "score": 56,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-194",
+      "nativeUid": "16177715100234736956282677907249",
+      "name": "Frozen Taps",
+      "sheetName": "Frozen Taps",
+      "score": 12,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-195",
+      "nativeUid": "83728533598619035689727938433422",
+      "name": "Experimental Invention",
+      "sheetName": "Experimental Invention",
+      "score": 54,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-196",
+      "nativeUid": "88126622319945288126178516814379",
+      "name": "Hosn Owe",
+      "sheetName": "Hosn Owe",
+      "score": 49,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-197",
+      "nativeUid": "26207076675561500704557454533026",
+      "name": "Improvised Escape",
+      "sheetName": "Improvised Escape",
+      "score": 62,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-198",
+      "nativeUid": "93794407831162721482565206224297",
+      "name": "Strange Allergic Reaction",
+      "sheetName": "Strange Allergic Reaction",
+      "score": 65,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-199",
+      "nativeUid": "58517593890630685251672600737324",
+      "name": "Friend or Foe",
+      "sheetName": "Friend or Foe",
+      "score": 6,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-200",
+      "nativeUid": "65599175059944042961090878182005",
+      "name": "The Fallen",
+      "sheetName": "The Fallen",
+      "score": 67,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-201",
+      "nativeUid": "20580109366264228865333572129064",
+      "name": "Grinder",
+      "sheetName": "Grinder",
+      "score": 18,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-202",
+      "nativeUid": "33269523842447096815056413056868",
+      "name": "Zigeuner-Duo",
+      "sheetName": "Zigeuner-Duo",
+      "score": 55,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-203",
+      "nativeUid": "50343275468512188397310065435117",
+      "name": "Sauna Elemental",
+      "sheetName": "Sauna Elemental",
+      "score": 70,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-204",
+      "nativeUid": "52193164618810251812368805270749",
+      "name": "Rotborn Colossus",
+      "sheetName": "Rotborn Colossus",
+      "score": 68,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-205",
+      "nativeUid": "04577956835733058778866117053601",
+      "name": "Igy's Astronomical Return",
+      "sheetName": "Igy's Astronomical Return",
+      "score": 64,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-206",
+      "nativeUid": "23656341208328525752265715302493",
+      "name": "Fat Felicia",
+      "sheetName": "Fat Felicia",
+      "score": 59,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-207",
+      "nativeUid": "01731552517253411257836511959628",
+      "name": "Devious Duo",
+      "sheetName": "Devious Duo",
+      "score": 52,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-208",
+      "nativeUid": "03224801931987880753285422456565",
+      "name": "Big Ball Bluebird",
+      "sheetName": "Big Ball Bluebird",
+      "score": 67,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-209",
+      "nativeUid": "07902308716784276821586361700394",
+      "name": "Austrian Slap",
+      "sheetName": "Austrian Slap",
+      "score": 76,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-210",
+      "nativeUid": "43094446310164477774551357156495",
+      "name": "Lecherous Patron",
+      "sheetName": "Lecherous Patron",
+      "score": 56,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-211",
+      "nativeUid": "61464488091260223712215986719873",
+      "name": "Jolly Brewbelly",
+      "sheetName": "Jolly Brewbelly",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-212",
+      "nativeUid": "54971664609911021237071282007484",
+      "name": "Desperate Hydrator",
+      "sheetName": "Desperate Hydrator",
+      "score": 69,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-213",
+      "nativeUid": "14169405985543168356971744969259",
+      "name": "Puff Mama",
+      "sheetName": "Puff Mama",
+      "score": 45,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-214",
+      "nativeUid": "47430827617090329571557775365015",
+      "name": "Domina’s Devotee",
+      "sheetName": "Domina’s Devotee",
+      "score": 65,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-215",
+      "nativeUid": "56291372041028841727931608645605",
+      "name": "Tavern Slot Machine",
+      "sheetName": "Tavern Slot Machine",
+      "score": 53,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-216",
+      "nativeUid": "42511616782379490164171373537206",
+      "name": "Honest Laborer",
+      "sheetName": "Honest Laborer",
+      "score": 67,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-217",
+      "nativeUid": "19976115809487411962775371761235",
+      "name": "Gonorrhea",
+      "sheetName": "Gonorrhea",
+      "score": 43,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-218",
+      "nativeUid": "36588082951757152479359204905852",
+      "name": "Ale Addict",
+      "sheetName": "Ale Addict",
+      "score": 46,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-219",
+      "nativeUid": "69166208300742741164810135386490",
+      "name": "Devoted Homebody",
+      "sheetName": "Devoted Homebody",
+      "score": 44,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-220",
+      "nativeUid": "52207904172044083560126687692755",
+      "name": "Bad Drunk",
+      "sheetName": "Bad Drunk",
+      "score": 66,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-221",
+      "nativeUid": "26878229955323835288087210310671",
+      "name": "Attention Seeker",
+      "sheetName": "Attention Seeker",
+      "score": 74,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-222",
+      "nativeUid": "04065278010640027874694310886560",
+      "name": "Take a Sniff",
+      "sheetName": "Take a Sniff",
+      "score": 72,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-223",
+      "nativeUid": "40267878955285843293779240350666",
+      "name": "Midnight Fridge Raider",
+      "sheetName": "Midnight Fridge Raider",
+      "score": 55,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-224",
+      "nativeUid": "85850289447883809293854391442028",
+      "name": "Hitman",
+      "sheetName": "Hitman",
+      "score": 55,
+      "status": "Pending",
+      "category": "playable"
+    },
+    {
+      "id": "cb-225",
+      "nativeUid": "30739070464769848700981782813164",
+      "name": "Culinary Disaster",
+      "sheetName": "Culinary Disaster",
+      "score": 67,
+      "status": "Pending",
+      "category": "playable"
+    },
+    {
+      "id": "cb-226",
+      "nativeUid": "75389506599813918193151658985581",
+      "name": "Still Good",
+      "sheetName": "Still Good",
+      "score": 51,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-227",
+      "nativeUid": "67418039238894177402380276067228",
+      "name": "Stingats Gsöchts",
+      "sheetName": "Stingats Gsöchts",
+      "score": 94,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-228",
+      "nativeUid": "18894330377665825226346312832941",
+      "name": "Sofa Pizza",
+      "sheetName": "Sofa Pizza",
+      "score": 63,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-229",
+      "nativeUid": "18809404256220407985621217930139",
+      "name": "Nagging Little Sister",
+      "sheetName": "Nagging Little Sister",
+      "score": 58,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-230",
+      "nativeUid": "26649768778365469337292821661983",
+      "name": "Manipulative Temptress",
+      "sheetName": "Manipulative Temptress",
+      "score": 64,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-231",
+      "nativeUid": "21669950071371703973346784011676",
+      "name": "Cold Water Coward",
+      "sheetName": "Cold Water Coward",
+      "score": 39,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-232",
+      "nativeUid": "78331929318857802125584186007551",
+      "name": "Hunting Siren",
+      "sheetName": "Hunting Siren",
+      "score": 72,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-233",
+      "nativeUid": "44717455772675020415141205169309",
+      "name": "Canonball Carl",
+      "sheetName": "Canonball Carl",
+      "score": 80,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-234",
+      "nativeUid": "00616200644842278505116723911864",
+      "name": "Barmaid",
+      "sheetName": "Barmaid",
+      "score": 59,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-235",
+      "nativeUid": "38359973708629999462607223878192",
+      "name": "Coastal Watchman",
+      "sheetName": "Coastal Watchman",
+      "score": 38,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-236",
+      "nativeUid": "29038767250318532159174888045504",
+      "name": "Not Invited",
+      "sheetName": "Not Invited",
+      "score": 66,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-237",
+      "nativeUid": "03494460443685225939494173277196",
+      "name": "Information Broker",
+      "sheetName": "Information Broker",
+      "score": 45,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-238",
+      "nativeUid": "20603980751874128633013940754487",
+      "name": "Copycat",
+      "sheetName": "Copycat",
+      "score": 72,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-239",
+      "nativeUid": "08762281618155566515745015136499",
+      "name": "Blightpear Ancient",
+      "sheetName": "Blightpear Ancient",
+      "score": 68,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-240",
+      "nativeUid": "67942699217232482840650190003315",
+      "name": "Overstimulated Flora",
+      "sheetName": "Overstimulated Flora",
+      "score": 65,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-241",
+      "nativeUid": "11538891516467657045858475522021",
+      "name": "Ravenous Trollkin",
+      "sheetName": "Ravenous Trollkin",
+      "score": 60,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-242",
+      "nativeUid": "33201764648264998584116013239476",
+      "name": "Exasperated Patriarch",
+      "sheetName": "Exasperated Patriarch",
+      "score": 71,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-243",
+      "nativeUid": "83774840392049937688903431191436",
+      "name": "The Stoned Peaks",
+      "sheetName": "The Stoned Peaks",
+      "score": 73,
+      "status": "Auto-confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-244",
+      "nativeUid": "49404906350752216667113942182283",
+      "name": "Hopsfield Vale",
+      "sheetName": "Hopsfield Vale",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-245",
+      "nativeUid": "63849045787585929350310817858359",
+      "name": "Sacred Brewery",
+      "sheetName": "Sacred Brewery",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-246",
+      "nativeUid": "35860411720082402855031753137221",
+      "name": "Decaying Orchard",
+      "sheetName": "Decaying Orchard",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-247",
+      "nativeUid": "84828292714969863084791068139877",
+      "name": "Flooded Palace",
+      "sheetName": "Flooded Palace",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-248",
+      "nativeUid": "35299706154928307969268616660811",
+      "name": "Underground District",
+      "sheetName": "Underground District",
+      "score": 73,
+      "status": "Auto-confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-249",
+      "nativeUid": "26808348361216654051386908497584",
+      "name": "Underground District",
+      "sheetName": "Underground District",
+      "score": 73,
+      "status": "Auto-confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-250",
+      "nativeUid": "99935294381781036393262860668796",
+      "name": "Duskmire",
+      "sheetName": "Duskmire",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-251",
+      "nativeUid": "77305606895925201352240573534114",
+      "name": "Reefgarden",
+      "sheetName": "Reefgarden",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-252",
+      "nativeUid": "67458306690322369934275127736743",
+      "name": "Distillery of Silent Death",
+      "sheetName": "Distillery of Silent Death",
+      "score": 73,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-253",
+      "nativeUid": "33591598075031191367112885953820",
+      "name": "Brewbelly Jumbo",
+      "sheetName": "Brewbelly Jumbo",
+      "score": 74,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-254",
+      "nativeUid": "56615107814348146554016867017968",
+      "name": "Wild Fermentation",
+      "sheetName": "Wild Fermentation",
+      "score": 46,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-255",
+      "nativeUid": "97575280132322096133536869745442",
+      "name": "Desperate Foraging",
+      "sheetName": "Desperate Foraging",
+      "score": 40,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-256",
+      "nativeUid": "77726210050238314215191179769496",
+      "name": "Trained Drinker",
+      "sheetName": "Trained Drinker",
+      "score": 46,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-257",
+      "nativeUid": "92837488759201971185883361980960",
+      "name": "Tavern Scrapgulper",
+      "sheetName": "Tavern Scrapgulper",
+      "score": 51,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-258",
+      "nativeUid": "47872768145764501770160659311747",
+      "name": "Tavern Hearthkeeper",
+      "sheetName": "Tavern Hearthkeeper",
+      "score": 39,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-259",
+      "nativeUid": "25268897057265774963697660960041",
+      "name": "Wrathroot Colossus",
+      "sheetName": "Wrathroot Colossus",
+      "score": 64,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-260",
+      "nativeUid": "93661045438346248810193029088942",
+      "name": "Siren Raiders",
+      "sheetName": "Siren Raiders",
+      "score": 61,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-261",
+      "nativeUid": "29517471596069913142365029215157",
+      "name": "The Executioner",
+      "sheetName": "The Executioner",
+      "score": 72,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-262",
+      "nativeUid": "64829969959526346534791824304310",
+      "name": "Escalating Adventurer",
+      "sheetName": "Escalating Adventurer",
+      "score": 52,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-263",
+      "nativeUid": "81905137373495155494718986736334",
+      "name": "Fighting Pit Champion",
+      "sheetName": "Fighting Pit Champion",
+      "score": 51,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-264",
+      "nativeUid": "24838181739805018765431956676581",
+      "name": "Deepwood Abomination",
+      "sheetName": "Deepwood Abomination",
+      "score": 68,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-265",
+      "nativeUid": "05805430224537672944369015857542",
+      "name": "Tavern Ban",
+      "sheetName": "Tavern Ban",
+      "score": 77,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-266",
+      "nativeUid": "67183843523505294985329687517820",
+      "name": "Pushy Pourer",
+      "sheetName": "Pushy Pourer",
+      "score": 64,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-267",
+      "nativeUid": "94903304348993700790206886178129",
+      "name": "Professional Drunk",
+      "sheetName": "Professional Drunk",
+      "score": 58,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-268",
+      "nativeUid": "19408221467028213006299358696456",
+      "name": "Brawl Enthusiast",
+      "sheetName": "Brawl Enthusiast",
+      "score": 68,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-269",
+      "nativeUid": "11666765424144435752520763748304",
+      "name": "Moshpit",
+      "sheetName": "Moshpit",
+      "score": 70,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-270",
+      "nativeUid": "89266109817172186801455629210036",
+      "name": "Brawl Encourager",
+      "sheetName": "Brawl Encourager",
+      "score": 54,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-271",
+      "nativeUid": "76741483379825672214429719574036",
+      "name": "Server Veteran",
+      "sheetName": "Server Veteran",
+      "score": 35,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-272",
+      "nativeUid": "95741160245497525334753170598579",
+      "name": "Questionable First Responder",
+      "sheetName": "Questionable First Responder",
+      "score": 33,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-273",
+      "nativeUid": "80027211816576938169062249146433",
+      "name": "Keeper’s Lucky Mascot",
+      "sheetName": "Keeper’s Lucky Mascot",
+      "score": 79,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-274",
+      "nativeUid": "15947854806961429211041176761037",
+      "name": "Wandering Culinarian",
+      "sheetName": "Wandering Culinarian",
+      "score": 75,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-278",
+      "nativeUid": "38894577599206244104703806604763",
+      "name": "Frühshoppen",
+      "sheetName": "Frühshoppen",
+      "score": 61,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-279",
+      "nativeUid": "34389086212196731353641035768475",
+      "name": "Gastronomic Downfall",
+      "sheetName": "Gastronomic Downfall",
+      "score": 78,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-280",
+      "nativeUid": "12072785115833770083375100869850",
+      "name": "A Week of Excess",
+      "sheetName": "A Week of Excess",
+      "score": 6,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-281",
+      "nativeUid": "60314359646799612205033133287688",
+      "name": "Kiss of Poseidon",
+      "sheetName": "Kiss of Poseidon",
+      "score": 25,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-282",
+      "nativeUid": "18071457911650076237814489678252",
+      "name": "Rollercoaster of Emotions",
+      "sheetName": "Rollercoaster of Emotions",
+      "score": 25,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-283",
+      "nativeUid": "97455491638082763377638553412325",
+      "name": "Hofi, the Fragrant",
+      "sheetName": "Hofi, the Fragrant",
+      "score": 86,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-284",
+      "nativeUid": "28125387424274213111972077510894",
+      "name": "Peter, the Manipulative",
+      "sheetName": "Peter, the Manipulative",
+      "score": 62,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-285",
+      "nativeUid": "58361091814497862932150488977029",
+      "name": "Sasa, the Big Brother",
+      "sheetName": "Sasa, the Big Brother",
+      "score": 99,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-286",
+      "nativeUid": "90889525648900875383458530308990",
+      "name": "Stefan, the Eternal Annoyer",
+      "sheetName": "Stefan, the Eternal Annoyer",
+      "score": 35,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-287",
+      "nativeUid": "40917745374046071275670995104979",
+      "name": "Alex, the Cozy",
+      "sheetName": "Alex, the Cozy",
+      "score": 97,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-298",
+      "nativeUid": "95020460382661034867692489129296",
+      "name": "Peter, the Stoned Hunter",
+      "sheetName": "Peter, the Stoned Hunter",
+      "score": 94,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-308",
+      "nativeUid": "65500405928727932744264801569234",
+      "name": "The Awaitening",
+      "sheetName": "The Awaitening",
+      "score": 88,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-309",
+      "nativeUid": "92127769993728691166754244767689",
+      "name": "Wagon Enthusiast",
+      "sheetName": "Wagon Enthusiast",
+      "score": 52,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-310",
+      "nativeUid": "51119101278012259742252241612724",
+      "name": "Ball Scratching",
+      "sheetName": "Ball Scratching",
+      "score": 44,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-311",
+      "nativeUid": "35761508012049739640281573613571",
+      "name": "Ragebait",
+      "sheetName": "Ragebait",
+      "score": 53,
+      "status": "Confirmed",
+      "category": "playable"
+    },
+    {
+      "id": "cb-312",
+      "nativeUid": "49583162768884652581783757052218",
+      "name": "Maternal Instinct",
+      "sheetName": "Maternal Instinct",
+      "score": 60,
+      "status": "Pending",
+      "category": "playable"
+    },
+    {
+      "id": "cb-313",
+      "nativeUid": "89640306767223202400203107853839",
+      "name": "Higher Protection",
+      "sheetName": "Higher Protection",
+      "score": 63,
+      "status": "Pending",
+      "category": "playable"
+    },
+    {
+      "id": "cb-314",
+      "nativeUid": "40658660148181319217044643082795",
+      "name": "Haze-Fueled Frenzy",
+      "sheetName": "Haze-Fueled Frenzy",
+      "score": 62,
+      "status": "Pending",
+      "category": "playable"
+    }
+  ],
+  "missing": [
+    {
+      "id": "cb-275",
+      "nativeUid": "99697868361608104333974878191868",
+      "name": "Beer",
+      "category": "token"
+    },
+    {
+      "id": "cb-276",
+      "nativeUid": "13651776195717043056289625770570",
+      "name": "Jade Dragon",
+      "category": "token"
+    },
+    {
+      "id": "cb-277",
+      "nativeUid": "45348669994707053799973286106801",
+      "name": "Another Brother",
+      "category": "token"
+    },
+    {
+      "id": "cb-288",
+      "nativeUid": "08550782024313345983571332065668",
+      "name": "Expired Beer",
+      "category": "token"
+    },
+    {
+      "id": "cb-289",
+      "nativeUid": "41800081581069686088403844896897",
+      "name": "Pils Beer",
+      "category": "token"
+    },
+    {
+      "id": "cb-290",
+      "nativeUid": "28727334813682861630156685371356",
+      "name": "Zwickl Beer",
+      "category": "token"
+    },
+    {
+      "id": "cb-291",
+      "nativeUid": "99438033573469877722553837322933",
+      "name": "Wheat Beer",
+      "category": "token"
+    },
+    {
+      "id": "cb-292",
+      "nativeUid": "61262098799155684849093802016623",
+      "name": "Dark Beer",
+      "category": "token"
+    },
+    {
+      "id": "cb-293",
+      "nativeUid": "80566617593283984981652973441929",
+      "name": "Bock Beer",
+      "category": "token"
+    },
+    {
+      "id": "cb-294",
+      "nativeUid": "85895542599407197338801036611005",
+      "name": "Hangry Siren",
+      "category": "token"
+    },
+    {
+      "id": "cb-295",
+      "nativeUid": "62394501428535753590611702577679",
+      "name": "Elemental",
+      "category": "token"
+    },
+    {
+      "id": "cb-296",
+      "nativeUid": "58569973053786328538229813254111",
+      "name": "Stinky Elemental",
+      "category": "token"
+    },
+    {
+      "id": "cb-297",
+      "nativeUid": "95903886070373072497215163364981",
+      "name": "Vengeful Gnome Pack",
+      "category": "token"
+    },
+    {
+      "id": "cb-299",
+      "nativeUid": "43206804257078491561453258329794",
+      "name": "Ari, the Ripper",
+      "category": "token"
+    },
+    {
+      "id": "cb-300",
+      "nativeUid": "39751567967358822980912756692110",
+      "name": "Food",
+      "category": "token"
+    },
+    {
+      "id": "cb-301",
+      "nativeUid": "56257305857810659044607144909009",
+      "name": "Food",
+      "category": "token"
+    },
+    {
+      "id": "cb-302",
+      "nativeUid": "08414963860758062278600763004916",
+      "name": "Food",
+      "category": "token"
+    },
+    {
+      "id": "cb-303",
+      "nativeUid": "84367773972239735972520551301886",
+      "name": "Treasure",
+      "category": "token"
+    },
+    {
+      "id": "cb-304",
+      "nativeUid": "89693456724449181378500028114320",
+      "name": "Treasure",
+      "category": "token"
+    },
+    {
+      "id": "cb-305",
+      "nativeUid": "68425958370012987867630902772225",
+      "name": "Treasure",
+      "category": "token"
+    },
+    {
+      "id": "cb-306",
+      "nativeUid": "83294307911530520069571460645566",
+      "name": "Beer",
+      "category": "token"
+    },
+    {
+      "id": "cb-307",
+      "nativeUid": "90333205029454662106164972683118",
+      "name": "Beer",
+      "category": "token"
+    }
+  ]
+}
