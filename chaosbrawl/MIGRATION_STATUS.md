@@ -217,3 +217,8 @@ Desktop and Adventure reactor package builds pass. Native MSE rendered all 314 f
 Windows beta.5 package/source built from clean2b6ca9f656f4541a72e3d28f398f7d3223d51fbd. Native bundled Windows Java resolves292 card image paths and17 token images, passes nine Adventure checks with four AI games, completes Classic game on turn14, and opens Classic/Adventure windows. The exact extracted package is ready at C:\MTG\ChaosBrawlForge-Playtest-0.1.0-beta.5; ZIP is next to it.
 
 Android APK is signed with the unchanged03d5c326 certificate, app IDforge.app.chaosbrawl, API26 minimum, versionCode10005. API26/API35 upgrades from beta.4 installed exact new rankings/resources, retained the synthetic player deck and passed restart. Additional clean-sandbox initialization is running. Both versioned private release drafts exist and matching binary/source uploads are in progress; publication is not yet claimed.
+
+
+### Beta.5 Windows publication
+
+Windows private prereleaseforge-desktop-v0.1.0-beta.5 is published. Binary/source assets656938350/656938349 have GitHub digests matching local hashes. Native Windows playtest folder and separate updated MSE copy were provided to the owner. Website candidate pins and fresh transfer audit are validated:241 compatible published printings,482 real native round trips, eight compatible punctuation clipboard exceptions. All111 local Node tests, TypeScript and production build pass. Android private draft is fully uploaded with matching source; clean sandbox finalization and website deployment remain pending.

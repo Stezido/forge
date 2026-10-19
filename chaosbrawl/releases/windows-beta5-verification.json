@@ -1,0 +1,64 @@
+{
+  "version": "0.1.0-beta.5",
+  "platform": "windows-x64",
+  "engineCommit": "2b6ca9f656f4541a72e3d28f398f7d3223d51fbd",
+  "mseSha256": "a661450cec9bad0acdd1c878e57ebcff67a2d726eca6e5df0b432216c7b08a15",
+  "jarSha256": "d12916e2a290c7e751ad13b228ece3c13812a30693d1fb455051eff202048357",
+  "adventureJarSha256": "c6e8e2cc7a3ebf76c69214a22adaf95a80aaadcb934aad49469c12aa29d0cd6f",
+  "setCode": "CBFRbeta",
+  "reservedReleaseSetCode": "CBFR",
+  "runtime": {
+    "vendor": "Eclipse Adoptium",
+    "javaVersion": "21.0.12.1+1",
+    "architecture": "x64",
+    "os": "windows",
+    "imageType": "jre",
+    "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.12.1%2B1/OpenJDK21U-jre_x64_windows_hotspot_21.0.12.1_1.zip",
+    "sha256": "d35f31e712f0fcf6ac5a093edc90204fbff22f720ba3950bd09d331d5e621636",
+    "bytes": 48999141,
+    "status": "downloaded and checksum verified; extraction/native Windows execution pending"
+  },
+  "sourceRecords": 314,
+  "nonTokenRecords": 292,
+  "tokenRecords": 22,
+  "testDecks": 43,
+  "artifacts": {
+    "windows": {
+      "filename": "ChaosBrawl-Forge-0.1.0-beta.5-Windows-x64.zip",
+      "bytes": 497253444,
+      "sha256": "fcc7be27ef42c74d6c67d5e2212582c433fcf698f9f9710807d4de1ef05a4d90"
+    },
+    "source": {
+      "filename": "ChaosBrawl-Forge-0.1.0-beta.5-Source.zip",
+      "bytes": 279279039,
+      "sha256": "40bb04cddae90f6a6a39926073571df96d31bd4d69bcf3aab026e577c5b60775"
+    }
+  },
+  "verification": {
+    "engineTests": 489,
+    "limitedTests": 8,
+    "cardImagePaths": 292,
+    "fullCardTokenImages": 17,
+    "missingImages": 0,
+    "nativeMseFullFaces": 314,
+    "limitedEligiblePrintings": 291,
+    "limitedConfirmedPrintings": 291,
+    "mseRatingNotes": 292,
+    "missingPlayableRatings": 0,
+    "linuxAdventureChecks": 9,
+    "nativeWindowsAdventureChecks": 9,
+    "linuxAdventureCompletedGames": 4,
+    "nativeWindowsAdventureCompletedGames": 4,
+    "nativeWindowsClassicCompletedGame": true,
+    "nativeWindowsClassicWindow": true,
+    "nativeWindowsAdventureWindow": true,
+    "physicalOrRemoteHumanGameplay": false
+  },
+  "github": {
+    "repository": "Stezido/Chaosbrawl-Website",
+    "releaseTag": "forge-desktop-v0.1.0-beta.5",
+    "windowsAssetId": 656938350,
+    "sourceAssetId": 656938349,
+    "status": "published private prerelease"
+  }
+}
