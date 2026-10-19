@@ -1,0 +1,12 @@
+{
+  "cardId": "cb-146",
+  "engineTests": 494,
+  "newRegressionCases": 5,
+  "preFixFailingRegressionCases": 4,
+  "postFixFailures": 0,
+  "limitedGenerationCheck": "passed; no output differences",
+  "preparation": "passed; 314 reviewed records and native full faces, 43 existing batch decks",
+  "mseChanged": false,
+  "mseSha256": "a661450cec9bad0acdd1c878e57ebcff67a2d726eca6e5df0b432216c7b08a15",
+  "releasePublished": false
+}

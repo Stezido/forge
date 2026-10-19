@@ -227,3 +227,11 @@ Windows private prereleaseforge-desktop-v0.1.0-beta.5 is published. Binary/sourc
 ### Coordinated beta.5 publication complete
 
 Android private prereleaseforge-android-v0.1.0-beta.5 is published with signed APK/source assets656938438/656938443. A fresh API35 secondary-user sandbox completed initialization, exact rankings and43 seed decks; both API26/API35 beta.4 upgrades and restart checks passed. Windows and Android use matching source2b6ca9f6 and current MSE/rankings, with all four GitHub artifact digests verified. Website PR #81 is merged as9a2a9000d2c1f527198c2501703710f637035430; staging-first production run39296962505 is in progress. Physical-phone performance and human Android matches are not claimed.
+
+
+## Debt Collector Treasure recipient — owner feedback (2026-10-19)
+
+- Reproduced the cb-146 bug with four failing real-engine regression cases: the controller received zero Treasures for positive opposing creature counts, including a spell whose controller differs from its owner. The zero-creature case passed.
+- Fixed only the card script by explicitly specifying `TokenOwner$ You`. The target opponent still supplies the resolution-time creature count. All 494 engine tests now pass, including five new regression cases for 0/1/3 creatures, ownership/control separation, legal opponent targeting and changes before resolution. Limited generation check passes unchanged.
+- Compared the exact registered Beta MSE on website main commit b17d1134efba6ea80177b6625246ff45cccb95b0, SHA-256 a661450cec9bad0acdd1c878e57ebcff67a2d726eca6e5df0b432216c7b08a15, native UID19677003063545642001668771848106. Its wording, CARDNAME automation and Limited-Rating:74 are correct; no MSE, artwork, ratings or pool changes. Reviewed engine-only batch owner-feedback-004 preserves prior history and updates only the two changed executable/test hashes. Preparation validation passes against the immutable main snapshot: all314 reviewed records, native full faces and43 existing batch decks.
+- Published beta.5 binary/source assets and the owner's Windows playtest folder are unchanged. This fix accumulates in source; no new downloadable release is authorized by this feedback.
