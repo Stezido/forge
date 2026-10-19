@@ -4,7 +4,7 @@
   "files": [
     {
       "path": "chaosbrawl/VerifyAdventureEvents.java",
-      "sha256": "c65fe18e1224c109346d9d2bf3c183ae415b43ffc9086c8e69b27e43f415437b"
+      "sha256": "3619067243c88d98d9ba1295cd0410e253002edf43c40b43b7e8f5b1a27daae1"
     },
     {
       "path": "chaosbrawl/VerifyPackageImages.java",
@@ -59,8 +59,12 @@
       "sha256": "05f84b93f4b32387fa1f0166b01dd2ab95163b315cd1f91b83619ef97e604e3d"
     },
     {
+      "path": "chaosbrawl/package_android_source.py",
+      "sha256": "259bb87781e7445a748c03ae7cbedb79e66bb67c587773c0eff40ce7d9c6d720"
+    },
+    {
       "path": "chaosbrawl/package_windows.py",
-      "sha256": "9d927eb2823ef1250ee814e005c5fe4d0064467db024adc87f9d7dc4a103c6bd"
+      "sha256": "c45338cfa2b933fd5583158f50cb6ef2e68c19eb34c42e2e92e35045a0b13d61"
     },
     {
       "path": "chaosbrawl/prepare.py",
@@ -69,6 +73,10 @@
     {
       "path": "chaosbrawl/prepare_adventure.py",
       "sha256": "fc821bd46dd48dfde7574b27e0ac5a4bb15f83b2558442dd8c8ee173dbca4dee"
+    },
+    {
+      "path": "chaosbrawl/sign_android.py",
+      "sha256": "d4c5e35b07d6a31463cb3d215df35c6dcb508c76f71701129bb606ae8581d627"
     },
     {
       "path": "forge-ai/src/main/java/forge/ai/ChaosBrawlObsessionAi.java",
@@ -213,6 +221,10 @@
     {
       "path": "forge-game/src/main/java/forge/game/zone/MagicStack.java",
       "sha256": "ff078cd21be510e841573457eb5920565691fcd27b22ecb0fd68cec37d03aafc"
+    },
+    {
+      "path": "forge-gui-android/pom.xml",
+      "sha256": "ed0647e6a28399cd039adf8d3e28985bb252604779a9e6ac2618613564691bfc"
     },
     {
       "path": "forge-gui-desktop/src/test/java/forge/gamesimulationtests/ChaosBrawlLimitedTest.java",

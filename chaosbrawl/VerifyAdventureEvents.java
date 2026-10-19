@@ -24,7 +24,7 @@ public class VerifyAdventureEvents {
  static void deck(Deck deck){
   require(deck!=null && deck.getMain().countAll()==40,"AI event deck must have 40 cards");
   require(DeckFormat.Limited.getDeckConformanceProblem(deck)==null,"Illegal AI event deck");
-  for(PaperCard card:deck.getMain().toFlatList())require(card.getRules().getType().isBasicLand() || (card.getEdition().equals("CBFRbeta") && !card.getRules().getType().isPlaneswalker() && !card.getName().equals("AJDE!")),"Ineligible event card: "+card.getName());
+  for(PaperCard card:deck.getMain().toFlatList())require(card.getRules().getType().isBasicLand() || (card.getEdition().equals("CBFRbeta") && !card.getName().equals("AJDE!")),"Ineligible event card: "+card.getName());
  }
  static void participants(AdventureEventData event)throws Exception{
   var constructor=AdventureEventData.AdventureEventParticipant.class.getDeclaredConstructor();constructor.setAccessible(true);

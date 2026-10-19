@@ -26,7 +26,7 @@ def package(output):
             for name in ['chaosbrawl-resources.zip', 'chaosbrawl-resources.sha256']:
                 path = ROOT/'forge-gui-android/assets'/name
                 target.write(path, 'forge-gui-android/assets/'+name)
-            target.writestr('ANDROID-SOURCE.txt', f'''Corresponding source for Chaos Brawl Forge Android 0.1.0-beta.1
+            target.writestr('ANDROID-SOURCE.txt', f'''Corresponding source for Chaos Brawl Forge Android 0.1.0-beta.4
 Engine/source commit: {commit}
 Forge is GPLv3-or-later; preserve LICENSE and contributor/dependency notices.
 Build instructions: chaosbrawl/ANDROID_RELEASE.md

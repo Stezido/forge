@@ -24,7 +24,7 @@ def main():
     parser.add_argument('--build-root', type=Path, required=True)
     parser.add_argument('--runtime', type=Path, required=True)
     parser.add_argument('--output', type=Path, default=ROOT/'.chaosbrawl-local/windows-release')
-    parser.add_argument('--version', default='0.1.0-beta.3')
+    parser.add_argument('--version', default='0.1.0-beta.4')
     parser.add_argument('--java', default='java', help='JDK 21+ executable for the runtime image-path audit')
     args = parser.parse_args()
     if not re.fullmatch(r'\d+\.\d+\.\d+-[a-z0-9.]+', args.version):
@@ -160,7 +160,7 @@ Normal virtual entry fees: Draft 3000 gold / 50 shards; Sealed 6000 / 100.
 M21 supplies normal basic lands. Rankings are provisional AI preferences.
 Finish the character tutorial, then visit a town inn and choose Info.
 
-This release changes the set code to CBFRbeta; CBFR is reserved for the full set.
+This release keeps the Beta set code CBFRbeta; CBFR is reserved for the full set.
 CBT remains an edition alias for old decks. Your old installation is preserved;
 back up UserData and Decks before transferring them into this version.
 Keep Adventure saves under their existing plane name. A new profile defaults to

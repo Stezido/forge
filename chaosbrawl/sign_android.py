@@ -42,14 +42,14 @@ def sign(apk, output, sdk, java, signing):
     run([tools/'apksigner', 'sign', '--ks', key, '--ks-key-alias', 'chaosbrawl-release', '--ks-pass', 'env:CHAOSBRAWL_ANDROID_PASSWORD', '--key-pass', 'env:CHAOSBRAWL_ANDROID_PASSWORD', '--out', output, aligned], env)
     report = run([tools/'apksigner', 'verify', '--verbose', '--print-certs', output], env)
     badge = run([tools/'aapt', 'dump', 'badging', output], env)
-    if "package: name='forge.app.chaosbrawl' versionCode='10001' versionName='0.1.0-beta.1'" not in badge or "sdkVersion:'26'" not in badge or 'Android Debug' in report:
+    if "package: name='forge.app.chaosbrawl' versionCode='10004' versionName='0.1.0-beta.4'" not in badge or "sdkVersion:'26'" not in badge or 'Android Debug' in report:
         raise ValueError('APK identity, minimum API or certificate mismatch')
     cert = re.search(r'Signer #1 certificate SHA-256 digest: ([a-f0-9]+)', report)
     if not cert or 'Verified using v2 scheme (APK Signature Scheme v2): true' not in report:
         raise ValueError('APK signature not verified')
     run([tools/'zipalign', '-c', '-P', '16', '4', output], env)
     aligned.unlink()
-    return {'filename': output.name, 'bytes': output.stat().st_size, 'sha256': hashlib.file_digest(output.open('rb'), 'sha256').hexdigest(), 'certificateSha256': cert.group(1), 'applicationId': 'forge.app.chaosbrawl', 'minSdk': 26, 'versionCode': 10001, 'version': '0.1.0-beta.1'}
+    return {'filename': output.name, 'bytes': output.stat().st_size, 'sha256': hashlib.file_digest(output.open('rb'), 'sha256').hexdigest(), 'certificateSha256': cert.group(1), 'applicationId': 'forge.app.chaosbrawl', 'minSdk': 26, 'versionCode': 10004, 'version': '0.1.0-beta.4'}
 
 
 if __name__ == '__main__':

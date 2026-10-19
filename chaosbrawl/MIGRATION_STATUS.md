@@ -180,3 +180,17 @@ The existing counter enum already calls Obsession negative, but CountersPutAi se
 
 
 Obsession AI validation: all 482 engine tests pass. Eleven added cases exercise the actual CountersPutAi spell/activation/trigger entry points: enemy-first targeting for Sweet Harmless Siren, Wagon Enthusiast, Baiting Siren, Peter the Manipulative and Ball Scratching; optional decline versus mandatory target choice; friendly/opposing Devotee; friendly/enemy aura threshold; Hexproof; postcombat temporary buffs; unchanged positive-counter targeting and opt-in gating. Detached-copy threshold evaluation leaves real counters/stats unchanged. Current reviewed executable hashes include the new AI helper. No downloadable release has been created.
+
+
+## Owner-authorized beta.4 release — 2026-10-18
+
+Owner explicitly requested deployment of a new beta.4 release. Preparing Windows Classic/Adventure and Android 0.1.0-beta.4 from the merged feedback fixes, with matching GPL source archives. Android retains app identity, API26 minimum and release signing key; versionCode increases from10001 to10004 for in-place updates. Corrected the release-only Adventure audit to admit the six planeswalkers now intentionally eligible in boosters. Builds, package checks and publication are in progress. No release has been uploaded yet.
+
+
+Beta.4 source validation: 482 engine tests and 7 limited tests pass. Android manifest version and signing/source archive metadata now match beta.4/versionCode10004. Existing key material remains outside the repository. Windows/Adventure reactor build is running locally; emulators API26/API35 started for upgrade checks. Nothing uploaded yet.
+
+
+Beta.4 packaging completed from exact clean source78f9be13e8041236bb1f4a75e827ece428fd05cd: Windows ZIP497231720 bytes and source279209921 bytes. Native Windows checks pass292 card/17 token images,9 Adventure checks with4 completed games, a decisive Classic game, and Classic/Adventure window startup. Artifacts copied/checksummed to new C:\MTG beta.4 folders without overwriting earlier releases. Android APK363920962 bytes signed with the unchanged03d5c326 certificate, versionCode10004; exact Android source622133026 bytes, both from the same source commit. API26/API35 in-place installations over beta.1 succeed; resource update/seed preservation is being checked. GitHub draft uploads started; one API request timed out and is being retried, so no publication or website pin change is claimed yet.
+
+
+Both beta.4 private GitHub prereleases are published, with matching source: Windows assets654321536/654321539; Android assets654329439/654329440. API26/API35 resource markers equal the new477e4b3592 bundle digest, the synthetic user deck survived, and Expired/Bock token bytes match native card renders. API35 native card loading was observed; software emulation also displayed system UI/launcher ANR prompts. No full Android game or physical-device performance is claimed. Publication observed on2026-10-18; resumed2026-10-19 to finish website pins/deployment.
