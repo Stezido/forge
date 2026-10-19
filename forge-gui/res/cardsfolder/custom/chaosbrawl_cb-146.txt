@@ -3,6 +3,6 @@ ManaCost:4 B
 Types:Creature Gnome
 PT:4/4
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Treasure | TriggerDescription$ When CARDNAME enters, ABILITY
-SVar:Treasure:DB$ Token | ValidTgts$ Opponent | TokenScript$ c_a_treasure_sac | TokenAmount$ X
+SVar:Treasure:DB$ Token | ValidTgts$ Opponent | TokenScript$ c_a_treasure_sac | TokenAmount$ X | TokenOwner$ You
 SVar:X:Count$Valid Creature.ControlledBy TargetedPlayer
 Oracle:When Debt Collector enters the battlefield, create a Treasure token for each creature target opponent controls.

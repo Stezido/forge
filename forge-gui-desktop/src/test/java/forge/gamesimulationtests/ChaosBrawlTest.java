@@ -567,6 +567,60 @@ public class ChaosBrawlTest extends SimulationTest {
         assertEquals(opponent.getLife(), 3);
     }
 
+    @DataProvider(name = "debtCollectorBoards")
+    public Object[][] debtCollectorBoards() {
+        return new Object[][] {{0, false}, {1, false}, {3, false}, {3, true}};
+    }
+
+    @Test(dataProvider = "debtCollectorBoards")
+    public void debtCollectorEtbCreatesTreasuresForItsController(int opposingCreatures, boolean borrowed) {
+        Game game = customGame();
+        Player owner = game.getPlayers().get(0);
+        Player controller = game.getPlayers().get(borrowed ? 1 : 0);
+        Player opponent = game.getPlayers().get(borrowed ? 0 : 1);
+        addCards("Couchpotato", 2, controller);
+        addCards("Couchpotato", opposingCreatures, opponent);
+        addCard("Island", opponent); // noncreatures do not count
+        addCardToZone("Couchpotato", opponent, ZoneType.Graveyard);
+        Card collector = addCardToZone("Debt Collector", owner, ZoneType.Hand);
+        game.getAction().checkStateEffects(true);
+        // Resolve a real creature spell controlled by a potentially different player than its owner.
+        SpellAbility cast = collector.getFirstSpellAbility();
+        cast.setActivatingPlayer(controller);
+        cast.setHostCard(game.getAction().moveToStack(collector, cast));
+        game.getStack().add(cast);
+        resolveTriggers(game);
+        collector = controller.getCardsIn(ZoneType.Battlefield).stream()
+                .filter(c -> c.getName().equals("Debt Collector")).findFirst().orElseThrow();
+        assertEquals(collector.getController(), controller);
+        assertEquals(collector.getOwner(), owner);
+        var treasures = controller.getCardsIn(ZoneType.Battlefield).stream()
+                .filter(c -> c.isToken() && c.getType().hasSubtype("Treasure")).toList();
+        assertEquals(treasures.size(), opposingCreatures, "Collector's controller must receive the tokens");
+        assertTrue(treasures.stream().allMatch(c -> c.getOwner() == controller && c.getController() == controller));
+        assertEquals(opponent.getCardsIn(ZoneType.Battlefield).stream()
+                .filter(c -> c.isToken() && c.getType().hasSubtype("Treasure")).count(), 0L);
+    }
+
+    @Test
+    public void debtCollectorCountsTheTargetedOpponentsCreaturesAtResolution() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), opponent = game.getPlayers().get(1);
+        addCard("Couchpotato", opponent);
+        Card collector = enter("Debt Collector", p);
+        game.getTriggerHandler().runWaitingTriggers();
+        game.getStack().addAllTriggeredAbilitiesToStack();
+        assertFalse(game.getStack().isEmpty(), "Debt Collector ETB must trigger");
+        addCard("Couchpotato", opponent);
+        game.getStack().resolveStack();
+        assertEquals(p.getCardsIn(ZoneType.Battlefield).stream()
+                .filter(c -> c.isToken() && c.getType().hasSubtype("Treasure")).count(), 2L);
+        assertEquals(opponent.getCardsIn(ZoneType.Battlefield).stream()
+                .filter(c -> c.isToken() && c.getType().hasSubtype("Treasure")).count(), 0L);
+        SpellAbility ability = db(collector, "Treasure");
+        assertTrue(ability.canTarget(opponent));
+        assertFalse(ability.canTarget(p), "Counting target remains an opponent, not the token recipient");
+    }
+
     @DataProvider(name = "betaCards")
     public Object[][] betaCards() {
         return new Object[][] {
