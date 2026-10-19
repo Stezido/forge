@@ -1,0 +1,63 @@
+{
+  "filename": "ChaosBrawl-Forge-0.1.0-beta.4-Android.apk",
+  "bytes": 363920962,
+  "sha256": "c385afe5b0d4c9dc599eb662cbe2417fa3e1fed6b1bda1709e583698f470fc14",
+  "certificateSha256": "03d5c326117fd58853821296116844e5cf7f88dff672d17d0fc66444f2577830",
+  "applicationId": "forge.app.chaosbrawl",
+  "minSdk": 26,
+  "versionCode": 10004,
+  "version": "0.1.0-beta.4",
+  "source": {
+    "engineCommit": "78f9be13e8041236bb1f4a75e827ece428fd05cd",
+    "filename": "ChaosBrawl-Forge-0.1.0-beta.4-Android-Source.zip",
+    "bytes": 622133026,
+    "sha256": "5b69cf51e08be069266ce265f9268a3fb09cc806d701579814873dc4c5bb5850"
+  },
+  "engineCommit": "78f9be13e8041236bb1f4a75e827ece428fd05cd",
+  "targetSdk": 35,
+  "bundleSha256": "477e4b3592bde31fc4242af8241946951dfb60dc7fa04226d3c2f1fe4eff2daf",
+  "sourceRecords": 314,
+  "cardArchiveScripts": 34369,
+  "resourceFiles": 55863,
+  "cardImages": 314,
+  "tokenImages": 17,
+  "seedDecks": 41,
+  "engineTests": 482,
+  "limitedTests": 7,
+  "releaseTag": "forge-android-v0.1.0-beta.4",
+  "assetId": 654329439,
+  "sourceAssetId": 654329440,
+  "emulators": [
+    {
+      "android": "8.0",
+      "api": 26,
+      "architecture": "x86",
+      "installed": true,
+      "inPlaceUpdateFrom": "0.1.0-beta.1",
+      "resourcesReady": true,
+      "syntheticUserDeckPreserved": true,
+      "correctedExpiredAndBockImagesVerified": true,
+      "nativeMainActivityStarted": true,
+      "nativeCardLoadingObserved": false,
+      "completedGame": false
+    },
+    {
+      "android": "15",
+      "api": 35,
+      "architecture": "x86_64",
+      "installed": true,
+      "inPlaceUpdateFrom": "0.1.0-beta.1",
+      "resourcesReady": true,
+      "syntheticUserDeckPreserved": true,
+      "correctedExpiredAndBockImagesVerified": true,
+      "nativeMainActivityStarted": true,
+      "nativeCardLoadingObserved": true,
+      "completedGame": false
+    }
+  ],
+  "limitations": [
+    "Physical Android phone gameplay and token-heavy performance remain unverified.",
+    "Software-emulated API35 displayed system UI/launcher ANR prompts during startup; Forge resource upgrade and native card loading continued.",
+    "No completed Android game is claimed for beta.4."
+  ]
+}

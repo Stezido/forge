@@ -46,3 +46,6 @@ Mobile/Android compilation passes with constant-time identical-token stack appen
 ## Owner-requested 0.1.0-beta.4
 
 The owner requested a coordinated new release after the card, token, limited and Obsession AI fixes. Android versionName is0.1.0-beta.4 and versionCode10004, retaining forge.app.chaosbrawl, minSdk26 and the existing release certificate. Rebuild resources from the new reviewed Windows beta.4 package, not beta.3. Matching source and signed APK publication are being prepared; the beta.1 section above remains historical evidence.
+
+
+Beta.4 publication completed for APK/source at forge-android-v0.1.0-beta.4. Exact hashes, asset IDs and upgrade observations are recorded in releases/android-beta4-verification.json. Both API26/API35 emulators installed over beta.1, updated to the exact new resource digest and retained a synthetic player deck; Expired/Bock token bytes match the corrected native full-card renders. API35 native card loading was observed. This is not a physical-device performance or completed-game acceptance claim.
