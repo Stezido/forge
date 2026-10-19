@@ -1593,6 +1593,10 @@ public class AiController {
         try {
             all.sort(ComputerUtilAbility.saEvaluator); // put best spells first
             ComputerUtilAbility.sortCreatureSpells(all);
+            // A safe permanent Beer buff can improve combat before spending mana on another spell.
+            if (game.getPhaseHandler().is(PhaseType.MAIN1, player) && game.getRules().isChaosBrawl()) {
+                all.sort(java.util.Comparator.comparingInt(sa -> ChaosBrawlBeerAi.applies(sa) ? 0 : 1));
+            }
         } catch (IllegalArgumentException ex) {
             System.err.println(ex.getMessage());
             String assertex = ComparatorUtil.verifyTransitivity(ComputerUtilAbility.saEvaluator, all);

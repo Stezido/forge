@@ -67,6 +67,117 @@ public class ChaosBrawlTest extends SimulationTest {
         return sa;
     }
 
+    private SpellAbility beerForAi(Player p, String name) {
+        Card source = createCard("Brüder Hopfenblüte", p);
+        resolveEffect("DB$ Token | TokenScript$ chaosbrawl_" + name + " | TokenAmount$ 1", source);
+        Card beer = p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.isToken()
+                && c.getType().hasSubtype("Beer")).findFirst().orElseThrow();
+        SpellAbility ability = beer.getSpellAbilities().stream().filter(a -> a.getApi() == ApiType.PutCounter).findFirst().orElseThrow();
+        ability.setActivatingPlayer(p);
+        return ability;
+    }
+
+    @Test
+    public void beerAiSpendsSpareManaInMainTwoOnASafePermanentBuff() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card target = addCard("Couchpotato", p); addCard("Island", p);
+        game.getPhaseHandler().devModeSet(PhaseType.MAIN2, p);
+        SpellAbility beer = beerForAi(p, "beer");
+        assertTrue(new forge.ai.ability.CountersPutAi().canPlayWithSubs(p, beer).willingToPlay());
+        assertEquals(beer.getTargetCard(), target);
+        assertTrue(ComputerUtil.playNoStack(p, beer, game, false));
+        assertEquals(target.getCounters(CounterEnumType.DRUNKEN), 1);
+    }
+
+    @Test
+    public void beerAiKeepsManaForAPayableCounterspellButUsesExcessMana() {
+        for (int lands : new int[] {2, 3}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0);
+            addCard("Couchpotato", p); addCardToZone("Couchpotato", game.getPlayers().get(1), ZoneType.Hand);
+            addCardToZone("Counterspell", p, ZoneType.Hand);
+            addCards("Island", 2, p);
+            if (lands == 3) addCard("Mountain", p);
+            game.getPhaseHandler().devModeSet(PhaseType.MAIN2, p);
+            SpellAbility beer = beerForAi(p, "beer");
+            assertEquals(new forge.ai.ability.CountersPutAi().canPlayWithSubs(p, beer).willingToPlay(), lands == 3);
+            if (lands == 3) {
+                assertTrue(ComputerUtil.playNoStack(p, beer, game, false));
+                SpellAbility counter = p.getCardsIn(ZoneType.Hand).stream().filter(c -> c.getName().equals("Counterspell"))
+                        .findFirst().orElseThrow().getFirstSpellAbility();
+                counter.setActivatingPlayer(p);
+                forge.ai.AiCardMemory.clearMemorySet(p, forge.ai.AiCardMemory.MemorySet.HELD_MANA_SOURCES_FOR_NEXT_SPELL);
+                assertTrue(forge.ai.ComputerUtilMana.canPayManaCost(counter, p, 0, false));
+            }
+        }
+    }
+
+    @Test
+    public void beerAiDoesNotReserveManaForAnUnpayableInstantOrActivateOnOpponentsTurn() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        addCard("Couchpotato", p); addCards("Mountain", 2, p);
+        addCardToZone("Counterspell", p, ZoneType.Hand);
+        addCardToZone("Couchpotato", game.getPlayers().get(1), ZoneType.Hand);
+        SpellAbility beer = beerForAi(p, "beer");
+        game.getPhaseHandler().devModeSet(PhaseType.MAIN2, p);
+        assertTrue(new forge.ai.ability.CountersPutAi().canPlayWithSubs(p, beer).willingToPlay());
+        game.getPhaseHandler().devModeSet(PhaseType.MAIN2, game.getPlayers().get(1));
+        assertFalse(beer.canPlay());
+        assertFalse(new forge.ai.ability.CountersPutAi().canPlayWithSubs(p, beer).willingToPlay());
+    }
+
+    @Test
+    public void beerAiAvoidsExceedingToleranceIncludingBockAndDraftTap() {
+        for (String variant : new String[] {"beer", "bock_beer"}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0);
+            Card target = addCard("Couchpotato", p); counters(target, CounterEnumType.DRUNKEN, 2);
+            addCard("Draft Tap", p); addCards("Island", 2, p);
+            game.getPhaseHandler().devModeSet(PhaseType.MAIN2, p);
+            SpellAbility beer = beerForAi(p, variant);
+            assertFalse(new forge.ai.ability.CountersPutAi().canPlayWithSubs(p, beer).willingToPlay());
+            assertTrue(beer.getTargets().isEmpty());
+        }
+    }
+
+    @Test
+    public void beerAiUsesExpiredBeerForRemovalAndBockForASafeBuff() {
+        for (String variant : new String[] {"expired_beer", "bock_beer"}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0);
+            Card own = addCard("Couchpotato", p), enemy = addCard("Gluttonous Scavenger", game.getPlayers().get(1));
+            addCard("Island", p);
+            if (variant.equals("expired_beer")) enemy.setDamage(enemy.getNetToughness() - 1);
+            game.getPhaseHandler().devModeSet(PhaseType.MAIN2, p);
+            SpellAbility beer = beerForAi(p, variant);
+            assertTrue(new forge.ai.ability.CountersPutAi().canPlayWithSubs(p, beer).willingToPlay(), variant);
+            assertEquals(beer.getTargetCard(), variant.equals("expired_beer") ? enemy : own);
+        }
+    }
+
+    @Test
+    public void beerAiPreservesUsefulInstantRemovalButNotRemovalWithoutALegalTarget() {
+        for (boolean hasTarget : new boolean[] {false, true}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0);
+            addCard("Couchpotato", p); addCard("Swamp", p); addCard("Island", p);
+            if (hasTarget) addCard("Gluttonous Scavenger", game.getPlayers().get(1));
+            // A real targeted removal spell, evaluated without pretending it is the opponent's turn.
+            addCardToZone("Go for the Throat", p, ZoneType.Hand);
+            game.getPhaseHandler().devModeSet(PhaseType.MAIN2, p);
+            SpellAbility beer = beerForAi(p, "beer");
+            assertEquals(new forge.ai.ability.CountersPutAi().canPlayWithSubs(p, beer).willingToPlay(), !hasTarget);
+        }
+    }
+
+    @Test
+    public void beerAiCanBuffAnAttackerBeforeCastingAnotherCard() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card attacker = addCard("Gluttonous Scavenger", p); attacker.setSickness(false);
+        addCards("Island", 3, p); addCardToZone("Manipulative Temptress", p, ZoneType.Hand);
+        SpellAbility beer = beerForAi(p, "beer");
+        var chosen = ((forge.ai.PlayerControllerAi)p.getController()).getAi().chooseSpellAbilityToPlay();
+        assertNotNull(chosen); assertEquals(chosen.size(), 1);
+        assertEquals(chosen.get(0).getHostCard(), beer.getHostCard());
+        assertEquals(chosen.get(0).getTargetCard(), attacker);
+    }
+
     @Test
     public void bottleBashDealsThreeOrFiveRegardlessOfNumberOfDrunkenCreatures() {
         for (int count = 0; count <= 3; count++) {
@@ -496,7 +607,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Rotting Flesh", 2, "2", "2", "When Rotting Flesh dies, you lose 2 life.\n{2},{T}, Sacrifice Rotting Flesh: You gain 3 life.", "Creature \u2014 Food Mutant", "B"},
             {"Decaying Orchard", 0, "", "", "({T}: Add {B} or {G} to your mana pool.)\nAs Decaying Orchard enters the battlefield, you may pay 2 life. If you don\u2019t, Decaying Orchard enters the battlefield tapped.", "Land \u2014 Swamp Forest", ""},
             {"Distillery of Silent Death", 0, "", "", "({T}: Add {W} or {B} to your mana pool.)\nAs Distillery of Silent Death enters the battlefield, you may pay 2 life. If you don\u2019t, Distillery of Silent Death enters the battlefield tapped.", "Land \u2014 Plains Swamp", ""},
-            {"Feuerball, Junge!", 10, "", "", "As an additional cost to cast this spell, you may tap any number of untapped creatures you control. This spell costs {1} less to cast for each creature tapped this way.\nExplosive Singularity deals 10 damage to any target.", "Sorcery", "R"},
+            {"Feuerball, Junge!", 10, "", "", "As an additional cost to cast this spell, you may tap any number of untapped creatures you control. This spell costs {1} less to cast for each creature tapped this way.\nFeuerball, Junge! deals 10 damage to any target.", "Sorcery", "R"},
             {"Sacred Brewery", 0, "", "", "({T}: Add {R} or {W} to your mana pool.)\nAs Sacred Brewery enters the battlefield, you may pay 2 life. If you don\u2019t, Sacred Brewery enters the battlefield tapped.", "Land \u2014 Mountain Plains", ""},
             {"Parsley Root", 1, "", "", "When Parsley Root enters the battlefield, you gain 1 life.\nEquipped creature gets +1/+0.\nEquip {1}", "Artifact \u2014 Equipment", ""},
             {"Celestial Waters", 3, "", "", "When Celestial Waters enters, tap each creature and put a stun counter on each of them.\nAt the beginning of your turn, you may move any number of counters of your choice from one target creature onto another target creature.", "Enchantment \u2014 Location", "U"},
@@ -596,12 +707,12 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Overgrown Fermentation Beds", 3, "", "", "{T}: Add {G}.\nAt the beginning of your end step, you may put a Drunken counter on a Plant creature.", "Enchantment \u2014 Location", "G"},
             {"Blightborne Colossus", 6, "9", "9", "Upkeep\u2014 Put a -1/-1 counter on Blightborne Colossus.\nReach", "Creature \u2014 Plant, Giant", "G"},
             {"Untamable Grove Colossus", 4, "8", "8", "This creature enters tapped with three stun counters on it.\nReach", "Creature \u2014 Plant, Giant", "G"},
-            {"Lena, the Silent One", 3, "3", "3", "As long as there are three or more Obsession counters on creatures on the battlefield, The Silent One gets +3/+3.", "Legendary Creature \u2014 Siren", "U"},
-            {"Hanna, Nature\u2019s Siren", 2, "2", "2", "Whenever another Plant or Siren creature dies, put a +1/+1 counter and an Obsession counter on Hanna.", "Legendary Creature \u2014 Siren", "UG"},
+            {"Lena, the Silent One", 3, "3", "3", "As long as there are three or more Obsession counters on creatures on the battlefield, Lena, the Silent One gets +3/+3.", "Legendary Creature \u2014 Siren", "U"},
+            {"Hanna, Nature\u2019s Siren", 2, "2", "2", "Whenever another Plant or Siren creature dies, put a +1/+1 counter and an Obsession counter on Hanna, Nature\u2019s Siren.", "Legendary Creature \u2014 Siren", "UG"},
             {"Natalie, Mother Siren", 4, "3", "3", "When Natalie, Mother Siren enters the battlefield, create three 1/1 Hangry Siren tokens with haste.\nOther Sirens you control have Upkeep {1}.", "Legendary Creature \u2014 Siren", "UR"},
             {"Shady Herb Dealer", 2, "1", "2", "Upkeep costs you pay cost {1} less or one mana of a color of your choice less to pay.", "Creature \u2014 Human", "G"},
             {"Mutating Sapling", 2, "2", "2", "Exhaust \u2014 {W}: Mutating Sapling gains vigilance. (Activate each exhaust ability only once.)\nExhaust \u2014 {B}: Mutating Sapling gains deathtouch. (Activate each exhaust ability only once.)\nExhaust \u2014 {GU}: Put two +1/+1 counters on Mutating Sapling. (Activate each exhaust ability only once.)", "Creature \u2014 Plant", "G"},
-            {"S\u00fc\u00fc\u00fc, the Fourth Child", 3, "3", "2", "S\u00fc\u00fc\u00fcnergy \u2014 As long as you control Natalie, Mother Siren, S\u00fc\u00fc\u00fc is a Siren and Sirens you control can\u2019t have upkeep costs.", "Legendary Creature \u2014 Human", "U"},
+            {"S\u00fc\u00fc\u00fc, the Fourth Child", 3, "3", "2", "S\u00fc\u00fc\u00fcnergy \u2014 As long as you control Natalie, Mother Siren, S\u00fc\u00fc\u00fc, the Fourth Child is a Siren and Sirens you control can\u2019t have upkeep costs.", "Legendary Creature \u2014 Human", "U"},
             {"The Loan Syndicate", 0, "", "", "{T}: Add {1}.\n{T}: Add two mana of any one color. Spend this mana only to pay upkeep costs.", "Land", ""},
             {"Gnome Loan", 3, "", "", "As an additional cost to cast this spell, sacrifice a permanent and pay 2 life.\nDraw three cards.", "Sorcery", "B"},
             {"Debt Collector", 5, "4", "4", "When Debt Collector enters the battlefield, create a Treasure token for each creature target opponent controls.", "Creature \u2014 Gnome", "B"},
