@@ -60,7 +60,7 @@
     },
     {
       "path": "chaosbrawl/package_android_resources.py",
-      "sha256": "05f84b93f4b32387fa1f0166b01dd2ab95163b315cd1f91b83619ef97e604e3d"
+      "sha256": "af7637bf25e3de796dce940ba6bfd38480959125e5114a39a02ba4d681cd7dc6"
     },
     {
       "path": "chaosbrawl/package_android_source.py",
