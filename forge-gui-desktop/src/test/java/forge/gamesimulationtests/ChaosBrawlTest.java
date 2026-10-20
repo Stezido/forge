@@ -1502,6 +1502,39 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     @Test
+    public void lastDuelAiOnlyCastsWhenItsOwnReturnBeatsTheCreatureItGivesAnOpponent() {
+        for (String[] scenario : new String[][] {
+                {"Kegbearer", "Couchpotato", "true"},
+                {"Drunken Warrior", "Kegbearer", "false"},
+                {"Kegbearer", "", "true"},
+                {"", "Couchpotato", "false"}
+        }) {
+            Game game = customGame(); Player p = game.getPlayers().get(0), opponent = game.getPlayers().get(1);
+            addCards("Swamp", 2, p);
+            Card own = scenario[0].isEmpty() ? null : addCardToZone(scenario[0], p, ZoneType.Graveyard);
+            Card opposing = scenario[1].isEmpty() ? null : addCardToZone(scenario[1], opponent, ZoneType.Graveyard);
+            Card duelCard = addCardToZone("Last Duel", p, ZoneType.Hand);
+            SpellAbility duel = duelCard.getFirstSpellAbility();
+            duel.setActivatingPlayer(p);
+            assertTrue(forge.ai.ChaosBrawlLastDuelAi.applies(p, duel));
+
+            boolean willing = forge.ai.SpellApiToAi.Converter.get(duel).canPlayWithSubs(p, duel).willingToPlay();
+            assertEquals(willing, Boolean.parseBoolean(scenario[2]), scenario[0] + " vs " + scenario[1]);
+            if (willing) {
+                assertEquals(duel.getTargets().stream().filter(Card.class::isInstance).map(Card.class::cast)
+                        .filter(card -> card.getOwner() == p).findFirst().orElseThrow(), own);
+                if (opposing != null) {
+                    Card chosenOpponent = duel.getTargets().stream().filter(Card.class::isInstance).map(Card.class::cast)
+                            .filter(card -> card.getOwner() == opponent).findFirst().orElseThrow();
+                    assertEquals(chosenOpponent, opposing);
+                    assertTrue(forge.ai.ComputerUtilCard.evaluateCreature(own)
+                            > forge.ai.ComputerUtilCard.evaluateCreature(chosenOpponent));
+                }
+            }
+        }
+    }
+
+    @Test
     public void numbingResurrectionReturnsBothSidesAndFinalitySurvivesAbilityLoss() {
         Game game = customGame();
         Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);

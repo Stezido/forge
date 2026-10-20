@@ -141,6 +141,9 @@ public class ChangeZoneAi extends SpellAbilityAi {
     @Override
     protected AiAbilityDecision checkApiLogic(Player aiPlayer, SpellAbility sa) {
         multipleCardsToChoose.clear();
+        if (ChaosBrawlLastDuelAi.applies(aiPlayer, sa)) {
+            return ChaosBrawlLastDuelAi.chooseTargets(aiPlayer, sa);
+        }
         String aiLogic = sa.getParam("AILogic");
         if (aiLogic != null) {
             if (aiLogic.equals("Always")) {
