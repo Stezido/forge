@@ -139,6 +139,41 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     @Test
+    public void drunkenAiDeclinesOptionalCounterWhenItWouldExceedFriendlyTolerance() {
+        for (int existing : new int[] {1, 2}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0);
+            Card location = addCard("Overgrown Fermentation Beds", p);
+            Card plant = addCard("Mystic Herb Buddy", p);
+            if (existing > 0) counters(plant, CounterEnumType.DRUNKEN, existing);
+            SpellAbility trigger = location.getTriggers().stream().map(t -> t.ensureAbility())
+                    .filter(sa -> sa != null && sa.getApi() == ApiType.PutCounter).findFirst().orElseThrow();
+            trigger.setOptionalTrigger(true);
+            trigger.setActivatingPlayer(p);
+
+            boolean willing = forge.ai.SpellApiToAi.Converter.get(trigger).doTrigger(p, trigger, false);
+            assertEquals(willing, existing == 1, "Drunken counters must stay at or below tolerance.");
+            if (willing) {
+                assertEquals(trigger.getTargetCard(), plant);
+            } else {
+                assertTrue(trigger.getTargets().isEmpty());
+            }
+        }
+
+        for (int existing : new int[] {2, 3}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0);
+            Card source = addCard("Distant Cousin Shotcrusher", p);
+            if (existing > 0) counters(source, CounterEnumType.DRUNKEN, existing);
+            SpellAbility trigger = source.getTriggers().stream().map(t -> t.ensureAbility())
+                    .filter(sa -> sa != null && sa.getApi() == ApiType.PutCounter).findFirst().orElseThrow();
+            trigger.setOptionalTrigger(true);
+            trigger.setActivatingPlayer(p);
+
+            boolean willing = forge.ai.SpellApiToAi.Converter.get(trigger).doTrigger(p, trigger, false);
+            assertEquals(willing, existing == 2, "A self-trigger must stop adding Drunken counters at tolerance.");
+        }
+    }
+
+    @Test
     public void beerAiUsesExpiredBeerForRemovalAndBockForASafeBuff() {
         for (String variant : new String[] {"expired_beer", "bock_beer"}) {
             Game game = customGame(); Player p = game.getPlayers().get(0);
