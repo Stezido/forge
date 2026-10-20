@@ -6,6 +6,7 @@ import json
 from pathlib import Path, PurePosixPath
 import re
 import shutil
+import struct
 import subprocess
 import zipfile
 from card_images import card_image_filenames
@@ -18,6 +19,22 @@ def digest(path):
         for block in iter(lambda: stream.read(1024 * 1024), b''):
             h.update(block)
     return h.hexdigest()
+
+def write_shell_link(path, relative_target, display_name, icon_name):
+    """Write a portable Unicode Shell Link with a relative target and icon."""
+    clsid = bytes.fromhex('0114020000000000c000000000000046')
+    flags = 0x0004 | 0x0008 | 0x0040 | 0x0080
+    header = struct.pack('<I16sIIQQQIiIHHII', 0x4C, clsid, flags, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0)
+
+    def string_data(value):
+        encoded = value.encode('utf-16le')
+        return struct.pack('<H', len(encoded) // 2) + encoded
+
+    path.write_bytes(header + b''.join((
+        string_data(display_name),
+        string_data(relative_target.replace('/', '\\')),
+        string_data(icon_name.replace('/', '\\')),
+    )) + b'\0\0\0\0')
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -63,6 +80,13 @@ def main():
     target.mkdir()
     shutil.copyfile(jars[0], target/'forge.jar')
     shutil.copyfile(adventure_jars[0], target/'forge-adventure.jar')
+    icon_assets = ROOT/'chaosbrawl/assets'
+    classic_icon = 'forge-chaos-brawl.ico'
+    adventure_icon = 'forge-adventure-chaos-brawl.ico'
+    for icon in (classic_icon, adventure_icon):
+        if not (icon_assets/icon).is_file():
+            raise ValueError('Missing reviewed launcher icon: '+str(icon_assets/icon))
+        shutil.copyfile(icon_assets/icon, target/icon)
     shutil.copytree(build/'forge-gui/res', target/'res')
     plane = target/'res/adventure/ChaosBrawl'
     if plane.exists():
@@ -126,8 +150,10 @@ if not exist "runtime\\bin\\javaw.exe" (
 )
 start "" "runtime\\bin\\javaw.exe" -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabled=false -Dfile.encoding=UTF-8 -Dio.netty.tryReflectionSetAccessible=true -jar forge.jar
 '''
-    (target/'Play Chaos Brawl.cmd').write_bytes(launcher.replace('\n','\r\n').encode('ascii'))
-    (target/'Play Adventure.cmd').write_bytes(launcher.replace('-jar forge.jar','-jar forge-adventure.jar').replace('\n','\r\n').encode('ascii'))
+    (target/'launch-chaos-brawl.cmd').write_bytes(launcher.replace('\n','\r\n').encode('ascii'))
+    (target/'launch-adventure.cmd').write_bytes(launcher.replace('-jar forge.jar','-jar forge-adventure.jar').replace('\n','\r\n').encode('ascii'))
+    write_shell_link(target/'Play Chaos Brawl.lnk', 'launch-chaos-brawl.cmd', 'Play Chaos Brawl', classic_icon)
+    write_shell_link(target/'Play Adventure.lnk', 'launch-adventure.cmd', 'Play Adventure', adventure_icon)
     for notice in ['LICENSE', 'LICENSE.txt', 'LICENSE.md', 'COPYING', 'NOTICE', 'NOTICE.txt']:
         if (build/notice).is_file():
             shutil.copyfile(build/notice, target/notice)
@@ -150,13 +176,13 @@ start "" "runtime\\bin\\javaw.exe" -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabl
     (target/'README.txt').write_text(f'''Chaos Brawl for Forge {args.version} - Windows x64
 
 1. Extract the entire ZIP into a writable folder.
-2. Double-click "Play Chaos Brawl.cmd". Java is included.
+2. Double-click the "Play Chaos Brawl" shortcut. Java is included.
 3. Choose Constructed, then a Chaos Brawl Beta Batch 01-08 deck.
    Batch 08 includes the clarified cards and the three new instants.
    For smaller groups, choose a Chaos Brawl Beta NN - Group N deck.
 4. Filter the card pool to Chaos Brawl - The Foul Realms Beta (CBFRbeta).
 
-For Adventure: close the classic client, then double-click "Play Adventure.cmd".
+For Adventure: close the classic client, then double-click the "Play Adventure" shortcut.
 Choose Adventure Mode. The separate ChaosBrawl plane offers this set at town inns.
 Draft uses 3 packs (36 picks); Sealed uses 8 packs (96 cards).
 Normal virtual entry fees: Draft 3000 gold / 50 shards; Sealed 6000 / 100.
