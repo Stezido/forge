@@ -741,6 +741,9 @@ public class CountersPutAi extends CountersAi {
 
     @Override
     protected AiAbilityDecision doTriggerNoCost(Player ai, SpellAbility sa, boolean mandatory) {
+        if (!mandatory && ChaosBrawlDrunkenAi.applies(sa)) {
+            return ChaosBrawlDrunkenAi.chooseTarget(ai, sa);
+        }
         if (ChaosBrawlObsessionAi.applies(sa)) {
             return ChaosBrawlObsessionAi.chooseTargets(ai, sa, mandatory);
         }
