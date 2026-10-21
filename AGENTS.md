@@ -1,3 +1,13 @@
+# Chaos Brawl fork branches
+
+The canonical Chaos Brawl integration branch is `main-custom` in the private repository `Stezido/Chaosbrawl-Forge`. Start new custom feature branches from current `private/main-custom` and target their review PRs to `main-custom`. Use the verified private remote; some checkouts retain a legacy `origin` pointing to `Stezido/forge`.
+
+Preserve `main` as the upstream-sync baseline. Here upstream means the base project `Card-Forge/forge`, not this private fork. Updating upstream and merging those updates into `main-custom` are separate operations; test custom compatibility before integration. The baseline includes the fork's initial import and is not automatically the latest upstream revision.
+
+`main-custom` supersedes `chaosbrawl/windows-playtest-001` as the current custom integration target. Keep historical feature, release and stacked review branches/PRs intact. Release tags and published binary/source assets remain immutable; integration does not authorize another downloadable release.
+
+Read `/home/stefan/.codex/RTK.md` and prefix shell commands with `rtk`. Follow `chaosbrawl/CARD_FEEDBACK.md` for paired MSE/source, executable rules, native images and AI checks. Preserve existing profiles, decks, installations and unrelated dirty work. Keep private Forge Actions disabled; run checks locally in isolated worktrees.
+
 # Chaos Brawl Forge downloadable releases
 
 For card feedback, follow `chaosbrawl/CARD_FEEDBACK.md` and the companion website `docs/card-feedback-mse-forge.md`. Check the authoritative development MSE source and adapt/test Forge together; direct owner chat is valid feedback scope. Preserve printed rules when fixing AI or engine behavior. New downloadable releases still require the explicit request described below.

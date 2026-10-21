@@ -1352,6 +1352,9 @@ public class ChaosBrawlTest extends SimulationTest {
         Card token = p.getCardsIn(ZoneType.Battlefield).stream().filter(Card::isToken).findFirst().orElseThrow();
         assertEquals(token.getName(), "Nagging Siren Twin");
         assertEquals(token.getNetPower(), 1);
+        assertEquals(token.getNetToughness(), 1);
+        assertEquals(token.getColor(), forge.card.ColorSet.fromNames("U"));
+        assertTrue(token.getType().hasSubtype("Siren"));
         assertTrue(token.hasKeyword("Flying"));
     }
 
