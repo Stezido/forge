@@ -1,5 +1,5 @@
 Name:Bromoment
-ManaCost:RG RG RG
+ManaCost:R/G R/G
 Types:Sorcery
 A:SP$ ChangeZone | Origin$ Library | Destination$ Library | ChangeType$ Card.namedOgrontwin Pete,Card.namedOgrontwin Steve | ChangeNum$ 1 | Reveal$ True | Shuffle$ False | RememberChanged$ True | SubAbility$ Battlefield | SpellDescription$ Search for Ogrontwin Pete or Steve, reveal it and put it into your hand or optionally onto the battlefield if you control a creature with that name. Then shuffle.
 SVar:Battlefield:DB$ ChangeZone | Defined$ Remembered | Origin$ Library | Destination$ Battlefield | Optional$ True | ConditionPresent$ Creature.YouCtrl+sharesNameWith Remembered | SubAbility$ Hand

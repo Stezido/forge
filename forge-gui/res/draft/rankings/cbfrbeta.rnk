@@ -179,105 +179,110 @@
 #177|Tavern Slot Machine|U|CBFRbeta
 #178|Devious Duo|C|CBFRbeta
 #179|Escalating Adventurer|C|CBFRbeta
-#180|Jealous Siren|U|CBFRbeta
-#181|The Tipsy Ram|U|CBFRbeta
-#182|Wagon Enthusiast|C|CBFRbeta
-#183|Wobbly Gnome|C|CBFRbeta
-#184|Enraged Reef Leviathan|U|CBFRbeta
-#185|Fighting Pit Champion|C|CBFRbeta
-#186|Still Good|C|CBFRbeta
-#187|Tavern Scrapgulper|C|CBFRbeta
-#188|Nutten und Koks|M|CBFRbeta
-#189|Overdose Revival|U|CBFRbeta
-#190|Distant Cousin Windtongue|C|CBFRbeta
-#191|Hosn Owe|C|CBFRbeta
-#192|Numbing Mass Resurrection|R|CBFRbeta
-#193|Blue Cow|U|CBFRbeta
-#194|Laughing fit|C|CBFRbeta
-#195|Academic Quarter|U|CBFRbeta
-#196|Drunkard|C|CBFRbeta
-#197|Raging Alcoholic|U|CBFRbeta
-#198|Ale Addict|C|CBFRbeta
-#199|Ice Cold Siren|U|CBFRbeta
-#200|Lena, the Silent One|U|CBFRbeta
-#201|Trained Drinker|C|CBFRbeta
-#202|Weedfield Grazer|C|CBFRbeta
-#203|Wild Fermentation|U|CBFRbeta
-#204|Information Broker|C|CBFRbeta
-#205|Puff Mama|U|CBFRbeta
-#206|Always With Us|R|CBFRbeta
-#207|Ball Scratching|C|CBFRbeta
-#208|Brotherhoods Impact|C|CBFRbeta
-#209|Devoted Homebody|C|CBFRbeta
-#210|Tavern Medic|U|CBFRbeta
-#211|Gonorrhea|U|CBFRbeta
-#212|Inspiring Bard|C|CBFRbeta
-#213|Recycle|C|CBFRbeta
-#214|Untamable Grove Colossus|R|CBFRbeta
-#215|Wedding Ring|R|CBFRbeta
-#216|Last Duel|C|CBFRbeta
-#217|Sleepless Night|U|CBFRbeta
-#218|Too Drunk to Dodge|C|CBFRbeta
-#219|Flatfooted|C|CBFRbeta
-#220|Tavern Time Out|U|CBFRbeta
-#221|Bochana Jugobeidl|C|CBFRbeta
-#222|Desperate Foraging|C|CBFRbeta
-#223|Süüü, the Fourth Child|U|CBFRbeta
-#224|Tschuschnpfeiferl|U|CBFRbeta
-#225|Circular Conversation|C|CBFRbeta
-#226|Cold Water Coward|C|CBFRbeta
-#227|Let’s Fucking Go|C|CBFRbeta
-#228|Tavern Hearthkeeper|C|CBFRbeta
-#229|A Wife's Argument|C|CBFRbeta
-#230|Coastal Watchman|C|CBFRbeta
-#231|Roadside Distraction|C|CBFRbeta
-#232|The Rake|C|CBFRbeta
-#233|Vandalism|C|CBFRbeta
-#234|Tactical Purge|U|CBFRbeta
-#235|Wixbirne|C|CBFRbeta
-#236|Rowdy Riot|C|CBFRbeta
-#237|The Blessed Hideaway|R|CBFRbeta
-#238|Youthful Inner Heat|U|CBFRbeta
-#239|Server Veteran|C|CBFRbeta
-#240|Stefan, the Eternal Annoyer|S|CBFRbeta
-#241|Indica Hedge|C|CBFRbeta
-#242|Sweet Harmless Siren|C|CBFRbeta
-#243|Buy a Round|C|CBFRbeta
-#244|Questionable First Responder|C|CBFRbeta
-#245|Mystic Hotbox Hut|U|CBFRbeta
-#246|Drunken Warrior|C|CBFRbeta
-#247|Hangry|C|CBFRbeta
-#248|Hanna, Nature’s Siren|U|CBFRbeta
-#249|The Mind|U|CBFRbeta
-#250|White Sausage Leberkäse|C|CBFRbeta
-#251|Paladin’s Nose Protection|C|CBFRbeta
-#252|The Unflushed|C|CBFRbeta
-#253|Blood Moon Rising|R|CBFRbeta
-#254|Kiss of Poseidon|U|CBFRbeta
-#255|Rollercoaster of Emotions|R|CBFRbeta
-#256|A Place to Stay|U|CBFRbeta
-#257|Library of Shared Memories|C|CBFRbeta
-#258|Blunt Force Trauma|C|CBFRbeta
-#259|Confusing Signals|C|CBFRbeta
-#260|Homemade Paranoia|C|CBFRbeta
-#261|The Loan Syndicate|U|CBFRbeta
-#262|Grinder|C|CBFRbeta
-#263|Cini Minis|C|CBFRbeta
-#264|Milk|C|CBFRbeta
-#265|Puddinghead|C|CBFRbeta
-#266|Rotting Flesh|C|CBFRbeta
-#267|Hallucinating Trip|U|CBFRbeta
-#268|Frozen Taps|U|CBFRbeta
-#269|Coffee Shop|U|CBFRbeta
-#270|Couchpotato|C|CBFRbeta
-#271|Echo of Empathy|C|CBFRbeta
-#272|Parsley Root|C|CBFRbeta
-#273|Bromoment|C|CBFRbeta
-#274|Overdose|R|CBFRbeta
-#275|A Week of Excess|M|CBFRbeta
-#276|Friend or Foe|U|CBFRbeta
-#277|Summon the Squad|R|CBFRbeta
-#278|Gimme the herbs|C|CBFRbeta
-#279|Goner|U|CBFRbeta
-#280|Toast of Comfort|C|CBFRbeta
-#281|Happy Hour|C|CBFRbeta
+#180|Forest|L|CBFRbeta
+#181|Island|L|CBFRbeta
+#182|Jealous Siren|U|CBFRbeta
+#183|Mountain|L|CBFRbeta
+#184|Plains|L|CBFRbeta
+#185|Swamp|L|CBFRbeta
+#186|The Tipsy Ram|U|CBFRbeta
+#187|Wagon Enthusiast|C|CBFRbeta
+#188|Wobbly Gnome|C|CBFRbeta
+#189|Enraged Reef Leviathan|U|CBFRbeta
+#190|Fighting Pit Champion|C|CBFRbeta
+#191|Still Good|C|CBFRbeta
+#192|Tavern Scrapgulper|C|CBFRbeta
+#193|Nutten und Koks|M|CBFRbeta
+#194|Overdose Revival|U|CBFRbeta
+#195|Distant Cousin Windtongue|C|CBFRbeta
+#196|Hosn Owe|C|CBFRbeta
+#197|Numbing Mass Resurrection|R|CBFRbeta
+#198|Blue Cow|U|CBFRbeta
+#199|Laughing fit|C|CBFRbeta
+#200|Academic Quarter|U|CBFRbeta
+#201|Drunkard|C|CBFRbeta
+#202|Raging Alcoholic|U|CBFRbeta
+#203|Ale Addict|C|CBFRbeta
+#204|Ice Cold Siren|U|CBFRbeta
+#205|Lena, the Silent One|U|CBFRbeta
+#206|Trained Drinker|C|CBFRbeta
+#207|Weedfield Grazer|C|CBFRbeta
+#208|Wild Fermentation|U|CBFRbeta
+#209|Information Broker|C|CBFRbeta
+#210|Puff Mama|U|CBFRbeta
+#211|Always With Us|R|CBFRbeta
+#212|Ball Scratching|C|CBFRbeta
+#213|Brotherhoods Impact|C|CBFRbeta
+#214|Devoted Homebody|C|CBFRbeta
+#215|Tavern Medic|U|CBFRbeta
+#216|Gonorrhea|U|CBFRbeta
+#217|Inspiring Bard|C|CBFRbeta
+#218|Recycle|C|CBFRbeta
+#219|Untamable Grove Colossus|R|CBFRbeta
+#220|Wedding Ring|R|CBFRbeta
+#221|Last Duel|C|CBFRbeta
+#222|Sleepless Night|U|CBFRbeta
+#223|Too Drunk to Dodge|C|CBFRbeta
+#224|Flatfooted|C|CBFRbeta
+#225|Tavern Time Out|U|CBFRbeta
+#226|Bochana Jugobeidl|C|CBFRbeta
+#227|Desperate Foraging|C|CBFRbeta
+#228|Süüü, the Fourth Child|U|CBFRbeta
+#229|Tschuschnpfeiferl|U|CBFRbeta
+#230|Circular Conversation|C|CBFRbeta
+#231|Cold Water Coward|C|CBFRbeta
+#232|Let’s Fucking Go|C|CBFRbeta
+#233|Tavern Hearthkeeper|C|CBFRbeta
+#234|A Wife's Argument|C|CBFRbeta
+#235|Coastal Watchman|C|CBFRbeta
+#236|Roadside Distraction|C|CBFRbeta
+#237|The Rake|C|CBFRbeta
+#238|Vandalism|C|CBFRbeta
+#239|Tactical Purge|U|CBFRbeta
+#240|Wixbirne|C|CBFRbeta
+#241|Rowdy Riot|C|CBFRbeta
+#242|The Blessed Hideaway|R|CBFRbeta
+#243|Youthful Inner Heat|U|CBFRbeta
+#244|Server Veteran|C|CBFRbeta
+#245|Stefan, the Eternal Annoyer|S|CBFRbeta
+#246|Indica Hedge|C|CBFRbeta
+#247|Sweet Harmless Siren|C|CBFRbeta
+#248|Buy a Round|C|CBFRbeta
+#249|Questionable First Responder|C|CBFRbeta
+#250|Mystic Hotbox Hut|U|CBFRbeta
+#251|Drunken Warrior|C|CBFRbeta
+#252|Hangry|C|CBFRbeta
+#253|Hanna, Nature’s Siren|U|CBFRbeta
+#254|The Mind|U|CBFRbeta
+#255|White Sausage Leberkäse|C|CBFRbeta
+#256|Paladin’s Nose Protection|C|CBFRbeta
+#257|The Unflushed|C|CBFRbeta
+#258|Blood Moon Rising|R|CBFRbeta
+#259|Kiss of Poseidon|U|CBFRbeta
+#260|Rollercoaster of Emotions|R|CBFRbeta
+#261|A Place to Stay|U|CBFRbeta
+#262|Library of Shared Memories|C|CBFRbeta
+#263|Blunt Force Trauma|C|CBFRbeta
+#264|Confusing Signals|C|CBFRbeta
+#265|Homemade Paranoia|C|CBFRbeta
+#266|The Loan Syndicate|U|CBFRbeta
+#267|Grinder|C|CBFRbeta
+#268|Cini Minis|C|CBFRbeta
+#269|Milk|C|CBFRbeta
+#270|Puddinghead|C|CBFRbeta
+#271|Rotting Flesh|C|CBFRbeta
+#272|Hallucinating Trip|U|CBFRbeta
+#273|Frozen Taps|U|CBFRbeta
+#274|Coffee Shop|U|CBFRbeta
+#275|Couchpotato|C|CBFRbeta
+#276|Echo of Empathy|C|CBFRbeta
+#277|Parsley Root|C|CBFRbeta
+#278|Bromoment|C|CBFRbeta
+#279|Overdose|R|CBFRbeta
+#280|A Week of Excess|M|CBFRbeta
+#281|Friend or Foe|U|CBFRbeta
+#282|Summon the Squad|R|CBFRbeta
+#283|Gimme the herbs|C|CBFRbeta
+#284|Goner|U|CBFRbeta
+#285|Toast of Comfort|C|CBFRbeta
+#286|Happy Hour|C|CBFRbeta

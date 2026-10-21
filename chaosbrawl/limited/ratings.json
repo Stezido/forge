@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "edition": "CBFRbeta",
-  "provisional": false,
+  "provisional": true,
   "method": "Owner-confirmed 0–100 spreadsheet scores; existing provisional scores retained only for unrated cards.",
-  "eligiblePrintings": 291,
-  "eligibleNames": 281,
+  "eligiblePrintings": 306,
+  "eligibleNames": 286,
   "ratings": [
     {
       "name": "Brüder Hopfenblüte",
@@ -1628,13 +1628,68 @@
       "rank": 179
     },
     {
+      "name": "Forest",
+      "sourceIds": [
+        "cb-328",
+        "cb-329",
+        "cb-330"
+      ],
+      "score": 52,
+      "ratingSource": "provisional",
+      "rank": 180
+    },
+    {
+      "name": "Island",
+      "sourceIds": [
+        "cb-319",
+        "cb-320",
+        "cb-321"
+      ],
+      "score": 52,
+      "ratingSource": "provisional",
+      "rank": 181
+    },
+    {
       "name": "Jealous Siren",
       "sourceIds": [
         "cb-053"
       ],
       "score": 52,
       "ratingSource": "confirmed",
-      "rank": 180
+      "rank": 182
+    },
+    {
+      "name": "Mountain",
+      "sourceIds": [
+        "cb-325",
+        "cb-326",
+        "cb-327"
+      ],
+      "score": 52,
+      "ratingSource": "provisional",
+      "rank": 183
+    },
+    {
+      "name": "Plains",
+      "sourceIds": [
+        "cb-316",
+        "cb-317",
+        "cb-318"
+      ],
+      "score": 52,
+      "ratingSource": "provisional",
+      "rank": 184
+    },
+    {
+      "name": "Swamp",
+      "sourceIds": [
+        "cb-322",
+        "cb-323",
+        "cb-324"
+      ],
+      "score": 52,
+      "ratingSource": "provisional",
+      "rank": 185
     },
     {
       "name": "The Tipsy Ram",
@@ -1643,7 +1698,7 @@
       ],
       "score": 52,
       "ratingSource": "confirmed",
-      "rank": 181
+      "rank": 186
     },
     {
       "name": "Wagon Enthusiast",
@@ -1652,7 +1707,7 @@
       ],
       "score": 52,
       "ratingSource": "confirmed",
-      "rank": 182
+      "rank": 187
     },
     {
       "name": "Wobbly Gnome",
@@ -1661,7 +1716,7 @@
       ],
       "score": 52,
       "ratingSource": "confirmed",
-      "rank": 183
+      "rank": 188
     },
     {
       "name": "Enraged Reef Leviathan",
@@ -1670,7 +1725,7 @@
       ],
       "score": 51,
       "ratingSource": "confirmed",
-      "rank": 184
+      "rank": 189
     },
     {
       "name": "Fighting Pit Champion",
@@ -1679,7 +1734,7 @@
       ],
       "score": 51,
       "ratingSource": "confirmed",
-      "rank": 185
+      "rank": 190
     },
     {
       "name": "Still Good",
@@ -1688,7 +1743,7 @@
       ],
       "score": 51,
       "ratingSource": "confirmed",
-      "rank": 186
+      "rank": 191
     },
     {
       "name": "Tavern Scrapgulper",
@@ -1697,7 +1752,7 @@
       ],
       "score": 51,
       "ratingSource": "confirmed",
-      "rank": 187
+      "rank": 192
     },
     {
       "name": "Nutten und Koks",
@@ -1706,7 +1761,7 @@
       ],
       "score": 50,
       "ratingSource": "confirmed",
-      "rank": 188
+      "rank": 193
     },
     {
       "name": "Overdose Revival",
@@ -1715,7 +1770,7 @@
       ],
       "score": 50,
       "ratingSource": "confirmed",
-      "rank": 189
+      "rank": 194
     },
     {
       "name": "Distant Cousin Windtongue",
@@ -1724,7 +1779,7 @@
       ],
       "score": 49,
       "ratingSource": "confirmed",
-      "rank": 190
+      "rank": 195
     },
     {
       "name": "Hosn Owe",
@@ -1733,7 +1788,7 @@
       ],
       "score": 49,
       "ratingSource": "confirmed",
-      "rank": 191
+      "rank": 196
     },
     {
       "name": "Numbing Mass Resurrection",
@@ -1742,7 +1797,7 @@
       ],
       "score": 49,
       "ratingSource": "confirmed",
-      "rank": 192
+      "rank": 197
     },
     {
       "name": "Blue Cow",
@@ -1751,7 +1806,7 @@
       ],
       "score": 48,
       "ratingSource": "confirmed",
-      "rank": 193
+      "rank": 198
     },
     {
       "name": "Laughing fit",
@@ -1760,7 +1815,7 @@
       ],
       "score": 48,
       "ratingSource": "confirmed",
-      "rank": 194
+      "rank": 199
     },
     {
       "name": "Academic Quarter",
@@ -1769,7 +1824,7 @@
       ],
       "score": 47,
       "ratingSource": "confirmed",
-      "rank": 195
+      "rank": 200
     },
     {
       "name": "Drunkard",
@@ -1778,7 +1833,7 @@
       ],
       "score": 47,
       "ratingSource": "confirmed",
-      "rank": 196
+      "rank": 201
     },
     {
       "name": "Raging Alcoholic",
@@ -1787,7 +1842,7 @@
       ],
       "score": 47,
       "ratingSource": "confirmed",
-      "rank": 197
+      "rank": 202
     },
     {
       "name": "Ale Addict",
@@ -1796,7 +1851,7 @@
       ],
       "score": 46,
       "ratingSource": "confirmed",
-      "rank": 198
+      "rank": 203
     },
     {
       "name": "Ice Cold Siren",
@@ -1805,7 +1860,7 @@
       ],
       "score": 46,
       "ratingSource": "confirmed",
-      "rank": 199
+      "rank": 204
     },
     {
       "name": "Lena, the Silent One",
@@ -1814,7 +1869,7 @@
       ],
       "score": 46,
       "ratingSource": "confirmed",
-      "rank": 200
+      "rank": 205
     },
     {
       "name": "Trained Drinker",
@@ -1823,7 +1878,7 @@
       ],
       "score": 46,
       "ratingSource": "confirmed",
-      "rank": 201
+      "rank": 206
     },
     {
       "name": "Weedfield Grazer",
@@ -1832,7 +1887,7 @@
       ],
       "score": 46,
       "ratingSource": "confirmed",
-      "rank": 202
+      "rank": 207
     },
     {
       "name": "Wild Fermentation",
@@ -1841,7 +1896,7 @@
       ],
       "score": 46,
       "ratingSource": "confirmed",
-      "rank": 203
+      "rank": 208
     },
     {
       "name": "Information Broker",
@@ -1850,7 +1905,7 @@
       ],
       "score": 45,
       "ratingSource": "confirmed",
-      "rank": 204
+      "rank": 209
     },
     {
       "name": "Puff Mama",
@@ -1859,7 +1914,7 @@
       ],
       "score": 45,
       "ratingSource": "confirmed",
-      "rank": 205
+      "rank": 210
     },
     {
       "name": "Always With Us",
@@ -1868,7 +1923,7 @@
       ],
       "score": 44,
       "ratingSource": "confirmed",
-      "rank": 206
+      "rank": 211
     },
     {
       "name": "Ball Scratching",
@@ -1877,7 +1932,7 @@
       ],
       "score": 44,
       "ratingSource": "confirmed",
-      "rank": 207
+      "rank": 212
     },
     {
       "name": "Brotherhoods Impact",
@@ -1886,7 +1941,7 @@
       ],
       "score": 44,
       "ratingSource": "confirmed",
-      "rank": 208
+      "rank": 213
     },
     {
       "name": "Devoted Homebody",
@@ -1895,7 +1950,7 @@
       ],
       "score": 44,
       "ratingSource": "confirmed",
-      "rank": 209
+      "rank": 214
     },
     {
       "name": "Tavern Medic",
@@ -1904,7 +1959,7 @@
       ],
       "score": 44,
       "ratingSource": "confirmed",
-      "rank": 210
+      "rank": 215
     },
     {
       "name": "Gonorrhea",
@@ -1913,7 +1968,7 @@
       ],
       "score": 43,
       "ratingSource": "confirmed",
-      "rank": 211
+      "rank": 216
     },
     {
       "name": "Inspiring Bard",
@@ -1922,7 +1977,7 @@
       ],
       "score": 43,
       "ratingSource": "confirmed",
-      "rank": 212
+      "rank": 217
     },
     {
       "name": "Recycle",
@@ -1931,7 +1986,7 @@
       ],
       "score": 43,
       "ratingSource": "confirmed",
-      "rank": 213
+      "rank": 218
     },
     {
       "name": "Untamable Grove Colossus",
@@ -1940,7 +1995,7 @@
       ],
       "score": 43,
       "ratingSource": "confirmed",
-      "rank": 214
+      "rank": 219
     },
     {
       "name": "Wedding Ring",
@@ -1949,7 +2004,7 @@
       ],
       "score": 43,
       "ratingSource": "confirmed",
-      "rank": 215
+      "rank": 220
     },
     {
       "name": "Last Duel",
@@ -1958,7 +2013,7 @@
       ],
       "score": 42,
       "ratingSource": "confirmed",
-      "rank": 216
+      "rank": 221
     },
     {
       "name": "Sleepless Night",
@@ -1967,7 +2022,7 @@
       ],
       "score": 42,
       "ratingSource": "confirmed",
-      "rank": 217
+      "rank": 222
     },
     {
       "name": "Too Drunk to Dodge",
@@ -1976,7 +2031,7 @@
       ],
       "score": 42,
       "ratingSource": "confirmed",
-      "rank": 218
+      "rank": 223
     },
     {
       "name": "Flatfooted",
@@ -1985,7 +2040,7 @@
       ],
       "score": 41,
       "ratingSource": "confirmed",
-      "rank": 219
+      "rank": 224
     },
     {
       "name": "Tavern Time Out",
@@ -1994,7 +2049,7 @@
       ],
       "score": 41,
       "ratingSource": "confirmed",
-      "rank": 220
+      "rank": 225
     },
     {
       "name": "Bochana Jugobeidl",
@@ -2003,7 +2058,7 @@
       ],
       "score": 40,
       "ratingSource": "confirmed",
-      "rank": 221
+      "rank": 226
     },
     {
       "name": "Desperate Foraging",
@@ -2012,7 +2067,7 @@
       ],
       "score": 40,
       "ratingSource": "confirmed",
-      "rank": 222
+      "rank": 227
     },
     {
       "name": "Süüü, the Fourth Child",
@@ -2021,7 +2076,7 @@
       ],
       "score": 40,
       "ratingSource": "confirmed",
-      "rank": 223
+      "rank": 228
     },
     {
       "name": "Tschuschnpfeiferl",
@@ -2030,7 +2085,7 @@
       ],
       "score": 40,
       "ratingSource": "confirmed",
-      "rank": 224
+      "rank": 229
     },
     {
       "name": "Circular Conversation",
@@ -2039,7 +2094,7 @@
       ],
       "score": 39,
       "ratingSource": "confirmed",
-      "rank": 225
+      "rank": 230
     },
     {
       "name": "Cold Water Coward",
@@ -2048,7 +2103,7 @@
       ],
       "score": 39,
       "ratingSource": "confirmed",
-      "rank": 226
+      "rank": 231
     },
     {
       "name": "Let’s Fucking Go",
@@ -2057,7 +2112,7 @@
       ],
       "score": 39,
       "ratingSource": "confirmed",
-      "rank": 227
+      "rank": 232
     },
     {
       "name": "Tavern Hearthkeeper",
@@ -2066,7 +2121,7 @@
       ],
       "score": 39,
       "ratingSource": "confirmed",
-      "rank": 228
+      "rank": 233
     },
     {
       "name": "A Wife's Argument",
@@ -2075,7 +2130,7 @@
       ],
       "score": 38,
       "ratingSource": "confirmed",
-      "rank": 229
+      "rank": 234
     },
     {
       "name": "Coastal Watchman",
@@ -2084,7 +2139,7 @@
       ],
       "score": 38,
       "ratingSource": "confirmed",
-      "rank": 230
+      "rank": 235
     },
     {
       "name": "Roadside Distraction",
@@ -2093,7 +2148,7 @@
       ],
       "score": 38,
       "ratingSource": "confirmed",
-      "rank": 231
+      "rank": 236
     },
     {
       "name": "The Rake",
@@ -2102,7 +2157,7 @@
       ],
       "score": 38,
       "ratingSource": "confirmed",
-      "rank": 232
+      "rank": 237
     },
     {
       "name": "Vandalism",
@@ -2111,7 +2166,7 @@
       ],
       "score": 38,
       "ratingSource": "confirmed",
-      "rank": 233
+      "rank": 238
     },
     {
       "name": "Tactical Purge",
@@ -2120,7 +2175,7 @@
       ],
       "score": 37,
       "ratingSource": "confirmed",
-      "rank": 234
+      "rank": 239
     },
     {
       "name": "Wixbirne",
@@ -2129,7 +2184,7 @@
       ],
       "score": 37,
       "ratingSource": "confirmed",
-      "rank": 235
+      "rank": 240
     },
     {
       "name": "Rowdy Riot",
@@ -2138,7 +2193,7 @@
       ],
       "score": 36,
       "ratingSource": "confirmed",
-      "rank": 236
+      "rank": 241
     },
     {
       "name": "The Blessed Hideaway",
@@ -2147,7 +2202,7 @@
       ],
       "score": 36,
       "ratingSource": "confirmed",
-      "rank": 237
+      "rank": 242
     },
     {
       "name": "Youthful Inner Heat",
@@ -2156,7 +2211,7 @@
       ],
       "score": 36,
       "ratingSource": "confirmed",
-      "rank": 238
+      "rank": 243
     },
     {
       "name": "Server Veteran",
@@ -2165,7 +2220,7 @@
       ],
       "score": 35,
       "ratingSource": "confirmed",
-      "rank": 239
+      "rank": 244
     },
     {
       "name": "Stefan, the Eternal Annoyer",
@@ -2174,7 +2229,7 @@
       ],
       "score": 35,
       "ratingSource": "confirmed",
-      "rank": 240
+      "rank": 245
     },
     {
       "name": "Indica Hedge",
@@ -2183,7 +2238,7 @@
       ],
       "score": 34,
       "ratingSource": "confirmed",
-      "rank": 241
+      "rank": 246
     },
     {
       "name": "Sweet Harmless Siren",
@@ -2192,7 +2247,7 @@
       ],
       "score": 34,
       "ratingSource": "confirmed",
-      "rank": 242
+      "rank": 247
     },
     {
       "name": "Buy a Round",
@@ -2201,7 +2256,7 @@
       ],
       "score": 33,
       "ratingSource": "confirmed",
-      "rank": 243
+      "rank": 248
     },
     {
       "name": "Questionable First Responder",
@@ -2210,7 +2265,7 @@
       ],
       "score": 33,
       "ratingSource": "confirmed",
-      "rank": 244
+      "rank": 249
     },
     {
       "name": "Mystic Hotbox Hut",
@@ -2219,7 +2274,7 @@
       ],
       "score": 32,
       "ratingSource": "confirmed",
-      "rank": 245
+      "rank": 250
     },
     {
       "name": "Drunken Warrior",
@@ -2228,7 +2283,7 @@
       ],
       "score": 31,
       "ratingSource": "confirmed",
-      "rank": 246
+      "rank": 251
     },
     {
       "name": "Hangry",
@@ -2237,7 +2292,7 @@
       ],
       "score": 31,
       "ratingSource": "confirmed",
-      "rank": 247
+      "rank": 252
     },
     {
       "name": "Hanna, Nature’s Siren",
@@ -2246,7 +2301,7 @@
       ],
       "score": 31,
       "ratingSource": "confirmed",
-      "rank": 248
+      "rank": 253
     },
     {
       "name": "The Mind",
@@ -2255,7 +2310,7 @@
       ],
       "score": 30,
       "ratingSource": "confirmed",
-      "rank": 249
+      "rank": 254
     },
     {
       "name": "White Sausage Leberkäse",
@@ -2264,7 +2319,7 @@
       ],
       "score": 29,
       "ratingSource": "confirmed",
-      "rank": 250
+      "rank": 255
     },
     {
       "name": "Paladin’s Nose Protection",
@@ -2273,7 +2328,7 @@
       ],
       "score": 28,
       "ratingSource": "confirmed",
-      "rank": 251
+      "rank": 256
     },
     {
       "name": "The Unflushed",
@@ -2282,7 +2337,7 @@
       ],
       "score": 27,
       "ratingSource": "confirmed",
-      "rank": 252
+      "rank": 257
     },
     {
       "name": "Blood Moon Rising",
@@ -2291,7 +2346,7 @@
       ],
       "score": 25,
       "ratingSource": "confirmed",
-      "rank": 253
+      "rank": 258
     },
     {
       "name": "Kiss of Poseidon",
@@ -2300,7 +2355,7 @@
       ],
       "score": 25,
       "ratingSource": "confirmed",
-      "rank": 254
+      "rank": 259
     },
     {
       "name": "Rollercoaster of Emotions",
@@ -2309,7 +2364,7 @@
       ],
       "score": 25,
       "ratingSource": "confirmed",
-      "rank": 255
+      "rank": 260
     },
     {
       "name": "A Place to Stay",
@@ -2318,7 +2373,7 @@
       ],
       "score": 24,
       "ratingSource": "confirmed",
-      "rank": 256
+      "rank": 261
     },
     {
       "name": "Library of Shared Memories",
@@ -2327,7 +2382,7 @@
       ],
       "score": 24,
       "ratingSource": "confirmed",
-      "rank": 257
+      "rank": 262
     },
     {
       "name": "Blunt Force Trauma",
@@ -2336,7 +2391,7 @@
       ],
       "score": 23,
       "ratingSource": "confirmed",
-      "rank": 258
+      "rank": 263
     },
     {
       "name": "Confusing Signals",
@@ -2345,7 +2400,7 @@
       ],
       "score": 22,
       "ratingSource": "confirmed",
-      "rank": 259
+      "rank": 264
     },
     {
       "name": "Homemade Paranoia",
@@ -2354,7 +2409,7 @@
       ],
       "score": 20,
       "ratingSource": "confirmed",
-      "rank": 260
+      "rank": 265
     },
     {
       "name": "The Loan Syndicate",
@@ -2363,7 +2418,7 @@
       ],
       "score": 19,
       "ratingSource": "confirmed",
-      "rank": 261
+      "rank": 266
     },
     {
       "name": "Grinder",
@@ -2372,7 +2427,7 @@
       ],
       "score": 18,
       "ratingSource": "confirmed",
-      "rank": 262
+      "rank": 267
     },
     {
       "name": "Cini Minis",
@@ -2381,7 +2436,7 @@
       ],
       "score": 15,
       "ratingSource": "confirmed",
-      "rank": 263
+      "rank": 268
     },
     {
       "name": "Milk",
@@ -2390,7 +2445,7 @@
       ],
       "score": 15,
       "ratingSource": "confirmed",
-      "rank": 264
+      "rank": 269
     },
     {
       "name": "Puddinghead",
@@ -2399,7 +2454,7 @@
       ],
       "score": 15,
       "ratingSource": "confirmed",
-      "rank": 265
+      "rank": 270
     },
     {
       "name": "Rotting Flesh",
@@ -2408,7 +2463,7 @@
       ],
       "score": 15,
       "ratingSource": "confirmed",
-      "rank": 266
+      "rank": 271
     },
     {
       "name": "Hallucinating Trip",
@@ -2417,7 +2472,7 @@
       ],
       "score": 13,
       "ratingSource": "confirmed",
-      "rank": 267
+      "rank": 272
     },
     {
       "name": "Frozen Taps",
@@ -2426,7 +2481,7 @@
       ],
       "score": 12,
       "ratingSource": "confirmed",
-      "rank": 268
+      "rank": 273
     },
     {
       "name": "Coffee Shop",
@@ -2435,7 +2490,7 @@
       ],
       "score": 11,
       "ratingSource": "confirmed",
-      "rank": 269
+      "rank": 274
     },
     {
       "name": "Couchpotato",
@@ -2444,7 +2499,7 @@
       ],
       "score": 11,
       "ratingSource": "confirmed",
-      "rank": 270
+      "rank": 275
     },
     {
       "name": "Echo of Empathy",
@@ -2453,7 +2508,7 @@
       ],
       "score": 10,
       "ratingSource": "confirmed",
-      "rank": 271
+      "rank": 276
     },
     {
       "name": "Parsley Root",
@@ -2462,7 +2517,7 @@
       ],
       "score": 10,
       "ratingSource": "confirmed",
-      "rank": 272
+      "rank": 277
     },
     {
       "name": "Bromoment",
@@ -2471,7 +2526,7 @@
       ],
       "score": 9,
       "ratingSource": "confirmed",
-      "rank": 273
+      "rank": 278
     },
     {
       "name": "Overdose",
@@ -2480,7 +2535,7 @@
       ],
       "score": 8,
       "ratingSource": "confirmed",
-      "rank": 274
+      "rank": 279
     },
     {
       "name": "A Week of Excess",
@@ -2489,7 +2544,7 @@
       ],
       "score": 6,
       "ratingSource": "confirmed",
-      "rank": 275
+      "rank": 280
     },
     {
       "name": "Friend or Foe",
@@ -2498,7 +2553,7 @@
       ],
       "score": 6,
       "ratingSource": "confirmed",
-      "rank": 276
+      "rank": 281
     },
     {
       "name": "Summon the Squad",
@@ -2507,7 +2562,7 @@
       ],
       "score": 6,
       "ratingSource": "confirmed",
-      "rank": 277
+      "rank": 282
     },
     {
       "name": "Gimme the herbs",
@@ -2516,7 +2571,7 @@
       ],
       "score": 3,
       "ratingSource": "confirmed",
-      "rank": 278
+      "rank": 283
     },
     {
       "name": "Goner",
@@ -2525,7 +2580,7 @@
       ],
       "score": 3,
       "ratingSource": "confirmed",
-      "rank": 279
+      "rank": 284
     },
     {
       "name": "Toast of Comfort",
@@ -2534,7 +2589,7 @@
       ],
       "score": 2,
       "ratingSource": "confirmed",
-      "rank": 280
+      "rank": 285
     },
     {
       "name": "Happy Hour",
@@ -2543,7 +2598,7 @@
       ],
       "score": 0,
       "ratingSource": "confirmed",
-      "rank": 281
+      "rank": 286
     }
   ]
 }

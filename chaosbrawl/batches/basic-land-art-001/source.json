@@ -1,0 +1,2130 @@
+{
+  "schemaVersion": 1,
+  "websiteRepository": "Stezido/Chaosbrawl-Website",
+  "websiteCommit": "1fcc3f3",
+  "variant": "the-foul-realms-beta",
+  "sourcePath": "sets/the-foul-realms/beta/Chaos Brawl - The Foul Realms - Beta.mse-set",
+  "sourceSha256": "78da20165fe1d02d49ec817fd8d936333111a6b4fe5875aeb6a33319ae8c576b",
+  "upstreamCommit": "34a8662b7966a6ee757411feae2ae8ff38cce436",
+  "range": [
+    "cb-024",
+    "cb-330"
+  ],
+  "cards": [
+    {
+      "id": "cb-024",
+      "name": "Blunt Force Trauma",
+      "manaCost": "1G",
+      "manaValue": 2,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "Instant",
+      "cardTypes": [
+        "Instant"
+      ],
+      "rarity": "Common",
+      "rulesText": "Target creature you control fights target creature you don’t control. If a creature you don’t control would survive this fight, tap it. It doesn’t untap during its controller’s next untap step.",
+      "flavorText": "Blunt force meets blunt minds. Nature enjoys the show",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/59e39076249efa8297409c7a.webp",
+      "token": false,
+      "nativeUid": "95141487962521211442767063041325"
+    },
+    {
+      "id": "cb-038",
+      "name": "Feuerball, Junge!",
+      "manaCost": "8RR",
+      "manaValue": 10,
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Mythic Rare",
+      "rulesText": "As an additional cost to cast this spell, you may tap any number of untapped creatures you control. This spell costs {1} less to cast for each creature tapped this way.\nFeuerball, Junge! deals 10 damage to any target.",
+      "flavorText": "“So ein großer Feuerball, Junge! BAM!”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/8f9821f93991ad7805c907b4.webp",
+      "token": false,
+      "nativeUid": "39929023485978860121361971470549"
+    },
+    {
+      "id": "cb-073",
+      "name": "Echo of Empathy",
+      "manaCost": "2U",
+      "manaValue": 3,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Instant",
+      "cardTypes": [
+        "Instant"
+      ],
+      "rarity": "Common",
+      "rulesText": "Move all counters from target creature onto another target creature. Draw a card.",
+      "flavorText": "“A true friend carry your weight, whether it’s joy or sorrow.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/4201bedbc394f6aa44f94862.webp",
+      "token": false,
+      "nativeUid": "34019456845405477119259335558241"
+    },
+    {
+      "id": "cb-075",
+      "name": "Confusing Signals",
+      "manaCost": "2U",
+      "manaValue": 3,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Common",
+      "rulesText": "As you cast this spell, choose a player. Tap up to two target creatures that player controls. Put a stun counter on each of them. The chosen player draws a card for each creature tapped this way.",
+      "flavorText": "“Her gestures never said what she meant — and always meant more than she said.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Stun",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/1e8a1e39fef8782b5f3a6136.webp",
+      "token": false,
+      "nativeUid": "72372654629369141082638961157857"
+    },
+    {
+      "id": "cb-085",
+      "name": "Bromoment",
+      "manaCost": "R/GR/G",
+      "manaValue": 2,
+      "colors": [
+        "R",
+        "G"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Common",
+      "rulesText": "Search your library for a card named Ogrontwin Pete or Ogrontwin Steve, reveal it, and put it into your hand. If you control one with that name, you may put it onto the battlefield instead. Then shuffle.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/e17bfadb3f980c33087c2129.webp",
+      "token": false,
+      "nativeUid": "14080678382246274999743508387510"
+    },
+    {
+      "id": "cb-113",
+      "name": "Distant Cousin Shotcrusher",
+      "manaCost": "B/R",
+      "manaValue": 1,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "typeLine": "Creature — Gnome",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Drunken Tolerance 3\nWhenever another creature you control gets a Drunken counter, you may put a Drunken counter on Distant Cousin Shotcrusher.",
+      "flavorText": "“AJDE! Pijemo!”",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Counter"
+      ],
+      "factions": [
+        "Gnome"
+      ],
+      "image": "/card-art/099829ea6c851a93b3eae951.webp",
+      "token": false,
+      "nativeUid": "20342790514258993159512194528693"
+    },
+    {
+      "id": "cb-126",
+      "name": "Cini Minis",
+      "manaCost": "G/W",
+      "manaValue": 1,
+      "colors": [
+        "W",
+        "G"
+      ],
+      "typeLine": "Artifact — Food",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{2}, {T}, Sacrifice Cini Minis: You gain 3 life. You may sacrifice a Food named Milk. If you do, draw three cards.",
+      "flavorText": "“With milk, it’s a great breakfast… yet it never fills anyone.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Food"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/5386a5722b423d38c09e0ec6.webp",
+      "token": false,
+      "nativeUid": "78031071968035514071482853660673"
+    },
+    {
+      "id": "cb-138",
+      "name": "Lena, the Silent One",
+      "manaCost": "2U",
+      "manaValue": 3,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Legendary Creature — Siren",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "As long as there are three or more Obsession counters on creatures on the battlefield, Lena, the Silent One gets +3/+3.",
+      "flavorText": "She doesn’t sing. She watches.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": "",
+      "mechanics": [
+        "Obsession",
+        "Counter"
+      ],
+      "factions": [
+        "Siren"
+      ],
+      "image": "/card-art/ee257089d63f00004138e60d.webp",
+      "token": false,
+      "nativeUid": "48427441678055040652472492017801"
+    },
+    {
+      "id": "cb-139",
+      "name": "Hanna, Nature’s Siren",
+      "manaCost": "GU",
+      "manaValue": 2,
+      "colors": [
+        "U",
+        "G"
+      ],
+      "typeLine": "Legendary Creature — Siren",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Whenever another Plant or Siren creature dies, put a +1/+1 counter and an Obsession counter on Hanna, Nature’s Siren.",
+      "flavorText": "“Hurt nature, and you hurt me. Hurt me, and you’ll regret it.”",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [
+        "Obsession",
+        "Counter"
+      ],
+      "factions": [
+        "Siren"
+      ],
+      "image": "/card-art/470c06314ea0d041eaf1f782.webp",
+      "token": false,
+      "nativeUid": "07428347163170421554634435914774"
+    },
+    {
+      "id": "cb-141",
+      "name": "Shady Herb Dealer",
+      "manaCost": "1G",
+      "manaValue": 2,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "Creature — Human",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "Upkeep costs you pay cost {1} less or one mana of a color of your choice less to pay.",
+      "flavorText": "“If you want, I can do two for the price of three for you.”",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [
+        "Upkeep"
+      ],
+      "factions": [
+        "Human"
+      ],
+      "image": "/card-art/22f66d5f947e0501eaace9c8.webp",
+      "token": false,
+      "nativeUid": "95747723254883109664133829150242"
+    },
+    {
+      "id": "cb-143",
+      "name": "Süüü, the Fourth Child",
+      "manaCost": "2U",
+      "manaValue": 3,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Legendary Creature — Human",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Süüünergy — As long as you control Natalie, Mother Siren, Süüü, the Fourth Child is a Siren and Sirens you control can’t have upkeep costs.",
+      "flavorText": "“As a pirate, he used to chase treasure. Now he’s found something better.”",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [
+        "Upkeep"
+      ],
+      "factions": [
+        "Human"
+      ],
+      "image": "/card-art/7bbfc7edde7b8b51e71dc723.webp",
+      "token": false,
+      "nativeUid": "84996901411248592722251438534133"
+    },
+    {
+      "id": "cb-147",
+      "name": "The Rake",
+      "manaCost": "1",
+      "manaValue": 1,
+      "colors": [],
+      "typeLine": "Artifact — Equipment",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "Equipped creature gets +1/+0.\nWhenever equipped creature attacks, you may remove a counter from target creature.\nEquip {2}",
+      "flavorText": "“When I bought it, it was white.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/f75cf38b0b4f02376f3708dc.webp",
+      "token": false,
+      "nativeUid": "56007734128968950291899832751479"
+    },
+    {
+      "id": "cb-153",
+      "name": "Magical Bucket Pump",
+      "manaCost": "1",
+      "manaValue": 1,
+      "colors": [],
+      "typeLine": "Artifact — Equipment",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Equipped creature has “{T}: Tap target creature.”\nEquip {2}",
+      "flavorText": "“Ha! — Gaaayyyy!”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/2ee039c51050d00bc9593172.webp",
+      "token": false,
+      "nativeUid": "81973944618777677917445485748655"
+    },
+    {
+      "id": "cb-154",
+      "name": "Wedding Ring",
+      "manaCost": "2",
+      "manaValue": 2,
+      "colors": [],
+      "typeLine": "Artifact — Equipment",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Rare",
+      "rulesText": "Whenever Wedding Ring becomes attached to a creature, choose another target creature. Those creatures are bonded for as long as Wedding Ring remains attached to the first creature.\nWhenever a spell or ability that isn’t a copy targets only one of the bonded creatures and no other objects or players, you may copy that spell or ability. The copy targets the other bonded creature.\nEquip {2}",
+      "flavorText": "“For better or for worse.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/bfe55b72c54fc307e2b0e16f.webp",
+      "token": false,
+      "nativeUid": "08892157090237719561451327010929"
+    },
+    {
+      "id": "cb-163",
+      "name": "Just Do it",
+      "manaCost": "1RR",
+      "manaValue": 3,
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Rare",
+      "rulesText": "Roll a d20. Sacrifice a number of lands equal to half the result, rounded down. Draw a card for each land sacrificed this way. You may put any number of land cards drawn this way onto the battlefield tapped.\nWhen you sacrifice a land this way, Just Do it deals 1 damage to target creature or planeswalker.",
+      "flavorText": "“I dare you.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/d692bfc52de031da4b4b6920.webp",
+      "token": false,
+      "nativeUid": "49970926052388294334947406360805"
+    },
+    {
+      "id": "cb-164",
+      "name": "Homemade Paranoia",
+      "manaCost": "1G",
+      "manaValue": 2,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Common",
+      "rulesText": "Reveal the top three cards of your library. If a creature card is revealed this way, put a creature card from among them into your hand. Otherwise, put all land cards revealed this way onto the battlefield tapped. Put the rest into your graveyard.",
+      "flavorText": "“Peter und Peter, von früh bis später”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/cd65f6a1810530d2c7074c92.webp",
+      "token": false,
+      "nativeUid": "57927067412055135425681903938674"
+    },
+    {
+      "id": "cb-182",
+      "name": "Edi, the Beerpig",
+      "manaCost": "3W",
+      "manaValue": 4,
+      "colors": [
+        "W"
+      ],
+      "typeLine": "Legendary Creature — Pig",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Kicker—Sacrifice one or more Beer (You may sacrifice one or more Beer in addition to any other costs as you cast this spell.)\nIf Edi was kicked, it enters with two +1/+1 counters on it for each Beer sacrificed to cast it.\nIf one or more Drunken counters would be put on Edi, the Beerpig, that many plus one +1/+1 counters are put on it instead.",
+      "flavorText": "“Edi is so massive, beer doesn’t even count as alcoholic.”",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/0051642f538d3ed3d5fe7405.webp",
+      "token": false,
+      "nativeUid": "32303411245436369337285072625285"
+    },
+    {
+      "id": "cb-184",
+      "name": "Recycle",
+      "manaCost": "XG",
+      "manaValue": 1,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Common",
+      "rulesText": "Exile X cards from your graveyard. Create a Treasure token for each card exiled this way.\nIf X is 4 or greater, draw a card.",
+      "flavorText": "“Nothing is wasted. It merely becomes something else.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/744a4f36e48a39c9713c3295.webp",
+      "token": false,
+      "nativeUid": "33464188261206918274459638717936"
+    },
+    {
+      "id": "cb-186",
+      "name": "Always With Us",
+      "manaCost": "1WW",
+      "manaValue": 3,
+      "colors": [
+        "W"
+      ],
+      "typeLine": "Legendary Enchantment",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Rare",
+      "rulesText": "Whenever a creature you control becomes the target of a spell or ability, it gets +1/+1 until end of turn.",
+      "flavorText": "“We’ll always have a place for them at the fire.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/05667a1f80ac35cbdea42a6d.webp",
+      "token": false,
+      "nativeUid": "70567843255054379378300879847063"
+    },
+    {
+      "id": "cb-192",
+      "name": "Annoying Running Gag",
+      "manaCost": "3R",
+      "manaValue": 4,
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Instant",
+      "cardTypes": [
+        "Instant"
+      ],
+      "rarity": "Rare",
+      "rulesText": "When you draw Annoying Running Gag, if you control three or more Mountains, reveal it and cast it without paying its mana cost if able.\nDraw three cards, then discard X cards, where X is the number of spells named Annoying Running Gag you’ve cast this game.\nShuffle Annoying Running Gag into its owner’s library.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/1133b684c007554daf0af33b.webp",
+      "token": false,
+      "nativeUid": "74453400551492042731665382533203"
+    },
+    {
+      "id": "cb-199",
+      "name": "Friend or Foe",
+      "manaCost": "1UB",
+      "manaValue": 3,
+      "colors": [
+        "U",
+        "B"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Choose an opponent. That player chooses friend or foe.\nFriend — You draw three cards and that player draws a card. You and that player each lose 2 life.\nFoe — You and that player each roll a d20. If one or more players roll a 20, each player who rolled a 20 draws four cards and loses 6 life. Otherwise, if that player’s result is at least 3 greater than yours, they draw two cards and lose 4 life. Otherwise, you draw two cards and lose 4 life.",
+      "flavorText": "“Only cowards choose friend.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/4b49d15e79d6f41797c639d4.webp",
+      "token": false,
+      "nativeUid": "58517593890630685251672600737324"
+    },
+    {
+      "id": "cb-213",
+      "name": "Puff Mama",
+      "manaCost": "1UR",
+      "manaValue": 3,
+      "colors": [
+        "U",
+        "R"
+      ],
+      "typeLine": "Creature — Tiefling",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Menace\nWhenever an Obsession counter is put on a creature, create a Treasure token. Puff Mama gets +1/+0 until end of turn.",
+      "flavorText": "“How does one make love to a siren? Come find out”",
+      "power": "1",
+      "toughness": "4",
+      "loyalty": "",
+      "mechanics": [
+        "Obsession",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/b7281ad014e103ab5f1b1ece.webp",
+      "token": false,
+      "nativeUid": "14169405985543168356971744969259"
+    },
+    {
+      "id": "cb-214",
+      "name": "Domina’s Devotee",
+      "manaCost": "3R",
+      "manaValue": 4,
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Creature — Human",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "Haste\nWhen Domina’s Devotee enters, put an Obsession counter on it.\nDomina’s Devotee gets +3/+3 for each Obsession counter on it.",
+      "flavorText": "“Command me, Mistress. Please.”",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [
+        "Obsession",
+        "Counter"
+      ],
+      "factions": [
+        "Human"
+      ],
+      "image": "/card-art/c0b730e890b31217a8509c6e.webp",
+      "token": false,
+      "nativeUid": "47430827617090329571557775365015"
+    },
+    {
+      "id": "cb-215",
+      "name": "Tavern Slot Machine",
+      "manaCost": "1",
+      "manaValue": 1,
+      "colors": [],
+      "typeLine": "Artifact",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "{3}, {T}: Roll a d20.\n1–7 | Create a Beer token.\n8–13 | Create a Food token.\n14–19 | Create a Treasure token.\n20 | Create a Beer token, a Food token, and a Treasure token. Then you may sacrifice Tavern Slot Machine. When you do, it deals damage equal to the number of artifact tokens you control to any target.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Beer",
+        "Food"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/a67e86ebbb365dc52a2a3847.webp",
+      "token": false,
+      "nativeUid": "56291372041028841727931608645605"
+    },
+    {
+      "id": "cb-225",
+      "name": "Culinary Disaster",
+      "manaCost": "3B",
+      "manaValue": 4,
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Creature — Food Horror",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "Upkeep—Pay 2 life. (At the beginning of your upkeep, sacrifice this permanent unless you pay 2 life.)",
+      "flavorText": "“Kill me”",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": "",
+      "mechanics": [
+        "Food",
+        "Upkeep"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/c963b41b6d17d5a2d83a2174.webp",
+      "token": false,
+      "nativeUid": "30739070464769848700981782813164"
+    },
+    {
+      "id": "cb-228",
+      "name": "Sofa Pizza",
+      "manaCost": "2B",
+      "manaValue": 3,
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Creature — Food Mutant",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "When Sofa Pizza is put into your graveyard from anywhere, it gains ‘{1}{B}: Return this card from your graveyard to your hand’ until the end of your next turn.",
+      "flavorText": "“I knew I didn’t eat the whole\npizza.”",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [
+        "Food"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/03f243ec78ed63c2040f61b2.webp",
+      "token": false,
+      "nativeUid": "18894330377665825226346312832941"
+    },
+    {
+      "id": "cb-254",
+      "name": "Wild Fermentation",
+      "manaCost": "3G",
+      "manaValue": 4,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "Legendary Enchantment",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "When Wild Fermentation enters, create a Beer token for each Plant you control.\nIf you would create one or more Beer tokens, roll a d20 for each of those tokens instead.\n1–10 | Create a Beer token.\n11–20| Create a Bock Beer token.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Beer"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/f319048efe98f10527098dfd.webp",
+      "token": false,
+      "nativeUid": "56615107814348146554016867017968"
+    },
+    {
+      "id": "cb-260",
+      "name": "Siren Raiders",
+      "manaCost": "5U",
+      "manaValue": 6,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Creature — Siren",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "As long as you control two or more other Sirens, Siren creatures you control can’t be blocked by creatures with power 2 or less.\nIslandcycling {2} ({2}, Discard this card: Search your library for an Island card, reveal it, put it into your hand, then shuffle.)",
+      "flavorText": "",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Siren"
+      ],
+      "image": "/card-art/30dfe2c6f74f16fee878e416.webp",
+      "token": false,
+      "nativeUid": "93661045438346248810193029088942"
+    },
+    {
+      "id": "cb-263",
+      "name": "Fighting Pit Champion",
+      "manaCost": "5W",
+      "manaValue": 6,
+      "colors": [
+        "W"
+      ],
+      "typeLine": "Creature — Human",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "Vigilance\nWhenever Fighting Pit Champion attacks, other creatures you control get +1/+0 until end of turn for each Beer you control.\nPlainscycling {2} ({2}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)",
+      "flavorText": "",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": "",
+      "mechanics": [
+        "Beer"
+      ],
+      "factions": [
+        "Human"
+      ],
+      "image": "/card-art/f1ad306f0217172b829cd1d9.webp",
+      "token": false,
+      "nativeUid": "81905137373495155494718986736334"
+    },
+    {
+      "id": "cb-269",
+      "name": "Moshpit",
+      "manaCost": "1RR",
+      "manaValue": 3,
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Sorcery",
+      "cardTypes": [
+        "Sorcery"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "Until end of turn, whenever a creature dies, Moshpit deals 1 damage to that creature’s controller. Moshpit deals 2 damage to each creature.",
+      "flavorText": "“For some, the beer is just the entrance fee to the main event.”",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Beer"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/01e7ec5228ee4172825f7191.webp",
+      "token": false,
+      "nativeUid": "11666765424144435752520763748304"
+    },
+    {
+      "id": "cb-271",
+      "name": "Server Veteran",
+      "manaCost": "2W",
+      "manaValue": 3,
+      "colors": [
+        "W"
+      ],
+      "typeLine": "Creature — Human",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "When Server Veteran enters, put X Drunken counters on target creature you control, where X is the number of Beer tokens you control.",
+      "flavorText": "“I’ve served through worse.”",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Human"
+      ],
+      "image": "/card-art/591e2015d30e2bdf5d5bc170.webp",
+      "token": false,
+      "nativeUid": "76741483379825672214429719574036"
+    },
+    {
+      "id": "cb-276",
+      "name": "Jade Dragon",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "legendary Creature — Dragon",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "Flying, haste",
+      "flavorText": "“The Jade Dragon takes time to form, but when it emerges, it’s a force of nature… and leaves quite an impression”",
+      "power": "7",
+      "toughness": "7",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/f61d0707de4f68fa1b755d03.webp",
+      "token": true,
+      "nativeUid": "13651776195717043056289625770570"
+    },
+    {
+      "id": "cb-277",
+      "name": "Another Brother",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Creature — Gnome",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "",
+      "flavorText": "Ajde! I don’t cook for a brother from another mother—unless you’re my friend, then I’ll whip up something special!”",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Gnome"
+      ],
+      "image": "/card-art/fb1e7e18ae4896b3da116703.webp",
+      "token": true,
+      "nativeUid": "45348669994707053799973286106801"
+    },
+    {
+      "id": "cb-279",
+      "name": "Gastronomic Downfall",
+      "manaCost": "4B",
+      "manaValue": 5,
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Enchantment — Saga",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Uncommon",
+      "rulesText": "I, II — Distribute two -1/-1 counters among one or two target creatures.\nIII — Remove all counters from all creatures. Gastronomic Downfall deals damage equal to the total number of counters removed this way to any target.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/3485d1975ce091fd9d45a4dd.webp",
+      "token": false,
+      "nativeUid": "34389086212196731353641035768475"
+    },
+    {
+      "id": "cb-282",
+      "name": "Rollercoaster of Emotions",
+      "manaCost": "2UB",
+      "manaValue": 4,
+      "colors": [
+        "U",
+        "B"
+      ],
+      "typeLine": "Enchantment — Saga",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Rare",
+      "rulesText": "I, III — Distribute three +1/+1 counters among any number of creatures.\nII, IV — For each counter on each creature, choose a creature controlled by a player other than that creature’s controller, if able. Move each counter onto the creature chosen for it simultaneously.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/ccfb6f320cd824c7a7de28ca.webp",
+      "token": false,
+      "nativeUid": "18071457911650076237814489678252"
+    },
+    {
+      "id": "cb-283",
+      "name": "Hofi, the Fragrant",
+      "manaCost": "2BG",
+      "manaValue": 4,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "typeLine": "Legendary Planeswalker — Hofi",
+      "cardTypes": [
+        "Planeswalker"
+      ],
+      "rarity": "Masterpiece",
+      "rulesText": "+2 — Create a Food token.\n-2 — Sacrifice a Food. If you do, target creature gets -3/-3 until end of turn.\n-6 — Until end of turn, whenever a creature dies, each opponent loses 1 life. Sacrifice all Food you control. Each creature gets -3/-3 until end of turn for each Food sacrificed this way. Each opponent loses 1 life for each Food token sacrificed this way.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "3",
+      "mechanics": [
+        "Food"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/d4f78e2d9d83fe60b44d9e82.webp",
+      "token": false,
+      "nativeUid": "97455491638082763377638553412325"
+    },
+    {
+      "id": "cb-294",
+      "name": "Hangry Siren",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [
+        "U",
+        "R"
+      ],
+      "typeLine": "Creature — Siren",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "Haste",
+      "flavorText": "",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Siren"
+      ],
+      "image": "/card-art/78939627a062a87e02d8b702.webp",
+      "token": true,
+      "nativeUid": "85895542599407197338801036611005"
+    },
+    {
+      "id": "cb-295",
+      "name": "Elemental",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "Creature — Elemental",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "",
+      "flavorText": "“I knew the smoke was getting thick when the cloud started asking for my name.”",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/9cf8dd0514156fa1bce4c952.webp",
+      "token": true,
+      "nativeUid": "62394501428535753590611702577679"
+    },
+    {
+      "id": "cb-296",
+      "name": "Stinky Elemental",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [
+        "G"
+      ],
+      "typeLine": "Creature — Elemental",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "",
+      "flavorText": "“A whiff of nature’s true power.”",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/5b93d4d924083877be7ab07b.webp",
+      "token": true,
+      "nativeUid": "58569973053786328538229813254111"
+    },
+    {
+      "id": "cb-297",
+      "name": "Vengeful Gnome Pack",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Creature — Gnome",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "",
+      "flavorText": "Ajde! Uncles, cousins, and at least three angry grandmas — all armed and ready!”",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Gnome"
+      ],
+      "image": "/card-art/28453e42d8a5bf68310bd36d.webp",
+      "token": true,
+      "nativeUid": "95903886070373072497215163364981"
+    },
+    {
+      "id": "cb-299",
+      "name": "Ari, the Ripper",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [
+        "W",
+        "G"
+      ],
+      "typeLine": "legendary Creature — Dog",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Mythic Rare",
+      "rulesText": "Vigilance",
+      "flavorText": "“She loves ripping couches. Imagine what she does to Peter’s enemies.”",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/4a7e06137496ccb3d213ac50.webp",
+      "token": true,
+      "nativeUid": "43206804257078491561453258329794"
+    },
+    {
+      "id": "cb-308",
+      "name": "The Awaitening",
+      "manaCost": "2RG",
+      "manaValue": 4,
+      "colors": [
+        "R",
+        "G"
+      ],
+      "typeLine": "Enchantment — Saga",
+      "cardTypes": [
+        "Enchantment"
+      ],
+      "rarity": "Rare",
+      "rulesText": "I — Search your library for up to two basic land cards, reveal them, put them into your hand, then shuffle.\nII — Creatures you control get +2/+2 until end of turn.\nIII — Create two Food tokens and two Beer tokens.\nIV — After your next combat phase this turn, there is an additional combat phase. At the beginning of that combat, untap all creatures you control.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Beer",
+        "Food"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/a576307b4c2f9e18c1b487ad.webp",
+      "token": false,
+      "nativeUid": "65500405928727932744264801569234"
+    },
+    {
+      "id": "cb-316",
+      "name": "Plains",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Basic Land — Plains",
+      "cardTypes": [
+        "Land"
+      ],
+      "rarity": "Basic Land",
+      "rulesText": "{T}: Add {W}.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/4d50b33d7dda29218e498677.webp",
+      "token": false,
+      "nativeUid": "14597188413169214344374251965866"
+    },
+    {
+      "id": "cb-317",
+      "name": "Plains",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Basic Land — Plains",
+      "cardTypes": [
+        "Land"
+      ],
+      "rarity": "Basic Land",
+      "rulesText": "{T}: Add {W}.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/84b2f7668205f844cb42ebdc.webp",
+      "token": false,
+      "nativeUid": "27441780240945812791796151157717"
+    },
+    {
+      "id": "cb-318",
+      "name": "Plains",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Basic Land — Plains",
+      "cardTypes": [
+        "Land"
+      ],
+      "rarity": "Basic Land",
+      "rulesText": "{T}: Add {W}.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/730a819ad06bb39d0477bfb9.webp",
+      "token": false,
+      "nativeUid": "16660599079363401700396462377059"
+    },
+    {
+      "id": "cb-319",
+      "name": "Island",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Basic Land — Island",
+      "cardTypes": [
+        "Land"
+      ],
+      "rarity": "Basic Land",
+      "rulesText": "{T}: Add {U}.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/306e46ad488bae9a8153a89b.webp",
+      "token": false,
+      "nativeUid": "64550601908476538217083696107491"
+    },
+    {
+      "id": "cb-320",
+      "name": "Island",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Basic Land — Island",
+      "cardTypes": [
+        "Land"
+      ],
+      "rarity": "Basic Land",
+      "rulesText": "{T}: Add {U}.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/92a2623972a44bb332a00c0f.webp",
+      "token": false,
+      "nativeUid": "12244169076597943557744690155431"
+    },
+    {
+      "id": "cb-321",
+      "name": "Island",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Basic Land — Island",
+      "cardTypes": [
+        "Land"
+      ],
+      "rarity": "Basic Land",
+      "rulesText": "{T}: Add {U}.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/3b96edba26244aa74142ca06.webp",
+      "token": false,
+      "nativeUid": "97917320692438168615433059456109"
+    },
+    {
+      "id": "cb-322",
+      "name": "Swamp",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Basic Land — Swamp",
+      "cardTypes": [
+        "Land"
+      ],
+      "rarity": "Basic Land",
+      "rulesText": "{T}: Add {B}.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/746258128c5aa6961070aeae.webp",
+      "token": false,
+      "nativeUid": "17251431505825492120466254476624"
+    },
+    {
+      "id": "cb-323",
+      "name": "Swamp",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Basic Land — Swamp",
+      "cardTypes": [
+        "Land"
+      ],
+      "rarity": "Basic Land",
+      "rulesText": "{T}: Add {B}.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/925b817b86cd8a2a44cbabbc.webp",
+      "token": false,
+      "nativeUid": "25803343549866914473838327556172"
+    },
+    {
+      "id": "cb-324",
+      "name": "Swamp",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Basic Land — Swamp",
+      "cardTypes": [
+        "Land"
+      ],
+      "rarity": "Basic Land",
+      "rulesText": "{T}: Add {B}.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/1ffa4abc1de2ac560da576d9.webp",
+      "token": false,
+      "nativeUid": "16608430054134185661859803699974"
+    },
+    {
+      "id": "cb-325",
+      "name": "Mountain",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Basic Land — Mountain",
+      "cardTypes": [
+        "Land"
+      ],
+      "rarity": "Basic Land",
+      "rulesText": "{T}: Add {R}.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/d1442ad00056cc001f86ef9f.webp",
+      "token": false,
+      "nativeUid": "22158455866813026811937799141146"
+    },
+    {
+      "id": "cb-326",
+      "name": "Mountain",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Basic Land — Mountain",
+      "cardTypes": [
+        "Land"
+      ],
+      "rarity": "Basic Land",
+      "rulesText": "{T}: Add {R}.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/f2088e1741f464d9cd937877.webp",
+      "token": false,
+      "nativeUid": "18618080180894898394331116512875"
+    },
+    {
+      "id": "cb-327",
+      "name": "Mountain",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Basic Land — Mountain",
+      "cardTypes": [
+        "Land"
+      ],
+      "rarity": "Basic Land",
+      "rulesText": "{T}: Add {R}.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/f460238a0bb1ee285326fd5b.webp",
+      "token": false,
+      "nativeUid": "17619443476821586795795892956462"
+    },
+    {
+      "id": "cb-328",
+      "name": "Forest",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Basic Land — Forest",
+      "cardTypes": [
+        "Land"
+      ],
+      "rarity": "Basic Land",
+      "rulesText": "{T}: Add {G}.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/710177121a19dda747ee898e.webp",
+      "token": false,
+      "nativeUid": "25226295587015390240342430761045"
+    },
+    {
+      "id": "cb-329",
+      "name": "Forest",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Basic Land — Forest",
+      "cardTypes": [
+        "Land"
+      ],
+      "rarity": "Basic Land",
+      "rulesText": "{T}: Add {G}.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/ff96ded058790a8b64364069.webp",
+      "token": false,
+      "nativeUid": "11052614580474510328613190777866"
+    },
+    {
+      "id": "cb-330",
+      "name": "Forest",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Basic Land — Forest",
+      "cardTypes": [
+        "Land"
+      ],
+      "rarity": "Basic Land",
+      "rulesText": "{T}: Add {G}.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/d1d4a5019484094c41c86d25.webp",
+      "token": false,
+      "nativeUid": "34476363364629867677111543989183"
+    }
+  ],
+  "pendingCardIds": [],
+  "scriptBindings": {},
+  "tokenBindings": {},
+  "supportingTokens": [
+    {
+      "id": "cb-275",
+      "name": "Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken Counter on target creature. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/9869d1af7927486ce6aa786c.webp",
+      "token": true,
+      "nativeUid": "99697868361608104333974878191868"
+    },
+    {
+      "id": "cb-276",
+      "name": "Jade Dragon",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "legendary Creature — Dragon",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "Flying, haste",
+      "flavorText": "“The Jade Dragon takes time to form, but when it emerges, it’s a force of nature… and leaves quite an impression”",
+      "power": "7",
+      "toughness": "7",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/f61d0707de4f68fa1b755d03.webp",
+      "token": true,
+      "nativeUid": "13651776195717043056289625770570"
+    },
+    {
+      "id": "cb-277",
+      "name": "Another Brother",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Creature — Gnome",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "",
+      "flavorText": "Ajde! I don’t cook for a brother from another mother—unless you’re my friend, then I’ll whip up something special!”",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Gnome"
+      ],
+      "image": "/card-art/fb1e7e18ae4896b3da116703.webp",
+      "token": true,
+      "nativeUid": "45348669994707053799973286106801"
+    },
+    {
+      "id": "cb-288",
+      "name": "Expired Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken counter on target creature. That creature gets –2/–2 until end of turn. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/52498fcd973baa0dd67d8888.webp",
+      "token": true,
+      "nativeUid": "08550782024313345983571332065668"
+    },
+    {
+      "id": "cb-289",
+      "name": "Pils Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken counter on target creature. That creature gets first strike until end of turn. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/4c9f148146652993b7161160.webp",
+      "token": true,
+      "nativeUid": "41800081581069686088403844896897"
+    },
+    {
+      "id": "cb-290",
+      "name": "Zwickl Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken counter on target creature. That creature gets haste until end of turn. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/afb2e3b6eb9c36aa0e5221c8.webp",
+      "token": true,
+      "nativeUid": "28727334813682861630156685371356"
+    },
+    {
+      "id": "cb-291",
+      "name": "Wheat Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken counter on target creature. That creature gets vigilance until end of turn. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/62035dce29ba497cad967e38.webp",
+      "token": true,
+      "nativeUid": "99438033573469877722553837322933"
+    },
+    {
+      "id": "cb-292",
+      "name": "Dark Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken counter on target creature. That creature gets menace until end of turn. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/061ba8405d28ef24e8758f0e.webp",
+      "token": true,
+      "nativeUid": "61262098799155684849093802016623"
+    },
+    {
+      "id": "cb-293",
+      "name": "Bock Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken counter on target creature, then double the number of drunken counters on that creature. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/816c0cd0a327fe615cd7a57c.webp",
+      "token": true,
+      "nativeUid": "80566617593283984981652973441929"
+    },
+    {
+      "id": "cb-294",
+      "name": "Hangry Siren",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Creature — Siren",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "Haste",
+      "flavorText": "",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Siren"
+      ],
+      "image": "/card-art/78939627a062a87e02d8b702.webp",
+      "token": true,
+      "nativeUid": "85895542599407197338801036611005"
+    },
+    {
+      "id": "cb-295",
+      "name": "Elemental",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Creature — Elemental",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "",
+      "flavorText": "“I knew the smoke was getting thick when the cloud started asking for my name.”",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/9cf8dd0514156fa1bce4c952.webp",
+      "token": true,
+      "nativeUid": "62394501428535753590611702577679"
+    },
+    {
+      "id": "cb-296",
+      "name": "Stinky Elemental",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Creature — Elemental",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "",
+      "flavorText": "“A whiff of nature’s true power.”",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/5b93d4d924083877be7ab07b.webp",
+      "token": true,
+      "nativeUid": "58569973053786328538229813254111"
+    },
+    {
+      "id": "cb-297",
+      "name": "Vengeful Gnome Pack",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Creature — Gnome",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "",
+      "flavorText": "Ajde! Uncles, cousins, and at least three angry grandmas — all armed and ready!”",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Gnome"
+      ],
+      "image": "/card-art/28453e42d8a5bf68310bd36d.webp",
+      "token": true,
+      "nativeUid": "95903886070373072497215163364981"
+    },
+    {
+      "id": "cb-299",
+      "name": "Ari, the Ripper",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "legendary Creature — Dog",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Mythic Rare",
+      "rulesText": "Vigilance",
+      "flavorText": "“She loves ripping couches. Imagine what she does to Peter’s enemies.”",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/4a7e06137496ccb3d213ac50.webp",
+      "token": true,
+      "nativeUid": "43206804257078491561453258329794"
+    },
+    {
+      "id": "cb-300",
+      "name": "Food",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Food",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{2},{T}, Sacrifice this artifact: You gain 3 life.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Food"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/73317ca7e5cc629b7fffbfc4.webp",
+      "token": true,
+      "nativeUid": "39751567967358822980912756692110"
+    },
+    {
+      "id": "cb-301",
+      "name": "Food",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Food",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{2},{T}, Sacrifice this artifact: You gain 3 life.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Food"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/f53a19d20501027fcc25c7a0.webp",
+      "token": true,
+      "nativeUid": "56257305857810659044607144909009"
+    },
+    {
+      "id": "cb-302",
+      "name": "Food",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Food",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{2},{T}, Sacrifice this artifact: You gain 3 life.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Food"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/a3140cef35717bc300dfadc8.webp",
+      "token": true,
+      "nativeUid": "08414963860758062278600763004916"
+    },
+    {
+      "id": "cb-303",
+      "name": "Treasure",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Treasure",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{T}, Sacrifice this artifact: Add one mana of any color.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/4c1ea076e77a16bb51a2545e.webp",
+      "token": true,
+      "nativeUid": "84367773972239735972520551301886"
+    },
+    {
+      "id": "cb-304",
+      "name": "Treasure",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Treasure",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{T}, Sacrifice this artifact: Add one mana of any color.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/0332d15b69f524096e9acd21.webp",
+      "token": true,
+      "nativeUid": "89693456724449181378500028114320"
+    },
+    {
+      "id": "cb-305",
+      "name": "Treasure",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Treasure",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{T}, Sacrifice this artifact: Add one mana of any color.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/d63e4c6561ba347a83468e52.webp",
+      "token": true,
+      "nativeUid": "68425958370012987867630902772225"
+    },
+    {
+      "id": "cb-306",
+      "name": "Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken Counter on target creature. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/9ef38b43d2e3966acbb7d9e7.webp",
+      "token": true,
+      "nativeUid": "83294307911530520069571460645566"
+    },
+    {
+      "id": "cb-307",
+      "name": "Beer",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [],
+      "typeLine": "Artifact — Beer",
+      "cardTypes": [
+        "Artifact"
+      ],
+      "rarity": "Common",
+      "rulesText": "{1},{T}, Sacrifice this artifact: Put a Drunken Counter on target creature. Activate only as a sorcery.",
+      "flavorText": "",
+      "power": "",
+      "toughness": "",
+      "loyalty": "",
+      "mechanics": [
+        "Drunken",
+        "Beer",
+        "Counter"
+      ],
+      "factions": [
+        "Other"
+      ],
+      "image": "/card-art/a29fa90acb858ae25cdc2ec2.webp",
+      "token": true,
+      "nativeUid": "90333205029454662106164972683118"
+    },
+    {
+      "id": "cb-315",
+      "name": "Nagging Siren Twin",
+      "manaCost": "",
+      "manaValue": 0,
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Creature — Siren",
+      "cardTypes": [
+        "Creature"
+      ],
+      "rarity": "Common",
+      "rulesText": "Flying",
+      "flavorText": "",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": "",
+      "mechanics": [],
+      "factions": [
+        "Siren"
+      ],
+      "image": "/card-art/9e1c5987a513856f86a9a76c.webp",
+      "token": true,
+      "nativeUid": "976809722554359725952246838814440184"
+    }
+  ]
+}

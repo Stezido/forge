@@ -306,7 +306,7 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     @Test
-    public void obsessionAiRecognizesDevoteeBuffAndAvoidsBuffingEnemyDevotee() {
+    public void obsessionAiRecognizesDevoteePayoffAndAvoidsBuffingEnemyDevotee() {
         Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
         Card ordinary = addCard("Couchpotato", p), devotee = addCard("Domina’s Devotee", p);
         Card enemy = addCard("Couchpotato", other), enemyDevotee = addCard("Domina’s Devotee", other);
@@ -316,6 +316,21 @@ public class ChaosBrawlTest extends SimulationTest {
         assertTrue(chooseObsession(p, ability, true, true)); assertEquals(ability.getTargetCard(), enemy);
         assertEquals(ordinary.getCounters(CounterEnumType.OBSESSION), 0);
         assertEquals(enemyDevotee.getCounters(CounterEnumType.OBSESSION), 0);
+    }
+
+    @Test
+    public void devoteesPowerAndToughnessScaleWithItsObsessionCounters() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card devotee = enter("Domina’s Devotee", p);
+        counters(devotee, CounterEnumType.OBSESSION, 1);
+        game.getAction().checkStaticAbilities();
+        assertEquals(devotee.getNetPower(), 5); assertEquals(devotee.getNetToughness(), 5);
+        counters(devotee, CounterEnumType.OBSESSION, 2);
+        game.getAction().checkStaticAbilities();
+        assertEquals(devotee.getNetPower(), 11); assertEquals(devotee.getNetToughness(), 11);
+        devotee.subtractCounter(CounterEnumType.OBSESSION, 1, p);
+        game.getAction().checkStaticAbilities();
+        assertEquals(devotee.getNetPower(), 8); assertEquals(devotee.getNetToughness(), 8);
     }
 
     @Test
@@ -342,16 +357,17 @@ public class ChaosBrawlTest extends SimulationTest {
         SpellAbility ability = obsessionForAi(p, "Sweet Harmless Siren", true);
         assertTrue(chooseObsession(p, ability, true, true)); assertEquals(ability.getTargetCard(), safe);
         safe.addIntrinsicKeyword("Hexproof");
-        assertTrue(chooseObsession(p, ability, true, true)); assertTrue(ability.getTargets().isEmpty());
+        Card devotee = addCard("Domina’s Devotee", p); counters(devotee, CounterEnumType.OBSESSION, 1);
+        assertTrue(chooseObsession(p, ability, true, true)); assertEquals(ability.getTargetCard(), devotee);
     }
 
     @Test
-    public void obsessionAiDoesNotChooseAFriendlyTemporaryBuffAfterCombat() {
+    public void obsessionAiRecognizesTheDevoteesPermanentCounterBonusAfterCombat() {
         Game game = customGame(); Player p = game.getPlayers().get(0);
-        addCard("Domina’s Devotee", p);
+        Card devotee = addCard("Domina’s Devotee", p); counters(devotee, CounterEnumType.OBSESSION, 1);
         SpellAbility ability = obsessionForAi(p, "Sweet Harmless Siren", true);
         game.getPhaseHandler().devModeSet(PhaseType.MAIN2, p);
-        assertTrue(chooseObsession(p, ability, true, true)); assertTrue(ability.getTargets().isEmpty());
+        assertTrue(chooseObsession(p, ability, true, true)); assertEquals(ability.getTargetCard(), devotee);
     }
 
     @Test
@@ -682,7 +698,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Drunken Warrior", 2, "1", "1", "Haste\nDrunken Warrior enters the battlefield with three Drunken counter on it.\nDrunken counters cannot be removed from Drunken Warrior.", "Creature \u2014 Human Warrior", "R"},
             {"Hopsfield Vale", 0, "", "", "({T}: Add {G} or {W} to your mana pool.)\nAs Hopsfield Vale enters the battlefield, you may pay 2 life. If you don\u2019t, Hopsfield Vale enters the battlefield tapped.", "Land \u2014 Forest Plains", ""},
             {"Kegbearer", 6, "6", "6", "When Kegbearer, the Barrelback enters the battlefield, create two Beer token.\nDrunken Tolerance 4", "Creature \u2014 Half-Giant", "R"},
-            {"Blunt Force Trauma", 2, "", "", "Target creature you control fights target creature you don\u2019t control. If a creature would survive this fight, tap it. It doesn\u2019t untap during its controller\u2019s next untap step.", "Instant", "G"},
+            {"Blunt Force Trauma", 2, "", "", "Target creature you control fights target creature you don’t control. If a creature you don’t control would survive this fight, tap it. It doesn’t untap during its controller’s next untap step.", "Instant", "G"},
             {"Gimme the herbs", 1, "", "", "Reveal the top four cards of your library. Put all forest cards revealed this way into your hand and the rest into your graveyard.", "Sorcery", "G"},
             {"Hallucinating Trip", 3, "", "", "Until end of turn, all Forests you control become 1/1 green Plant creatures with haste in addition to their other types. They\u2019re still lands.", "Sorcery", "G"},
             {"Inspiring Bard", 4, "3", "3", "When Inspiring Bard enters, the battlefield, choose one \u2014\n\u2022 Bardic Inspiration \u2014 Target creature gets +2/+2 until end of turn.\n\u2022 Song of Rest \u2014 You gain 3 life.", "Creature \u2014 Elf Bard", "G"},
@@ -731,7 +747,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Academic Quarter", 2, "", "", "Until end of turn, you may plot a creature card from your hand by paying its mana cost. You may do this only once. (Plot only as a sorcery. You may cast that card as a sorcery on a later turn without paying its mana cost.)\nDraw a card.", "Sorcery", "U"},
             {"Straggler", 1, "2", "2", "Straggler enters the battlefield tapped.", "Creature \u2014 Human", "R"},
             {"Happy Hour", 3, "", "", "Each player creates two Beer tokens.\nThen each creature gains an obsession counter.", "Sorcery", "R"},
-            {"Echo of Empathy", 2, "", "", "Move all counters from target creature onto another target creature.", "Instant", "U"},
+            {"Echo of Empathy", 3, "", "", "Move all counters from target creature onto another target creature. Draw a card.", "Instant", "U"},
             {"Controlling Relationship", 4, "", "", "Enchant creature.\nWhen this Aura enters, tap enchanted permanent.\nYou control enchanted permanent.\nEnchanted permanent doesn\u2019t untap during its controller\u2019s untap step.", "Enchantment \u2014 Aura", "U"},
             {"Confusing Signals", 3, "", "", "As you cast this spell, choose a player. Tap up to two target creatures that player controls. Put a stun counter on each of them. The chosen player draws a card for each creature tapped this way.", "Sorcery", "U"},
             {"Weedfield Herbalist", 2, "1", "3", "{T}: Add {G}.", "Creature \u2014 Plant Druid", "G"},
@@ -743,7 +759,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Vandalism", 3, "", "", "Destroy target artifact or enchantment.\nIf a permanent is destroyed this way, its controller loses 2 life.", "Sorcery", "R"},
             {"Ogrontwin Steve", 4, "3", "4", "Trample\nAs long as you control a creature named \u201cOgrontwin Pete\u201d, Ogrontwin Steve gets +3/+3.", "Legendary Creature \u2014 Giant Warrior", "G"},
             {"Ogrontwin Pete", 4, "4", "3", "Menace\nAs long as you control a creature named \u201cOgrontwin Steve\u201d, Ogrontwin Pete gets +3/+3.", "Legendary Creature \u2014 Giant Warrior", "R"},
-            {"Bromoment", 3, "", "", "Search your library for a card named Ogrontwin Pete or Ogrontwin Steve, reveal it, and put it into your hand. If you control one with that name, you may put it onto the battlefield instead. Then shuffle.", "Sorcery", "RG"},
+            {"Bromoment", 2, "", "", "Search your library for a card named Ogrontwin Pete or Ogrontwin Steve, reveal it, and put it into your hand. If you control one with that name, you may put it onto the battlefield instead. Then shuffle.", "Sorcery", "RG"},
             {"Blood Moon Rising", 3, "", "", "Enchant creature\nAt the beginning of enchanted creature\u2019s controller\u2019s upkeep, they lose 2 life.\nWhenever another permanent enters the battlefield, put a obsession counter on enchanted creature.\nAs long as enchanted creature has five or more obsession counters on it, it gets +10/+0, has menace and first strike.", "Enchantment \u2014 Aura", "BR"},
             {"Zimty", 3, "2", "3", "When Zimty dies, target opponent discards a card.\n{2}, {T}, Sacrifice Zimty: You gain 3 life.", "Creature \u2014 Food Mutant", "B"},
             {"Mystic Herb Vegetative", 3, "2", "2", "When Mystic Herb Vegetative enters the battlefield, mill three cards. You may put a land card from among the cards milled this way into your hand. If you don\u2019t, put a +1/+1 counter on Mystic Herb Vegetative.", "Creature \u2014 Plant", "G"},
@@ -827,7 +843,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Let\u2019s Fucking Go", 1, "", "", "Target creature gets +3/+0 and gains haste until end of turn. You may discard a card. If you do, draw a card.", "Instant", "R"},
             {"Summon the Squad", 4, "", "", "Search your library for Marlene, the Leader, Robin, the Pusher, Max, the Sniper, and Tobias, the Grenadier. Put them onto the battlefield, then shuffle.", "Sorcery", "WUBR"},
             {"Just Do it", 3, "", "", "Roll a d20. Sacrifice a number of lands equal to half the result, rounded down. Draw a card for each land sacrificed this way. You may put any number of land cards drawn this way onto the battlefield tapped.\nWhen you sacrifice a land this way, Just Do it deals 1 damage to target creature or planeswalker.", "Sorcery", "R"},
-            {"Homemade Paranoia", 3, "", "", "Reveal the top three cards of your library. If a creature card is revealed this way, put a creature card from among them into your hand. Otherwise, put all land cards revealed this way onto the battlefield tapped. Put the rest into your graveyard.", "Sorcery", "G"},
+            {"Homemade Paranoia", 2, "", "", "Reveal the top three cards of your library. If a creature card is revealed this way, put a creature card from among them into your hand. Otherwise, put all land cards revealed this way onto the battlefield tapped. Put the rest into your graveyard.", "Sorcery", "G"},
             {"Flooded Palace", 0, "", "", "({T}: Add {U} or {W} to your mana pool.)\nAs Flooded Palace enters the battlefield, you may pay 2 life. If you don\u2019t, Flooded Palace enters the battlefield tapped.", "Land \u2014 Island Plains", ""},
             {"Duskmire", 0, "", "", "({T}: Add {U} or {B} to your mana pool.)\nAs Duskmire enters the battlefield, you may pay 2 life. If you don\u2019t, Duskmire enters the battlefield tapped.", "Land \u2014 Island Swamp", ""},
             {"Reefgarden", 0, "", "", "({T}: Add {G} or {U} to your mana pool.)\nAs Reefgarden enters the battlefield, you may pay 2 life. If you don\u2019t, Reefgarden enters the battlefield tapped.", "Land \u2014 Forest Island", ""},
@@ -845,7 +861,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Tavern Regular", 1, "1", "2", "When Tavern Regular enters the battlefield, you may reveal a card from your hand. If you do, create a Beer token.", "Creature \u2014 Human", "W"},
             {"Tavern Bouncer", 2, "1", "3", "{T}: Tap target drunken creature.", "Creature \u2014 Dwarf", "W"},
             {"Tavern Medic", 2, "2", "2", "{T}: Remove any number of Drunken counters from target creature. If it\u2019s a creature you control, you gain 1 life for each counter removed this way. Otherwise, you lose 1 life for each counter removed this way.", "Creature \u2014 Dwarf", "W"},
-            {"Edi, the Beerpig", 4, "3", "3", "Kicker\u2014Sacrifice one or more Beer (You may sacrifice one or more Beer in addition to any other costs as you cast this spell.)\nIf Edi was kicked, it enters with two +1/+1 counters on it for each Beer sacrificed to cast it.\nIf one or more Drunken counters would be put on Edi, instead put that many +1/+1 counters on it.", "Legendary Creature \u2014 Pig", "W"},
+            {"Edi, the Beerpig", 4, "3", "3", "Kicker\u2014Sacrifice one or more Beer (You may sacrifice one or more Beer in addition to any other costs as you cast this spell.)\nIf Edi was kicked, it enters with two +1/+1 counters on it for each Beer sacrificed to cast it.\nIf one or more Drunken counters would be put on Edi, the Beerpig, that many plus one +1/+1 counters are put on it instead.", "Legendary Creature \u2014 Pig", "W"},
             {"Goner", 1, "0", "2", "Goner enters tapped.\nIf Goner would be exiled from anywhere, put it into its owner\u2019s graveyard instead.", "Creature \u2014 Human", "B"},
             {"Recycle", 1, "", "", "Exile X cards from your graveyard. Create a Treasure token for each card exiled this way.\nIf X is 4 or greater, draw a card.", "Sorcery", "G"},
             {"Closing Hour", 3, "", "", "Return all tokens to their owners\u2019 hands.", "Instant", "U"},
@@ -855,7 +871,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Nadine, Sirens\u2019 Origin", 3, "3", "3", "Flying\nOther Sirens you control get +1/+1 and have ward {1}.", "Legendary Creature \u2014 Siren", "U"},
             {"The Mind", 2, "", "", "You and target opponent each search your library for a card and reveal it. If those cards share a mana value or card type, put them into their owners\u2019 hands. Otherwise, each player shuffles. Draw a card.", "Sorcery", ""},
             {"Boosted Excitement", 1, "", "", "Target creature gets +2/+2 until end of turn. If you control three or more creatures, it also gains hexproof until end of turn.", "Instant", "W"},
-            {"Annoying Running Gag", 4, "", "", "When you draw Annoying Running Gag, if you control four or more lands, reveal it and cast it without paying its mana cost if able.\nDraw three cards, then discard X cards, where X is the number of spells named Annoying Running Gag you\u2019ve cast this game.\nShuffle Annoying Running Gag into its owner\u2019s library.", "Instant", "R"},
+            {"Annoying Running Gag", 4, "", "", "When you draw Annoying Running Gag, if you control three or more Mountains, reveal it and cast it without paying its mana cost if able.\nDraw three cards, then discard X cards, where X is the number of spells named Annoying Running Gag you\u2019ve cast this game.\nShuffle Annoying Running Gag into its owner\u2019s library.", "Instant", "R"},
             {"Provoker", 3, "3", "1", "Whenever Provoker enters the battlefield or attacks, put an Obsession counter on target creature an opponent controls.", "Creature \u2014 Goblin", "R"},
             {"Frozen Taps", 2, "", "", "Artifacts can\u2019t be tapped.\nWhen there are ten or more artifacts on the battlefield, sacrifice Frozen Taps.", "Enchantment", "U"},
             {"Experimental Invention", 2, "2", "2", "Flying\nWhenever Experimental Invention deals combat damage to a player, look at the top card of your library and the top card of that player\u2019s library.\nCrew 1", "Artifact \u2014 Vehicle", ""},
@@ -876,8 +892,8 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Lecherous Patron", 3, "2", "2", "Whenever a Drunken counter is put on Lecherous Patron, it gets +2/+0 until end of turn.", "Creature \u2014 Gnome", "R"},
             {"Jolly Brewbelly", 5, "4", "4", "Jolly Brewbelly enters with three Drunken counters on it.\nUpkeep\u2014 Remove a Drunken counter from Jolly Brewbelly.\nDrunken Tolerance 3", "Creature \u2014 Dwarf", "R"},
             {"Desperate Hydrator", 4, "3", "3", "Whenever you cast an instant or sorcery spell, draw a card, then discard a card unless you remove a Drunken counter from a creature you control.", "Creature \u2014 Human", "R"},
-            {"Puff Mama", 4, "2", "4", "Menace\nWhenever one or more Obsession counters are put on a creature, create a Treasure token.", "Creature \u2014 Tiefling", "R"},
-            {"Domina\u2019s Devotee", 4, "2", "2", "Haste\nWhen Domina\u2019s Devotee enters, put an Obsession counter on it.\nWhenever an Obsession counter is put on Domina\u2019s Devotee, it gets +3/+3 until end of turn.", "Creature \u2014 Human", "R"},
+            {"Puff Mama", 3, "1", "4", "Menace\nWhenever an Obsession counter is put on a creature, create a Treasure token. Puff Mama gets +1/+0 until end of turn.", "Creature — Tiefling", "UR"},
+            {"Domina\u2019s Devotee", 4, "2", "2", "Haste\nWhen Domina\u2019s Devotee enters, put an Obsession counter on it.\nDomina\u2019s Devotee gets +3/+3 for each Obsession counter on it.", "Creature \u2014 Human", "R"},
             {"Tavern Slot Machine", 1, "", "", "{3}, {T}: Roll a d20.\n1\u20137 | Create a Beer token.\n8\u201313 | Create a Food token.\n14\u201319 | Create a Treasure token.\n20 | Create a Beer token, a Food token, and a Treasure token. Then you may sacrifice Tavern Slot Machine. When you do, it deals damage equal to the number of artifact tokens you control to any target.", "Artifact", ""},
             {"Honest Laborer", 4, "3", "4", "Vigilance\n{T}: Create a Beer token. Activate only if you attacked this turn.", "Creature \u2014 Dwarf", "W"},
             {"Gonorrhea", 3, "", "", "Enchant creature\nEnchanted creature gets +2/-2.\nAt the beginning of the upkeep of enchanted creature\u2019s controller, that player loses 2 life.", "Enchantment \u2014 Aura", "B"},
@@ -933,7 +949,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Professional Drunk", 3, "3", "2", "Creatures you control get +1 Drunken Tolerance.\nWhenever one or more Drunken counters are removed from a creature you control, create a Beer token.", "Creature \u2014 Dwarf", "R"},
             {"Brawl Enthusiast", 2, "2", "1", "Whenever you attack with a Drunken creature, Brawl Enthusiast deals 1 damage to target opponent.", "Creature \u2014 Dwarf", "R"},
             {"Brawl Encourager", 5, "5", "4", "Whenever Brawl Encourager attacks, target Drunken creature you control gets +2/+0 and gains trample until end of turn.", "Creature \u2014 Human", "R"},
-            {"Server Veteran", 3, "2", "3", "When Server Veteran enters, another target creature you control gets +X/+X until end of turn, where X is the number of Beers you control.", "Creature \u2014 Human", "W"},
+            {"Server Veteran", 3, "2", "3", "When Server Veteran enters, put X Drunken counters on target creature you control, where X is the number of Beer tokens you control.", "Creature \u2014 Human", "W"},
             {"Questionable First Responder", 3, "1", "4", "{T}, Sacrifice two Beers: Another target creature you control gains indestructible until end of turn.", "Creature \u2014 Human", "W"},
             {"Keeper\u2019s Lucky Mascot", 1, "1", "1", "Flying\n{T}: Create a token that\u2019s a copy of target artifact token you control.", "Creature \u2014 Drake", "U"},
             {"Wandering Culinarian", 2, "2", "2", "You may play an additional land on each of your turns.\nWhenever the second land enters the battlefield under your control each turn, create a Food token.", "Creature \u2014 Human", "G"},
@@ -1319,7 +1335,7 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     @Test
-    public void bluntFightTapsBothSurvivorsAndFreezesOneUntapWithoutStun() {
+    public void bluntFightTapsAndFreezesOnlySurvivingOpponentCreature() {
         Game game = customGame();
         Player p = game.getPlayers().get(0);
         Player other = game.getPlayers().get(1);
@@ -1331,15 +1347,15 @@ public class ChaosBrawlTest extends SimulationTest {
         AbilityUtils.resolve(fight);
         assertEquals(own.getDamage(), 2);
         assertEquals(enemy.getDamage(), 0);
-        assertTrue(own.isTapped());
-        assertTrue(enemy.isTapped());
+        assertFalse(own.isTapped(), "Your creature is never tapped by this effect");
+        assertTrue(enemy.isTapped(), "The surviving opposing creature is tapped");
         assertEquals(own.getCounters(CounterEnumType.STUN), 0);
         untap(game, p);
-        assertTrue(own.isTapped());
-        untap(game, other);
-        assertTrue(enemy.isTapped());
-        untap(game, p);
         assertFalse(own.isTapped());
+        untap(game, other);
+        assertTrue(enemy.isTapped(), "The opposing creature skips its next untap step");
+        untap(game, other);
+        assertFalse(enemy.isTapped(), "The opposing creature untaps on its following untap step");
     }
 
     @Test
@@ -1643,9 +1659,11 @@ public class ChaosBrawlTest extends SimulationTest {
         Card source = addCard("Couchpotato", other), target = addCard("Couchpotato", p);
         counters(source, CounterEnumType.STUN, 2);
         counters(source, CounterEnumType.OBSESSION, 3);
+        Card libraryDraw = addCardToZone("Island", p, ZoneType.Library);
         SpellAbility echo = spell("Echo of Empathy", p);
         echo.getTargets().add(source); echo.getTargets().add(target);
         AbilityUtils.resolve(echo);
+        assertTrue(libraryDraw.isInZone(ZoneType.Hand), "Echo of Empathy draws one card after moving counters");
         assertEquals(source.getCounters(CounterEnumType.STUN), 0);
         assertEquals(source.getCounters(CounterEnumType.OBSESSION), 0);
         assertEquals(target.getCounters(CounterEnumType.STUN), 2);
@@ -2163,6 +2181,18 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     @Test
+    public void serverVeteranCountsOnlyYourBeerTokensForItsDrunkenCounters() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card veteran = addCard("Server Veteran", p), target = addCard("Couchpotato", p), opponent = addCard("Couchpotato", other);
+        resolveEffect("DB$ Token | TokenScript$ chaosbrawl_beer", veteran);
+        resolveEffect("DB$ Token | TokenScript$ chaosbrawl_beer", veteran);
+        resolveEffect("DB$ Token | TokenScript$ c_a_treasure_sac", veteran);
+        resolveEffect("DB$ Token | TokenScript$ chaosbrawl_beer", opponent);
+        SpellAbility put = db(veteran, "Drunken"); put.getTargets().add(target); AbilityUtils.resolve(put);
+        assertEquals(target.getCounters(CounterEnumType.DRUNKEN), 2);
+    }
+
+    @Test
     public void draftTapAddsCounterWhenEveryBeerActivationUsesTheNormalStack() {
         for (String kind : new String[] {"beer", "expired_beer", "bock_beer", "dark_beer", "pils_beer", "wheat_beer", "zwickl_beer"}) {
             for (int taps = 1; taps <= 2; taps++) {
@@ -2367,13 +2397,17 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     @Test
-    public void lecherousPatronTriggersForEachCounterButPuffMamaOnlyOncePerPlacement() {
+    public void lecherousPatronAndPuffMamaTriggerForEachCounter() {
         Game game = customGame(); Player p = game.getPlayers().get(0);
         Card patron = enter("Lecherous Patron", p), mama = enter("Puff Mama", p);
         counters(patron, CounterEnumType.DRUNKEN, 3); resolveTriggers(game);
         assertEquals(patron.getNetPower(), 11); // printed 2 + drunken 3 + three +2 triggers
         counters(patron, CounterEnumType.OBSESSION, 3); resolveTriggers(game);
-        assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.isToken() && c.getType().hasSubtype("Treasure")).count(), 1L);
+        assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.isToken() && c.getType().hasSubtype("Treasure")).count(), 3L);
+        assertEquals(mama.getNetPower(), 4, "1/4 Puff Mama gets +1 power for each counter event");
+        game.getEndOfTurn().executeUntil();
+        game.getAction().checkStaticAbilities();
+        assertEquals(mama.getNetPower(), 1, "Puff Mama's bonus expires at end of turn");
     }
 
     @Test
@@ -3019,14 +3053,15 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     @Test
-    public void annoyingRunningGagOnlyAutocastsWhenDrawnWithAtLeastFourLands() {
-        for (int lands : new int[] {3,4}) {
-            Game game = customGame(); Player p = game.getPlayers().get(0); for (int n = 0; n < lands; n++) addCard("Mountain", p);
+    public void annoyingRunningGagOnlyAutocastsWhenDrawnWithAtLeastThreeMountains() {
+        for (int mountains : new int[] {2,3}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0); for (int n = 0; n < mountains; n++) addCard("Mountain", p);
+            for (int n = 0; n < 4; n++) addCard("Island", p);
             Card gag = addCardToZone("Annoying Running Gag", p, ZoneType.Library);
             for (int n = 0; n < 8; n++) addCardToZone("Island", p, ZoneType.Library);
             assertEquals(p.getCardsIn(ZoneType.Library).getFirst(), gag);
             game.getTriggerHandler().resetActiveTriggers(); p.drawCard(); resolveTriggers(game);
-            assertEquals(p.getSpellsCastNamedThisGame("Annoying Running Gag"), lands == 4 ? 1 : 0);
+            assertEquals(p.getSpellsCastNamedThisGame("Annoying Running Gag"), mountains == 3 ? 1 : 0);
         }
     }
 

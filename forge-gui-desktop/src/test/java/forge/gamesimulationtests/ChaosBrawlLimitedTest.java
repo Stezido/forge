@@ -61,10 +61,13 @@ public class ChaosBrawlLimitedTest extends AITest {
         for(String sheet:List.of("limited","lands","planeswalkers")) cards.addAll(StaticData.instance().getPrintSheets().get(CODE+" "+sheet).toFlatList());
         var expected=StaticData.instance().getCommonCards().getAllCards(c->c.getEdition().equals(CODE) && !c.getName().equals("AJDE!"));
         var missing=new HashSet<>(expected);missing.removeAll(cards);
-        assertEquals(cards.size(),291,"Missing: "+missing.stream().map(c->c.getName()+" ["+c.getCollectorNumber()+"]").toList());
-        assertEquals(new HashSet<>(cards).size(),291);
+        assertEquals(cards.size(),306,"Missing: "+missing.stream().map(c->c.getName()+" ["+c.getCollectorNumber()+"]").toList());
+        assertEquals(new HashSet<>(cards).size(),306);
         cards.forEach(this::eligible);
-        assertEquals(cards.stream().map(PaperCard::getName).distinct().count(),281L);
+        assertEquals(cards.stream().map(PaperCard::getName).distinct().count(),286L);
+        for (String basic : List.of("Plains", "Island", "Swamp", "Mountain", "Forest")) {
+            assertEquals(cards.stream().filter(c -> c.getName().equals(basic)).count(), 3L, basic + " art variants");
+        }
         for(String name:List.of("Wedding Ring","Dungeon Master","Recycle","The Fallen")) {
             PaperCard card=cards.stream().filter(c->c.getName().equals(name)).findFirst().orElseThrow();
             assertEquals(card.getFunctionalVariant(),"ChaosBrawlBeta");

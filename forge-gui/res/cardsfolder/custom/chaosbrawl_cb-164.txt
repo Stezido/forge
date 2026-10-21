@@ -1,5 +1,5 @@
 Name:Homemade Paranoia
-ManaCost:2 G
+ManaCost:1 G
 Types:Sorcery
 A:SP$ PeekAndReveal | Defined$ You | PeekAmount$ 3 | RevealValid$ Card | RememberRevealed$ True | SubAbility$ Branch | SpellDescription$ Reveal three cards. Put a creature revealed this way into your hand, or all revealed lands onto the battlefield tapped if none is a creature. Put the rest into your graveyard.
 SVar:Branch:DB$ Branch | BranchConditionSVar$ X | TrueSubAbility$ Creature | FalseSubAbility$ Lands | SubAbility$ Grave
