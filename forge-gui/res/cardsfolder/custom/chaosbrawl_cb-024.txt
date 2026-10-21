@@ -1,8 +1,8 @@
 Name:Blunt Force Trauma
 ManaCost:1 G
 Types:Instant
-A:SP$ Pump | ValidTgts$ Creature.YouCtrl | SubAbility$ Fight | SpellDescription$ Target creature you control fights target creature you do not control. Survivors are tapped and do not untap during their controller's next untap step.
-SVar:Fight:DB$ Fight | Defined$ ParentTarget | ValidTgts$ Creature.OppCtrl | SubAbility$ Tap
-SVar:Tap:DB$ Tap | Defined$ Targeted | SubAbility$ Freeze
-SVar:Freeze:DB$ Pump | Defined$ Targeted | KW$ HIDDEN This card doesn't untap during your next untap step. | Duration$ Permanent
-Oracle:Target creature you control fights target creature you don’t control. If a creature would survive this fight, tap it. It doesn’t untap during its controller’s next untap step.
+A:SP$ Pump | ValidTgts$ Creature.YouCtrl | RememberTargets$ True | SubAbility$ Fight | SpellDescription$ Target creature you control fights target creature you do not control. If a creature you don't control would survive this fight, tap it. It doesn't untap during its controller's next untap step.
+SVar:Fight:DB$ Fight | Defined$ ParentTarget | ValidTgts$ Creature.OppCtrl | RememberTargets$ True | ForgetOtherTargets$ True | SubAbility$ Tap
+SVar:Tap:DB$ Tap | Defined$ ParentTarget | SubAbility$ Freeze
+SVar:Freeze:DB$ Pump | Defined$ ParentTarget | KW$ HIDDEN This card doesn't untap during your next untap step. | Duration$ Permanent
+Oracle:Target creature you control fights target creature you don’t control. If a creature you don’t control would survive this fight, tap it. It doesn’t untap during its controller’s next untap step.

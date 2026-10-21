@@ -7,4 +7,4 @@ K:etbCounter:P1P1:X:no Condition:CARDNAME enters with two +1/+1 counters for eac
 SVar:X:Count$TimesKicked/Times.2
 R:Event$ AddCounter | ActiveZones$ Battlefield | ValidCard$ Card.Self | ValidCounterType$ DRUNKEN | ReplaceWith$ Convert | Description$ Drunken counters put on CARDNAME become +1/+1 counters instead.
 SVar:Convert:DB$ ReplaceCounter | ValidCounterType$ DRUNKEN | NewCounterType$ P1P1 | Amount$ ReplaceCount$CounterNum
-Oracle:Kicker—Sacrifice one or more Beer (You may sacrifice one or more Beer in addition to any other costs as you cast this spell.)\nIf Edi was kicked, it enters with two +1/+1 counters on it for each Beer sacrificed to cast it.\nIf one or more Drunken counters would be put on Edi, instead put that many +1/+1 counters on it.
+Oracle:Kicker—Sacrifice one or more Beer (You may sacrifice one or more Beer in addition to any other costs as you cast this spell.)\nIf Edi was kicked, it enters with two +1/+1 counters on it for each Beer sacrificed to cast it.\nIf one or more Drunken counters would be put on Edi, the Beerpig, that many plus one +1/+1 counters are put on it instead.

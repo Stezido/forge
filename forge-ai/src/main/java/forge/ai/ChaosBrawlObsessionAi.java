@@ -87,6 +87,23 @@ public final class ChaosBrawlObsessionAi {
         // Check threshold buffs on a detached LKI copy; never add real counters while considering a target.
         final Card after = CardCopyService.getLKICopy(card);
         after.setCounters(CounterEnumType.OBSESSION, card.getCounters(CounterEnumType.OBSESSION) + amount);
+        for (StaticAbility effect : card.getStaticAbilities()) {
+            if (!"Self".equals(effect.getParamOrDefault("AffectedDefined", ""))
+                    || !effect.checkConditions(StaticAbilityMode.Continuous)) {
+                continue;
+            }
+            final int before = Math.max(0, AbilityUtils.calculateAmount(card, effect.getParamOrDefault("AddPower", "0"), effect))
+                    + Math.max(0, AbilityUtils.calculateAmount(card, effect.getParamOrDefault("AddToughness", "0"), effect));
+            final StaticAbility afterEffect = after.getStaticAbilities().stream()
+                    .filter(candidate -> "Self".equals(candidate.getParamOrDefault("AffectedDefined", ""))
+                            && candidate.checkConditions(StaticAbilityMode.Continuous))
+                    .findFirst().orElse(null);
+            if (afterEffect != null) {
+                final int afterValue = Math.max(0, AbilityUtils.calculateAmount(after, afterEffect.getParamOrDefault("AddPower", "0"), afterEffect))
+                        + Math.max(0, AbilityUtils.calculateAmount(after, afterEffect.getParamOrDefault("AddToughness", "0"), afterEffect));
+                benefit += Math.max(0, afterValue - before);
+            }
+        }
         for (Card source : card.getGame().getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
             for (StaticAbility effect : source.getStaticAbilities()) {
                 if (!effect.getParamOrDefault("Affected", "").contains("OBSESSION")
