@@ -336,8 +336,8 @@
                                     <goal>manifest-merger</goal>
                                 </goals>
                                 <configuration>
-                                    <manifestVersionName>0.1.0-beta.5</manifestVersionName>
-                                    <manifestVersionCode>10005</manifestVersionCode>
+                                    <manifestVersionName>0.1.0-beta.6</manifestVersionName>
+                                    <manifestVersionCode>10006</manifestVersionCode>
                                 </configuration>
                             </execution>
                         </executions>
