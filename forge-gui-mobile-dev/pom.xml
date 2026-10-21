@@ -74,13 +74,13 @@
                         <configuration>
                             <headerType>gui</headerType>
                             <outfile>${project.build.directory}/forge-adventure.exe</outfile>
-                            <jar>forge-adventure.jar</jar>
+                            <jar>support/forge-adventure.jar</jar>
                             <dontWrapJar>true</dontWrapJar>
                             <errTitle>forge</errTitle>
                             <downloadUrl>https://bell-sw.com/pages/downloads/#jdk-17-lts</downloadUrl>
                             <icon>../chaosbrawl/assets/forge-adventure-chaos-brawl.ico</icon>
                             <jre>
-                                <path>runtime</path>
+                                <path>support/runtime</path>
                                 <minVersion>17</minVersion>
                                 <maxHeapSize>4096</maxHeapSize>
                                 <opts>

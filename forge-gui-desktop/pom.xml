@@ -82,7 +82,7 @@
                         <configuration>
                             <headerType>gui</headerType>
                             <outfile>${project.build.directory}/forge.exe</outfile>
-                            <jar>forge.jar</jar>
+                            <jar>support/forge.jar</jar>
                             <dontWrapJar>true</dontWrapJar>
                             <errTitle>forge</errTitle>
                             <downloadUrl>https://bell-sw.com/pages/downloads/#jdk-17-lts</downloadUrl>
@@ -93,7 +93,7 @@
                                 <preCp>anything</preCp>
                             </classPath>
                             <jre>
-                                <path>runtime</path>
+                                <path>support/runtime</path>
                                 <minVersion>17</minVersion>
                                 <maxHeapSize>4096</maxHeapSize>
                                 <opts>
