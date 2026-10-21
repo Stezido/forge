@@ -4,7 +4,7 @@
   "files": [
     {
       "path": "chaosbrawl/VerifyAdventureEvents.java",
-      "sha256": "3619067243c88d98d9ba1295cd0410e253002edf43c40b43b7e8f5b1a27daae1"
+      "sha256": "e05c6a83439a1de5d80797e16ec9482020665c8bde521862ba96598ff6541d55"
     },
     {
       "path": "chaosbrawl/VerifyPackageImages.java",
@@ -68,7 +68,7 @@
     },
     {
       "path": "chaosbrawl/package_windows.py",
-      "sha256": "afe3ec249081f96a5b4753c866485b6d30bd85fabb5e485da1dbc3f268f29204"
+      "sha256": "91f6699ae881f2ec634203a77429dba3e8e9a9d4b0fcd19f23a4e946b367cc0e"
     },
     {
       "path": "chaosbrawl/prepare.py",

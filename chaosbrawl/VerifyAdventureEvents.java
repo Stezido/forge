@@ -81,12 +81,13 @@ public class VerifyAdventureEvents {
   pass("isolated plane/configuration and custom Adventure match rules");
   if(Arrays.asList(args).contains("--images")){
    var cards=StaticData.instance().getCommonCards().getAllCards(c->c.getEdition().equals("CBFRbeta"));
-   require(cards.size()==292,"Wrong image-audit card count");
+   int expectedCards=args.length>2?Integer.parseInt(args[2]):292;
+   require(cards.size()==expectedCards,"Wrong image-audit card count");
    for(var card:cards){
     Path picture=Path.of(forge.localinstance.properties.ForgeConstants.CACHE_CARD_PICS_DIR).resolve(card.getCardImageKey()+".png");
     require(Files.isRegularFile(picture) && javax.imageio.ImageIO.read(picture.toFile())!=null && forge.ImageKeys.getImageFile(card.getCardImageKey())!=null,"Missing Adventure image: "+card.getName()+" -> "+picture);
    }
-   pass("all 292 exact Adventure image lookups exist and PNGs decode");
+   pass("all "+cards.size()+" exact Adventure image lookups exist and PNGs decode");
   }
   var edition=StaticData.instance().getEditions().get("CBFRbeta");
   var blocks=AdventureEventData.getValidDraftBlocks(List.of(edition));

@@ -174,7 +174,8 @@ start "" "runtime\\bin\\javaw.exe" -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabl
     with (output/(name+'-adventure-audit.log')).open('w') as log:
         subprocess.run([args.java,'-Xmx4g','-Dforge.chaosbrawl=true','-Dsentry.enabled=false','-Djava.awt.headless=true',
                         '-cp',str(target/'forge-adventure.jar'),str(ROOT/'chaosbrawl/VerifyAdventureEvents.java'),
-                        '--games','--images'],cwd=target,stdout=log,stderr=subprocess.STDOUT,check=True)
+                        '--games','--images',str(sum(not c['token'] for c in cards.values()))],
+                       cwd=target,stdout=log,stderr=subprocess.STDOUT,check=True)
     batch_decks = [deck.name for deck in seed_decks if 'Batch' in deck.name]
     batch_label = batch_decks[-1].removesuffix('.dck') if batch_decks else seed_decks[-1].stem
     (target/'README.txt').write_text(f'''Chaos Brawl for Forge {args.version} - Windows x64
