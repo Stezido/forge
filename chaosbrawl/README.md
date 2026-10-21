@@ -1,5 +1,13 @@
 # Chaos Brawl — local Forge Beta
 
+## Canonical development branch
+
+Use **`main-custom`** for the latest integrated Chaos Brawl changes in `Stezido/Chaosbrawl-Forge`. Create custom feature branches from it and target their PRs back to it. It starts from the existing `chaosbrawl/windows-playtest-001` integration history and includes the Nagging Siren Twin token fix, retaining the newer Debt Collector, Drunken and Last Duel AI corrections. Existing historical branches and stacked PRs remain available.
+
+Keep **`main`** as the baseline for syncing with the base project **`Card-Forge/forge`** (the `upstream` remote). Merge reviewed upstream updates into `main-custom` and test them there. Published release tags identify downloadable versions; the development branch can contain newer fixes without creating a new download.
+
+Current native source: **315 records**, including **23 authored token records** and the blue 1/1 flying Nagging Siren Twin token. The source/provenance pin is [owner feedback 005](batches/owner-feedback-005-main-custom/README.md). The older counts and validation notes below describe their recorded historical batches.
+
 All **314 Beta records** are available: **292 non-token entries and 22 authored token mappings**, including Maternal Instinct, Higher Protection and Haze-Fueled Frenzy. No collected rules question remains open. [Private PR #8](https://github.com/Stezido/Chaosbrawl-Forge/pull/8) contains the cumulative implementation; [website PR #50](https://github.com/Stezido/Chaosbrawl-Website/pull/50) holds the authoritative Beta MSE. Alpha remains published.
 
 For card feedback, follow [the MSE and Forge checklist](CARD_FEEDBACK.md). Latest authoring/AI corrections: [owner feedback 002](batches/owner-feedback-002/README.md), paired with [website PR69](https://github.com/Stezido/Chaosbrawl-Website/pull/69). These fixes are accumulated for a future explicitly requested download release.

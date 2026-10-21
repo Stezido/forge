@@ -23,10 +23,14 @@ def card_image_filenames(cards, edition):
             raise ValueError('Unsafe image variant: '+collector)
         variants['cb-'+collector.zfill(3)] = (name, variant)
     groups = {}
+    ordinary_names = {card['name'] for card in cards if not card['token']}
     for card in cards:
         name, variant = variants.get(card['id'], (card['name'], ''))
         if name != card['name'] or (not card['token'] and card['id'] not in variants):
             raise ValueError('Image edition/source mismatch: '+card['id'])
+        # A named token must not change the parent's normal Forge image key.
+        if card['token'] and name in ordinary_names:
+            name += ' Token'
         groups[card['id']] = (name, variant)
     counts = Counter(groups.values())
     indices = defaultdict(int)

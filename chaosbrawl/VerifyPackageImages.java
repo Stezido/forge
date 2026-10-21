@@ -34,6 +34,6 @@ public class VerifyPackageImages {
   System.out.println("AUDIT: "+tokens+" full-card bundled token images");
   System.out.println("AUDIT: "+cards.size()+" CBFRbeta printings; "+missing+" missing exact runtime image paths");
   int expected=args.length>1?Integer.parseInt(args[1]):292;
-  System.exit(missing==0 && cards.size()==expected && tokens==17?0:1);
+  System.exit(missing==0 && cards.size()==expected && tokens==18?0:1);
  }
 }
