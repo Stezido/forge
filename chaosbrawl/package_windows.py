@@ -169,7 +169,8 @@ start "" "runtime\\bin\\javaw.exe" -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabl
     with (output/(name+'-image-audit.log')).open('w') as log:
         subprocess.run([args.java, '-Xmx4g', '-Djava.awt.headless=true', '-cp',
                         str(target/'forge.jar'), str(ROOT/'chaosbrawl/VerifyPackageImages.java'),
-                        str(target)], stdout=log, stderr=subprocess.STDOUT, check=True)
+                        str(target), str(sum(not c['token'] for c in cards.values()))],
+                       stdout=log, stderr=subprocess.STDOUT, check=True)
     with (output/(name+'-adventure-audit.log')).open('w') as log:
         subprocess.run([args.java,'-Xmx4g','-Dforge.chaosbrawl=true','-Dsentry.enabled=false','-Djava.awt.headless=true',
                         '-cp',str(target/'forge-adventure.jar'),str(ROOT/'chaosbrawl/VerifyAdventureEvents.java'),
