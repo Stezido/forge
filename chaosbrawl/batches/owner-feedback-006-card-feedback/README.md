@@ -11,4 +11,4 @@
 - cb-260 Siren Raiders — owner-selected replacement artwork.
 - cb-271 Server Veteran — puts Drunken counters equal to your Beer token count on a creature you control.
 
-Canonical Beta source is pinned in source.json at website commit `2806d8ab16dfb69cf71ba2a226579ea4a00b898e` ([website review PR #104](https://github.com/Stezido/Chaosbrawl-Website/pull/104)). Executable review pins are in scripts.json.
+Canonical Beta source is pinned in source.json at website commit `2806d8ab16dfb69cf71ba2a226579ea4a00b898e` ([website review PR #104](https://github.com/Stezido/Chaosbrawl-Website/pull/104)); paired [Forge review PR #27](https://github.com/Stezido/Chaosbrawl-Forge/pull/27). Executable review pins are in scripts.json.
