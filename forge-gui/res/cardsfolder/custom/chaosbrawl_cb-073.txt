@@ -1,5 +1,6 @@
 Name:Echo of Empathy
-ManaCost:1 U
+ManaCost:2 U
 Types:Instant
-A:SP$ MoveCounter | ValidTgts$ Creature | TargetMin$ 2 | TargetMax$ 2 | CounterType$ All | CounterNum$ All | SpellDescription$ Move all counters from target creature onto another target creature.
-Oracle:Move all counters from target creature onto another target creature.
+A:SP$ MoveCounter | ValidTgts$ Creature | TargetMin$ 2 | TargetMax$ 2 | CounterType$ All | CounterNum$ All | SubAbility$ Draw | SpellDescription$ Move all counters from target creature onto another target creature. Draw a card.
+SVar:Draw:DB$ Draw | Defined$ You | NumCards$ 1
+Oracle:Move all counters from target creature onto another target creature. Draw a card.
