@@ -68,7 +68,7 @@
     },
     {
       "path": "chaosbrawl/package_windows.py",
-      "sha256": "f519534bb0fd78fe80bf0547ba26cfd501cefd7744ebf31f55820643ebfd8938"
+      "sha256": "2e29e394d6f84a2f5c351bee19fae849645b2ad39261f25efa5a6402e3f8821e"
     },
     {
       "path": "chaosbrawl/prepare.py",

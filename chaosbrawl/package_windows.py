@@ -79,20 +79,18 @@ def main():
     if target.exists():
         raise ValueError('Refusing to overwrite an existing package directory: '+str(target))
     target.mkdir()
-    shutil.copyfile(jars[0], target/'forge.jar')
-    shutil.copyfile(adventure_jars[0], target/'forge-adventure.jar')
+    support = target/'support'
+    support.mkdir()
+    shutil.copyfile(jars[0], support/'forge.jar')
+    shutil.copyfile(adventure_jars[0], support/'forge-adventure.jar')
     launchers = [build/'forge-gui-desktop/target/forge.exe', build/'forge-gui-mobile-dev/target/forge-adventure.exe']
     if not all(path.is_file() for path in launchers):
         raise ValueError('Build the reviewed desktop and Adventure launchers first')
     shutil.copyfile(launchers[0], target/'Chaos Brawl Forge.exe')
     shutil.copyfile(launchers[1], target/'Chaos Brawl Adventure.exe')
     icon_assets = ROOT/'chaosbrawl/assets'
-    classic_icon = 'forge-chaos-brawl.ico'
-    adventure_icon = 'forge-adventure-chaos-brawl.ico'
-    for icon in (classic_icon, adventure_icon):
-        if not (icon_assets/icon).is_file():
-            raise ValueError('Missing reviewed launcher icon: '+str(icon_assets/icon))
-        shutil.copyfile(icon_assets/icon, target/icon)
+    if not all((icon_assets/icon).is_file() for icon in ('forge-chaos-brawl.ico','forge-adventure-chaos-brawl.ico')):
+        raise ValueError('Missing reviewed launcher icon assets')
     shutil.copytree(build/'forge-gui/res', target/'res')
     plane = target/'res/adventure/ChaosBrawl'
     if plane.exists():
@@ -109,13 +107,13 @@ def main():
             relative = Path(*member.parts[1:])
             if str(relative) == '.':
                 continue
-            dest = target/'runtime'/relative
+            dest = support/'runtime'/relative
             if info.is_dir():
                 dest.mkdir(parents=True, exist_ok=True)
             else:
                 dest.parent.mkdir(parents=True, exist_ok=True)
                 dest.write_bytes(z.read(info))
-    if not (target/'runtime/bin/javaw.exe').is_file():
+    if not (support/'runtime/bin/javaw.exe').is_file():
         raise ValueError('Windows runtime is incomplete')
     pictures = target/'Cache/pics/cards'/code
     pictures.mkdir(parents=True)
@@ -145,21 +143,6 @@ def main():
     adventure_settings=target/'UserData/adventure'
     adventure_settings.mkdir(parents=True)
     (adventure_settings/'settings.json').write_text(json.dumps({'plane':'ChaosBrawl','width':1280,'height':720,'videomode':'720p'})+'\n')
-    launcher = '''@echo off
-setlocal
-cd /d "%~dp0"
-set "SENTRY_ENABLED=false"
-if not exist "runtime\\bin\\javaw.exe" (
-  echo Please extract the entire ZIP before starting Chaos Brawl.
-  pause
-  exit /b 1
-)
-start "" "runtime\\bin\\javaw.exe" -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabled=false -Dfile.encoding=UTF-8 -Dio.netty.tryReflectionSetAccessible=true -jar forge.jar
-'''
-    (target/'launch-chaos-brawl.cmd').write_bytes(launcher.replace('\n','\r\n').encode('ascii'))
-    (target/'launch-adventure.cmd').write_bytes(launcher.replace('-jar forge.jar','-jar forge-adventure.jar').replace('\n','\r\n').encode('ascii'))
-    write_shell_link(target/'Play Chaos Brawl.lnk', 'launch-chaos-brawl.cmd', 'Play Chaos Brawl', classic_icon)
-    write_shell_link(target/'Play Adventure.lnk', 'launch-adventure.cmd', 'Play Adventure', adventure_icon)
     for notice in ['LICENSE', 'LICENSE.txt', 'LICENSE.md', 'COPYING', 'NOTICE', 'NOTICE.txt']:
         if (build/notice).is_file():
             shutil.copyfile(build/notice, target/notice)
@@ -173,12 +156,12 @@ start "" "runtime\\bin\\javaw.exe" -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabl
     # Exercise the actual packaged engine's lookup before producing a ZIP.
     with (output/(name+'-image-audit.log')).open('w') as log:
         subprocess.run([args.java, '-Xmx4g', '-Djava.awt.headless=true', '-cp',
-                        str(target/'forge.jar'), str(ROOT/'chaosbrawl/VerifyPackageImages.java'),
+                        str(support/'forge.jar'), str(ROOT/'chaosbrawl/VerifyPackageImages.java'),
                         str(target), str(sum(not c['token'] for c in cards.values()))],
                        stdout=log, stderr=subprocess.STDOUT, check=True)
     with (output/(name+'-adventure-audit.log')).open('w') as log:
         subprocess.run([args.java,'-Xmx4g','-Dforge.chaosbrawl=true','-Dsentry.enabled=false','-Djava.awt.headless=true',
-                        '-cp',str(target/'forge-adventure.jar'),str(ROOT/'chaosbrawl/VerifyAdventureEvents.java'),
+                        '-cp',str(support/'forge-adventure.jar'),str(ROOT/'chaosbrawl/VerifyAdventureEvents.java'),
                         '--games','--images',str(sum(not c['token'] for c in cards.values()))],
                        cwd=target,stdout=log,stderr=subprocess.STDOUT,check=True)
     batch_decks = [deck.name for deck in seed_decks if 'Batch' in deck.name]
@@ -186,7 +169,7 @@ start "" "runtime\\bin\\javaw.exe" -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabl
     (target/'README.txt').write_text(f'''Chaos Brawl for Forge {args.version} - Windows x64
 
 1. Extract the entire ZIP into a writable folder.
-2. Double-click "Chaos Brawl Forge.exe". It has the Chaos Brawl icon and uses the bundled Java runtime.
+2. Double-click "Chaos Brawl Forge.exe". It has the Chaos Brawl icon and uses the Java runtime in support.
 3. Choose Constructed, then a Chaos Brawl Beta deck such as {batch_label}.
    For smaller groups, choose a Chaos Brawl Beta NN - Group N deck.
 4. Filter the card pool to Chaos Brawl - The Foul Realms Beta (CBFRbeta).
@@ -198,6 +181,7 @@ Normal virtual entry fees: Draft 3000 gold / 50 shards; Sealed 6000 / 100.
 M21 supplies normal basic lands. Draft rankings use owner-confirmed Limited ratings.
 Finish the character tutorial, then visit a town inn and choose Info.
 
+The support folder contains the two application JARs and bundled Java runtime.
 This release keeps the Beta set code CBFRbeta; CBFR is reserved for the full set.
 CBT remains an edition alias for old decks. Your old installation is preserved;
 back up UserData and Decks before transferring them into this version.
@@ -217,7 +201,7 @@ A remote Chaos Brawl playtest is not yet verified.
 Matching source, version information and feedback: the website Playtest area.
 Engine commit: {commit}
 Beta MSE SHA-256: {source['sourceSha256']}
-Forge retains its upstream GPL notices. Bundled Temurin notices are in runtime/legal.
+Forge retains its upstream GPL notices. Bundled Temurin notices are in support/runtime/legal.
 Bundled runtime and source: https://github.com/adoptium/temurin21-binaries/releases/tag/jdk-21.0.12.1%2B1
 ''')
     source_zip = output/('ChaosBrawl-Forge-'+args.version+'-Source.zip')
