@@ -44,6 +44,13 @@ public class TokenAi extends SpellAbilityAi {
 
     @Override
     protected boolean checkPhaseRestrictions(final Player ai, final SpellAbility sa, final PhaseHandler ph) {
+        if ("UndercityBackRoom".equals(sa.getParam("AILogic"))) {
+            Card sacrifice = backRoomSacrifice(ai, sa);
+            if (sacrifice != null && ComputerUtil.shouldSacrificeThreatenedCard(ai, sacrifice, null)) {
+                return true;
+            }
+            return ph.isPlayerTurn(ai) && ph.is(PhaseType.MAIN2);
+        }
         final Card source = sa.getHostCard();
         // Planeswalker-related flags
         boolean pwMinus = false;
@@ -132,6 +139,9 @@ public class TokenAi extends SpellAbilityAi {
 
     @Override
     protected AiAbilityDecision checkApiLogic(final Player ai, final SpellAbility sa) {
+        if ("UndercityBackRoom".equals(sa.getParam("AILogic"))) {
+            return checkBackRoomLogic(ai, sa);
+        }
         final Game game = ai.getGame();
         final Player opp = ai.getWeakestOpponent();
 
@@ -209,6 +219,41 @@ public class TokenAi extends SpellAbilityAi {
         }
 
         return new AiAbilityDecision(0, AiPlayDecision.CantPlayAi);
+    }
+
+    private Card backRoomSacrifice(final Player ai, final SpellAbility sa) {
+        CardCollection choices = ComputerUtil.chooseSacrificeType(ai, "Creature", sa, null, false, 1, null);
+        return choices == null || choices.isEmpty() ? null : choices.getFirst();
+    }
+
+    private AiAbilityDecision checkBackRoomLogic(final Player ai, final SpellAbility sa) {
+        Card sacrifice = backRoomSacrifice(ai, sa);
+        if (sacrifice == null || !ComputerUtilMana.canPayManaCost(sa, ai, 0, false)) {
+            return new AiAbilityDecision(0, AiPlayDecision.CantPlayAi);
+        }
+        Card token = spawnToken(ai, sa);
+        boolean threatened = ComputerUtil.shouldSacrificeThreatenedCard(ai, sacrifice, null);
+        boolean upgrade = ComputerUtilCard.isUselessCreature(ai, sacrifice)
+                || ComputerUtilCard.evaluateCreature(token) + 12 * token.getNetPower() + 10 * token.getNetToughness()
+                > ComputerUtilCard.evaluateCreature(sacrifice) + 12 * sacrifice.getNetPower()
+                    + 10 * sacrifice.getNetToughness() + 10;
+        if (!threatened && !upgrade) {
+            return new AiAbilityDecision(0, AiPlayDecision.CantPlayAi);
+        }
+        // Both modes tap the Room. With five mana, keep the stronger token available.
+        if (sa.getPayCosts().getTotalMana().getCMC() == 2
+                && ComputerUtilMana.canPayManaCost(sa, ai, 3, false)) {
+            return new AiAbilityDecision(0, AiPlayDecision.CantPlayAi);
+        }
+        return new AiAbilityDecision(100, AiPlayDecision.WillPlay);
+    }
+
+    @Override
+    protected boolean willPayCosts(final Player payer, final SpellAbility sa, final Cost cost, final Card source) {
+        if ("UndercityBackRoom".equals(sa.getParam("AILogic"))) {
+            return backRoomSacrifice(payer, sa) != null;
+        }
+        return super.willPayCosts(payer, sa, cost, source);
     }
 
     /**

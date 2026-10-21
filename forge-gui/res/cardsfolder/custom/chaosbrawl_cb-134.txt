@@ -1,6 +1,6 @@
 Name:Undercity Back Room
 ManaCost:1 B B
 Types:Enchantment Location
-A:AB$ Token | Cost$ 2 T Sac<1/Creature> | TokenScript$ chaosbrawl_another_brother | SpellDescription$ Create an Another Brother token.
-A:AB$ Token | Cost$ 5 T Sac<1/Creature> | TokenScript$ chaosbrawl_vengeful_gnome_pack | SpellDescription$ Create a Vengeful Gnome Pack token.
+A:AB$ Token | Cost$ 2 T Sac<1/Creature> | TokenScript$ chaosbrawl_another_brother | AILogic$ UndercityBackRoom | SpellDescription$ Create an Another Brother token.
+A:AB$ Token | Cost$ 5 T Sac<1/Creature> | TokenScript$ chaosbrawl_vengeful_gnome_pack | AILogic$ UndercityBackRoom | SpellDescription$ Create a Vengeful Gnome Pack token.
 Oracle:{2}, {T}, Sacrifice a creature: Create a Another Brother token. (2/2 black Gnome creature)\n{5}, {T}, Sacrifice a creature: Create a Vengeful Gnome Pack token. (4/4 black Gnome creature)
