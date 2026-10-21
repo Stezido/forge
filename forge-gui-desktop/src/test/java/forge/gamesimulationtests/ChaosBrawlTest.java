@@ -735,7 +735,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Tactical Purge", 2, "", "", "Flash\nEnchant creature\nWhen Tactical Purge enters the battlefield, enchanted creature gains indestructible until end of turn.\nEnchanted creature loses all abilities.", "Enchantment \u2014 Aura", "WB"},
             {"Mysterious Remedy", 4, "", "", "Return target creature card from any graveyard to the battlefield under your control. Put a finality counter on it.(If it would die, exile it instead.)", "Sorcery", "W"},
             {"Last Duel", 2, "", "", "For each player, choose a target creature card in that player's graveyard if able. Return those cards to the battlefield under their owners' control with a finality counter on each of them. (If a creature with a finality counter on it would die, exile it instead.)", "Sorcery", "B"},
-            {"Overdose Revival", 2, "", "", "Return target creature card from your graveyard to the battlefield. Put a finality counter on it. It gains\nUpkeep\u2014 Pay 2{B}", "Sorcery", "B"},
+            {"Overdose Revival", 2, "", "", "Until end of turn, you may cast spells from your graveyard by paying life equal to their mana value rather than paying their mana costs.\nAt the beginning of the next end step, if you've cast three or more spells this way this turn, you lose the game.", "Sorcery", "B"},
             {"Numbing Mass Resurrection", 6, "", "", "When Numbing Mass Resurrection enters the battlefield, each player returns all creature cards from their graveyard to the battlefield with a finality counter on each of them. (If a creature with a finality counter on it would die, exile it instead.)\nCreatures with finality counters on them lose all abilities.", "Enchantment", "WB"},
             {"Hangry", 2, "", "", "Target creature gets +3/+0 and gains haste until end of turn.\nIf you control a Food, it also gains first strike until end of turn.", "Instant", "R"},
             {"Sweet Harmless Siren", 2, "0", "4", "When Sweet Harmless Siren enters the battlefield, obsess up to one target creature.", "Creature \u2014 Siren", "U"},
@@ -1864,16 +1864,27 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     @Test
-    public void overdoseRevivalAddsFinalityAndRequiresManaOnEachUpkeep() {
-        Game game = customGame();
-        Player p = game.getPlayers().get(0);
-        Card dead = addCardToZone("Couchpotato", p, ZoneType.Graveyard);
-        SpellAbility revive = spell("Overdose Revival", p); revive.getTargets().add(dead);
-        AbilityUtils.resolve(revive);
-        Card returned = p.getCreaturesInPlay().getFirst();
-        assertEquals(returned.getCounters(CounterEnumType.FINALITY), 1);
-        phaseEvent(game, p, PhaseType.UPKEEP);
-        assertTrue(returned.isInZone(ZoneType.Exile));
+    public void overdoseRevivalGrantsLifeCostGraveyardCastingAndExpiresAtEndOfTurn() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card own = addCardToZone("Double Burn", p, ZoneType.Graveyard);
+        Card land = addCardToZone("Swamp", p, ZoneType.Graveyard);
+        Card opponent = addCardToZone("Double Burn", game.getPlayers().get(1), ZoneType.Graveyard);
+        AbilityUtils.resolve(spell("Overdose Revival", p)); game.getAction().checkStaticAbilities();
+        assertFalse(own.mayPlay(p).isEmpty()); assertTrue(land.mayPlay(p).isEmpty());
+        assertTrue(opponent.mayPlay(p).isEmpty());
+        assertTrue(own.mayPlay(p).get(0).getAltManaCost().toSimpleString().contains("2 life"));
+        game.getEndOfTurn().executeUntil(); game.getAction().checkStaticAbilities();
+        assertTrue(own.mayPlay(p).isEmpty());
+    }
+
+    @Test
+    public void bloodMoonRisingUpkeepTriggerLosesLifeForEnchantedController() {
+        Game game = customGame(); Player auraController = game.getPlayers().get(0), enchantedController = game.getPlayers().get(1);
+        Card creature = addCard("Couchpotato", enchantedController);
+        Card aura = addCard("Blood Moon Rising", auraController); aura.attachToEntity(creature, null);
+        phaseEvent(game, enchantedController, PhaseType.UPKEEP);
+        assertEquals(enchantedController.getLife(), 18);
+        assertEquals(auraController.getLife(), 20);
     }
 
     @Test
@@ -2038,22 +2049,23 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     @Test
-    public void loanSyndicateManaIsRestrictedAndActuallyPaysResurrectionUpkeep() {
+    public void overdoseRevivalLosesTheGameAtTheNextEndStepAfterThreeCastsThisWay() {
         Game game = customGame();
-        Player p = game.getPlayers().get(0);
-        Card loan = addCard("The Loan Syndicate", p); addCard("Swamp", p);
-        SpellAbility mana = loan.getManaAbilities().stream().filter(sa -> "2".equals(sa.getParam("Amount"))).findFirst().orElseThrow();
-        SpellAbility ordinary = spell("Buy a Round", p);
-        assertFalse(mana.getManaPart().meetsManaRestrictions(ordinary));
-        Card dead = addCardToZone("Couchpotato", p, ZoneType.Graveyard);
-        SpellAbility revive = spell("Overdose Revival", p); revive.getTargets().add(dead); AbilityUtils.resolve(revive);
-        Card creature = p.getCreaturesInPlay().getFirst();
-        SpellAbility upkeep = AbilityFactory.getAbility("DB$ Sacrifice | Defined$ Self | UnlessCost$ 2 B | UnlessPayer$ You | ChaosBrawlUpkeep$ True", creature);
-        upkeep.setActivatingPlayer(p);
-        assertTrue(mana.getManaPart().meetsManaRestrictions(upkeep));
-        phaseEvent(game, p, PhaseType.UPKEEP);
-        assertTrue(creature.isInZone(ZoneType.Battlefield));
-        assertTrue(loan.isTapped());
+        Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        AbilityUtils.resolve(spell("Overdose Revival", p));
+        Card overdoseEffect = p.getCardsIn(ZoneType.Command).stream().filter(c -> c.getName().contains("Overdose Revival")).findFirst().orElseThrow();
+        Card[] cards = {addCardToZone("Double Burn", p, ZoneType.Graveyard),
+                addCardToZone("Double Burn", p, ZoneType.Graveyard), addCardToZone("Double Burn", p, ZoneType.Graveyard)};
+        for (int n = 1; n <= cards.length; n++) {
+            Card card = cards[n - 1];
+            game.getAction().checkStaticAbilities(); SpellAbility cast = card.getFirstSpellAbility();
+            cast.setActivatingPlayer(p); cast.setMayPlay(card.mayPlay(p).get(0)); cast.getTargets().add(other);
+            cast.setHostCard(game.getAction().moveToStack(card, cast)); game.getStack().add(cast); resolveTriggers(game);
+            assertEquals(overdoseEffect.getSVar("OverdoseCasts"), "Number$" + n);
+            assertEquals(p.getLife(), 20, "The additional cast trigger counts spells; life is paid through the alternative cost");
+        }
+        phaseEvent(game, p, PhaseType.END_OF_TURN);
+        assertTrue(p.hasLost());
     }
 
     @Test
