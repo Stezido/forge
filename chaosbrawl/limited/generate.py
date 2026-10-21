@@ -99,5 +99,7 @@ def main():
         if args.check:
             if not path.exists() or path.read_text()!=text:raise SystemExit('Generated data differs: '+str(path.relative_to(ROOT)))
         else:path.write_text(text)
-    print('Checked' if args.check else 'Generated','291 eligible printings; 50% dual land common slot; 2% planeswalker rare slot; 12-card packs; 3 draft / 8 sealed packs.')
+    ordinary = [c for c in records() if 'Planeswalker' not in c['typeLine'] and c['rarity']!='Basic Land']
+    lands = [c for c in records() if 'Land' in c['typeLine'] and c['rarity']=='Basic Land']
+    print('Checked' if args.check else 'Generated',f'{len(ordinary)} ordinary printings and {len(lands)} basic-land variants; 50% dual land common slot; 2% planeswalker rare slot; 12-card packs; 3 draft / 8 sealed packs.')
 if __name__=='__main__':main()
