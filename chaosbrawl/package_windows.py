@@ -81,6 +81,11 @@ def main():
     target.mkdir()
     shutil.copyfile(jars[0], target/'forge.jar')
     shutil.copyfile(adventure_jars[0], target/'forge-adventure.jar')
+    launchers = [build/'forge-gui-desktop/target/forge.exe', build/'forge-gui-mobile-dev/target/forge-adventure.exe']
+    if not all(path.is_file() for path in launchers):
+        raise ValueError('Build the reviewed desktop and Adventure launchers first')
+    shutil.copyfile(launchers[0], target/'Chaos Brawl Forge.exe')
+    shutil.copyfile(launchers[1], target/'Chaos Brawl Adventure.exe')
     icon_assets = ROOT/'chaosbrawl/assets'
     classic_icon = 'forge-chaos-brawl.ico'
     adventure_icon = 'forge-adventure-chaos-brawl.ico'
@@ -181,12 +186,12 @@ start "" "runtime\\bin\\javaw.exe" -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabl
     (target/'README.txt').write_text(f'''Chaos Brawl for Forge {args.version} - Windows x64
 
 1. Extract the entire ZIP into a writable folder.
-2. Double-click the "Play Chaos Brawl" shortcut. Java is included.
+2. Double-click "Chaos Brawl Forge.exe". It has the Chaos Brawl icon and uses the bundled Java runtime.
 3. Choose Constructed, then a Chaos Brawl Beta deck such as {batch_label}.
    For smaller groups, choose a Chaos Brawl Beta NN - Group N deck.
 4. Filter the card pool to Chaos Brawl - The Foul Realms Beta (CBFRbeta).
 
-For Adventure: close the classic client, then double-click the "Play Adventure" shortcut.
+For Adventure: close the classic client, then double-click "Chaos Brawl Adventure.exe".
 Choose Adventure Mode. The separate ChaosBrawl plane offers this set at town inns.
 Draft uses 3 packs (36 picks); Sealed uses 8 packs (96 cards).
 Normal virtual entry fees: Draft 3000 gold / 50 shards; Sealed 6000 / 100.

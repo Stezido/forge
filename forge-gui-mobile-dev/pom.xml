@@ -78,10 +78,10 @@
                             <dontWrapJar>true</dontWrapJar>
                             <errTitle>forge</errTitle>
                             <downloadUrl>https://bell-sw.com/pages/downloads/#jdk-17-lts</downloadUrl>
-                            <icon>src/main/config/forge-adventure.ico</icon>
+                            <icon>../chaosbrawl/assets/forge-adventure-chaos-brawl.ico</icon>
                             <jre>
+                                <path>runtime</path>
                                 <minVersion>17</minVersion>
-                                <requiresJdk>true</requiresJdk>
                                 <maxHeapSize>4096</maxHeapSize>
                                 <opts>
                                     <opt>${mandatory.java.args}</opt>
