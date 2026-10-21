@@ -69,8 +69,9 @@ def main():
     for path in sorted((build/'chaosbrawl/batches').glob('*/source.json')):
         if path.parent.name <= batch.name:
             cards.update({c['id']: c for c in json.loads(path.read_text())['cards']})
-    if len(cards) != 314:
-        raise ValueError('Expected the reviewed 314 source records')
+    expected_records = source.get('sourceRecordCount')
+    if not isinstance(expected_records, int) or len(cards) != expected_records:
+        raise ValueError(f'Expected {expected_records!r} reviewed source records, found {len(cards)}')
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=True)
     name = 'ChaosBrawl-Forge-'+args.version+'-Windows-x64'
@@ -173,12 +174,13 @@ start "" "runtime\\bin\\javaw.exe" -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabl
         subprocess.run([args.java,'-Xmx4g','-Dforge.chaosbrawl=true','-Dsentry.enabled=false','-Djava.awt.headless=true',
                         '-cp',str(target/'forge-adventure.jar'),str(ROOT/'chaosbrawl/VerifyAdventureEvents.java'),
                         '--games','--images'],cwd=target,stdout=log,stderr=subprocess.STDOUT,check=True)
+    batch_decks = [deck.name for deck in seed_decks if 'Batch' in deck.name]
+    batch_label = batch_decks[-1].removesuffix('.dck') if batch_decks else seed_decks[-1].stem
     (target/'README.txt').write_text(f'''Chaos Brawl for Forge {args.version} - Windows x64
 
 1. Extract the entire ZIP into a writable folder.
 2. Double-click the "Play Chaos Brawl" shortcut. Java is included.
-3. Choose Constructed, then a Chaos Brawl Beta Batch 01-08 deck.
-   Batch 08 includes the clarified cards and the three new instants.
+3. Choose Constructed, then a Chaos Brawl Beta deck such as {batch_label}.
    For smaller groups, choose a Chaos Brawl Beta NN - Group N deck.
 4. Filter the card pool to Chaos Brawl - The Foul Realms Beta (CBFRbeta).
 
@@ -200,7 +202,7 @@ Your settings and decks stay in this portable folder, separate from ordinary For
 Keep UserData and Decks when moving/backing up your installation.
 Do not install upstream updates over this custom build.
 
-All 314 Beta records: 292 non-token entries and 22 authored token mappings.
+All {len(cards)} Beta records: {sum(not c['token'] for c in cards.values())} non-token entries and {sum(c['token'] for c in cards.values())} authored token mappings.
 These are exercise decks, not balanced competitive decks.
 Online games use Forge's Host/Join lobby. Every player needs the same custom build.
 A remote Chaos Brawl playtest is not yet verified.

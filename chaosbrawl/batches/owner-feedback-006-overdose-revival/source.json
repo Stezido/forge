@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "websiteRepository": "Stezido/Chaosbrawl-Website",
-  "websiteCommit": "a77408d59d5ccccfd57b94f9aac203cce1d77416",
+  "websiteCommit": "8006d549403bd00bf74c0e4faf9699022b634a36",
   "variant": "the-foul-realms-beta",
   "sourcePath": "sets/the-foul-realms/beta/Chaos Brawl - The Foul Realms - Beta.mse-set",
   "sourceSha256": "7c10101780e0ffd1223e3b17fbd439ed7c3be4c977cdfc9188bb2426ad5e5d44",
@@ -691,5 +691,6 @@
   "tokenBindings": {
     "cb-315": "chaosbrawl_nagging_siren_twin"
   },
-  "resolvedCardIds": []
+  "resolvedCardIds": [],
+  "sourceRecordCount": 330
 }

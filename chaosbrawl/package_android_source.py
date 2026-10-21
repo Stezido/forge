@@ -11,7 +11,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parent.parent
 
 
-def package(output):
+def package(output, version):
     subprocess.run(['git', 'diff', '--exit-code', 'HEAD', '--'], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
     commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     if output.exists():
@@ -26,7 +26,7 @@ def package(output):
             for name in ['chaosbrawl-resources.zip', 'chaosbrawl-resources.sha256']:
                 path = ROOT/'forge-gui-android/assets'/name
                 target.write(path, 'forge-gui-android/assets/'+name)
-            target.writestr('ANDROID-SOURCE.txt', f'''Corresponding source for Chaos Brawl Forge Android 0.1.0-beta.5
+            target.writestr('ANDROID-SOURCE.txt', f'''Corresponding source for Chaos Brawl Forge Android {version}
 Engine/source commit: {commit}
 Forge is GPLv3-or-later; preserve LICENSE and contributor/dependency notices.
 Build instructions: chaosbrawl/ANDROID_RELEASE.md
@@ -42,7 +42,8 @@ after backing up your own saves. This archive includes no user save records.
 if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument('--output', type=Path, required=True)
+    p.add_argument('--version', default='0.1.0-beta.6')
     args = p.parse_args()
-    result = package(args.output)
+    result = package(args.output, args.version)
     args.output.with_suffix('.json').write_text(json.dumps(result, indent=2)+'\n')
     print(json.dumps(result))

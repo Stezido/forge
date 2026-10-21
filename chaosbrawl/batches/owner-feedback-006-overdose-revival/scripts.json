@@ -64,11 +64,11 @@
     },
     {
       "path": "chaosbrawl/package_android_source.py",
-      "sha256": "b5034251b55f74896ff01b5806b03654369c00d523299d1e575d2c0f35830a09"
+      "sha256": "73fac5f26aab04b43fe5fb0532b37474f15f6c7949e7d8171520583b477c5dcb"
     },
     {
       "path": "chaosbrawl/package_windows.py",
-      "sha256": "13d92d47049033648a6047cad01758429b3ce0d98afb90083f24106d0b098b8e"
+      "sha256": "983b6f0eec7067e75cf8061990563a0f206268c8f4e1d5525c2c252821a600ed"
     },
     {
       "path": "chaosbrawl/prepare.py",
@@ -80,7 +80,7 @@
     },
     {
       "path": "chaosbrawl/sign_android.py",
-      "sha256": "52eb488af0141486dc75a54bd19e07c8b2935f13446b0f21c804b8a96b062f94"
+      "sha256": "0f4bc4fad88b36009fec7450c2da3f6a614e59d13e6137ca6600b7cfaa117644"
     },
     {
       "path": "chaosbrawl/test_card_images.py",
@@ -252,7 +252,7 @@
     },
     {
       "path": "forge-gui-android/pom.xml",
-      "sha256": "d305fdab9920e8807e838384746677de4c4941fc70e08a903e67dbaae458c6d0"
+      "sha256": "948fa6aa0dd13e30ef28e800a93b06b142f9f62875080ef1277bff20008b6aa0"
     },
     {
       "path": "forge-gui-desktop/src/test/java/forge/gamesimulationtests/ChaosBrawlLimitedTest.java",

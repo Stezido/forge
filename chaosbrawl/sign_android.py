@@ -18,7 +18,7 @@ def run(command, env=None):
     return result.stdout
 
 
-def sign(apk, output, sdk, java, signing):
+def sign(apk, output, sdk, java, signing, version):
     signing.mkdir(parents=True, exist_ok=True, mode=0o700)
     signing.chmod(0o700)
     key, password = signing/'release.p12', signing/'password'
@@ -42,14 +42,18 @@ def sign(apk, output, sdk, java, signing):
     run([tools/'apksigner', 'sign', '--ks', key, '--ks-key-alias', 'chaosbrawl-release', '--ks-pass', 'env:CHAOSBRAWL_ANDROID_PASSWORD', '--key-pass', 'env:CHAOSBRAWL_ANDROID_PASSWORD', '--out', output, aligned], env)
     report = run([tools/'apksigner', 'verify', '--verbose', '--print-certs', output], env)
     badge = run([tools/'aapt', 'dump', 'badging', output], env)
-    if "package: name='forge.app.chaosbrawl' versionCode='10005' versionName='0.1.0-beta.5'" not in badge or "sdkVersion:'26'" not in badge or 'Android Debug' in report:
+    match = re.fullmatch(r'0\.1\.0-beta\.([1-9][0-9]*)', version)
+    if not match:
+        raise ValueError('Invalid Android release version')
+    version_code = 10000 + int(match.group(1))
+    if f"package: name='forge.app.chaosbrawl' versionCode='{version_code}' versionName='{version}'" not in badge or "sdkVersion:'26'" not in badge or 'Android Debug' in report:
         raise ValueError('APK identity, minimum API or certificate mismatch')
     cert = re.search(r'Signer #1 certificate SHA-256 digest: ([a-f0-9]+)', report)
     if not cert or 'Verified using v2 scheme (APK Signature Scheme v2): true' not in report:
         raise ValueError('APK signature not verified')
     run([tools/'zipalign', '-c', '-P', '16', '4', output], env)
     aligned.unlink()
-    return {'filename': output.name, 'bytes': output.stat().st_size, 'sha256': hashlib.file_digest(output.open('rb'), 'sha256').hexdigest(), 'certificateSha256': cert.group(1), 'applicationId': 'forge.app.chaosbrawl', 'minSdk': 26, 'versionCode': 10005, 'version': '0.1.0-beta.5'}
+    return {'filename': output.name, 'bytes': output.stat().st_size, 'sha256': hashlib.file_digest(output.open('rb'), 'sha256').hexdigest(), 'certificateSha256': cert.group(1), 'applicationId': 'forge.app.chaosbrawl', 'minSdk': 26, 'versionCode': version_code, 'version': version}
 
 
 if __name__ == '__main__':
@@ -58,8 +62,9 @@ if __name__ == '__main__':
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--sdk', type=Path, required=True)
     p.add_argument('--java', type=Path, required=True)
+    p.add_argument('--version', default='0.1.0-beta.6')
     p.add_argument('--signing', type=Path, default=Path.home()/'.config/chaosbrawl/android-signing')
     args = p.parse_args()
-    result = sign(args.apk, args.output, args.sdk, args.java, args.signing)
+    result = sign(args.apk, args.output, args.sdk, args.java, args.signing, args.version)
     args.output.with_suffix('.json').write_text(json.dumps(result, indent=2)+'\n')
     print(json.dumps(result))
