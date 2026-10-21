@@ -2053,13 +2053,16 @@ public class ChaosBrawlTest extends SimulationTest {
         Game game = customGame();
         Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
         AbilityUtils.resolve(spell("Overdose Revival", p));
-        for (int n = 1; n <= 3; n++) {
-            Card card = n == 1 ? addCardToZone("Double Burn", p, ZoneType.Graveyard)
-                    : p.getCardsIn(ZoneType.Graveyard).stream().filter(c -> c.getName().equals("Double Burn")).findFirst().orElseThrow();
+        Card overdoseEffect = p.getCardsIn(ZoneType.Command).stream().filter(c -> c.getName().contains("Overdose Revival")).findFirst().orElseThrow();
+        Card[] cards = {addCardToZone("Double Burn", p, ZoneType.Graveyard),
+                addCardToZone("Double Burn", p, ZoneType.Graveyard), addCardToZone("Double Burn", p, ZoneType.Graveyard)};
+        for (int n = 1; n <= cards.length; n++) {
+            Card card = cards[n - 1];
             game.getAction().checkStaticAbilities(); SpellAbility cast = card.getFirstSpellAbility();
             cast.setActivatingPlayer(p); cast.setMayPlay(card.mayPlay(p).get(0)); cast.getTargets().add(other);
             cast.setHostCard(game.getAction().moveToStack(card, cast)); game.getStack().add(cast); resolveTriggers(game);
-            assertEquals(p.getLife(), 20 - 2 * n);
+            assertEquals(overdoseEffect.getSVar("OverdoseCasts"), "Number$" + n);
+            assertEquals(p.getLife(), 20, "The additional cast trigger counts spells; life is paid through the alternative cost");
         }
         phaseEvent(game, p, PhaseType.END_OF_TURN);
         assertTrue(p.hasLost());

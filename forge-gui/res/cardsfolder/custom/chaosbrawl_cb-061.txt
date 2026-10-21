@@ -3,10 +3,8 @@ ManaCost:1 B
 Types:Sorcery
 A:SP$ Effect | StaticAbilities$ STPlay | Triggers$ Cast,End | SpellDescription$ Until end of turn, you may cast spells from your graveyard by paying life equal to their mana value rather than paying their mana costs. At the beginning of the next end step, if you've cast three or more spells this way this turn, you lose the game.
 SVar:STPlay:Mode$ Continuous | Affected$ Card.nonLand+YouOwn | AffectedZone$ Graveyard | MayPlay$ True | MayPlayAltManaCost$ PayLife<ConvertedManaCost> | Description$ Until end of turn, you may cast spells from your graveyard by paying life equal to their mana value rather than paying their mana costs.
-SVar:Cast:Mode$ SpellCast | ValidCard$ Card | ValidSA$ Spell.MayPlaySource | ValidActivatingPlayer$ You | TriggerZones$ Command | Execute$ CountCast | TriggerDescription$ When you cast a spell this way, pay life equal to its mana value.
-SVar:CountCast:DB$ StoreSVar | SVar$ OverdoseCasts | Type$ AdditiveForEach | Expression$ 1 | SubAbility$ LoseLife
-SVar:LoseLife:DB$ LoseLife | Defined$ You | LifeAmount$ X
-SVar:X:TriggeredSpellAbility$CardManaCostLKI
+SVar:Cast:Mode$ SpellCast | ValidCard$ Card | ValidSA$ Spell.MayPlaySource | ValidActivatingPlayer$ You | TriggerZones$ Command | Execute$ CountCast
+SVar:CountCast:DB$ StoreSVar | SVar$ OverdoseCasts | Type$ AdditiveForEach | Expression$ 1
 SVar:End:Mode$ Phase | Phase$ End of Turn | TriggerZones$ Command | CheckSVar$ Count$SVar$OverdoseCasts | SVarCompare$ GE3 | Execute$ Lose | TriggerDescription$ At the beginning of the next end step, if you've cast three or more spells this way this turn, you lose the game.
 SVar:Lose:DB$ LosesGame | Defined$ You
 Oracle:Until end of turn, you may cast spells from your graveyard by paying life equal to their mana value rather than paying their mana costs.\nAt the beginning of the next end step, if you've cast three or more spells this way this turn, you lose the game.
