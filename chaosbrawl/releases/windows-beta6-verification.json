@@ -105,6 +105,46 @@
         "assetId": 665053558
       }
     },
-    "publication": "private draft uploaded; native final-ZIP verification passed"
+    "publication": "published private prerelease on 2026-10-22"
+  },
+  "publishedProviderHandoffVerified": true,
+  "publishedDownloadVerification": {
+    "version": "0.1.0-beta.6",
+    "syntheticDeckPreserved": true,
+    "engines": 2,
+    "beerDraftTapCasesPerEngine": 21,
+    "launchers": [
+      {
+        "customMode": true,
+        "windowTitle": "Loading Forge...",
+        "entry": "support/launch-chaos-brawl.cmd"
+      },
+      {
+        "customMode": true,
+        "windowTitle": "Forge - 2.0.16-SNAPSHOT-10.22",
+        "entry": "support/launch-adventure.cmd"
+      },
+      {
+        "customMode": true,
+        "windowTitle": "Loading Forge...",
+        "entry": "Chaos Brawl Forge.exe"
+      },
+      {
+        "customMode": true,
+        "windowTitle": "Forge - 2.0.16-SNAPSHOT-10.22",
+        "entry": "Chaos Brawl Adventure.exe"
+      }
+    ],
+    "zipSha256": "a787ac31ed40806e0eaac206d88aff6f840a8de30f1d05317bff8a6f85e37ff1",
+    "imagePrintings": 307
+  },
+  "websitePublication": {
+    "websiteCommit": "0406190a9a013997b0babfaf47d26b2e5f1db640",
+    "workflow": "https://github.com/Stezido/Chaosbrawl-Website/actions/runs/39743188740",
+    "stagingWorkerVersion": "5de567b6-d913-4f7e-ba30-86c35073dfbf",
+    "productionWorkerVersion": "d8a6875a-6572-4136-87d3-c24a983ea8b9",
+    "trafficPercent": 100,
+    "customDomainsAndAuthorizationVerified": true,
+    "anonymousAndForgedDownloadIdentityDenied": true
   }
 }
