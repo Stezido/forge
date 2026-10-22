@@ -37,10 +37,14 @@ foreach ($jar in @('forge.jar','forge-adventure.jar')) {
   Invoke-PackagedJava @('-Xmx4g', '-Dforge.chaosbrawl=true', '-Dsentry.enabled=false', '-Djava.awt.headless=true', '-cp', "$checks;support\$jar", 'VerifyCustomMechanics') ($jar + '-mechanics')
 }
 $launches = @()
-foreach ($entry in @('Play Chaos Brawl.lnk','Play Adventure.lnk','Chaos Brawl Forge.exe','Chaos Brawl Adventure.exe')) {
+foreach ($entry in @('support/launch-chaos-brawl.cmd','support/launch-adventure.cmd','Chaos Brawl Forge.exe','Chaos Brawl Adventure.exe')) {
   # Snapshot existing process IDs; only stop the newly launched package process.
   $before = @(Get-Process javaw -ErrorAction SilentlyContinue | ForEach-Object Id)
-  Start-Process -FilePath (Join-Path $pkg $entry) -WorkingDirectory $env:TEMP
+  if ($entry.EndsWith('.cmd')) {
+    Start-Process -FilePath $env:ComSpec -ArgumentList @('/d','/c',('""' + (Join-Path $pkg $entry) + '""')) -WorkingDirectory $env:TEMP
+  } else {
+    Start-Process -FilePath (Join-Path $pkg $entry) -WorkingDirectory $env:TEMP
+  }
   $gui = $null
   for ($attempt = 0; $attempt -lt 30; $attempt++) {
     Start-Sleep -Seconds 1
@@ -51,7 +55,7 @@ foreach ($entry in @('Play Chaos Brawl.lnk','Play Adventure.lnk','Chaos Brawl Fo
   try {
     $command = (Get-CimInstance Win32_Process -Filter "ProcessId=$($gui.Id)").CommandLine
     if (!$command.Contains('-Dforge.chaosbrawl=true')) { throw "Custom mechanics disabled by launcher: $entry" }
-    $expectedJar = if ($entry.Contains('Adventure')) { 'forge-adventure.jar' } else { 'forge.jar' }
+    $expectedJar = if ($entry.ToLower().Contains('adventure')) { 'forge-adventure.jar' } else { 'forge.jar' }
     if (!$command.Contains($expectedJar)) { throw "Wrong engine selected: $entry" }
     $launches += @{entry=$entry;customMode=$true;windowTitle=$gui.MainWindowTitle}
     Write-Output "NATIVE_LAUNCH_PASSED: $entry with custom mechanics enabled"

@@ -19,9 +19,6 @@ public class VerifyWindowsLaunchers {
                 if (!Files.isRegularFile(root.resolve(dependency))) throw new IllegalStateException("Missing " + dependency);
             }
         }
-        for (String shortcut : List.of("Play Chaos Brawl.lnk", "Play Adventure.lnk")) {
-            if (!Files.isRegularFile(root.resolve(shortcut))) throw new IllegalStateException("Missing " + shortcut);
-        }
         for (String executable : List.of("Chaos Brawl Forge.exe", "Chaos Brawl Adventure.exe")) {
             byte[] bytes = Files.readAllBytes(root.resolve(executable));
             String ascii = new String(bytes, StandardCharsets.ISO_8859_1);
@@ -32,6 +29,6 @@ public class VerifyWindowsLaunchers {
                 }
             }
         }
-        System.out.println("AUDIT: both CMD launchers, shortcuts, EXE custom-mode flags and runtime dependencies verified");
+        System.out.println("AUDIT: both CMD launchers, EXE custom-mode flags and runtime dependencies verified");
     }
 }
