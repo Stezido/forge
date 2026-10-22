@@ -22,13 +22,19 @@ foreach ($name in @('VerifyWindowsLaunchers','VerifyCustomMechanics','VerifyPack
   & "$Jdk\bin\javac.exe" --release 21 -cp 'support\forge.jar' -d $checks (Join-Path $PSScriptRoot ($name + '.java'))
   if ($LASTEXITCODE -ne 0) { throw "Audit compilation failed: $name" }
 }
-& '.\support\runtime\bin\java.exe' -cp "$checks;support\forge.jar" VerifyWindowsLaunchers $pkg
-if ($LASTEXITCODE -ne 0) { throw 'Launcher dependency audit failed' }
-& '.\support\runtime\bin\java.exe' -Xmx4g -Djava.awt.headless=true -cp "$checks;support\forge.jar" VerifyPackageImages $pkg $release.nonTokenRecords *> (Join-Path $checks 'images.log')
-if ($LASTEXITCODE -ne 0) { throw 'Native image audit failed' }
+function Invoke-PackagedJava([string[]]$JavaArgs, [string]$LogName) {
+  $arguments = @($JavaArgs | ForEach-Object { '"' + $_ + '"' })
+  $proc = Start-Process -FilePath (Join-Path $pkg 'support\runtime\bin\java.exe') -ArgumentList $arguments -WorkingDirectory $pkg -Wait -PassThru -RedirectStandardOutput (Join-Path $checks ($LogName + '.log')) -RedirectStandardError (Join-Path $checks ($LogName + '-stderr.log'))
+  if ($proc.ExitCode -ne 0) {
+    Get-Content (Join-Path $checks ($LogName + '.log')) -Tail 20
+    Get-Content (Join-Path $checks ($LogName + '-stderr.log')) -Tail 20
+    throw "Packaged Java check failed: $LogName"
+  }
+}
+Invoke-PackagedJava @('-cp', "$checks;support\forge.jar", 'VerifyWindowsLaunchers', $pkg) 'launchers'
+Invoke-PackagedJava @('-Xmx4g', '-Djava.awt.headless=true', '-cp', "$checks;support\forge.jar", 'VerifyPackageImages', $pkg, [string]$release.nonTokenRecords) 'images'
 foreach ($jar in @('forge.jar','forge-adventure.jar')) {
-  & '.\support\runtime\bin\java.exe' -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabled=false -Djava.awt.headless=true -cp "$checks;support\$jar" VerifyCustomMechanics *> (Join-Path $checks ($jar + '-mechanics.log'))
-  if ($LASTEXITCODE -ne 0) { Get-Content (Join-Path $checks ($jar + '-mechanics.log')) -Tail 20; throw "Packaged custom mechanics failed: $jar" }
+  Invoke-PackagedJava @('-Xmx4g', '-Dforge.chaosbrawl=true', '-Dsentry.enabled=false', '-Djava.awt.headless=true', '-cp', "$checks;support\$jar", 'VerifyCustomMechanics') ($jar + '-mechanics')
 }
 $launches = @()
 foreach ($entry in @('Play Chaos Brawl.lnk','Play Adventure.lnk','Chaos Brawl Forge.exe','Chaos Brawl Adventure.exe')) {

@@ -1540,7 +1540,7 @@
     },
     {
       "path": "chaosbrawl/verify_windows_release.ps1",
-      "sha256": "3ae6486c9389c0dbaec61e41d063ed0391a12703c09f7a3d44c64c1f90269fce"
+      "sha256": "3e464d9e1b179b4ae05e40ca89fac6f22a8bb15816666e4012a5fc8f65deb97b"
     },
     {
       "path": "forge-gui-desktop/pom.xml",
