@@ -76,6 +76,7 @@
                             <outfile>${project.build.directory}/forge-adventure.exe</outfile>
                             <jar>support/forge-adventure.jar</jar>
                             <dontWrapJar>true</dontWrapJar>
+                            <chdir>.</chdir>
                             <errTitle>forge</errTitle>
                             <downloadUrl>https://bell-sw.com/pages/downloads/#jdk-17-lts</downloadUrl>
                             <icon>../chaosbrawl/assets/forge-adventure-chaos-brawl.ico</icon>
@@ -84,6 +85,8 @@
                                 <minVersion>17</minVersion>
                                 <maxHeapSize>4096</maxHeapSize>
                                 <opts>
+                                    <opt>-Dforge.chaosbrawl=true</opt>
+                                    <opt>-Dsentry.enabled=false</opt>
                                     <opt>${mandatory.java.args}</opt>
                                 </opts>
                             </jre>

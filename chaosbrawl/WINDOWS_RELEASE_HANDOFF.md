@@ -56,3 +56,11 @@ Beta.2 passes all 292 runtime printings on Linux and native Windows 11 with bund
 Audit command, using a JDK and package path: `java -Xmx4g -Djava.awt.headless=true -cp PACKAGE/forge.jar chaosbrawl/VerifyPackageImages.java PACKAGE`. Native Windows verification compiles that class separately with JDK 21 and runs it using the package's bundled JRE.
 
 The Windows packager now runs this engine image-path/PNG audit before writing its ZIP and fails packaging if any image is missing. Pass `--java /path/to/JDK21/bin/java` if Java 21+ is not the default. The current beta.2 artifact passed the same audit explicitly before upload.
+
+## Repeatable beta.6 and later release gate
+
+The original support/launch-chaos-brawl.cmd and support/launch-adventure.cmd remain required distribution files. Top-level Play Chaos Brawl.lnk and Play Adventure.lnk point to them; both scripts change into the package root before using resources/profile/decks. Both CMD and EXE entry points must pass -Dforge.chaosbrawl=true. Keep these files when polishing the distribution.
+
+The packager runs VerifyWindowsLaunchers.java and VerifyCustomMechanics.java against both shipped JARs. The mechanics audit activates each Beer on the normal stack with zero/one/two Draft Taps and checks the resulting drunken counters. It uses the launch flag rather than forcing custom rules inside the game.
+
+After building, extract and exercise the exact release ZIP natively with chaosbrawl/verify_windows_release.ps1 -Archive <zip> -Manifest <release-manifest.json> -Destination <new-owned-directory>. It checks the ZIP digest, compiles the audit helpers for Java21, runs the bundled runtime, checks images and both engine mechanics, opens both shortcuts and both EXEs from an unrelated working directory, inspects actual process flags, and confirms synthetic deck persistence. Never reuse an installed player directory. Retain its windows-verification.json and logs. After upload, download the published asset and verify its digest; rerun the native gate on the downloaded asset for release acceptance. Do not infer functioning custom mechanics merely from an EXE opening.
