@@ -102,10 +102,11 @@
         "assetId": 665053555
       }
     },
-    "publication": "private draft uploaded; API26 update and API35 beta.5 upgrade/fresh initialization passed"
+    "publication": "published private prerelease on 2026-10-22"
   },
   "limitations": [
     "Physical-device performance, touch usability, completed human Android games and remote multiplayer remain unverified.",
     "API26 started from the preceding local beta.6 candidate; API35 upgraded from the published beta.5."
-  ]
+  ],
+  "publishedProviderHandoffVerified": true
 }
