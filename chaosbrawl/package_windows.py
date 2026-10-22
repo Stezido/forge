@@ -6,7 +6,6 @@ import json
 from pathlib import Path, PurePosixPath
 import re
 import shutil
-import struct
 import subprocess
 import zipfile
 from card_images import card_image_filenames
@@ -20,28 +19,12 @@ def digest(path):
             h.update(block)
     return h.hexdigest()
 
-def write_shell_link(path, relative_target, display_name, icon_name):
-    """Write a portable Unicode Shell Link with a relative target and icon."""
-    clsid = bytes.fromhex('0114020000000000c000000000000046')
-    flags = 0x0004 | 0x0008 | 0x0040 | 0x0080
-    header = struct.pack('<I16sIIQQQIiIHHII', 0x4C, clsid, flags, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0)
-
-    def string_data(value):
-        encoded = value.encode('utf-16le')
-        return struct.pack('<H', len(encoded) // 2) + encoded
-
-    path.write_bytes(header + b''.join((
-        string_data(display_name),
-        string_data(relative_target.replace('/', '\\')),
-        string_data(icon_name.replace('/', '\\')),
-    )) + b'\0\0\0\0')
-
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--build-root', type=Path, required=True)
     parser.add_argument('--runtime', type=Path, required=True)
     parser.add_argument('--output', type=Path, default=ROOT/'.chaosbrawl-local/windows-release')
-    parser.add_argument('--version', default='0.1.0-beta.5')
+    parser.add_argument('--version', default='0.1.0-beta.6')
     parser.add_argument('--java', default='java', help='JDK 21+ executable for the runtime image-path audit')
     args = parser.parse_args()
     if not re.fullmatch(r'\d+\.\d+\.\d+-[a-z0-9.]+', args.version):
@@ -143,6 +126,24 @@ def main():
     adventure_settings=target/'UserData/adventure'
     adventure_settings.mkdir(parents=True)
     (adventure_settings/'settings.json').write_text(json.dumps({'plane':'ChaosBrawl','width':1280,'height':720,'videomode':'720p'})+'\n')
+    # Restore the original portable CMD entry points removed by layout polishing.
+    launcher = '''@echo off
+setlocal
+cd /d "%~dp0.."
+set "SENTRY_ENABLED=false"
+if not exist "support\\runtime\\bin\\javaw.exe" (
+  echo Please extract the entire ZIP before starting Chaos Brawl.
+  pause
+  exit /b 1
+)
+start "" "support\\runtime\\bin\\javaw.exe" -Xmx4g -Dforge.chaosbrawl=true -Dsentry.enabled=false -Dfile.encoding=UTF-8 -Dio.netty.tryReflectionSetAccessible=true -jar support/forge.jar
+'''
+    (support/'launch-chaos-brawl.cmd').write_bytes(launcher.replace('\n','\r\n').encode('ascii'))
+    (support/'launch-adventure.cmd').write_bytes(launcher.replace('-jar support/forge.jar','-jar support/forge-adventure.jar').replace('\n','\r\n').encode('ascii'))
+    for icon in ('forge-chaos-brawl.ico', 'forge-adventure-chaos-brawl.ico'):
+        shutil.copyfile(icon_assets/icon, support/icon)
+    subprocess.run([args.java, '-Xmx4g', '-Djava.awt.headless=true', '-cp', str(support/'forge.jar'),
+                    str(ROOT/'chaosbrawl/VerifyWindowsLaunchers.java'), str(target)], check=True)
     for notice in ['LICENSE', 'LICENSE.txt', 'LICENSE.md', 'COPYING', 'NOTICE', 'NOTICE.txt']:
         if (build/notice).is_file():
             shutil.copyfile(build/notice, target/notice)
@@ -164,17 +165,25 @@ def main():
                         '-cp',str(support/'forge-adventure.jar'),str(ROOT/'chaosbrawl/VerifyAdventureEvents.java'),
                         '--games','--images',str(sum(not c['token'] for c in cards.values()))],
                        cwd=target,stdout=log,stderr=subprocess.STDOUT,check=True)
+    for jar in ('forge.jar', 'forge-adventure.jar'):
+        with (output/(name+'-'+jar+'-mechanics-audit.log')).open('w') as log:
+            subprocess.run([args.java, '-Xmx4g', '-Dforge.chaosbrawl=true', '-Dsentry.enabled=false',
+                            '-Djava.awt.headless=true', '-cp', str(support/jar),
+                            str(ROOT/'chaosbrawl/VerifyCustomMechanics.java')], cwd=target,
+                           stdout=log, stderr=subprocess.STDOUT, check=True)
     batch_decks = [deck.name for deck in seed_decks if 'Batch' in deck.name]
     batch_label = batch_decks[-1].removesuffix('.dck') if batch_decks else seed_decks[-1].stem
     (target/'README.txt').write_text(f'''Chaos Brawl for Forge {args.version} - Windows x64
 
 1. Extract the entire ZIP into a writable folder.
-2. Double-click "Chaos Brawl Forge.exe". It has the Chaos Brawl icon and uses the Java runtime in support.
+2. Double-click "Chaos Brawl Forge.exe". It enables the custom rules and uses
+   the bundled runtime. The original CMD launcher is in support/launch-chaos-brawl.cmd.
 3. Choose Constructed, then a Chaos Brawl Beta deck such as {batch_label}.
    For smaller groups, choose a Chaos Brawl Beta NN - Group N deck.
 4. Filter the card pool to Chaos Brawl - The Foul Realms Beta (CBFRbeta).
 
 For Adventure: close the classic client, then double-click "Chaos Brawl Adventure.exe".
+The original CMD launcher is in support/launch-adventure.cmd.
 Choose Adventure Mode. The separate ChaosBrawl plane offers this set at town inns.
 Draft uses 3 packs (36 picks); Sealed uses 8 packs (96 cards).
 Normal virtual entry fees: Draft 3000 gold / 50 shards; Sealed 6000 / 100.

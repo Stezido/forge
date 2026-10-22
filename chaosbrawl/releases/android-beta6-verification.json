@@ -1,0 +1,111 @@
+{
+  "filename": "ChaosBrawl-Forge-0.1.0-beta.6-Android.apk",
+  "bytes": 379522570,
+  "sha256": "f4cccdf9e52e44bd7e53f5f88e5a3e8c1ea70b07a5225e86f2da75c883bebcf4",
+  "certificateSha256": "03d5c326117fd58853821296116844e5cf7f88dff672d17d0fc66444f2577830",
+  "applicationId": "forge.app.chaosbrawl",
+  "minSdk": 26,
+  "versionCode": 10006,
+  "version": "0.1.0-beta.6",
+  "source": {
+    "engineCommit": "3d73ba04cd0ea5de9c9ba68ac87c2be85af0db60",
+    "filename": "ChaosBrawl-Forge-0.1.0-beta.6-Android-Source.zip",
+    "bytes": 645579209,
+    "sha256": "8fd55a72176b8a8bfd4177108ae08b2025f6d49533e5df1c1ef13c1f5588d8b2"
+  },
+  "engineCommit": "3d73ba04cd0ea5de9c9ba68ac87c2be85af0db60",
+  "mseSha256": "0a8c87220fc4041d201078acbd755b13165b5e2c630e58fb892ed3bfd96b7023",
+  "bundleSha256": "46dc3825d7156f7cabb076aa146a67d1eadd45da1b8b49ab50d0a4c4b096cdda",
+  "sourceRecords": 330,
+  "cardImages": 330,
+  "tokenImages": 18,
+  "seedDecks": 56,
+  "engineTests": 502,
+  "limitedTests": 8,
+  "cardImagePaths": 307,
+  "missingImages": 0,
+  "sharedEngineBeerDraftTapCases": 21,
+  "installerRegressionsPassed": true,
+  "apkBundleDigestVerified": true,
+  "emulators": [
+    {
+      "serial": "emulator-5554",
+      "user": 0,
+      "mode": "upgrade",
+      "resourceDigest": "46dc3825d7156f7cabb076aa146a67d1eadd45da1b8b49ab50d0a4c4b096cdda",
+      "resourcesReady": true,
+      "bundle": {
+        "desktopSource": "3d73ba04cd0ea5de9c9ba68ac87c2be85af0db60",
+        "mseSha256": "0a8c87220fc4041d201078acbd755b13165b5e2c630e58fb892ed3bfd96b7023",
+        "setCode": "CBFRbeta",
+        "resources": 55863,
+        "cardScripts": 34369,
+        "cardImages": 330,
+        "tokens": 18,
+        "decks": 56
+      },
+      "syntheticDeckPreserved": true,
+      "restart": true
+    },
+    {
+      "serial": "emulator-5554",
+      "user": 10,
+      "mode": "clean",
+      "resourceDigest": "46dc3825d7156f7cabb076aa146a67d1eadd45da1b8b49ab50d0a4c4b096cdda",
+      "resourcesReady": true,
+      "bundle": {
+        "desktopSource": "3d73ba04cd0ea5de9c9ba68ac87c2be85af0db60",
+        "mseSha256": "0a8c87220fc4041d201078acbd755b13165b5e2c630e58fb892ed3bfd96b7023",
+        "setCode": "CBFRbeta",
+        "resources": 55863,
+        "cardScripts": 34369,
+        "cardImages": 330,
+        "tokens": 18,
+        "decks": 56
+      },
+      "syntheticDeckPreserved": false,
+      "restart": true
+    },
+    {
+      "serial": "emulator-5556",
+      "user": 0,
+      "mode": "upgrade",
+      "resourceDigest": "46dc3825d7156f7cabb076aa146a67d1eadd45da1b8b49ab50d0a4c4b096cdda",
+      "resourcesReady": true,
+      "bundle": {
+        "desktopSource": "3d73ba04cd0ea5de9c9ba68ac87c2be85af0db60",
+        "mseSha256": "0a8c87220fc4041d201078acbd755b13165b5e2c630e58fb892ed3bfd96b7023",
+        "setCode": "CBFRbeta",
+        "resources": 55863,
+        "cardScripts": 34369,
+        "cardImages": 330,
+        "tokens": 18,
+        "decks": 56
+      },
+      "syntheticDeckPreserved": true,
+      "restart": true
+    }
+  ],
+  "github": {
+    "releaseTag": "forge-android-v0.1.0-beta.6",
+    "assets": {
+      "android": {
+        "filename": "ChaosBrawl-Forge-0.1.0-beta.6-Android.apk",
+        "bytes": 379522570,
+        "sha256": "f4cccdf9e52e44bd7e53f5f88e5a3e8c1ea70b07a5225e86f2da75c883bebcf4",
+        "assetId": 665053556
+      },
+      "source": {
+        "filename": "ChaosBrawl-Forge-0.1.0-beta.6-Android-Source.zip",
+        "bytes": 645579209,
+        "sha256": "8fd55a72176b8a8bfd4177108ae08b2025f6d49533e5df1c1ef13c1f5588d8b2",
+        "assetId": 665053555
+      }
+    },
+    "publication": "private draft uploaded; API26 update and API35 beta.5 upgrade/fresh initialization passed"
+  },
+  "limitations": [
+    "Physical-device performance, touch usability, completed human Android games and remote multiplayer remain unverified.",
+    "API26 started from the preceding local beta.6 candidate; API35 upgraded from the published beta.5."
+  ]
+}

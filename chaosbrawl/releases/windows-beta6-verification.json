@@ -1,0 +1,110 @@
+{
+  "version": "0.1.0-beta.6",
+  "platform": "windows-x64",
+  "engineCommit": "3d73ba04cd0ea5de9c9ba68ac87c2be85af0db60",
+  "mseSha256": "0a8c87220fc4041d201078acbd755b13165b5e2c630e58fb892ed3bfd96b7023",
+  "jarSha256": "a56ca47c7482ba14e59b5428ecee52fcd9217fe30594519972a2519976d3bcc0",
+  "adventureJarSha256": "9458db03e38c30918435e3c5758091bda508cd379b9ea0ae4fc38e05902410c8",
+  "setCode": "CBFRbeta",
+  "reservedReleaseSetCode": "CBFR",
+  "runtime": {
+    "vendor": "Eclipse Adoptium",
+    "javaVersion": "21.0.12.1+1",
+    "architecture": "x64",
+    "os": "windows",
+    "imageType": "jre",
+    "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.12.1%2B1/OpenJDK21U-jre_x64_windows_hotspot_21.0.12.1_1.zip",
+    "sha256": "d35f31e712f0fcf6ac5a093edc90204fbff22f720ba3950bd09d331d5e621636",
+    "bytes": 48999141,
+    "status": "downloaded and checksum verified; extraction/native Windows execution pending"
+  },
+  "sourceRecords": 330,
+  "nonTokenRecords": 307,
+  "tokenRecords": 23,
+  "testDecks": 56,
+  "artifacts": {
+    "windows": {
+      "filename": "ChaosBrawl-Forge-0.1.0-beta.6-Windows-x64.zip",
+      "bytes": 513191299,
+      "sha256": "a787ac31ed40806e0eaac206d88aff6f840a8de30f1d05317bff8a6f85e37ff1"
+    },
+    "source": {
+      "filename": "ChaosBrawl-Forge-0.1.0-beta.6-Source.zip",
+      "bytes": 287438844,
+      "sha256": "bdfb32f23df50f1c382a3100d6012a2a15bc824f3217f0664c7a7efae8040ec2"
+    }
+  },
+  "verification": {
+    "engineTests": 502,
+    "limitedTests": 8,
+    "nativeMseFullFaces": 330,
+    "runtimeImagePrintings": 307,
+    "missingImages": 0,
+    "fullCardTokenImages": 18,
+    "linuxAdventureChecks": 9,
+    "linuxAdventureCompletedGames": 4,
+    "nativeWindows": {
+      "version": "0.1.0-beta.6",
+      "syntheticDeckPreserved": true,
+      "engines": 2,
+      "beerDraftTapCasesPerEngine": 21,
+      "launchers": [
+        {
+          "customMode": true,
+          "windowTitle": "Loading Forge...",
+          "entry": "support/launch-chaos-brawl.cmd"
+        },
+        {
+          "customMode": true,
+          "windowTitle": "Forge - 2.0.16-SNAPSHOT-10.22",
+          "entry": "support/launch-adventure.cmd"
+        },
+        {
+          "customMode": true,
+          "windowTitle": "Loading Forge...",
+          "entry": "Chaos Brawl Forge.exe"
+        },
+        {
+          "customMode": true,
+          "windowTitle": "Forge - 2.0.16-SNAPSHOT-10.22",
+          "entry": "Chaos Brawl Adventure.exe"
+        }
+      ],
+      "zipSha256": "a787ac31ed40806e0eaac206d88aff6f840a8de30f1d05317bff8a6f85e37ff1",
+      "imagePrintings": 307
+    },
+    "launcherNegativeCheck": true,
+    "clipboardFileLoads": 306,
+    "clipboardUnsupportedIds": [
+      "cb-067",
+      "cb-095",
+      "cb-106",
+      "cb-139",
+      "cb-161",
+      "cb-174",
+      "cb-189",
+      "cb-214",
+      "cb-273"
+    ],
+    "physicalOrRemoteHumanGameplay": false
+  },
+  "github": {
+    "repository": "Stezido/Chaosbrawl-Website",
+    "releaseTag": "forge-desktop-v0.1.0-beta.6",
+    "assets": {
+      "windows": {
+        "filename": "ChaosBrawl-Forge-0.1.0-beta.6-Windows-x64.zip",
+        "bytes": 513191299,
+        "sha256": "a787ac31ed40806e0eaac206d88aff6f840a8de30f1d05317bff8a6f85e37ff1",
+        "assetId": 665053568
+      },
+      "source": {
+        "filename": "ChaosBrawl-Forge-0.1.0-beta.6-Source.zip",
+        "bytes": 287438844,
+        "sha256": "bdfb32f23df50f1c382a3100d6012a2a15bc824f3217f0664c7a7efae8040ec2",
+        "assetId": 665053558
+      }
+    },
+    "publication": "private draft uploaded; native final-ZIP verification passed"
+  }
+}

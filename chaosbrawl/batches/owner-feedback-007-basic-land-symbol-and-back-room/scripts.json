@@ -68,7 +68,7 @@
     },
     {
       "path": "chaosbrawl/package_windows.py",
-      "sha256": "2e29e394d6f84a2f5c351bee19fae849645b2ad39261f25efa5a6402e3f8821e"
+      "sha256": "3af0ba03491877d25a261c890d4597e02a963e4b42ed9ced6aa4f8266974abad"
     },
     {
       "path": "chaosbrawl/prepare.py",
@@ -1529,6 +1529,26 @@
     {
       "path": "forge-gui/res/tokenscripts/chaosbrawl_zwickl_beer.txt",
       "sha256": "466d6fcf76f76c2fb1324695d11659e30d31cb9c70d2ca484d53ef6af1ac56b7"
+    },
+    {
+      "path": "chaosbrawl/VerifyWindowsLaunchers.java",
+      "sha256": "c986bc3788963639aff8ccb26f48b865603ebcb6e23261adf34b5e8b6ac374f7"
+    },
+    {
+      "path": "chaosbrawl/VerifyCustomMechanics.java",
+      "sha256": "e93ce2b6d276ad084d99b44fd33dcdd9cb34e76b5450e36c47359a55c3b6c1ab"
+    },
+    {
+      "path": "chaosbrawl/verify_windows_release.ps1",
+      "sha256": "8474356396c61569e6f2a7dfbbd14002c0ebe6d129ac2b9c55eaaf8487d45686"
+    },
+    {
+      "path": "forge-gui-desktop/pom.xml",
+      "sha256": "9939d3630a5bb12ff1b35457cdb967987c417b4d734a859b44c75ff2e55252bb"
+    },
+    {
+      "path": "forge-gui-mobile-dev/pom.xml",
+      "sha256": "4835ef9d1239f5229df9883b1b57ce2173ecbdda7cae71b213c1dacde0956b89"
     }
   ]
 }
