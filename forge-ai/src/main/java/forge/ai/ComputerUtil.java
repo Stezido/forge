@@ -279,6 +279,13 @@ public class ComputerUtil {
     }
     public static Card getCardPreference(final Player ai, final Card activate, final String pref, final CardCollection typeList, SpellAbility sa) {
         final Game game = ai.getGame();
+        if (sa != null && "SacCost".equals(pref) && "UndercityBackRoom".equals(sa.getParam("AILogic"))) {
+            CardCollection threatened = CardLists.filter(typeList,
+                    c -> shouldSacrificeThreatenedCard(ai, c, null));
+            if (!threatened.isEmpty()) {
+                return ComputerUtilCard.getBestAI(threatened);
+            }
+        }
         String prefDef = "";
         if (activate != null) {
             prefDef = activate.getSVar("AIPreference");

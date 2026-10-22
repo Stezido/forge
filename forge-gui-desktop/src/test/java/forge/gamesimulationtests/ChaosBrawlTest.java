@@ -77,6 +77,75 @@ public class ChaosBrawlTest extends SimulationTest {
         return ability;
     }
 
+    private SpellAbility backRoomMode(Card room, Player player, int mana) {
+        SpellAbility ability = room.getSpellAbilities().stream()
+                .filter(a -> a.getApi() == ApiType.Token && a.getPayCosts().getTotalMana().getCMC() == mana)
+                .findFirst().orElseThrow();
+        ability.setActivatingPlayer(player);
+        return ability;
+    }
+
+    @Test
+    public void backRoomAiUpgradesWeakCreaturesUsingTheAffordableMode() {
+        for (int lands : new int[] {2, 5}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0);
+            Card room = addCard("Undercity Back Room", p);
+            Card fodder = addCard("Memnite", p);
+            addCards("Swamp", lands, p);
+            game.getPhaseHandler().devModeSet(PhaseType.MAIN2, p);
+            SpellAbility small = backRoomMode(room, p, 2);
+            SpellAbility large = backRoomMode(room, p, 5);
+            var smallDecision = new forge.ai.ability.TokenAi().canPlayWithSubs(p, small);
+            assertEquals(smallDecision.willingToPlay(), lands == 2,
+                    "logic=" + small.getParam("AILogic") + " mana=" + forge.ai.ComputerUtilMana.canPayManaCost(small, p, 0, false)
+                    + " sacrifice=" + ComputerUtil.chooseSacrificeType(p, "Creature", small, null, false, 1, null)
+                    + " values=" + forge.ai.ComputerUtilCard.evaluateCreature(fodder) + " decision=" + smallDecision);
+            assertEquals(new forge.ai.ability.TokenAi().canPlayWithSubs(p, large).willingToPlay(), lands == 5);
+            assertEquals(ComputerUtil.chooseSacrificeType(p, "Creature", lands == 2 ? small : large,
+                    null, false, 1, null).getFirst(), fodder);
+            assertTrue(ComputerUtil.playNoStack(p, lands == 2 ? small : large, game, false));
+            assertTrue(fodder.isInZone(ZoneType.Graveyard));
+            assertTrue(p.getCreaturesInPlay().stream().anyMatch(c -> c.isToken()
+                    && c.getName().equals(lands == 2 ? "Another Brother" : "Vengeful Gnome Pack")));
+        }
+    }
+
+    @Test
+    public void backRoomAiDoesNotSacrificeAValuableCreatureOrActivateWithoutFodder() {
+        Game game = customGame(); Player p = game.getPlayers().get(0);
+        Card room = addCard("Undercity Back Room", p);
+        addCards("Swamp", 5, p);
+        game.getPhaseHandler().devModeSet(PhaseType.MAIN2, p);
+        SpellAbility large = backRoomMode(room, p, 5);
+        assertFalse(new forge.ai.ability.TokenAi().canPlayWithSubs(p, large).willingToPlay());
+        addCard("Serra Angel", p);
+        assertFalse(new forge.ai.ability.TokenAi().canPlayWithSubs(p, large).willingToPlay());
+    }
+
+    @Test
+    public void backRoomAiSacrificesAThreatenedCreatureInResponse() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), opponent = game.getPlayers().get(1);
+        Card room = addCard("Undercity Back Room", p);
+        Card threatened = addCard("Serra Angel", p);
+        addCard("Memnite", p);
+        addCards("Swamp", 2, p);
+        SpellAbility removal = spell("Murder", opponent);
+        removal.getTargets().add(threatened);
+        game.getStack().add(removal);
+        game.getPhaseHandler().devModeSet(PhaseType.MAIN1, opponent);
+        SpellAbility small = backRoomMode(room, p, 2);
+        assertTrue(new forge.ai.ability.TokenAi().canPlayWithSubs(p, small).willingToPlay(),
+                "logic=" + small.getParam("AILogic") + " mana=" + forge.ai.ComputerUtilMana.canPayManaCost(small, p, 0, false)
+                + " threatened=" + ComputerUtil.shouldSacrificeThreatenedCard(p, threatened, null)
+                + " removal=" + removal.getApi() + " targeting=" + removal.usesTargeting()
+                + " valid=" + threatened.canBeTargetedBy(removal)
+                + " predicted=" + ComputerUtil.predictThreatenedObjects(p, small)
+                + " sacrifice=" + ComputerUtil.chooseSacrificeType(p, "Creature", small, null, false, 1, null));
+        assertEquals(ComputerUtil.chooseSacrificeType(p, "Creature", small, null, false, 1, null).getFirst(), threatened);
+        assertTrue(ComputerUtil.playNoStack(p, small, game, false));
+        assertTrue(threatened.isInZone(ZoneType.Graveyard));
+    }
+
     @Test
     public void beerAiSpendsSpareManaInMainTwoOnASafePermanentBuff() {
         Game game = customGame(); Player p = game.getPlayers().get(0);
