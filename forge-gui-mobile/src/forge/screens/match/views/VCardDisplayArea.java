@@ -347,6 +347,21 @@ public abstract class VCardDisplayArea extends VDisplayArea implements ActivateH
 
     private int addCards(CardAreaPanel cardPanel, float x, float y, float cardWidth, float cardHeight) {
         int totalCount = 0;
+        cardPanel.tokenStackCount = 0;
+        cardPanel.setVisible(true);
+        if (cardPanel.prevPanelInStack == null && cardPanel.getCard().isToken()) {
+            int count = 0;
+            for (CardAreaPanel p = cardPanel; p != null; p = p.nextPanelInStack) { count++; }
+            int threshold = forge.gui.TokenStacks.threshold();
+            if (forge.gui.TokenStacks.shouldCollapse(count, threshold)) {
+                cardPanel.tokenStackCount = count;
+                for (CardAreaPanel p = cardPanel.nextPanelInStack; p != null; p = p.nextPanelInStack) {
+                    orderedCards.get().add(p.getCard());
+                    p.setBounds(x, y, cardWidth, cardHeight);
+                    p.setVisible(false);
+                }
+            }
+        }
         List<CardAreaPanel> attachedPanels = cardPanel.getAttachedPanels();
         if (!attachedPanels.isEmpty()) {
             for (int i = attachedPanels.size() - 1; i >= 0; i--) {
@@ -365,7 +380,7 @@ public abstract class VCardDisplayArea extends VDisplayArea implements ActivateH
         }
         cardPanel.setBounds(x, y, cardWidth, cardHeight);
 
-        if (cardPanel.getNextPanelInStack() != null) { //add next panel in stack if needed
+        if (cardPanel.tokenStackCount == 0 && cardPanel.getNextPanelInStack() != null) { //add next panel in stack if needed
             x += cardWidth * getCardStackOffset();
             totalCount += addCards(cardPanel.getNextPanelInStack(), x, y, cardWidth, cardHeight);
         }
@@ -573,6 +588,7 @@ public abstract class VCardDisplayArea extends VDisplayArea implements ActivateH
         private CardAreaPanel attachedToPanel;
         private List<CardAreaPanel> attachedPanels = new ArrayList<>();
         private CardAreaPanel nextPanelInStack, prevPanelInStack;
+        private int tokenStackCount;
 
         // CASTABLE = a prepared spell (tap to cast); INFO = a card exiled until this permanent leaves (inspect only)
         public enum GhostKind { NONE, CASTABLE, INFO }
@@ -709,6 +725,8 @@ public abstract class VCardDisplayArea extends VDisplayArea implements ActivateH
 
         //clear and reset all pointers from this panel
         public void reset() {
+            tokenStackCount = 0;
+            setVisible(true);
             if (!attachedPanels.isEmpty()) {
                 attachedPanels.clear();
             }
@@ -725,6 +743,17 @@ public abstract class VCardDisplayArea extends VDisplayArea implements ActivateH
         public boolean tap(float x, float y, int count) {
             if (count > 1) //prevent double choice lists or activate handle
                 return false;
+            if (tokenStackCount > 1 && y <= 32 && x <= getWidth() * 0.6f) {
+                ThreadUtil.invokeInGameThread(() -> {
+                    List<CardView> members = new ArrayList<>();
+                    for (CardAreaPanel p = this; p != null; p = p.nextPanelInStack) { members.add(p.getCard()); }
+                    CardView selected = forge.gui.util.SGuiChoose.oneOrNone("Select token", members);
+                    if (selected != null) {
+                        MatchController.instance.getGameController().selectCard(selected, null, null);
+                    }
+                });
+                return true;
+            }
             if (renderedCardContains(x, y)) {
                 //must invoke in game thread in case a dialog needs to be shown
                 ThreadUtil.invokeInGameThread(() -> {
@@ -929,6 +958,12 @@ public abstract class VCardDisplayArea extends VDisplayArea implements ActivateH
             }
             if (ghostKind != GhostKind.NONE) {
                 drawGhostOverlay(g);
+            }
+            if (tokenStackCount > 1) {
+                float width = Math.max(48, getWidth() * 0.6f);
+                g.fillRect(Color.BLACK, 0, 0, width, 32);
+                g.drawText("\u00d7" + tokenStackCount, forge.assets.FSkinFont.get(18), Color.WHITE,
+                        0, 0, width, 32, false, com.badlogic.gdx.utils.Align.center, false);
             }
         }
     }

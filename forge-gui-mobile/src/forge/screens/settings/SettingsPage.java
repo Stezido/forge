@@ -359,6 +359,9 @@ public class SettingsPage extends TabPage<SettingsScreen> {
         lstSettings.addItem(new BooleanSetting(FPref.UI_COIN_DICE_ANIMATION,
             Forge.getLocalizer().getMessageorUseDefault("lblCoinDiceAnimation", "Coin/Dice Animation"),
             Forge.getLocalizer().getMessageorUseDefault("nlCoinDiceAnimation", "Enables Coin and Dice Animation.")), 1);
+        lstSettings.addItem(new CustomSelectSetting(FPref.UI_TOKEN_STACK_THRESHOLD,
+            "Token stack threshold", "Stack equivalent tokens at this count. 0 disables stacking. Tap the count to select an individual; flick to select the stack.",
+            new String[] { "0", "2", "3", "4", "5", "8", "10", "20", "50", "100" }), 1);
         lstSettings.addItem(new BooleanSetting(FPref.UI_STACK_CREATURES,
             Forge.getLocalizer().getMessage("cbStackCreatures"),
             Forge.getLocalizer().getMessage("nlStackCreatures")), 1);

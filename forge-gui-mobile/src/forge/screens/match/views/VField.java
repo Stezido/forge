@@ -118,6 +118,9 @@ public class VField extends FContainer {
                 otherPermanents.addAll(contraptions);
             }
 
+            expandSmallTokenStacks(creatures);
+            expandSmallTokenStacks(lands);
+            expandSmallTokenStacks(otherPermanents);
             if (creatures.isEmpty()) {
                 row1.refreshCardPanels(otherPermanents);
                 row2.refreshCardPanels(lands);
@@ -129,9 +132,44 @@ public class VField extends FContainer {
         }
     };
 
+    private void expandSmallTokenStacks(List<CardView> cards) {
+        int threshold = forge.gui.TokenStacks.threshold();
+        List<CardView> expanded = new java.util.ArrayList<>();
+        for (CardView card : cards) {
+            expanded.add(card);
+            if (!card.isToken()) { continue; }
+            CardAreaPanel head = CardAreaPanel.get(card);
+            int count = 0;
+            for (CardAreaPanel p = head; p != null; p = p.getNextPanelInStack()) { count++; }
+            if (threshold == 0 || count < threshold) {
+                CardAreaPanel p = head.getNextPanelInStack();
+                head.setNextPanelInStack(null);
+                while (p != null) {
+                    expanded.add(p.getCard());
+                    CardAreaPanel next = p.getNextPanelInStack();
+                    p.setNextPanelInStack(null);
+                    p.setPrevPanelInStack(null);
+                    p = next;
+                }
+            }
+        }
+        cards.clear();
+        cards.addAll(expanded);
+    }
+
     private boolean tryStackCard(CardView card, List<CardView> cardsOfType) {
         if (card.hasCardAttachments()) {
             return false; //can stack with enchanted or equipped card
+        }
+        if (card.isToken()) {
+            if (forge.gui.TokenStacks.threshold() == 0) { return false; }
+            for (CardView other : cardsOfType) {
+                if (forge.gui.TokenStacks.compatible(card, other)) {
+                    stackOnto(card, other);
+                    return true;
+                }
+            }
+            return false;
         }
         CardStateView cardState = card.getCurrentState();
         if (!this.stackNonTokenCreatures && cardState.isCreature() && !card.isToken()) {

@@ -159,6 +159,7 @@ public enum VSubmenuPreferences implements IVSubmenu<CSubmenuPreferences> {
     private final FComboBoxPanel<String> cbpDisplayCurrentCardColors = new FComboBoxPanel<>(localizer.getMessage("cbpDisplayCurrentCardColors")+":");
     private final FComboBoxPanel<String> cbpAutoDecisionMode = new FComboBoxPanel<>(localizer.getMessage("cbpAutoDecisionMode")+":");
     private final FComboBoxPanel<String> cbpStackGroupPermanents = new FComboBoxPanel<>(localizer.getMessage("cbpStackGroupPermanents")+":");
+    private final FComboBoxPanel<Integer> cbpTokenStackThreshold = new FComboBoxPanel<>("Token stack threshold (0 = off):");
     private final FComboBoxPanel<Integer> cbpMaxStackDepth = new FComboBoxPanel<>(localizer.getMessage("cbpMaxStackDepth")+":");
     private final FComboBoxPanel<String> cbpCounterDisplayType = new FComboBoxPanel<>(localizer.getMessage("cbpCounterDisplayType")+":");
     private final FComboBoxPanel<String> cbpCounterDisplayLocation =new FComboBoxPanel<>(localizer.getMessage("cbpCounterDisplayLocation")+":");
@@ -472,6 +473,8 @@ public enum VSubmenuPreferences implements IVSubmenu<CSubmenuPreferences> {
         pnlPrefs.add(cbpStackGroupPermanents, comboBoxConstraints);
         pnlPrefs.add(new NoteLabel(localizer.getMessage("nlGroupPermanents")), descriptionConstraints);
 
+        pnlPrefs.add(cbpTokenStackThreshold, comboBoxConstraints);
+        pnlPrefs.add(new NoteLabel("Visually stack equivalent tokens; click the count to inspect individuals."), descriptionConstraints);
         pnlPrefs.add(cbpMaxStackDepth, comboBoxConstraints);
         pnlPrefs.add(new NoteLabel(localizer.getMessage("nlMaxStackDepth")), descriptionConstraints);
 
@@ -973,6 +976,8 @@ public enum VSubmenuPreferences implements IVSubmenu<CSubmenuPreferences> {
     public FComboBoxPanel<String> getCbpStackGroupPermanents() {
         return cbpStackGroupPermanents;
     }
+
+    public FComboBoxPanel<Integer> getCbpTokenStackThreshold() { return cbpTokenStackThreshold; }
 
     public FComboBoxPanel<Integer> getCbpMaxStackDepth() {
         return cbpMaxStackDepth;
