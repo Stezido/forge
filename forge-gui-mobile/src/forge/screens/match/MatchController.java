@@ -604,10 +604,29 @@ public class MatchController extends NetworkGuiGame {
         view.updateZones(zonesToUpdate);
     }
 
+    private boolean tokenLayoutPending;
+
     @Override
     public void updateCards(final Iterable<CardView> cards) {
+        boolean tokensChanged = false;
         for (final CardView card : cards) {
             view.updateSingleCard(card);
+            tokensChanged |= card.isToken();
+        }
+        if (tokensChanged) {
+            FThreads.invokeInEdtNowOrLater(() -> {
+                if (tokenLayoutPending) { return; }
+                tokenLayoutPending = true;
+                FThreads.invokeInEdtLater(() -> {
+                    tokenLayoutPending = false;
+                    if (view == null || getGameView() == null) { return; }
+                    // Include previous controllers when a token changes control or leaves play.
+                    for (PlayerView player : getGameView().getPlayers()) {
+                        VPlayerPanel panel = view.getPlayerPanel(player);
+                        if (panel != null) { panel.getField().update(true); }
+                    }
+                });
+            });
         }
     }
 

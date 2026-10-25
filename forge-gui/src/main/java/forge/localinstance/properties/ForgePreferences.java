@@ -90,6 +90,7 @@ public class ForgePreferences extends AbstractPreferences<ForgePreferences.FPref
         UI_CARD_IMAGE_RENDER_HIDE_REMINDER_TEXT ("true"),
         UI_OPEN_PACKS_INDIV ("false"),
         UI_STACK_CREATURES ("false"),
+        UI_TOKEN_STACK_THRESHOLD ("3"),
         UI_SEPARATE_COMBAT_STACKS("false"),
         UI_GROUP_PERMANENTS ("default"),
         UI_MAX_STACK_DEPTH ("4"),

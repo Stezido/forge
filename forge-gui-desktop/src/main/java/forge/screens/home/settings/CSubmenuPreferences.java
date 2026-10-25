@@ -222,6 +222,9 @@ public enum CSubmenuPreferences implements ICDoc {
         initializeAutoDecisionModeComboBox();
         initializeStackGroupPermanentsComboBox();
         initializeMaxStackDepthComboBox();
+        final Integer[] thresholds = {0, 2, 3, 4, 5, 8, 10, 20, 50, 100};
+        this.view.getCbpTokenStackThreshold().setComboBox(
+                createComboBox(thresholds, FPref.UI_TOKEN_STACK_THRESHOLD), forge.gui.TokenStacks.threshold());
         initializeCounterDisplayTypeComboBox();
         initializeCounterDisplayLocationComboBox();
         initializeGraveyardOrderingComboBox();
