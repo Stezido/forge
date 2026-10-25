@@ -4,6 +4,6 @@ Types:Enchantment Saga
 K:Chapter:3:Food,Beer,Counters
 SVar:Food:DB$ Token | TokenScript$ c_a_food_sac | SpellDescription$ Create a Food token.
 SVar:Beer:DB$ Token | TokenScript$ chaosbrawl_beer | SpellDescription$ Create a Beer token.
-SVar:Counters:DB$ PutCounter | ValidTgts$ Creature | CounterType$ P1P1 | CounterNum$ X | SpellDescription$ Put a +1/+1 counter on target creature for each Food or Beer you control.
+SVar:Counters:DB$ PutCounter | ValidTgts$ Creature | TargetMin$ 0 | TargetMax$ 1 | CounterType$ P1P1 | CounterNum$ X | SpellDescription$ For each Food or Beer you control, put a +1/+1 counter on up to one target creature.
 SVar:X:Count$Valid Food.YouCtrl,Beer.YouCtrl
-Oracle:I — Create a Food token.\nII — Create a Beer Token\nIII — For each Food or Beer you control, put a +1/+1 counter on target creature.
+Oracle:I — Create a Food token.\nII — Create a Beer Token\nIII — For each Food or Beer you control, put a +1/+1 counter on up to one target creature.

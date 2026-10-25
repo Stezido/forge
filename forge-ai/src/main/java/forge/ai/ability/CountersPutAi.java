@@ -124,6 +124,9 @@ public class CountersPutAi extends CountersAi {
 
     @Override
     protected AiAbilityDecision checkApiLogic(Player ai, final SpellAbility sa) {
+        if (ChaosBrawlSagaCounterAi.applies(sa)) {
+            return ChaosBrawlSagaCounterAi.chooseTargets(ai, sa);
+        }
         if (ChaosBrawlBeerAi.applies(sa)) {
             return ChaosBrawlBeerAi.chooseTargets(ai, sa);
         }
@@ -741,6 +744,9 @@ public class CountersPutAi extends CountersAi {
 
     @Override
     protected AiAbilityDecision doTriggerNoCost(Player ai, SpellAbility sa, boolean mandatory) {
+        if (ChaosBrawlSagaCounterAi.applies(sa)) {
+            return ChaosBrawlSagaCounterAi.chooseTargets(ai, sa);
+        }
         if (!mandatory && ChaosBrawlDrunkenAi.applies(sa)) {
             return ChaosBrawlDrunkenAi.chooseTarget(ai, sa);
         }

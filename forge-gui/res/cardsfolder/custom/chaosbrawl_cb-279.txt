@@ -2,10 +2,10 @@ Name:Gastronomic Downfall
 ManaCost:4 B
 Types:Enchantment Saga
 K:Chapter:3:Distribute,Distribute,Remove
-SVar:Distribute:DB$ PutCounter | ValidTgts$ Creature | CounterType$ M1M1 | Curse$ True | CounterNum$ 2 | TargetMin$ 1 | TargetMax$ 2 | DividedAsYouChoose$ 2 | SpellDescription$ Distribute two -1/-1 counters among one or two target creatures.
+SVar:Distribute:DB$ PutCounter | ValidTgts$ Creature | CounterType$ M1M1 | Curse$ True | CounterNum$ 1 | TargetMin$ 0 | TargetMax$ 1 | SpellDescription$ Put a -1/-1 counter on up to one target creature.
 SVar:Remove:DB$ Repeat | ValidTgts$ Any | MaxRepeat$ 1 | RepeatSubAbility$ RemoveAll | SubAbility$ Damage | StackDescription$ SpellDescription | SpellDescription$ Remove all counters from all creatures, then deal damage equal to the counters removed to any target.
 SVar:RemoveAll:DB$ RemoveCounter | Defined$ Valid Creature | CounterType$ All | CounterNum$ All | RememberAmount$ True
 SVar:Damage:DB$ DealDamage | Defined$ Targeted | NumDmg$ X | SubAbility$ Clear
 SVar:X:Count$RememberedNumber
 SVar:Clear:DB$ Cleanup | ClearRemembered$ True
-Oracle:I, II — Distribute two -1/-1 counters among one or two target creatures.\nIII — Remove all counters from all creatures. Gastronomic Downfall deals damage equal to the total number of counters removed this way to any target.
+Oracle:I, II — Put a -1/-1 counter on up to one target creature.\nIII — Remove all counters from all creatures. Gastronomic Downfall deals damage equal to the total number of counters removed this way to any target.

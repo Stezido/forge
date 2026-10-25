@@ -5,6 +5,6 @@ PT:4/3
 K:Flying
 T:Mode$ SpellCast | ValidCard$ Card.cmcLE2 | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ Draw | TriggerDescription$ Whenever you cast a spell with mana value 2 or less, draw a card.
 SVar:Draw:DB$ Draw | NumCards$ 1
-T:Mode$ SpellCast | ValidCard$ Card.cmcGE3 | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | Execute$ Damage | TriggerDescription$ Whenever you cast a spell with mana value 3 or greater, CARDNAME deals 2 damage to target creature.
+T:Mode$ SpellCast | ValidCard$ Card.cmcGE3 | ValidActivatingPlayer$ You | TriggerZones$ Battlefield | OptionalDecider$ You | Execute$ Damage | TriggerDescription$ Whenever you cast a spell with mana value 3 or greater, you may have CARDNAME deal 2 damage to target creature.
 SVar:Damage:DB$ DealDamage | ValidTgts$ Creature | NumDmg$ 2
-Oracle:Flying\nWhenever you cast a spell with mana value 2 or less, draw a card.\nWhenever you cast a spell with mana value 3 or greater, Anschnly, the Vengeful Siren deals 2 damage to target creature.
+Oracle:Flying\nWhenever you cast a spell with mana value 2 or less, draw a card.\nWhenever you cast a spell with mana value 3 or greater, you may have Anschnly, the Vengeful Siren deal 2 damage to target creature.

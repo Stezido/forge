@@ -1556,6 +1556,7 @@ public class GameAction {
                     checkAgain |= stateBasedAction704_5u(p);
                 }
                 checkAgain |= handleLegendRule(p, noRegCreats);
+                checkAgain |= handleLocationRule(p, noRegCreats);
 
                 if ((game.getRules().hasAppliedVariant(GameType.Commander)
                         || game.getRules().hasAppliedVariant(GameType.Brawl)
@@ -2086,6 +2087,25 @@ public class GameAction {
         noRegCreats.addAll(removed);
 
         return recheck;
+    }
+
+
+    /** Chaos Brawl players may control only one Location, regardless of its name. */
+    private boolean handleLocationRule(Player p, CardCollection noRegCreats) {
+        if (!game.getRules().isChaosBrawl()) {
+            return false;
+        }
+        final CardCollection locations = CardLists.filter(p.getCardsIn(ZoneType.Battlefield),
+                c -> c.getType().hasSubtype("Location"));
+        if (locations.size() <= 1) {
+            return false;
+        }
+        Card toKeep = p.getController().chooseSingleEntityForEffect(locations,
+                new SpellAbility.EmptySa(ApiType.InternalLegendaryRule, new Card(-1, game), p),
+                "You control multiple Locations. Choose one to keep (the rest will be put into their owners’ graveyards).", null);
+        locations.remove(toKeep);
+        noRegCreats.addAll(locations);
+        return true;
     }
 
     private boolean handleWorldRule(CardCollection noRegCreats) {

@@ -3,6 +3,6 @@ ManaCost:2 B
 Types:Enchantment Aura
 K:Enchant:Creature
 S:Mode$ Continuous | AffectedDefined$ Enchanted | AddPower$ 2 | AddToughness$ -2 | Description$ Enchanted creature gets +2/-2.
-T:Mode$ Phase | TriggerZones$ Battlefield | Execute$ Lose | TriggerDescription$ At the beginning of enchanted creature's controller's upkeep, they lose 2 life. | Phase$ Upkeep | ValidPlayer$ EnchantedController
+T:Mode$ Phase | TriggerZones$ Battlefield | Execute$ Lose | TriggerDescription$ At the beginning of enchanted creature's controller's upkeep, they lose 2 life. | Phase$ Upkeep | ValidPlayer$ Player.EnchantedController
 SVar:Lose:DB$ LoseLife | Defined$ EnchantedController | LifeAmount$ 2
-Oracle:Enchant creature\nEnchanted creature gets +2/-2.\nAt the beginning of the upkeep of enchanted creature’s controller, that player loses 2 life.
+Oracle:Enchant creature\nEnchanted creature gets +2/-2.\nAt the beginning of enchanted creature’s controller’s upkeep, that player loses 2 life.

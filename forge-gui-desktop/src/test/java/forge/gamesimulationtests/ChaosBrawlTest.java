@@ -388,6 +388,32 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     @Test
+    public void sagaCounterAiChoosesOnlyBeneficialControllerAndCanChooseZero() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card own = addCard("Couchpotato", p), enemy = addCard("Couchpotato", other);
+        Card downfall = addCard("Gastronomic Downfall", p);
+        SpellAbility weaken = AbilityFactory.getAbility(
+                "DB$ PutCounter | ValidTgts$ Creature | CounterType$ M1M1 | CounterNum$ 1 | Curse$ True | TargetMin$ 0 | TargetMax$ 1", downfall);
+        weaken.setActivatingPlayer(p);
+        var ai = new forge.ai.ability.CountersPutAi();
+        assertTrue(ai.doTriggerNoCostWithSubs(p, weaken, true).willingToPlay());
+        assertEquals(weaken.getTargetCard(), enemy);
+        game.getAction().moveToGraveyard(enemy, null);
+        assertTrue(ai.doTriggerNoCostWithSubs(p, weaken, true).willingToPlay());
+        assertTrue(weaken.getTargets().isEmpty(), "An optional negative counter must not weaken a friendly creature");
+
+        Card frühshoppen = addCard("Frühshoppen", p);
+        SpellAbility strengthen = AbilityFactory.getAbility(
+                "DB$ PutCounter | ValidTgts$ Creature | CounterType$ P1P1 | CounterNum$ 1 | TargetMin$ 0 | TargetMax$ 1", frühshoppen);
+        strengthen.setActivatingPlayer(p);
+        assertTrue(ai.doTriggerNoCostWithSubs(p, strengthen, true).willingToPlay());
+        assertEquals(strengthen.getTargetCard(), own);
+        game.getAction().moveToGraveyard(own, null);
+        assertTrue(ai.doTriggerNoCostWithSubs(p, strengthen, true).willingToPlay());
+        assertTrue(strengthen.getTargets().isEmpty(), "An optional positive counter must not strengthen an opposing creature");
+    }
+
+    @Test
     public void devoteesPowerAndToughnessScaleWithItsObsessionCounters() {
         Game game = customGame(); Player p = game.getPlayers().get(0);
         Card devotee = enter("Domina’s Devotee", p);
@@ -791,7 +817,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Double Burn", 2, "", "", "Double Burn deals 2 damage to any target.\nFlashback\u2014{3R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)", "Instant", "R"},
             {"Pumpkin Barrage Crew", 4, "3", "3", "When Pumpkin Barrage Crew enters the battlefield, create a Food token.\n{2}, Sacrifice a Food token: Pumpkin Barrage Crew deals 2 damage to target creature.", "Creature \u2014 Human Rogue", "B"},
             {"Mattn, the Tasty Prince", 5, "4", "5", "At the beginning of each upkeep, create a Food token.\nWhenever you sacrifice a Food token, put a +1/+1 counter on Mattn, the Tasty Prince.", "Legendary Creature \u2014 Human", "W"},
-            {"Anschnly, the Vengeful Siren", 5, "4", "3", "Flying\nWhenever you cast a spell with mana value 2 or less, draw a card.\nWhenever you cast a spell with mana value 3 or greater, Anschnly, the Vengeful Siren deals 2 damage to target creature.", "Legendary Creature \u2014 Siren", "UR"},
+            {"Anschnly, the Vengeful Siren", 5, "4", "3", "Flying\nWhenever you cast a spell with mana value 2 or less, draw a card.\nWhenever you cast a spell with mana value 3 or greater, you may have Anschnly, the Vengeful Siren deal 2 damage to target creature.", "Legendary Creature \u2014 Siren", "UR"},
             {"Noxious Cloud", 4, "", "", "All creatures get -4/-4 until end of turn.", "Sorcery", "B"},
             {"Mistcliff Springs", 0, "", "", "({T}: Add {U} or {R} to your mana pool.)\nAs Mistcliff Springs enters the battlefield, you may pay 2 life. If you don\u2019t, Mistcliff Springs enters the battlefield tapped.", "Land \u2014 Island Mountain", ""},
             {"Mistcliff Waterfall", 0, "", "", "({T}: Add {U} or {R} to your mana pool.)\nAs Mistcliff Waterfall enters the battlefield, you may pay 2 life. If you don\u2019t, Mistcliff Waterfall enters the battlefield tapped.", "Land \u2014 Island Mountain", ""},
@@ -813,7 +839,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Spar\u2019s Bazaar", 3, "", "", "{T}: Add one mana of any color.\nActivated abilities of Beer and Food tokens cost {1} less to activate.", "Enchantment \u2014 Location", ""},
             {"Owizahrer", 4, "1", "4", "upkeep \u2014 Tap another untapped creature you control and put a stun counter on it. If you do, draw a card. Otherwise, sacrifice Owizahrer.\nOwizahrer can\u2019t attack.", "Creature \u2014 Human Wizard", "U"},
             {"Hungry Disgust", 2, "2", "3", "When Hungry Disgust enters the battlefield, create a Food token.\nUpkeep\u2014 Sacrifice a Food. (At the beginning of your upkeep, you must Sacrifice a Food. If you don\u2019t, sacrifice this permanent.)\nWhenever you sacrifice a Food, put a +1/+1 counter on Hungry Disgust.", "Creature \u2014 Human", "BG"},
-            {"Academic Quarter", 2, "", "", "Until end of turn, you may plot a creature card from your hand by paying its mana cost. You may do this only once. (Plot only as a sorcery. You may cast that card as a sorcery on a later turn without paying its mana cost.)\nDraw a card.", "Sorcery", "U"},
+            {"Academic Quarter", 2, "", "", "Until end of turn, you may plot a creature card from your hand by paying its mana cost reduced by {2}. You may do this only once. (Plot only as a sorcery. You may cast that card as a sorcery on a later turn without paying its mana cost.)\nDraw a card.", "Sorcery", "U"},
             {"Straggler", 1, "2", "2", "Straggler enters the battlefield tapped.", "Creature \u2014 Human", "R"},
             {"Happy Hour", 3, "", "", "Each player creates two Beer tokens.\nThen each creature gains an obsession counter.", "Sorcery", "R"},
             {"Echo of Empathy", 3, "", "", "Move all counters from target creature onto another target creature. Draw a card.", "Instant", "U"},
@@ -832,7 +858,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Blood Moon Rising", 3, "", "", "Enchant creature\nAt the beginning of enchanted creature\u2019s controller\u2019s upkeep, they lose 2 life.\nWhenever another permanent enters the battlefield, put a obsession counter on enchanted creature.\nAs long as enchanted creature has five or more obsession counters on it, it gets +10/+0, has menace and first strike.", "Enchantment \u2014 Aura", "BR"},
             {"Zimty", 3, "2", "3", "When Zimty dies, target opponent discards a card.\n{2}, {T}, Sacrifice Zimty: You gain 3 life.", "Creature \u2014 Food Mutant", "B"},
             {"Mystic Herb Vegetative", 3, "2", "2", "When Mystic Herb Vegetative enters the battlefield, mill three cards. You may put a land card from among the cards milled this way into your hand. If you don\u2019t, put a +1/+1 counter on Mystic Herb Vegetative.", "Creature \u2014 Plant", "G"},
-            {"Raging Alcoholic", 3, "3", "2", "Haste\nDrunken Tolerance 5\nUpkeep\u2014 Sacrifice a Beer token.\nWhenever Raging Alcoholic attacks, create a Beer token.", "Creature \u2014 Dwarf Warrior", "WR"},
+            {"Raging Alcoholic", 3, "3", "2", "Haste\nDrunken Tolerance 5\nAt the beginning of your upkeep, sacrifice a Beer token.\nWhenever Raging Alcoholic attacks, create two Beer tokens.", "Creature \u2014 Dwarf Warrior", "WR"},
             {"Rotten Cellar", 1, "", "", "Whenever a Food is sacrificed, each opponent loses 1 life.", "Enchantment \u2014 Location", "B"},
             {"Rowdy Tavern", 2, "", "", "Drunken creatures you control get +1/+0 and have haste.", "Enchantment \u2014 Location", "R"},
             {"Laughing fit", 2, "", "", "As an additional cost to cast this spell, discard a card.\nDraw two cards.", "Instant", "R"},
@@ -897,7 +923,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Shut up", 3, "", "", "Enchant creature\nEnchanted creature loses all abilities and can\u2019t attack.", "Enchantment \u2014 Aura", "W"},
             {"MAGAZIN!", 3, "", "", "Exile the top two cards of your library. Until the end of your next turn, you may play those cards.", "Sorcery", "R"},
             {"Magical Bucket Pump", 1, "", "", "Equipped creature has \u201c{T}: Tap target creature.\u201d\nEquip {2}", "Artifact \u2014 Equipment", ""},
-            {"Gastronomic Downfall", 5, "", "", "I, II \u2014 Distribute two -1/-1 counters among one or two target creatures.\nIII \u2014 Remove all counters from all creatures. Gastronomic Downfall deals damage equal to the total number of counters removed this way to any target.", "Enchantment \u2014 Saga", "B"},
+            {"Gastronomic Downfall", 5, "", "", "I, II \u2014 Put a -1/-1 counter on up to one target creature.\nIII \u2014 Remove all counters from all creatures. Gastronomic Downfall deals damage equal to the total number of counters removed this way to any target.", "Enchantment \u2014 Saga", "B"},
             {"Moshpit", 3, "", "", "Until end of turn, whenever a creature dies, Moshpit deals 1 damage to that creature\u2019s controller. Moshpit deals 2 damage to each creature.", "Sorcery", "R"},
             {"Maternal Instinct", 1, "", "", "Target creature you control gains hexproof until end of turn. You may move a counter from a creature you control onto another creature you control.", "Instant", "U"},
             {"Higher Protection", 1, "", "", "Target creature you control gains hexproof until end of turn. You gain 2 life.", "Instant", "G"},
@@ -965,7 +991,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Domina\u2019s Devotee", 4, "2", "2", "Haste\nWhen Domina\u2019s Devotee enters, put an Obsession counter on it.\nDomina\u2019s Devotee gets +3/+3 for each Obsession counter on it.", "Creature \u2014 Human", "R"},
             {"Tavern Slot Machine", 1, "", "", "{3}, {T}: Roll a d20.\n1\u20137 | Create a Beer token.\n8\u201313 | Create a Food token.\n14\u201319 | Create a Treasure token.\n20 | Create a Beer token, a Food token, and a Treasure token. Then you may sacrifice Tavern Slot Machine. When you do, it deals damage equal to the number of artifact tokens you control to any target.", "Artifact", ""},
             {"Honest Laborer", 4, "3", "4", "Vigilance\n{T}: Create a Beer token. Activate only if you attacked this turn.", "Creature \u2014 Dwarf", "W"},
-            {"Gonorrhea", 3, "", "", "Enchant creature\nEnchanted creature gets +2/-2.\nAt the beginning of the upkeep of enchanted creature\u2019s controller, that player loses 2 life.", "Enchantment \u2014 Aura", "B"},
+            {"Gonorrhea", 3, "", "", "Enchant creature\nEnchanted creature gets +2/-2.\nAt the beginning of enchanted creature\u2019s controller\u2019s upkeep, that player loses 2 life.", "Enchantment \u2014 Aura", "B"},
             {"Ale Addict", 3, "*", "3", "When Ale Addict enters, create a Beer token.\nAle Addict\u2019s power is equal to the number of Beer tokens you control.", "Creature \u2014 Dwarf", "W"},
             {"Devoted Homebody", 2, "3", "3", "Defender\nAs long as you control a Location, Devoted Homebody can attack as though it didn\u2019t have defender.", "Creature \u2014 Human", "W"},
             {"Bad Drunk", 3, "3", "2", "As long as Bad Drunk is Drunken, it has flying.", "Creature \u2014 Dwarf", "W"},
@@ -1022,7 +1048,7 @@ public class ChaosBrawlTest extends SimulationTest {
             {"Questionable First Responder", 3, "1", "4", "{T}, Sacrifice two Beers: Another target creature you control gains indestructible until end of turn.", "Creature \u2014 Human", "W"},
             {"Keeper\u2019s Lucky Mascot", 1, "1", "1", "Flying\n{T}: Create a token that\u2019s a copy of target artifact token you control.", "Creature \u2014 Drake", "U"},
             {"Wandering Culinarian", 2, "2", "2", "You may play an additional land on each of your turns.\nWhenever the second land enters the battlefield under your control each turn, create a Food token.", "Creature \u2014 Human", "G"},
-            {"Fr\u00fchshoppen", 2, "", "", "I \u2014 Create a Food token.\nII \u2014 Create a Beer Token\nIII \u2014 For each Food or Beer you control, put a +1/+1 counter on target creature.", "Enchantment \u2014 Saga", "G"},
+            {"Fr\u00fchshoppen", 2, "", "", "I \u2014 Create a Food token.\nII \u2014 Create a Beer Token\nIII \u2014 For each Food or Beer you control, put a +1/+1 counter on up to one target creature.", "Enchantment \u2014 Saga", "G"},
             {"A Week of Excess", 7, "", "", "I \u2014 Mill 7 cards. Put any number of creatures that were milled this way onto the battlefield under your control. Those creatures gain haste until end of turn.\nII \u2014 Put two Drunken counters on each creature you control.\nIII \u2014 Double all Drunken counters on creatures you control.", "Enchantment \u2014 Saga", "WUBRG"},
             {"Kiss of Poseidon", 3, "", "", "I \u2014 Mill four cards.\nII \u2014 Choose an instant or sorcery card from your graveyard and put it into your hand.\nIII \u2014 You may return a creature to its owner\u2019s hand. If it\u2019s one of your creatures, draw a card.", "Enchantment \u2014 Saga", "U"},
             {"Rollercoaster of Emotions", 4, "", "", "I, III \u2014 Distribute three +1/+1 counters among any number of creatures.\nII, IV \u2014 For each counter on each creature, choose a creature controlled by a player other than that creature\u2019s controller, if able. Move each counter onto the creature chosen for it simultaneously.", "Enchantment \u2014 Saga", "UB"},
@@ -1873,7 +1899,7 @@ public class ChaosBrawlTest extends SimulationTest {
         assertTrue(ComputerUtil.playNoStack(p, plot, game, false));
         Card exiled = p.getCardsIn(ZoneType.Exile).getFirst();
         assertTrue(exiled.isPlotted());
-        assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.getName().equals("Swamp") && c.isTapped()).count(), 2L);
+        assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.getName().equals("Swamp") && c.isTapped()).count(), 1L);
         assertTrue(game.getCardsIn(ZoneType.Stack).stream().noneMatch(c -> c.getName().equals("Couchpotato")));
         SpellAbility again = second.getSpellAbilities().stream().filter(SpellAbility::isPlotting).findFirst().orElseThrow();
         again.setActivatingPlayer(p);
@@ -2514,6 +2540,29 @@ public class ChaosBrawlTest extends SimulationTest {
         Card location = enter("The Blessed Hideaway", p); game.getAction().checkStaticAbilities();
         assertTrue(bird.hasKeyword("Vigilance")); assertTrue(forge.game.staticability.StaticAbilityCantAttackBlock.canAttackDefender(home, game.getPlayers().get(1)));
         counters(drunk, CounterEnumType.DRUNKEN, 1); game.getAction().checkStaticAbilities(); assertTrue(drunk.hasKeyword("Flying"));
+    }
+
+    @Test
+    public void chaosBrawlAllowsEachPlayerOnlyOneLocation() {
+        Game game = customGame(); Player p = game.getPlayers().get(0), other = game.getPlayers().get(1);
+        Card first = addCard("The Tipsy Ram", p), keep = addCard("Mystic Hotbox Hut", p);
+        Card opponentFirst = addCard("Celestial Waters", other), opponentKeep = addCard("Chaotic Kitchen", other);
+        PlayerController ownChoices = spy(p.getController()), opponentChoices = spy(other.getController());
+        doReturn(keep).when(ownChoices).chooseSingleEntityForEffect(any(), any(), anyString(), any());
+        doReturn(opponentKeep).when(opponentChoices).chooseSingleEntityForEffect(any(), any(), anyString(), any());
+        p.dangerouslySetController(ownChoices); other.dangerouslySetController(opponentChoices);
+
+        game.getAction().checkStateEffects(true);
+        assertEquals(first.getZone().getZoneType(), ZoneType.Graveyard);
+        assertEquals(keep.getZone().getZoneType(), ZoneType.Battlefield);
+        assertEquals(opponentFirst.getZone().getZoneType(), ZoneType.Graveyard);
+        assertEquals(opponentKeep.getZone().getZoneType(), ZoneType.Battlefield);
+
+        game.getRules().setChaosBrawl(false);
+        addCard("The Tipsy Ram", p); addCard("Mystic Hotbox Hut", p);
+        game.getAction().checkStateEffects(true);
+        assertEquals(p.getCardsIn(ZoneType.Battlefield).stream().filter(c -> c.getType().hasSubtype("Location")).count(), 3L,
+                "The one-Location rule is limited to Chaos Brawl matches");
     }
 
     @Test
@@ -3192,10 +3241,10 @@ public class ChaosBrawlTest extends SimulationTest {
                 game.getStack().add(a);
             }
             return null; }).when(choices).orderAndPlaySimultaneousSa(any());
-        Card saga = enter("Gastronomic Downfall", p); resolveTriggers(game); assertEquals(creature.getCounters(CounterEnumType.M1M1), 2);
-        counters(saga, CounterEnumType.LORE, 1); resolveTriggers(game); assertEquals(creature.getCounters(CounterEnumType.M1M1), 4); assertTrue(saga.isInPlay());
+        Card saga = enter("Gastronomic Downfall", p); resolveTriggers(game); assertEquals(creature.getCounters(CounterEnumType.M1M1), 1);
+        counters(saga, CounterEnumType.LORE, 1); resolveTriggers(game); assertEquals(creature.getCounters(CounterEnumType.M1M1), 2); assertTrue(saga.isInPlay());
         counters(saga, CounterEnumType.LORE, 1); resolveTriggers(game); game.getAction().checkStateEffects(true);
-        assertEquals(creature.getNumAllCounters(), 0); assertEquals(other.getLife(), 13); assertTrue(saga.isInZone(ZoneType.Graveyard));
+        assertEquals(creature.getNumAllCounters(), 0); assertEquals(other.getLife(), 15); assertTrue(saga.isInZone(ZoneType.Graveyard));
     }
 
     @Test

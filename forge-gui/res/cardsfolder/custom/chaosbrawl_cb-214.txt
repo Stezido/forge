@@ -6,5 +6,9 @@ K:Haste
 T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ Obsess | TriggerDescription$ When CARDNAME enters, ABILITY
 SVar:Obsess:DB$ PutCounter | Defined$ Self | CounterType$ OBSESSION | CounterNum$ 1
 S:Mode$ Continuous | AffectedDefined$ Self | AddPower$ X | AddToughness$ X | Description$ CARDNAME gets +3/+3 for each Obsession counter on it.
+T:Mode$ Attacks | ValidCard$ Card.Self | TriggerZones$ Battlefield | Execute$ AttackBoost | TriggerDescription$ Whenever CARDNAME attacks, it gets +3/+3 until end of turn.
+SVar:AttackBoost:DB$ Pump | Defined$ Self | NumAtt$ 3 | NumDef$ 3 | SubAbility$ ClearBoost
+SVar:ClearBoost:DB$ Cleanup | ClearPump$ True
 SVar:X:Count$CardCounters.OBSESSION/Times.3
 Oracle:Haste\nWhen Domina’s Devotee enters, put an Obsession counter on it.\nDomina’s Devotee gets +3/+3 for each Obsession counter on it.
+Whenever Domina’s Devotee attacks, it gets +3/+3 until end of turn.

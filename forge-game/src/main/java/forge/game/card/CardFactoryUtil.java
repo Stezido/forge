@@ -3279,10 +3279,16 @@ public class CardFactoryUtil {
             final String[] k = keyword.split(":");
             final String manacost = k[1];
             final boolean limited = k.length > 2 && "ChaosBrawlOnce".equals(k[2]);
+            final boolean reduceTwoGeneric = k.length > 3 && "Reduce2Generic".equals(k[3]);
 
-            final SpellAbility plot = new AbilityStatic(card.getCard(), new Cost(manacost, false), null) {
+            final SpellAbility plot = new AbilityStatic(card.getCard(), new Cost(manacost.contains("CardManaCost") ? "0" : manacost, false), null) {
                 @Override
                 public boolean canPlay() {
+                    if (reduceTwoGeneric) {
+                        forge.game.mana.ManaCostBeingPaid plotCost = new forge.game.mana.ManaCostBeingPaid(getHostCard().getManaCost());
+                        plotCost.decreaseGenericMana(2);
+                        setPayCosts(new Cost(plotCost.toManaCost(), false));
+                    }
                     // Reset the ZoneCheck
                     getRestrictions().setZone(ZoneType.Hand);
 

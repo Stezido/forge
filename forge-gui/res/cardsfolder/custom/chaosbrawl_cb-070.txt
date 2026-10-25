@@ -2,6 +2,6 @@ Name:Academic Quarter
 ManaCost:1 U
 Types:Sorcery
 A:SP$ Effect | StaticAbilities$ PlotAllowance | SubAbility$ Draw | SpellDescription$ This turn, you may plot one creature card from your hand for its mana cost. Draw a card.
-SVar:PlotAllowance:Mode$ Continuous | Affected$ Creature.YouOwn | AffectedZone$ Hand | AddKeyword$ Plot:CardManaCost:ChaosBrawlOnce | ChaosBrawlPlotAllowance$ True | Description$ You may plot one creature card from your hand for its mana cost this turn.
+SVar:PlotAllowance:Mode$ Continuous | Affected$ Creature.YouOwn | AffectedZone$ Hand | AddKeyword$ Plot:CardManaCost:ChaosBrawlOnce:Reduce2Generic | ChaosBrawlPlotAllowance$ True | Description$ You may plot one creature card from your hand for its mana cost reduced by {2} this turn.
 SVar:Draw:DB$ Draw | NumCards$ 1
-Oracle:Until end of turn, you may plot a creature card from your hand by paying its mana cost. You may do this only once. (Plot only as a sorcery. You may cast that card as a sorcery on a later turn without paying its mana cost.)\nDraw a card.
+Oracle:Until end of turn, you may plot a creature card from your hand by paying its mana cost reduced by {2}. You may do this only once. (Plot only as a sorcery. You may cast that card as a sorcery on a later turn without paying its mana cost.)\nDraw a card.
