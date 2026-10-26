@@ -260,3 +260,10 @@ Observed checks: 504 ChaosBrawlTest cases pass; desktop Maven package build pass
 ### Beta.7 source preparation
 
 Native MSE export and Forge preparation completed against the exact registered website archive. It produced 330 reviewed Beta records, 330 full card renders, zero missing images, 23 tokens, and 58 batch decks. The release integrity list now includes the changed Android beta version manifest and merged token-stacking VField source; all other pinned executable files matched. No release artifacts have been published.
+
+
+## Beta.7 downloadable release completed   2026-10-26
+
+Private Windows prerelease forge-desktop-v0.1.0-beta.7 and Android prerelease forge-android-v0.1.0-beta.7 are published with matching source archives. Exact local and GitHub asset sizes, SHA-256 digests, IDs, source commit and verification results are recorded in releases/windows-beta7-verification.json and releases/android-beta7-verification.json. The Windows original and downloaded published ZIPs both pass the native gate. Android v2 signature, stable certificate, app ID, minSdk and versionCode 10007 were verified from the downloaded release APK. API26 beta.6 upgrade, expected resource digest, constructed deck preservation and restart passed.
+
+The website download pins are updated in website PR #129; its current build check is pending after the final evidence update. Production website deployment is not yet performed. API35 emulator validation remains unavailable because this host has no hardware acceleration; physical-device and completed-human-game checks remain playtester work.
