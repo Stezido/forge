@@ -62,7 +62,7 @@ if __name__ == '__main__':
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--sdk', type=Path, required=True)
     p.add_argument('--java', type=Path, required=True)
-    p.add_argument('--version', default='0.1.0-beta.6')
+    p.add_argument('--version', default='0.1.0-beta.7')
     p.add_argument('--signing', type=Path, default=Path.home()/'.config/chaosbrawl/android-signing')
     args = p.parse_args()
     result = sign(args.apk, args.output, args.sdk, args.java, args.signing, args.version)

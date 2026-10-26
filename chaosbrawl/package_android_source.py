@@ -42,7 +42,7 @@ after backing up your own saves. This archive includes no user save records.
 if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument('--output', type=Path, required=True)
-    p.add_argument('--version', default='0.1.0-beta.6')
+    p.add_argument('--version', default='0.1.0-beta.7')
     args = p.parse_args()
     result = package(args.output, args.version)
     args.output.with_suffix('.json').write_text(json.dumps(result, indent=2)+'\n')
