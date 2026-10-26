@@ -24,7 +24,7 @@ def main():
     parser.add_argument('--build-root', type=Path, required=True)
     parser.add_argument('--runtime', type=Path, required=True)
     parser.add_argument('--output', type=Path, default=ROOT/'.chaosbrawl-local/windows-release')
-    parser.add_argument('--version', default='0.1.0-beta.7')
+    parser.add_argument('--version', default='0.1.0-beta.6')
     parser.add_argument('--java', default='java', help='JDK 21+ executable for the runtime image-path audit')
     args = parser.parse_args()
     if not re.fullmatch(r'\d+\.\d+\.\d+-[a-z0-9.]+', args.version):
