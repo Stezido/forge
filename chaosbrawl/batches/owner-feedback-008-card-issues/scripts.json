@@ -280,7 +280,7 @@
     },
     {
       "path": "forge-gui-android/pom.xml",
-      "sha256": "948fa6aa0dd13e30ef28e800a93b06b142f9f62875080ef1277bff20008b6aa0"
+      "sha256": "046a3db180f5ef865ece95a362d239a839a2239989e9bfe127da524b3179f553"
     },
     {
       "path": "forge-gui-desktop/pom.xml",
@@ -312,7 +312,7 @@
     },
     {
       "path": "forge-gui-mobile/src/forge/screens/match/views/VField.java",
-      "sha256": "504640ea70a4bd8c993440cc7634680365b6ed14d8088f2a760336e74bc32022"
+      "sha256": "02d55cdcacd7c7cde7fe98f9bd0cc58523c67104d23125b1fc5fca31ef82df8e"
     },
     {
       "path": "forge-gui/res/blockdata/blocks.txt",

@@ -255,3 +255,8 @@ Beta.6 website publication completed successfully: website PR119 merged as040619
 Implemented approved card feedback in the registered Beta MSE source and matching Forge scripts. Website source changes are on review PR #127; no merge, release asset, or deployment has occurred. Cards: Anschnly, the Vengeful Siren; Academic Quarter; Domina’s Devotee; Gastronomic Downfall; Frühshoppen; Raging Alcoholic (owner clarification); Gonorrhea (controller upkeep); and the Chaos Brawl Location limit (engine-only). Forge also updates optional targeting/AI for Saga chapters and the Location state rule.
 
 Observed checks: 504 ChaosBrawlTest cases pass; desktop Maven package build passes; native MSE rendered 330 card faces without warnings; preparation verified 330 reviewed Beta records, all native images, and 58 batch decks. The website production build passed. Forge source batch `owner-feedback-008-card-issues` pins the website commit and executable file hashes. No downloadable release was requested or produced.
+
+
+### Beta.7 source preparation
+
+Native MSE export and Forge preparation completed against the exact registered website archive. It produced 330 reviewed Beta records, 330 full card renders, zero missing images, 23 tokens, and 58 batch decks. The release integrity list now includes the changed Android beta version manifest and merged token-stacking VField source; all other pinned executable files matched. No release artifacts have been published.
