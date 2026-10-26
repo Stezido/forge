@@ -1,0 +1,78 @@
+{
+  "version": "0.1.0-beta.7",
+  "platform": "windows-x64",
+  "engineCommit": "9c8c4546b6c20d6501c0302af5e52e4608f18294",
+  "mseSha256": "bb38863fab8371fec03be2197e3f18de47a3f8f7e4e2a6b77890a8c71faa364c",
+  "jarSha256": "e7dd036d0e2a5017a0243368f3ba4ee14274bca5edc3d4d293d4496888e2aa59",
+  "adventureJarSha256": "4666d179f6590083e0d7c74eec1faa1808e29fe2ae2dd08d57c9b1f82f4695de",
+  "setCode": "CBFRbeta",
+  "reservedReleaseSetCode": "CBFR",
+  "runtime": {
+    "vendor": "Eclipse Adoptium",
+    "javaVersion": "21.0.12.1+1",
+    "architecture": "x64",
+    "os": "windows",
+    "imageType": "jre",
+    "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.12.1%2B1/OpenJDK21U-jre_x64_windows_hotspot_21.0.12.1_1.zip",
+    "sha256": "d35f31e712f0fcf6ac5a093edc90204fbff22f720ba3950bd09d331d5e621636",
+    "bytes": 48999141,
+    "status": "checksum verified; extracted and passed native launcher/mechanics/image gate"
+  },
+  "sourceRecords": 330,
+  "nonTokenRecords": 307,
+  "tokenRecords": 23,
+  "testDecks": 58,
+  "artifacts": {
+    "windows": {
+      "filename": "ChaosBrawl-Forge-0.1.0-beta.7-Windows-x64.zip",
+      "bytes": 513205947,
+      "sha256": "b62a38213ca4170e2e219ca74d7a019d856138563ff2e3435fc7d670187f7a5d"
+    },
+    "source": {
+      "filename": "ChaosBrawl-Forge-0.1.0-beta.7-Source.zip",
+      "bytes": 287476741,
+      "sha256": "a80ede548acfc5e84bf6fc4ec794aa3a48228fc633333a1a488869be69790471"
+    }
+  },
+  "verification": {
+    "engineTestCases": 504,
+    "limitedFormatCheck": true,
+    "nativeMseFullFaces": 330,
+    "runtimeImagePrintings": 307,
+    "missingImages": 0,
+    "fullCardTokenImages": 18,
+    "adventureMechanicsCases": 21,
+    "classicMechanicsCases": 21,
+    "nativeWindows": {
+      "sourceAndPublishedZipPassed": true,
+      "launchers": [
+        "support/launch-chaos-brawl.cmd",
+        "support/launch-adventure.cmd",
+        "Chaos Brawl Forge.exe",
+        "Chaos Brawl Adventure.exe"
+      ],
+      "customModeFlags": true,
+      "syntheticDeckPersistence": true,
+      "publishedZipSha256": "b62a38213ca4170e2e219ca74d7a019d856138563ff2e3435fc7d670187f7a5d"
+    }
+  },
+  "github": {
+    "repository": "Stezido/Chaosbrawl-Website",
+    "releaseTag": "forge-desktop-v0.1.0-beta.7",
+    "assets": {
+      "windows": {
+        "filename": "ChaosBrawl-Forge-0.1.0-beta.7-Windows-x64.zip",
+        "bytes": 513205947,
+        "sha256": "b62a38213ca4170e2e219ca74d7a019d856138563ff2e3435fc7d670187f7a5d",
+        "assetId": 677417131
+      },
+      "source": {
+        "filename": "ChaosBrawl-Forge-0.1.0-beta.7-Source.zip",
+        "bytes": 287476741,
+        "sha256": "a80ede548acfc5e84bf6fc4ec794aa3a48228fc633333a1a488869be69790471",
+        "assetId": 677417129
+      }
+    },
+    "publication": "published private prerelease on 2026-10-26"
+  }
+}
