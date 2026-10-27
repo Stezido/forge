@@ -2532,6 +2532,30 @@ public class ChaosBrawlTest extends SimulationTest {
     }
 
     @Test
+    public void ragingAlcoholicRequiresBeerAtUpkeepOrIsSacrificed() {
+        for (boolean hasBeer : new boolean[] {false, true}) {
+            Game game = customGame(); Player p = game.getPlayers().get(0);
+            Card alcoholic = enter("Raging Alcoholic", p);
+            if (hasBeer) {
+                resolveEffect("DB$ Token | TokenScript$ chaosbrawl_beer | TokenNum$ 1", alcoholic);
+            }
+            PlayerController choices = spy(p.getController());
+            doAnswer(i -> new forge.game.cost.CostPayment(i.getArgument(0), i.getArgument(1))
+                    .payComputerCosts(new forge.ai.AiCostDecision(p, i.getArgument(1), true)))
+                    .when(choices).payCostToPreventEffect(any(), any(), anyBoolean(), any());
+            p.dangerouslySetController(choices);
+
+            phaseEvent(game, p, PhaseType.UPKEEP);
+
+            assertEquals(alcoholic.isInZone(ZoneType.Battlefield), hasBeer,
+                    "Raging Alcoholic must be sacrificed when its Beer upkeep cannot be paid");
+            assertEquals(p.getCardsIn(ZoneType.Battlefield).stream()
+                    .filter(c -> c.isToken() && c.getType().hasSubtype("Beer")).count(), 0L,
+                    "The upkeep payment must consume the Beer token");
+        }
+    }
+
+    @Test
     public void locationAndDrunkenKeywordsUpdateContinuously() {
         Game game = customGame(); Player p = game.getPlayers().get(0);
         Card bird = addCard("Big Ball Bluebird", p), home = addCard("Devoted Homebody", p), drunk = addCard("Bad Drunk", p);

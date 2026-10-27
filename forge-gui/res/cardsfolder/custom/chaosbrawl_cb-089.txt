@@ -5,7 +5,7 @@ PT:3/2
 K:Haste
 S:Mode$ ChaosBrawlTolerance | ValidCard$ Card.Self | Base$ 5 | Description$ Drunken Tolerance 5
 T:Mode$ Phase | TriggerZones$ Battlefield | Execute$ Upkeep | TriggerDescription$ At the beginning of your upkeep, sacrifice a Beer token. | Phase$ Upkeep | ValidPlayer$ You | ChaosBrawlUpkeep$ True
-SVar:Upkeep:DB$ Sacrifice | Defined$ You | SacValid$ Beer.YouCtrl | Amount$ 1 | SacMessage$ Beer token
+SVar:Upkeep:DB$ Sacrifice | Defined$ Self | UnlessCost$ Sac<1/Beer> | UnlessPayer$ You | ChaosBrawlUpkeep$ True
 T:Mode$ Attacks | TriggerZones$ Battlefield | Execute$ Beer | TriggerDescription$ Whenever CARDNAME attacks, create two Beer tokens. | ValidCard$ Card.Self
 SVar:Beer:DB$ Token | TokenScript$ chaosbrawl_beer | TokenNum$ 2
 Oracle:Haste\nDrunken Tolerance 5\nAt the beginning of your upkeep, sacrifice a Beer token.\nWhenever Raging Alcoholic attacks, create two Beer tokens.
